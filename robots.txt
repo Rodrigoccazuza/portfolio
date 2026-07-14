@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rodrigoccazuza.github.io/portfolio/sitemap.xml
