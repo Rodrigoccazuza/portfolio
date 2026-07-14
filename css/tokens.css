@@ -1,0 +1,99 @@
+/*
+  Design tokens — Rodrigo Cazuza portfolio
+  Derived from BRAND-AUDIT.md (consolidated from the current live site's
+  Elementor color/typography usage) with intentional cleanup: fewer
+  near-duplicate blacks/purples, two typefaces instead of three.
+*/
+
+:root {
+  /* Color — per official Rodrigo Cazuza Brand & Style Guide.
+     Ratio ~80% black / 12% green / 6% violet / 2% white-gray.
+     Green (Signal) and Violet (Electric) never touch directly — separate with black. */
+  --color-background: #000000;      /* Canvas Black — base for every screen */
+  --color-surface: #0d0d0d;
+  --color-surface-raised: #1a1a1a;  /* Panel Gray */
+  --color-text-primary: #ffffff;    /* Paper White */
+  --color-text-secondary: #b6b6bd;
+  --color-text-on-accent: #ffffff;
+  --color-accent: #6026ec;          /* Electric Violet — CTAs, footer, emphasis */
+  --color-accent-base: #6026ec;
+  --color-accent-hover: #7a45ff;
+  --color-accent-light: #9b5cff;
+  --color-accent-tint: rgba(96, 38, 236, 0.16);
+  --color-green: #66d487;           /* Signal Green — headlines, mark, primary accent */
+  --color-accent-secondary: #66d487;
+  --color-green-tint: rgba(102, 212, 135, 0.14);
+  --color-violet: #6026ec;
+  --color-panel-gray: #1a1a1a;
+  --color-ink: #000000;
+  --color-ink-soft: #0d0d0d;
+  --color-border: rgba(255, 255, 255, 0.14);
+  --color-border-strong: rgba(255, 255, 255, 0.28);
+  --color-danger: #ff6b6b;
+  --color-focus: #66d487;
+
+  /* Gradients — violet family only (never blend green+violet, per guide) */
+  --gradient-brand: linear-gradient(135deg, #6026ec 0%, #9b5cff 100%);
+  --gradient-hero: radial-gradient(120% 120% at 100% 0%, #1a0f3d 0%, #0a0620 45%, #000000 100%);
+  --gradient-duotone: linear-gradient(135deg, #2ec5c5 0%, #6026ec 50%, #ff7a59 100%);
+
+  /* Typography — per style guide: Poppins (display), Playfair Italic (accent), Inter (body) */
+  --font-display: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.25rem;
+  --text-3xl: 3rem;
+  --text-4xl: 3.75rem;
+  --text-5xl: 5rem;
+
+  --tracking-tight: -0.03em;
+  --tracking-snug: -0.015em;
+
+  --leading-tight: 1.05;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+
+  /* Spacing */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-section: clamp(3.5rem, 6vw, 7rem);
+
+  /* Layout */
+  --container-width: 1280px;
+  --container-narrow: 860px;
+  --page-padding: clamp(1.25rem, 4vw, 3rem);
+
+  /* Shape — rounded panels + pill controls, per style guide */
+  --radius-small: 8px;
+  --radius-medium: 16px;
+  --radius-large: 24px;
+  --radius-pill: 999px;
+  --shadow-card: 0 1px 2px rgba(16, 10, 36, 0.04), 0 10px 30px rgba(16, 10, 36, 0.07);
+  --shadow-card-hover: 0 6px 12px rgba(96, 38, 236, 0.10), 0 24px 60px rgba(96, 38, 236, 0.18);
+  --shadow-glow: 0 20px 60px rgba(96, 38, 236, 0.35);
+  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+  /* Motion */
+  --transition-fast: 150ms ease;
+  --transition-standard: 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  --z-nav: 100;
+  --z-modal: 1000;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Reserved for future dark-mode support — not implemented in v1 to keep scope
+     focused on fixing the current site's core content/accessibility issues first. */
+}
