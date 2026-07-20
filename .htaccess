@@ -1,0 +1,13 @@
+# Hostinger root-domain compatibility
+# The site was originally built for GitHub Pages at /portfolio/.
+# On rodrigocazuza.com it is deployed directly at the domain root.
+
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Send old GitHub Pages-style URLs to the matching root-domain URL.
+  RewriteRule ^portfolio/?$ / [R=302,L]
+  RewriteRule ^portfolio/(.*)$ /$1 [R=302,L,NE]
+</IfModule>
