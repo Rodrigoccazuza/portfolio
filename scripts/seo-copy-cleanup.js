@@ -35,6 +35,16 @@ const MAIN_META = {
     title: 'Brand Identity and Guidelines Portfolio | Rodrigo Cazuza',
     description: 'Explore brand identity systems, visual guidelines, typography, color, and creative direction projects designed by Rodrigo Cazuza.'
   },
+  'brand-guidelines/bodyfactory/index.html': {
+    title: 'BodyFactory Brand Guidelines Archive | Rodrigo Cazuza',
+    description: 'This archived BodyFactory brand guidelines page points visitors to the current brand identity portfolio.',
+    noindex: true
+  },
+  'brand-guidelines/taina-photography/index.html': {
+    title: 'Taina Photography Brand Archive | Rodrigo Cazuza',
+    description: 'This archived Taina Photography brand page points visitors to the current brand identity portfolio.',
+    noindex: true
+  },
   '404.html': {
     title: 'Page Not Found | Rodrigo Cazuza',
     description: 'The requested portfolio page could not be found.',
@@ -255,6 +265,10 @@ function updateSupportingFiles() {
   if (fs.existsSync(sitemapPath)) {
     let sitemap = fs.readFileSync(sitemapPath, 'utf8');
     sitemap = sitemap.replace(/https:\/\/rodrigoccazuza\.github\.io\/portfolio/g, SITE_URL);
+    sitemap = sitemap
+      .split('\n')
+      .filter((line) => !/\/(?:contact\/thanks|brand-guidelines\/(?:bodyfactory|taina-photography))\//.test(line))
+      .join('\n');
     fs.writeFileSync(sitemapPath, sitemap, 'utf8');
   }
 
