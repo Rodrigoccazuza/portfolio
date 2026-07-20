@@ -1,13 +1,26 @@
 # Hostinger root-domain compatibility
-# The site was originally built for GitHub Pages at /portfolio/.
-# On rodrigocazuza.com it is deployed directly at the domain root.
+# This repository was originally built for GitHub Pages under /portfolio/.
+# Hostinger serves the same files directly from the domain root.
 
 DirectoryIndex index.html
+Options -Indexes
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Send old GitHub Pages-style URLs to the matching root-domain URL.
-  RewriteRule ^portfolio/?$ / [R=302,L]
-  RewriteRule ^portfolio/(.*)$ /$1 [R=302,L,NE]
+  # Internally map old GitHub Pages paths to Hostinger root paths.
+  # Example: /portfolio/css/base.css is served from /css/base.css.
+  RewriteRule ^portfolio/?$ index.html [L]
+  RewriteRule ^portfolio/(.*)$ $1 [L]
+
+  # Allow clean folder URLs such as /work/ and /contact/.
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.+?)/?$ $1/index.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|png|jpe?g|gif|webp|svg|ico)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
 </IfModule>
