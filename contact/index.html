@@ -55,17 +55,14 @@
  <div class="contact-form-column">
  <p class="eyebrow">Have a project in mind?</p>
  <h1>We're ready.<br><span>Let's talk.</span></h1>
- <form class="contact-form" action="https://formsubmit.co/visualdesigner@rodrigocazuza.com" method="post" data-contact-form>
- <input type="hidden" name="_subject" value="New portfolio inquiry for Rodrigo Cazuza">
- <input type="hidden" name="_template" value="table">
- <input type="hidden" name="_next" value="https://rodrigocazuza.com/contact/thanks/">
- <input type="hidden" name="_captcha" value="true">
- <label class="contact-honeypot" aria-hidden="true"><span>Leave this field empty</span><input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+ <form class="contact-form" action="https://formspree.io/f/mkodzkln" method="POST" data-contact-form>
+ <input type="hidden" name="subject" value="New portfolio inquiry from {{ name }}">
+ <label class="contact-honeypot" aria-hidden="true"><span>Leave this field empty</span><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
  <label><span>Full name</span><input type="text" name="name" autocomplete="name" placeholder="Your full name here" required></label>
  <label><span>Email address</span><input type="email" name="email" autocomplete="email" placeholder="Your email address" required></label>
  <label><span>Project details</span><textarea name="message" rows="7" placeholder="How may I help you?" required></textarea></label>
  <button class="btn btn-primary contact-submit" type="submit">Start the conversation <span aria-hidden="true">&rarr;</span></button>
- <p class="contact-privacy">Protected by a spam honeypot and CAPTCHA. Your details are used only to respond to your inquiry.</p>
+ <p class="contact-privacy">Protected by Formspree spam filtering. Your details are used only to respond to your inquiry.</p>
  </form>
  </div>
  <aside class="contact-info" aria-label="Contact information">
@@ -141,6 +138,5 @@
 <script src="/js/viewer.js?v=20260713-23" defer></script>
 <script src="/js/video-carousel.js?v=20260713-23" defer></script>
 <script src="/js/reveal.js?v=20260713-23" defer></script>
-<script src="/js/contact.js?v=20260713-23" defer></script>
 </body>
 </html>
