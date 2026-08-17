@@ -32,8 +32,10 @@ function walk(dir, extensions) {
   return files;
 }
 
-function addBaseBlock(html) {
-  if (html.includes('id="site-base"')) return html;
+function addOrRepairBaseBlock(html) {
+  if (html.includes('id="site-base"')) {
+    return html.replace(/<base\s+id=["']site-base["']\s+href=["'][^"']*["']\s*>/i, '<base id="site-base" href="/">');
+  }
   return html.replace(/<head(\s[^>]*)?>/i, (match) => `${match}\n${BASE_BLOCK}`);
 }
 
@@ -75,8 +77,10 @@ function normalizeHtml(filePath) {
   const original = fs.readFileSync(filePath, 'utf8');
   let html = original;
 
-  html = addBaseBlock(html);
+  // Convert the page URLs first, then add/repair the base tag so its own
+  // href="/" is never rewritten to an empty string.
   html = makeHtmlPathsBaseRelative(html);
+  html = addOrRepairBaseBlock(html);
 
   if (html !== original) {
     fs.writeFileSync(filePath, html, 'utf8');
