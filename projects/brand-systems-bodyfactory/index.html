@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<base id="site-base" href="">
+<script>
+(function () {
+  if (window.location.hostname === 'rodrigoccazuza.github.io') {
+    document.getElementById('site-base').setAttribute('href', '/portfolio/');
+  }
+}());
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BodyFactory Brand System | Brand Identity and Design Systems</title>
@@ -19,13 +27,13 @@
 <meta name="twitter:title" content="BodyFactory Brand System | Brand Identity and Design Systems">
 <meta name="twitter:description" content="The supplied one-page guide establishes a monochrome-led beauty identity supported by aqua and soft blush accents, editorial portraiture, and a high-contrast.">
 <meta name="twitter:image" content="https://rodrigocazuza.com/images/site/hero.jpg">
-<link rel="icon" href="/images/site/logo.png" type="image/png">
+<link rel="icon" href="images/site/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Bodoni+Moda:ital,wght@0,400;0,700;1,600&amp;family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@1,500;1,600;1,700&amp;family=Poppins:wght@500;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/tokens.css?v=20260713-23">
-<link rel="stylesheet" href="/css/base.css?v=20260713-23">
-<link rel="stylesheet" href="/css/components.css?v=20260713-23">
+<link rel="stylesheet" href="css/tokens.css?v=20260713-23">
+<link rel="stylesheet" href="css/base.css?v=20260713-23">
+<link rel="stylesheet" href="css/components.css?v=20260713-23">
 
 </head>
 <body class="brand-system-page brand-theme-bodyfactory">
@@ -33,17 +41,17 @@
 
  <header class="site-header">
  <div class="container nav-bar">
- <a class="nav-logo" href="/" aria-label="Rodrigo Cazuza home">
- <img src="/images/site/rodrigo-cazuza-wordmark.png" alt="" width="180" height="180">
+ <a class="nav-logo" href="" aria-label="Rodrigo Cazuza home">
+ <img src="images/site/rodrigo-cazuza-wordmark.png" alt="" width="180" height="180">
  </a>
  <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
  <span class="bar"></span><span class="bar"></span><span class="bar"></span>
  </button>
  <nav id="primary-nav" class="nav-links" aria-label="Primary">
  <ul>
- <li><a href="/work/" aria-current="page">Work</a></li><li><a href="/experience/">Experience</a></li><li><a href="/contact/">Contact</a></li>
+ <li><a href="work/" aria-current="page">Work</a></li><li><a href="experience/">Experience</a></li><li><a href="contact/">Contact</a></li>
  </ul>
- <a class="btn btn-primary nav-resume-btn" href="/contact/">Get in touch <span aria-hidden="true">&rarr;</span></a>
+ <a class="btn btn-primary nav-resume-btn" href="contact/">Get in touch <span aria-hidden="true">&rarr;</span></a>
  </nav>
  </div>
  <div class="nav-scrim"></div>
@@ -63,7 +71,7 @@
  <section class="brand-system-section brand-system-overview">
  <div class="container brand-system-split">
  <p class="brand-system-section-label">01, Foundation</p>
- <div><h2>Identity overview</h2><p class="brand-system-lead">The supplied one-page guide establishes a monochrome-led beauty identity supported by aqua and soft blush accents, editorial portraiture, and a high-contrast display serif.</p><a class="btn brand-system-source" href="/assets/portfolio-media/BRAND%20GUIDELINES/BODYFACTORY/BRAND%20GUIDES.pdf" target="_blank" rel="noopener noreferrer">View original PDF &nearr;</a></div>
+ <div><h2>Identity overview</h2><p class="brand-system-lead">The supplied one-page guide establishes a monochrome-led beauty identity supported by aqua and soft blush accents, editorial portraiture, and a high-contrast display serif.</p><a class="btn brand-system-source" href="assets/portfolio-media/BRAND%20GUIDELINES/BODYFACTORY/BRAND%20GUIDES.pdf" target="_blank" rel="noopener noreferrer">View original PDF &nearr;</a></div>
  </div>
  </section>
  <section class="brand-system-section brand-system-palette-section">
@@ -134,7 +142,7 @@
  <div class="website-preview-caption"><div><span>Live website</span><strong>BodyFactory</strong></div><a href="https://www.bodyfactoryskincare.com/" target="_blank" rel="noopener noreferrer">Visit site &nearr;</a></div>
  </div></div></section>
  <footer class="brand-system-footer">
- <div class="container"><a href="/work/brand-systems/">&larr; All brand systems</a><a href="/contact/">Build a brand system &rarr;</a></div>
+ <div class="container"><a href="work/brand-systems/">&larr; All brand systems</a><a href="contact/">Build a brand system &rarr;</a></div>
  </footer>
  </article>
 </main>
@@ -146,9 +154,9 @@
  <p class="eyebrow">Have a project in mind?</p>
  <h2>Ready to bring<br>your vision to <span class="accent-italic">life?</span></h2>
  <p>Let&rsquo;s turn your next campaign, brand system, video, or website into something clear, useful, and memorable.</p>
- <a class="btn btn-primary" href="/contact/">Start a project <span aria-hidden="true">&rarr;</span></a>
+ <a class="btn btn-primary" href="contact/">Start a project <span aria-hidden="true">&rarr;</span></a>
  </div>
- <img class="footer-portrait" src="/images/site/footer-portrait.png" alt="Rodrigo Cazuza wearing sunglasses and a purple shirt" width="1536" height="1024" loading="lazy">
+ <img class="footer-portrait" src="images/site/footer-portrait.png" alt="Rodrigo Cazuza wearing sunglasses and a purple shirt" width="1536" height="1024" loading="lazy">
  </div>
  </div>
  <div class="container footer-panel">
@@ -160,20 +168,20 @@
  <div>
  <h3>Services</h3>
  <ul class="footer-links">
- <li><a href="/work/brand-systems/">Brand systems</a></li>
- <li><a href="/work/email-design/">Email design</a></li>
- <li><a href="/work/meta-ad-creatives/">Meta ad creative</a></li>
- <li><a href="/work/video/">Video production</a></li>
- <li><a href="/work/web-design/">Web design</a></li>
+ <li><a href="work/brand-systems/">Brand systems</a></li>
+ <li><a href="work/email-design/">Email design</a></li>
+ <li><a href="work/meta-ad-creatives/">Meta ad creative</a></li>
+ <li><a href="work/video/">Video production</a></li>
+ <li><a href="work/web-design/">Web design</a></li>
  </ul>
  </div>
  <nav aria-label="Footer">
  <h3>Explore</h3>
  <ul class="footer-links">
- <li><a href="/work/">Work</a></li>
- <li><a href="/experience/">Experience</a></li>
- <li><a href="/resume/">Résumé</a></li>
- <li><a href="/contact/">Contact</a></li>
+ <li><a href="work/">Work</a></li>
+ <li><a href="experience/">Experience</a></li>
+ <li><a href="resume/">Résumé</a></li>
+ <li><a href="contact/">Contact</a></li>
  </ul>
  </nav>
  <div>
@@ -193,11 +201,11 @@
  <a href="#main-content">Back to top &uarr;</a>
  </div>
  </footer>
-<script src="/js/nav.js?v=20260713-23" defer></script>
-<script src="/js/filters.js?v=20260713-23" defer></script>
-<script src="/js/viewer.js?v=20260713-23" defer></script>
-<script src="/js/video-carousel.js?v=20260713-23" defer></script>
-<script src="/js/reveal.js?v=20260713-23" defer></script>
-<script src="/js/contact.js?v=20260713-23" defer></script>
+<script src="js/nav.js?v=20260713-23" defer></script>
+<script src="js/filters.js?v=20260713-23" defer></script>
+<script src="js/viewer.js?v=20260713-23" defer></script>
+<script src="js/video-carousel.js?v=20260713-23" defer></script>
+<script src="js/reveal.js?v=20260713-23" defer></script>
+<script src="js/contact.js?v=20260713-23" defer></script>
 </body>
 </html>
