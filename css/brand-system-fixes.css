@@ -1,0 +1,264 @@
+/* Brand-system case study polish — responsive typography, contrast, and content UI */
+
+.brand-system-page .brand-system-hero {
+  min-height: clamp(34rem, 68svh, 52rem);
+  padding-block: clamp(6rem, 11vw, 10rem) clamp(3.5rem, 7vw, 6rem);
+  overflow: hidden;
+}
+
+.brand-system-page .brand-system-hero-inner {
+  grid-template-columns: minmax(0, 1.15fr) minmax(17rem, .7fr);
+  align-items: end;
+  gap: clamp(2.5rem, 7vw, 7rem);
+}
+
+.brand-system-page .brand-system-hero-inner > div {
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.brand-system-page .brand-system-kicker {
+  max-width: 50rem;
+  margin-bottom: 1rem;
+  line-height: 1.35;
+}
+
+.brand-system-page .brand-system-hero h1 {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  font-size: clamp(4rem, 7.6vw, 8.4rem);
+  line-height: .84;
+  letter-spacing: -.065em;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.brand-system-page .brand-system-hero h1 .hero-line {
+  display: block;
+}
+
+.brand-system-page .brand-system-statement {
+  position: relative;
+  z-index: 3;
+  justify-self: end;
+  width: min(100%, 22rem);
+  margin: 0;
+  padding: clamp(1rem, 2vw, 1.4rem) clamp(1.15rem, 2.4vw, 1.65rem);
+  border: 1px solid var(--brand-line);
+  background: color-mix(in srgb, var(--brand-bg) 94%, transparent);
+  color: var(--brand-ink) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,.12);
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  line-height: 1.16;
+  text-wrap: balance;
+}
+
+.brand-system-page .brand-system-section h2 {
+  max-width: 14ch;
+  font-size: clamp(2.75rem, 5.5vw, 5.4rem);
+  line-height: .95;
+  text-wrap: balance;
+}
+
+.brand-system-page .brand-system-split {
+  grid-template-columns: minmax(8rem, .55fr) minmax(0, 1.45fr);
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.brand-system-page .brand-system-lead {
+  max-width: 38ch;
+  font-size: clamp(1.35rem, 2.35vw, 2.25rem);
+  line-height: 1.28;
+}
+
+.brand-system-page .brand-type-row {
+  grid-template-columns: minmax(8rem, .55fr) minmax(0, 1.45fr);
+  min-height: 9rem;
+  gap: clamp(1.5rem, 5vw, 5rem);
+}
+
+.brand-system-page .brand-type-sample {
+  font-size: clamp(3.8rem, 7vw, 7rem);
+}
+
+.brand-system-page .brand-type-row h3 {
+  max-width: 28ch;
+  font-size: clamp(1.45rem, 2.4vw, 2.5rem);
+  line-height: 1.04;
+}
+
+.brand-system-page .brand-guideline-block {
+  grid-template-columns: clamp(2.5rem, 5vw, 4.5rem) minmax(0, 1fr);
+  gap: clamp(1rem, 4vw, 3rem);
+  padding-block: clamp(1.8rem, 4vw, 3.2rem);
+}
+
+.brand-system-page .brand-guideline-block h3 {
+  max-width: 24ch;
+  margin-bottom: .7rem;
+  font-size: clamp(1.65rem, 2.7vw, 2.8rem);
+  line-height: 1.05;
+}
+
+.brand-system-page .brand-guideline-block p {
+  max-width: 64ch;
+  line-height: 1.62;
+}
+
+/* Replaces the old public-facing “Information needed” placeholders. */
+.brand-guideline-note {
+  margin-top: 1rem !important;
+  padding: 1rem 1.1rem;
+  border-left: 3px solid var(--brand-accent);
+  background: color-mix(in srgb, var(--brand-accent) 9%, transparent);
+  color: var(--brand-ink) !important;
+}
+
+.brand-guideline-note strong {
+  color: var(--brand-ink);
+}
+
+.brand-voice-card {
+  max-width: 64ch;
+  margin-top: 1.2rem;
+  padding: clamp(1.15rem, 2.2vw, 1.7rem);
+  border: 1px solid var(--brand-line);
+  background: color-mix(in srgb, var(--brand-accent) 8%, var(--brand-bg));
+}
+
+.brand-voice-card p:last-child { margin-bottom: 0; }
+
+.brand-voice-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.brand-voice-traits li {
+  padding: .42rem .75rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: var(--brand-ink);
+  font-family: var(--font-display);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .055em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.brand-message-list {
+  display: grid;
+  gap: .55rem;
+  margin: .9rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.brand-message-list li {
+  color: var(--brand-muted);
+  line-height: 1.5;
+}
+
+.brand-theme-social-project .brand-message-list li,
+.brand-theme-social-project .brand-voice-traits li {
+  color: var(--brand-ink);
+}
+
+.brand-theme-bodyfactory .brand-system-hero h1 {
+  white-space: nowrap;
+  font-size: clamp(4rem, 7.1vw, 8rem);
+}
+
+.brand-theme-prisma .brand-system-hero h1,
+.brand-theme-social-project .brand-system-hero h1,
+.brand-theme-taina .brand-system-hero h1 {
+  font-size: clamp(3.8rem, 7.2vw, 7.8rem);
+}
+
+.brand-theme-taina .brand-system-hero h1 {
+  max-width: 8ch;
+}
+
+.brand-theme-taina .brand-type-row:nth-child(1) .brand-type-sample {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+}
+.brand-theme-taina .brand-type-row:nth-child(2) .brand-type-sample {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+.brand-theme-taina .brand-type-row:nth-child(3) .brand-type-sample {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  letter-spacing: -.05em;
+}
+
+.brand-theme-social-project .brand-voice-card,
+.brand-theme-social-project .brand-guideline-note {
+  background: rgba(255,255,255,.055);
+}
+
+@media (max-width: 900px) {
+  .brand-system-page .brand-system-hero-inner {
+    grid-template-columns: 1fr;
+    align-items: end;
+    gap: 2rem;
+  }
+
+  .brand-system-page .brand-system-statement {
+    justify-self: start;
+    width: min(100%, 34rem);
+  }
+
+  .brand-system-page .brand-system-hero h1,
+  .brand-theme-prisma .brand-system-hero h1,
+  .brand-theme-social-project .brand-system-hero h1,
+  .brand-theme-taina .brand-system-hero h1 {
+    font-size: clamp(3.4rem, 11vw, 6.6rem);
+  }
+
+  .brand-theme-bodyfactory .brand-system-hero h1 {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 800px) {
+  .brand-system-page .brand-system-split,
+  .brand-system-page .brand-type-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .brand-system-page .brand-system-section h2 {
+    margin-bottom: clamp(2rem, 8vw, 3.5rem);
+  }
+}
+
+@media (max-width: 520px) {
+  .brand-system-page .brand-system-hero {
+    min-height: 34rem;
+    padding-top: 5rem;
+  }
+
+  .brand-system-page .brand-system-hero h1,
+  .brand-theme-prisma .brand-system-hero h1,
+  .brand-theme-social-project .brand-system-hero h1,
+  .brand-theme-taina .brand-system-hero h1 {
+    font-size: clamp(3rem, 14.5vw, 4.6rem);
+    line-height: .88;
+  }
+
+  .brand-system-page .brand-system-statement {
+    font-size: 1.1rem;
+  }
+
+  .brand-system-page .brand-guideline-block {
+    grid-template-columns: 1fr;
+  }
+}
