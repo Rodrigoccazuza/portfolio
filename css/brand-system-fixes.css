@@ -181,6 +181,11 @@
   font-size: clamp(3.8rem, 7.2vw, 7.8rem);
 }
 
+/* Your Data Your Money: make the campaign title visible against the navy hero. */
+.brand-theme-social-project .brand-system-hero h1 {
+  color: #FF5737;
+}
+
 .brand-theme-taina .brand-system-hero h1 {
   max-width: 8ch;
 }
