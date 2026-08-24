@@ -267,3 +267,13 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Tainá case study: separate the live website and design-system previews. */
+.brand-system-preview-stack {
+  display: grid;
+  gap: clamp(3.5rem, 8vw, 7rem);
+}
+
+.brand-system-preview-stack .website-preview {
+  width: 100%;
+}
