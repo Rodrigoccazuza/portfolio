@@ -5,7 +5,8 @@
   var selectors = [
     'main > section', '.card', '.expertise-row', '.process-grid li',
     '.tool-grid-item', '.review-card', '.timeline-item', '.home-timeline li',
-    '.brand-guideline-block', '.experience-project-grid article'
+    '.brand-guideline-block', '.experience-project-grid article',
+    '.portfolio-card', '.campaign-card', '.portfolio-section-header'
   ];
   var items = Array.prototype.slice.call(document.querySelectorAll(selectors.join(',')));
   if (!items.length) return;
