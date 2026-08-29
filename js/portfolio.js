@@ -485,10 +485,201 @@
     return node;
   }
 
+  function mediaRailTile(project, itemIndex) {
+    var article = element('article', 'media-rail-card');
+    article.setAttribute('aria-label', project.format + ' creative ' + (itemIndex + 1));
+    var media = placeholder({
+      src: '',
+      alt: project.media.alt + ' ' + (itemIndex + 1),
+      label: project.media.label + ' ' + String(itemIndex + 1).padStart(2, '0'),
+      ratio: 'portrait'
+    });
+    article.appendChild(media);
+    if (project.format === 'Video') {
+      var play = element('span', 'media-rail-play', '▶ [DURATION]');
+      play.setAttribute('aria-hidden', 'true');
+      media.appendChild(play);
+    }
+    return article;
+  }
+
+  function renderMediaRailSection(section) {
+    var node = element('section', 'section media-rails-showcase media-rails--' + section.id);
+    node.id = section.id;
+    node.setAttribute('aria-labelledby', section.id + '-title');
+    var container = element('div', 'container');
+    var label = element('h2', 'eyebrow portfolio-category-label', section.label);
+    label.id = section.id + '-title';
+    container.appendChild(label);
+    var rows = element('div', 'media-rows');
+    section.projects.forEach(function (project, rowIndex) {
+      var row = element('div', 'media-row');
+      var previous = element('button', 'media-row-control media-row-previous', '←');
+      previous.type = 'button';
+      previous.setAttribute('aria-label', 'Previous ' + project.format.toLowerCase() + ' creatives');
+      var viewport = element('div', 'media-row-viewport');
+      viewport.tabIndex = 0;
+      viewport.setAttribute('aria-label', project.format + ' creative gallery');
+      var track = element('div', 'media-row-track');
+      for (var index = 0; index < project.media.count; index += 1) track.appendChild(mediaRailTile(project, index));
+      viewport.appendChild(track);
+      var next = element('button', 'media-row-control media-row-next', '→');
+      next.type = 'button';
+      next.setAttribute('aria-label', 'Next ' + project.format.toLowerCase() + ' creatives');
+      var format = element('p', 'media-row-format', project.format);
+      function move(direction) {
+        var maximum = viewport.scrollWidth - viewport.clientWidth;
+        if (direction > 0 && viewport.scrollLeft >= maximum - 4) viewport.scrollTo({ left: 0, behavior: 'smooth' });
+        else if (direction < 0 && viewport.scrollLeft <= 4) viewport.scrollTo({ left: maximum, behavior: 'smooth' });
+        else viewport.scrollBy({ left: direction * viewport.clientWidth * .72, behavior: 'smooth' });
+      }
+      previous.addEventListener('click', function () { move(-1); });
+      next.addEventListener('click', function () { move(1); });
+      viewport.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
+        if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
+      });
+      row.appendChild(previous);
+      row.appendChild(viewport);
+      row.appendChild(next);
+      row.appendChild(format);
+      rows.appendChild(row);
+      if (rowIndex < section.projects.length - 1) rows.appendChild(element('hr', 'media-row-divider'));
+    });
+    container.appendChild(rows);
+    node.appendChild(container);
+    return node;
+  }
+
+  function renderMultimediaSection(section) {
+    var node = element('section', 'section multimedia-showcase');
+    node.id = section.id;
+    node.setAttribute('aria-labelledby', section.id + '-title');
+    var container = element('div', 'container');
+    var label = element('h2', 'eyebrow portfolio-category-label', 'Other');
+    label.id = section.id + '-title';
+    container.appendChild(label);
+    var mosaic = element('div', 'multimedia-mosaic');
+    section.projects.forEach(function (project) {
+      var article = element('article', 'multimedia-tile');
+      article.appendChild(placeholder(project.media));
+      var overlay = element('div', 'multimedia-tile-copy');
+      overlay.appendChild(element('h3', '', project.title));
+      if (project.description) overlay.appendChild(element('p', '', project.description));
+      article.appendChild(overlay);
+      mosaic.appendChild(article);
+    });
+    container.appendChild(mosaic);
+    node.appendChild(container);
+    return node;
+  }
+
+  function renderYouTubePlayer(root, project) {
+    root.textContent = '';
+    var screen = element('div', 'youtube-player-screen');
+    screen.appendChild(placeholder({ src: project.media.src, alt: project.media.alt, label: project.media.label, ratio: 'video' }));
+    var copy = element('div', 'youtube-player-copy');
+    copy.appendChild(element('h3', '', project.title));
+    if (project.description) copy.appendChild(element('p', '', project.description));
+    screen.appendChild(copy);
+    var play = element('button', 'youtube-play-button', '▶');
+    play.type = 'button';
+    play.setAttribute('aria-label', 'Play placeholder video: ' + project.title);
+    screen.appendChild(play);
+    var controls = element('div', 'youtube-player-controls');
+    controls.setAttribute('aria-hidden', 'true');
+    controls.appendChild(element('span', '', '▶  |◀  🔊'));
+    controls.appendChild(element('i'));
+    controls.appendChild(element('span', '', '[TIME] / [DURATION]  ⚙  ⛶'));
+    screen.appendChild(controls);
+    root.appendChild(screen);
+  }
+
+  function renderYouTubeSection(section) {
+    var node = element('section', 'section youtube-showcase');
+    node.id = section.id;
+    node.setAttribute('aria-labelledby', section.id + '-title');
+    var container = element('div', 'container');
+    var label = element('h2', 'eyebrow portfolio-category-label', 'YouTube');
+    label.id = section.id + '-title';
+    container.appendChild(label);
+    var layout = element('div', 'youtube-layout');
+    var player = element('div', 'youtube-player');
+    player.setAttribute('aria-live', 'polite');
+    var sidebar = element('aside', 'youtube-playlist');
+    sidebar.setAttribute('aria-label', 'Video playlist');
+    var list = element('div', 'youtube-playlist-list');
+    section.projects.forEach(function (project, index) {
+      var button = element('button', 'youtube-playlist-item');
+      button.type = 'button';
+      button.setAttribute('aria-label', 'Select video: ' + project.title);
+      button.dataset.videoIndex = index;
+      var thumb = element('span', 'youtube-playlist-thumb', '[THUMBNAIL]');
+      button.appendChild(thumb);
+      var copy = element('span');
+      copy.appendChild(element('strong', '', project.title));
+      copy.appendChild(element('small', '', '[DURATION]'));
+      button.appendChild(copy);
+      list.appendChild(button);
+    });
+    sidebar.appendChild(list);
+    var filters = element('div', 'youtube-filters');
+    ['All', 'Branding', 'Design', 'Strategy', 'Process'].forEach(function (filter, index) {
+      var button = element('button', index === 0 ? 'is-active' : '', filter);
+      button.type = 'button';
+      button.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
+      button.addEventListener('click', function () {
+        Array.prototype.forEach.call(filters.querySelectorAll('button'), function (candidate) {
+          var active = candidate === button;
+          candidate.classList.toggle('is-active', active);
+          candidate.setAttribute('aria-pressed', String(active));
+        });
+      });
+      filters.appendChild(button);
+    });
+    sidebar.appendChild(filters);
+    layout.appendChild(player);
+    layout.appendChild(sidebar);
+    container.appendChild(layout);
+    node.appendChild(container);
+    var playlistItems = Array.prototype.slice.call(list.querySelectorAll('.youtube-playlist-item'));
+    function selectVideo(index) {
+      playlistItems.forEach(function (item, itemIndex) { item.classList.toggle('is-selected', itemIndex === index); });
+      renderYouTubePlayer(player, section.projects[index]);
+    }
+    playlistItems.forEach(function (item, index) { item.addEventListener('click', function () { selectVideo(index); }); });
+    selectVideo(0);
+    return node;
+  }
+
+  function renderCampaignsSection(section) {
+    var node = element('section', 'section compact-campaigns');
+    node.id = section.id;
+    node.setAttribute('aria-labelledby', section.id + '-title');
+    var container = element('div', 'container');
+    var heading = element('h2', '', 'Campaigns');
+    heading.id = section.id + '-title';
+    container.appendChild(heading);
+    var grid = element('div', 'compact-campaigns-grid');
+    section.projects.forEach(function (project) {
+      var article = element('article', 'compact-campaign-card');
+      article.appendChild(element('h3', '', project.title));
+      article.appendChild(element('span', '', '↗'));
+      grid.appendChild(article);
+    });
+    container.appendChild(grid);
+    node.appendChild(container);
+    return node;
+  }
+
   function renderSection(section) {
     if (section.layout === 'websites') return renderWebsitesSection(section);
     if (section.layout === 'systems') return renderDesignSystemsSection(section);
     if (section.layout === 'rail') return renderEmailSection(section);
+    if (section.id === 'social' || section.id === 'ads') return renderMediaRailSection(section);
+    if (section.layout === 'asymmetric') return renderMultimediaSection(section);
+    if (section.layout === 'video') return renderYouTubeSection(section);
+    if (section.layout === 'campaigns') return renderCampaignsSection(section);
     var node = element('section', 'section portfolio-work-section portfolio-layout--' + section.layout);
     node.id = section.id;
     node.setAttribute('aria-labelledby', section.id + '-title');

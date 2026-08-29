@@ -64,16 +64,16 @@ window.portfolioPlaceholderData = {
       id: 'social', index: '04', label: 'Social Media', layout: 'rows', title: '[SOCIAL MEDIA SECTION HEADLINE]',
       description: '[SECTION DESCRIPTION — cohesive social campaigns and content systems.]',
       projects: [
-        { id: 'social-one', title: '[SOCIAL CAMPAIGN TITLE]', description: '[CAMPAIGN DESCRIPTION]', category: '[SOCIAL CATEGORY]', year: '[YEAR]', role: '[ROLE]', services: ['[SERVICE]'], technologies: [], media: { type: 'gallery', src: '', alt: '[SOCIAL CREATIVE ALT]', label: '[SOCIAL CREATIVE]', ratio: 'square', count: 4 }, url: '' },
-        { id: 'social-two', title: '[LONGER SOCIAL CAMPAIGN TITLE]', description: '[A LONGER DESCRIPTION TO TEST HOW SUPPORTING COPY WRAPS ON SMALLER VIEWPORTS.]', category: '[SOCIAL CATEGORY]', year: '', role: '', services: ['[SERVICE]', '[SERVICE]'], technologies: [], media: { type: 'gallery', src: '', alt: '[SOCIAL CREATIVE ALT]', label: '[SOCIAL CREATIVE]', ratio: 'square', count: 4 }, url: '' }
+        { id: 'social-one', title: '[SOCIAL CAMPAIGN TITLE]', description: '[CAMPAIGN DESCRIPTION]', category: '[SOCIAL CATEGORY]', format: 'Static', year: '[YEAR]', role: '[ROLE]', services: ['[SERVICE]'], technologies: [], media: { type: 'gallery', src: '', alt: '[SOCIAL CREATIVE ALT]', label: '[SOCIAL STATIC CREATIVE]', ratio: 'portrait', count: 6 }, url: '' },
+        { id: 'social-two', title: '[LONGER SOCIAL CAMPAIGN TITLE]', description: '[A LONGER DESCRIPTION TO TEST HOW SUPPORTING COPY WRAPS ON SMALLER VIEWPORTS.]', category: '[SOCIAL CATEGORY]', format: 'Video', year: '', role: '', services: ['[SERVICE]', '[SERVICE]'], technologies: [], media: { type: 'gallery', src: '', alt: '[SOCIAL CREATIVE ALT]', label: '[SOCIAL VIDEO CREATIVE]', ratio: 'portrait', count: 6 }, url: '' }
       ]
     },
     {
       id: 'ads', index: '05', label: 'Ads', layout: 'rows', title: '[PAID ADVERTISING SECTION HEADLINE]',
       description: '[SECTION DESCRIPTION — campaign-ready creative across paid-media formats.]',
       projects: [
-        { id: 'ads-one', title: '[AD CAMPAIGN TITLE]', description: '[PAID-MEDIA CAMPAIGN DESCRIPTION]', category: '[AD CATEGORY]', year: '[YEAR]', role: '[ROLE]', services: ['[SERVICE]'], technologies: [], media: { type: 'gallery', src: '', alt: '[AD CREATIVE ALT]', label: '[AD CREATIVE]', ratio: 'portrait', count: 4 }, url: '' },
-        { id: 'ads-two', title: '[LONGER AD CAMPAIGN TITLE]', description: '', category: '[AD CATEGORY]', year: '', role: '', services: ['[SERVICE]', '[FORMAT]'], technologies: [], media: { type: 'gallery', src: '', alt: '[AD CREATIVE ALT]', label: '[AD CREATIVE]', ratio: 'portrait', count: 4 }, url: '' }
+        { id: 'ads-one', title: '[AD CAMPAIGN TITLE]', description: '[PAID-MEDIA CAMPAIGN DESCRIPTION]', category: '[AD CATEGORY]', format: 'Static', year: '[YEAR]', role: '[ROLE]', services: ['[SERVICE]'], technologies: [], media: { type: 'gallery', src: '', alt: '[AD CREATIVE ALT]', label: '[STATIC AD CREATIVE]', ratio: 'portrait', count: 6 }, url: '' },
+        { id: 'ads-two', title: '[LONGER AD CAMPAIGN TITLE]', description: '', category: '[AD CATEGORY]', format: 'Video', year: '', role: '', services: ['[SERVICE]', '[FORMAT]'], technologies: [], media: { type: 'gallery', src: '', alt: '[AD CREATIVE ALT]', label: '[VIDEO AD CREATIVE]', ratio: 'portrait', count: 6 }, url: '' }
       ]
     },
     {
@@ -82,15 +82,19 @@ window.portfolioPlaceholderData = {
       projects: [
         { id: 'other-one', title: '[FEATURED MULTIMEDIA PROJECT TITLE]', description: '[MULTIMEDIA PROJECT DESCRIPTION WITH REALISTIC LENGTH]', category: '[PROJECT CATEGORY]', year: '[YEAR]', role: '[ROLE]', services: ['[SERVICE]'], technologies: [], media: { type: 'image', src: '', alt: '[MULTIMEDIA PREVIEW ALT]', label: '[MULTIMEDIA IMAGE]', ratio: 'wide' }, url: '', featured: true },
         { id: 'other-two', title: '[MULTIMEDIA PROJECT TITLE]', description: '[SHORT DESCRIPTION]', category: '[PROJECT CATEGORY]', year: '', role: '', services: [], technologies: [], media: { type: 'image', src: '', alt: '[MULTIMEDIA PREVIEW ALT]', label: '[PROJECT IMAGE]', ratio: 'square' }, url: '' },
-        { id: 'other-three', title: '[SHORT TITLE]', description: '', category: '[PROJECT CATEGORY]', year: '[YEAR]', role: '', services: [], technologies: [], media: { type: 'image', src: '', alt: '[MULTIMEDIA PREVIEW ALT]', label: '[PROJECT IMAGE]', ratio: 'landscape' }, url: '' }
+        { id: 'other-three', title: '[SHORT TITLE]', description: '', category: '[PROJECT CATEGORY]', year: '[YEAR]', role: '', services: [], technologies: [], media: { type: 'image', src: '', alt: '[MULTIMEDIA PREVIEW ALT]', label: '[PROJECT IMAGE]', ratio: 'landscape' }, url: '' },
+        { id: 'other-four', title: '[MULTIMEDIA PROJECT 04]', description: '[SHORT DESCRIPTION]', category: '[PROJECT CATEGORY]', year: '', role: '[ROLE]', services: [], technologies: [], media: { type: 'image', src: '', alt: '[MULTIMEDIA PREVIEW ALT 04]', label: '[PROJECT IMAGE 04]', ratio: 'landscape' }, url: '' },
+        { id: 'other-five', title: '[MULTIMEDIA PROJECT 05]', description: '[SHORT DESCRIPTION]', category: '[PROJECT CATEGORY]', year: '[YEAR]', role: '', services: [], technologies: [], media: { type: 'image', src: '', alt: '[MULTIMEDIA PREVIEW ALT 05]', label: '[PROJECT IMAGE 05]', ratio: 'landscape' }, url: '' }
       ]
     },
     {
-      id: 'video', index: '07', label: 'Video / YouTube', layout: 'video', title: '[VIDEO SECTION HEADLINE]',
+      id: 'youtube', index: '07', label: 'YouTube', layout: 'video', title: '[VIDEO SECTION HEADLINE]',
       description: '[SECTION DESCRIPTION — long-form, short-form, motion, and production context.]',
       projects: [
         { id: 'video-one', title: '[FEATURED VIDEO TITLE]', description: '[VIDEO DESCRIPTION — supporting information with a realistic two-line length.]', category: '[VIDEO CATEGORY]', year: '[YEAR]', role: '[ROLE]', services: ['[EDITING]', '[PRODUCTION]'], technologies: [], media: { type: 'video', src: '', alt: '[VIDEO THUMBNAIL ALT]', label: '[VIDEO THUMBNAIL]', ratio: 'video' }, url: '', featured: true },
-        { id: 'video-two', title: '[SECONDARY VIDEO TITLE]', description: '[SHORT VIDEO DESCRIPTION]', category: '[VIDEO CATEGORY]', year: '', role: '', services: ['[SERVICE]'], technologies: [], media: { type: 'video', src: '', alt: '[VIDEO THUMBNAIL ALT]', label: '[VIDEO THUMBNAIL]', ratio: 'video' }, url: '' }
+        { id: 'video-two', title: '[SECONDARY VIDEO TITLE]', description: '[SHORT VIDEO DESCRIPTION]', category: '[VIDEO CATEGORY]', year: '', role: '', services: ['[SERVICE]'], technologies: [], media: { type: 'video', src: '', alt: '[VIDEO THUMBNAIL ALT]', label: '[VIDEO THUMBNAIL]', ratio: 'video' }, url: '' },
+        { id: 'video-three', title: '[VIDEO TITLE 03]', description: '[SHORT VIDEO DESCRIPTION]', category: '[VIDEO CATEGORY]', year: '[YEAR]', role: '[ROLE]', services: ['[SERVICE]'], technologies: [], media: { type: 'video', src: '', alt: '[VIDEO THUMBNAIL ALT 03]', label: '[VIDEO THUMBNAIL 03]', ratio: 'video' }, url: '' },
+        { id: 'video-four', title: '[LONGER VIDEO TITLE FOR RESPONSIVE TESTING]', description: '[VIDEO DESCRIPTION]', category: '[VIDEO CATEGORY]', year: '', role: '', services: ['[SERVICE]'], technologies: [], media: { type: 'video', src: '', alt: '[VIDEO THUMBNAIL ALT 04]', label: '[VIDEO THUMBNAIL 04]', ratio: 'video' }, url: '' }
       ]
     },
     {
