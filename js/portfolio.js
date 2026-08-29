@@ -4,7 +4,6 @@
   var data = window.portfolioPlaceholderData;
   var workRoot = document.getElementById('work');
   var showcaseRoot = document.getElementById('behind-designs-gallery');
-  var showcaseModal = document.getElementById('showcase-modal');
   if (!data || !workRoot) return;
 
   function element(tag, className, text) {
@@ -12,6 +11,26 @@
     if (className) node.className = className;
     if (text) node.textContent = text;
     return node;
+  }
+
+  function icon(name) {
+    var node = element('i', 'bi bi-' + name);
+    node.setAttribute('aria-hidden', 'true');
+    return node;
+  }
+
+  function addIconButton(button, name) {
+    button.textContent = '';
+    button.appendChild(icon(name));
+    return button;
+  }
+
+  function mediaItem(media, title) {
+    return { src: media.src, alt: media.alt || title || '', title: title || media.alt || 'Selected work', type: media.type || (/\.(mp4|m4v|webm)(\?|$)/i.test(media.src || '') ? 'video' : 'image') };
+  }
+
+  function openViewer(items, index, trigger) {
+    if (window.PortfolioMediaViewer) window.PortfolioMediaViewer.open(items, index, trigger);
   }
 
   function placeholder(media) {
@@ -26,7 +45,7 @@
     }
     wrap.setAttribute('role', 'img');
     wrap.setAttribute('aria-label', media.alt || media.label || 'Project media placeholder');
-    wrap.appendChild(element('span', 'project-media-label', media.label || '[PROJECT MEDIA]'));
+    wrap.appendChild(element('span', 'project-media-label', media.label || 'Media unavailable'));
     var marker = element('i', 'project-media-marker');
     marker.setAttribute('aria-hidden', 'true');
     wrap.appendChild(marker);
@@ -34,25 +53,10 @@
   }
 
   function renderShowcase() {
-    if (!showcaseRoot || !showcaseModal || !data.behindDesigns) return;
-    var modalTitle = showcaseModal.querySelector('#showcase-modal-title');
-    var modalMedia = showcaseModal.querySelector('.showcase-modal-media');
-    var closeButton = showcaseModal.querySelector('.showcase-modal-close');
+    if (!showcaseRoot || !data.behindDesigns) return;
+    var collection = data.behindDesigns.map(function (item) { return mediaItem(item, item.label); });
 
-    function openPreview(item) {
-      modalTitle.textContent = item.label;
-      modalMedia.textContent = '';
-      modalMedia.setAttribute('aria-label', item.alt);
-      if (item.src) {
-        var fullImage = element('img');
-        fullImage.src = item.src;
-        fullImage.alt = item.alt;
-        modalMedia.appendChild(fullImage);
-      } else {
-        modalMedia.appendChild(element('span', '', '[FULL PROJECT IMAGE]'));
-      }
-      showcaseModal.showModal();
-    }
+    function openPreview(index, trigger) { openViewer(collection, index, trigger); }
 
     var track = element('div', 'behind-designs-track');
     function createGroup(isDuplicate) {
@@ -75,7 +79,7 @@
           media.appendChild(element('span', 'showcase-tile-label', item.label));
         }
         button.appendChild(media);
-        button.addEventListener('click', function () { openPreview(item); });
+        button.addEventListener('click', function () { openPreview(index, button); });
         group.appendChild(button);
       });
       return group;
@@ -84,10 +88,6 @@
     track.appendChild(createGroup(true));
     showcaseRoot.appendChild(track);
 
-    closeButton.addEventListener('click', function () { showcaseModal.close(); });
-    showcaseModal.addEventListener('click', function (event) {
-      if (event.target === showcaseModal) showcaseModal.close();
-    });
   }
 
   function gallery(media) {
@@ -133,7 +133,8 @@
     if (metadata) body.appendChild(metadata);
     if (tagList) body.appendChild(tagList);
     if (project.url) {
-      var cta = element('a', 'project-link', 'View project ↗');
+      var cta = element('a', 'project-link', 'View project ');
+      cta.appendChild(icon('arrow-up-right'));
       cta.href = project.url;
       body.appendChild(cta);
     }
@@ -197,15 +198,19 @@
     panel.appendChild(element('p', 'website-layer-description', project.description));
     var metadata = meta(project);
     if (metadata) panel.appendChild(metadata);
+    var tagList = tags(project);
+    if (tagList) panel.appendChild(tagList);
     panel.appendChild(placeholder(project.media));
     if (project.url) {
-      var visit = element('a', 'btn btn-primary website-visit', 'Visit Website ↗');
+      var visit = element('a', 'btn btn-primary website-visit', 'Visit Website ');
+      visit.appendChild(icon('arrow-up-right'));
       visit.href = project.url;
       visit.target = '_blank';
       visit.rel = 'noopener noreferrer';
       panel.appendChild(visit);
     } else {
-      var pending = element('span', 'btn btn-primary website-visit is-disabled', 'Visit Website ↗');
+      var pending = element('span', 'btn btn-primary website-visit is-disabled', 'Visit Website ');
+      pending.appendChild(icon('arrow-up-right'));
       pending.setAttribute('aria-disabled', 'true');
       panel.appendChild(pending);
     }
@@ -299,14 +304,15 @@
     button.style.setProperty('--canvas-index', index);
     var visual = element('span', 'system-canvas-visual');
     visual.setAttribute('aria-hidden', 'true');
-    visual.appendChild(element('i', 'system-canvas-type', 'Aa'));
-    var rings = element('i', 'system-canvas-rings');
-    visual.appendChild(rings);
-    var components = element('i', 'system-canvas-components');
-    components.appendChild(element('b', '', 'Button'));
-    components.appendChild(element('b', '', 'Secondary'));
-    components.appendChild(element('b', '', '•••'));
-    visual.appendChild(components);
+    if (project.media && project.media.src) {
+      var preview = element('img');
+      preview.src = project.media.src;
+      preview.alt = '';
+      preview.loading = 'lazy';
+      visual.appendChild(preview);
+    } else {
+      visual.appendChild(element('i', 'system-canvas-type', 'Aa'));
+    }
     button.appendChild(visual);
     var caption = element('span', 'system-canvas-caption');
     caption.appendChild(element('strong', '', project.title));
@@ -334,11 +340,14 @@
     });
     root.appendChild(elements);
     if (project.url) {
-      var link = element('a', 'btn btn-primary system-cta', 'View System ↗');
+      var link = element('a', 'btn btn-primary system-cta', 'View System ');
+      link.appendChild(icon('arrow-up-right'));
       link.href = project.url;
+      if (/^https?:/.test(project.url)) { link.target = '_blank'; link.rel = 'noopener noreferrer'; }
       root.appendChild(link);
     } else {
-      var disabled = element('span', 'btn btn-primary system-cta is-disabled', 'View System ↗');
+      var disabled = element('span', 'btn btn-primary system-cta is-disabled', 'View System ');
+      disabled.appendChild(icon('arrow-up-right'));
       disabled.setAttribute('aria-disabled', 'true');
       root.appendChild(disabled);
     }
@@ -392,10 +401,10 @@
       image.loading = 'lazy';
       frame.appendChild(image);
     } else {
-      frame.appendChild(element('span', 'email-card-brand', '[EMAIL HEADER]'));
+      frame.appendChild(element('span', 'email-card-brand', 'Email campaign'));
       frame.appendChild(element('strong', 'email-card-headline', project.title));
-      frame.appendChild(element('span', 'email-card-copy', '[EMAIL CREATIVE PREVIEW]'));
-      frame.appendChild(element('span', 'email-card-button', '[CTA]'));
+      frame.appendChild(element('span', 'email-card-copy', 'Campaign creative'));
+      frame.appendChild(element('span', 'email-card-button', 'View'));
       frame.appendChild(element('i', 'email-card-art'));
     }
     button.appendChild(frame);
@@ -410,12 +419,14 @@
     var metadata = meta(project);
     if (metadata) copy.appendChild(metadata);
     root.appendChild(copy);
-    if (project.url) {
-      var link = element('a', 'btn btn-primary', 'View Campaign ↗');
-      link.href = project.url;
+    if (project.url || project.campaign) {
+      var link = element('a', 'btn btn-primary', project.campaign ? 'View Full Campaign ' : 'View Campaign ');
+      link.appendChild(icon('arrow-up-right'));
+      link.href = project.url || ('campaigns/' + project.campaign + '/');
       root.appendChild(link);
     } else {
-      var disabled = element('span', 'btn btn-primary is-disabled', 'View Campaign ↗');
+      var disabled = element('span', 'btn btn-primary is-disabled', 'View Campaign ');
+      disabled.appendChild(icon('arrow-up-right'));
       disabled.setAttribute('aria-disabled', 'true');
       root.appendChild(disabled);
     }
@@ -434,10 +445,10 @@
     intro.appendChild(element('p', '', section.description));
     container.appendChild(intro);
     var deckShell = element('div', 'email-deck-shell');
-    var previous = element('button', 'email-deck-control email-deck-previous', '←');
+    var previous = addIconButton(element('button', 'email-deck-control email-deck-previous'), 'arrow-left');
     previous.type = 'button';
     previous.setAttribute('aria-label', 'Previous email campaign');
-    var next = element('button', 'email-deck-control email-deck-next', '→');
+    var next = addIconButton(element('button', 'email-deck-control email-deck-next'), 'arrow-right');
     next.type = 'button';
     next.setAttribute('aria-label', 'Next email campaign');
     var deck = element('div', 'email-deck');
@@ -457,6 +468,7 @@
     node.appendChild(container);
 
     var cards = Array.prototype.slice.call(deck.querySelectorAll('.email-deck-card'));
+    var emailCollection = section.projects.map(function (project) { return mediaItem(project.media, project.title); });
     var activeIndex = Math.floor(cards.length / 2);
     function selectEmail(index) {
       activeIndex = (index + cards.length) % cards.length;
@@ -473,7 +485,7 @@
       });
       renderEmailDetails(detailsRoot, section.projects[activeIndex]);
     }
-    cards.forEach(function (card, index) { card.addEventListener('click', function () { selectEmail(index); }); });
+    cards.forEach(function (card, index) { card.addEventListener('click', function () { selectEmail(index); openViewer(emailCollection, index, card); }); });
     previous.addEventListener('click', function () { selectEmail(activeIndex - 1); });
     next.addEventListener('click', function () { selectEmail(activeIndex + 1); });
     deck.addEventListener('keydown', function (event) {
@@ -485,23 +497,42 @@
     return node;
   }
 
-  function mediaRailTile(project, item, itemIndex) {
+  function mediaRailTile(project, item, itemIndex, collection) {
     var article = element('article', 'media-rail-card');
     article.setAttribute('aria-label', project.format + ' creative ' + (itemIndex + 1));
     var media;
+    var open = element('button', 'media-rail-open');
+    open.type = 'button';
+    open.setAttribute('aria-label', 'Open ' + ((item && item.alt) || project.title));
     if (project.format === 'Video' && item && item.src) {
       media = element('div', 'project-media project-media--portrait');
       var video = element('video');
       video.src = item.src;
       video.setAttribute('aria-label', item.alt || project.media.alt);
-      video.controls = true;
+      video.autoplay = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      video.muted = true;
+      video.loop = true;
       video.preload = 'metadata';
       video.playsInline = true;
       media.appendChild(video);
     } else {
       media = placeholder({ src: item && item.src, alt: (item && item.alt) || project.media.alt, label: project.title, ratio: 'portrait' });
     }
-    article.appendChild(media);
+    open.appendChild(media);
+    open.addEventListener('click', function () { openViewer(collection, itemIndex, open); });
+    article.appendChild(open);
+    if (project.format === 'Video') {
+      var mute = addIconButton(element('button', 'media-rail-mute'), 'volume-mute-fill');
+      mute.type = 'button';
+      mute.setAttribute('aria-label', 'Unmute video');
+      mute.addEventListener('click', function () {
+        var video = article.querySelector('video');
+        video.muted = !video.muted;
+        addIconButton(mute, video.muted ? 'volume-mute-fill' : 'volume-up-fill');
+        mute.setAttribute('aria-label', video.muted ? 'Unmute video' : 'Mute video');
+      });
+      article.appendChild(mute);
+    }
     return article;
   }
 
@@ -516,7 +547,7 @@
     var rows = element('div', 'media-rows');
     section.projects.forEach(function (project, rowIndex) {
       var row = element('div', 'media-row');
-      var previous = element('button', 'media-row-control media-row-previous', '←');
+      var previous = addIconButton(element('button', 'media-row-control media-row-previous'), 'arrow-left');
       previous.type = 'button';
       previous.setAttribute('aria-label', 'Previous ' + project.format.toLowerCase() + ' creatives');
       var viewport = element('div', 'media-row-viewport');
@@ -525,9 +556,10 @@
       var track = element('div', 'media-row-track');
       var mediaItems = project.media.items || [];
       var itemCount = mediaItems.length || project.media.count || 0;
-      for (var index = 0; index < itemCount; index += 1) track.appendChild(mediaRailTile(project, mediaItems[index], index));
+      var viewerCollection = mediaItems.map(function (item) { return mediaItem(item, item.alt || project.title); });
+      for (var index = 0; index < itemCount; index += 1) track.appendChild(mediaRailTile(project, mediaItems[index], index, viewerCollection));
       viewport.appendChild(track);
-      var next = element('button', 'media-row-control media-row-next', '→');
+      var next = addIconButton(element('button', 'media-row-control media-row-next'), 'arrow-right');
       next.type = 'button';
       next.setAttribute('aria-label', 'Next ' + project.format.toLowerCase() + ' creatives');
       var format = element('p', 'media-row-format', project.format);
@@ -552,6 +584,16 @@
     });
     container.appendChild(rows);
     node.appendChild(container);
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var videoObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var video = entry.target;
+          if (entry.isIntersecting) video.play().catch(function () {});
+          else video.pause();
+        });
+      }, { threshold: .35 });
+      Array.prototype.forEach.call(node.querySelectorAll('video'), function (video) { videoObserver.observe(video); });
+    }
     return node;
   }
 
@@ -564,9 +606,15 @@
     label.id = section.id + '-title';
     container.appendChild(label);
     var mosaic = element('div', 'multimedia-mosaic');
-    section.projects.forEach(function (project) {
+    var collection = section.projects.map(function (project) { return mediaItem(project.media, project.title); });
+    section.projects.forEach(function (project, index) {
       var article = element('article', 'multimedia-tile');
-      article.appendChild(placeholder(project.media));
+      var open = element('button', 'media-rail-open');
+      open.type = 'button';
+      open.setAttribute('aria-label', 'Open ' + project.title);
+      open.appendChild(placeholder(project.media));
+      open.addEventListener('click', function () { openViewer(collection, index, open); });
+      article.appendChild(open);
       var overlay = element('div', 'multimedia-tile-copy');
       overlay.appendChild(element('h3', '', project.title));
       if (project.description) overlay.appendChild(element('p', '', project.description));
@@ -667,10 +715,11 @@
     container.appendChild(heading);
     var grid = element('div', 'compact-campaigns-grid');
     section.projects.forEach(function (project) {
-      var article = element('article', 'compact-campaign-card');
-      article.appendChild(element('h3', '', project.title));
-      article.appendChild(element('span', '', '↗'));
-      grid.appendChild(article);
+      var link = element('a', 'compact-campaign-card');
+      link.href = 'campaigns/' + project.slug + '/';
+      link.appendChild(element('h3', '', project.title));
+      link.appendChild(icon('arrow-up-right'));
+      grid.appendChild(link);
     });
     container.appendChild(grid);
     node.appendChild(container);

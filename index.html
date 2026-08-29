@@ -18,9 +18,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@1,500;1,600&amp;family=Poppins:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=khand@400,700&amp;f[]=array@400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/tokens.css?v=20260826">
   <link rel="stylesheet" href="css/base.css?v=20260826">
-  <link rel="stylesheet" href="css/portfolio.css?v=20260829-6">
+  <link rel="stylesheet" href="css/portfolio.css?v=20260829-7">
 </head>
 <body class="home-page portfolio-redesign">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -30,16 +32,16 @@
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
       <nav id="primary-nav" class="nav-links" aria-label="Primary navigation">
         <ul><li><a href="#work">Work</a></li><li><a href="#websites">Websites</a></li><li><a href="#contact">Contact</a></li></ul>
-        <a class="btn btn-primary nav-resume-btn" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-primary nav-resume-btn" href="#contact">Get in touch <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
       </nav>
     </div>
     <div class="nav-scrim"></div>
   </header>
   <main id="main-content" tabindex="-1">
     <section class="hero portfolio-hero" aria-labelledby="hero-title">
-      <div class="hero-media-placeholder" role="img" aria-label="Rodrigo Cazuza working at a desk"></div>
+      <img class="hero-background" src="images/site/hero.jpg" alt="Rodrigo Cazuza designing at his laptop, surrounded by creative and web design tools" width="1600" height="852" fetchpriority="high">
       <div class="container hero-inner">
-        <div class="hero-intro"><p class="hero-kicker">Hey, I’m a</p><h1 id="hero-title"><span>Multimedia</span> <span class="accent-italic">Designer</span></h1></div>
+        <div class="hero-intro"><p class="hero-kicker">Hey, I'm a</p><h1 id="hero-title"><span>Multimedia</span> <span class="accent-italic">Designer</span></h1></div>
         <div class="hero-statement">
           <p class="hero-statement-title">Design, marketing, and front-end development in one creative practice.</p>
           <p>I create brand systems, email campaigns, paid social assets, websites, and video content that help businesses communicate clearly and grow.</p>
@@ -50,11 +52,7 @@
         </div>
       </div>
     </section>
-    <section class="toolkit-marquee" aria-labelledby="toolkit-title">
-      <div class="container toolkit-marquee-heading">
-        <p class="eyebrow">Toolkit</p>
-        <h2 id="toolkit-title">Tools I use</h2>
-      </div>
+    <section class="toolkit-marquee" aria-label="Design and development tools">
       <div class="toolkit-marquee-viewport" tabindex="0" aria-label="Moving list of design and development tools. Focus or hover to pause.">
         <div class="toolkit-marquee-track">
           <ul class="toolkit-marquee-group">
@@ -105,26 +103,36 @@
         <p class="eyebrow">Behind the designs</p>
         <h2 id="behind-designs-title">Curious what else I’ve <span class="accent-italic">created?</span></h2>
         <p>Explore selected campaign, social, email, and digital work from the extended portfolio.</p>
-        <a class="btn btn-primary" href="#contact">Get in touch <span aria-hidden="true">↓</span></a>
+        <a class="btn btn-primary" href="#contact">Get in touch <i class="bi bi-arrow-down" aria-hidden="true"></i></a>
       </div>
       <div id="behind-designs-gallery" class="behind-designs-gallery" aria-label="Selected portfolio work"></div>
+      <nav class="behind-socials" aria-label="Rodrigo Cazuza social profiles">
+        <a href="https://www.linkedin.com/in/rodrigocazuza/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
+        <a href="https://www.youtube.com/@Drigoverse" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i><span>YouTube</span></a>
+        <a href="https://github.com/Rodrigoccazuza" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github" aria-hidden="true"></i><span>GitHub</span></a>
+      </nav>
     </section>
     <div id="work" class="portfolio-sections" aria-live="polite"></div>
-    <section class="section portfolio-contact" id="contact" aria-labelledby="contact-title">
-      <div class="container portfolio-contact-inner"><p class="eyebrow">Next project</p><h2 id="contact-title">Ready to bring your <span class="accent-italic">vision to life?</span></h2><p>Let’s create a thoughtful, high-impact experience built around your goals.</p><a class="btn btn-primary" href="contact/">Start a conversation <span aria-hidden="true">↗</span></a></div>
-    </section>
   </main>
-  <dialog class="showcase-modal" id="showcase-modal" aria-labelledby="showcase-modal-title">
-    <div class="showcase-modal-panel">
-      <button class="showcase-modal-close" type="button" aria-label="Close image viewer">×</button>
-      <p class="eyebrow">Full image preview</p>
-      <h2 id="showcase-modal-title">Selected work</h2>
-      <div class="showcase-modal-media" role="img" aria-label="Full project image"><span>Selected work preview</span></div>
+  <dialog class="media-viewer" id="media-viewer" aria-labelledby="media-viewer-title">
+    <div class="media-viewer-panel">
+      <header class="media-viewer-header"><div><p class="eyebrow">Media preview</p><h2 id="media-viewer-title">Selected work</h2><p id="media-viewer-count" class="media-viewer-count"></p></div><div class="media-viewer-tools" aria-label="Viewer controls"><button type="button" data-viewer-action="zoom-out" aria-label="Zoom out"><i class="bi bi-zoom-out" aria-hidden="true"></i></button><button type="button" data-viewer-action="zoom-in" aria-label="Zoom in"><i class="bi bi-zoom-in" aria-hidden="true"></i></button><button type="button" data-viewer-action="reset" aria-label="Reset zoom"><i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i></button><button type="button" data-viewer-action="fullscreen" aria-label="Enter fullscreen"><i class="bi bi-arrows-fullscreen" aria-hidden="true"></i></button><button type="button" data-viewer-action="close" aria-label="Close viewer"><i class="bi bi-x-lg" aria-hidden="true"></i></button></div></header>
+      <div class="media-viewer-body"><button type="button" class="media-viewer-nav" data-viewer-action="previous" aria-label="Previous media"><i class="bi bi-arrow-left" aria-hidden="true"></i></button><div class="media-viewer-viewport"><div class="media-viewer-stage"></div></div><button type="button" class="media-viewer-nav" data-viewer-action="next" aria-label="Next media"><i class="bi bi-arrow-right" aria-hidden="true"></i></button></div>
     </div>
   </dialog>
-  <footer class="portfolio-footer"><div class="container portfolio-footer-grid"><a class="nav-logo" href="" aria-label="Rodrigo Cazuza home"><img src="images/site/rodrigo-cazuza-wordmark.png" alt="" width="180" height="54"></a><p>Multimedia design, brand systems, campaigns, websites, and video.</p><a href="#main-content">Back to top ↑</a></div></footer>
-  <script src="js/portfolio-data.js?v=20260829-6" defer></script>
-  <script src="js/portfolio.js?v=20260829-6" defer></script>
+  <footer class="site-footer" id="contact">
+    <div class="container footer-cta-wrap"><div class="footer-cta"><div class="footer-cta-copy"><p class="eyebrow">Have a project in mind?</p><h2>Ready to bring<br>your vision to <span class="accent-italic">life?</span></h2><p>Let&rsquo;s turn your next campaign, brand system, video, or website into something clear, useful, and memorable.</p><a class="btn btn-primary" href="contact/">Start a project <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div><img class="footer-portrait" src="images/site/footer-portrait.png" alt="Rodrigo Cazuza wearing sunglasses and a purple shirt" width="1536" height="1024" loading="lazy"></div></div>
+    <div class="container footer-panel"><div class="footer-panel-intro"><p class="footer-identity">Rodrigo<br>Cazuza.</p><p>Multimedia design and front-end development shaped around strategy, story, and real-world production.</p></div><div class="footer-columns"><div><h3>Services</h3><ul class="footer-links"><li><a href="work/brand-systems/">Brand systems</a></li><li><a href="work/email-design/">Email design</a></li><li><a href="work/meta-ad-creatives/">Meta ad creative</a></li><li><a href="work/video/">Video production</a></li><li><a href="work/web-design/">Web design</a></li></ul></div><nav aria-label="Footer"><h3>Explore</h3><ul class="footer-links"><li><a href="work/">Work</a></li><li><a href="experience/">Experience</a></li><li><a href="resume/">Résumé</a></li><li><a href="contact/">Contact</a></li></ul></nav><div><h3>Let&rsquo;s connect</h3><a class="footer-email" href="mailto:visualdesigner@rodrigocazuza.com">visualdesigner@rodrigocazuza.com</a><ul class="social-row"><li><a href="https://github.com/Rodrigoccazuza" target="_blank" rel="noopener noreferrer">GitHub</a></li><li><a href="https://www.linkedin.com/in/rodrigocazuza/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li><li><a href="https://www.youtube.com/@Drigoverse" target="_blank" rel="noopener noreferrer">YouTube</a></li></ul></div><div><h3>Location</h3><p>New York City</p><p>Available for freelance and collaborative projects.</p></div></div></div>
+    <div class="container footer-bottom"><p>&copy; 2026 Rodrigo Cazuza. All rights reserved.</p><a href="#main-content">Back to top <i class="bi bi-arrow-up" aria-hidden="true"></i></a></div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/Draggable.min.js"></script>
+  <script src="js/campaign-data.js?v=20260829-7" defer></script>
+  <script src="js/portfolio-data.js?v=20260829-7" defer></script>
+  <script src="js/media-viewer.js?v=20260829-7" defer></script>
+  <script src="js/portfolio.js?v=20260829-7" defer></script>
+  <script src="js/portfolio-motion.js?v=20260829-7" defer></script>
   <script src="js/nav.js?v=20260826" defer></script>
   <script src="js/reveal.js?v=20260826" defer></script>
 </body>

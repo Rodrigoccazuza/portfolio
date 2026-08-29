@@ -1,0 +1,19 @@
+.campaign-page { background: var(--color-background); color: var(--color-text-primary); }
+.campaign-hero { padding: clamp(9rem, 18vw, 14rem) 0 var(--space-section); background: radial-gradient(circle at 78% 12%, rgba(96,38,236,.28), transparent 34%), var(--color-background); }
+.campaign-back { display: inline-flex; align-items: center; gap: var(--space-2xs); margin-bottom: var(--space-xl); color: var(--color-green); font-weight: 600; }
+.campaign-hero h1 { max-width: 10ch; font-size: clamp(3.5rem, 10vw, 8.5rem); line-height: .86; }
+.campaign-hero-copy { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(16rem, .7fr); gap: var(--space-xl); align-items: end; }
+.campaign-hero-copy > p { margin: 0; max-width: 52ch; font-size: var(--text-md); }
+.campaign-asset-section { padding-block: var(--space-section); border-top: 1px solid var(--color-border); }
+.campaign-asset-heading { display: flex; align-items: end; justify-content: space-between; gap: var(--space-md); margin-bottom: var(--space-xl); }
+.campaign-asset-heading h2 { margin: 0; }
+.campaign-asset-heading span { color: var(--color-text-secondary); }
+.campaign-asset-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); }
+.campaign-asset { padding: 0; overflow: hidden; border: 1px solid var(--color-border); border-radius: var(--radius-medium); background: var(--color-surface); color: var(--color-text-primary); text-align: left; cursor: zoom-in; }
+.campaign-asset-media { display: block; aspect-ratio: 4 / 5; overflow: hidden; background: #000; }
+.campaign-asset-media img, .campaign-asset-media video { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-standard); }
+.campaign-asset:hover img, .campaign-asset:focus-visible img { transform: scale(1.025); }
+.campaign-asset strong { display: block; padding: var(--space-sm); font-size: var(--text-sm); }
+.campaign-page .media-viewer { color: var(--color-text-primary); }
+@media (max-width: 900px) { .campaign-asset-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .campaign-hero-copy { grid-template-columns: 1fr; } .campaign-asset-grid { grid-template-columns: 1fr; } .campaign-asset-heading { align-items: flex-start; flex-direction: column; } }
