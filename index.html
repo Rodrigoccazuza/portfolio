@@ -23,6 +23,12 @@
   <link rel="stylesheet" href="css/tokens.css?v=20260826">
   <link rel="stylesheet" href="css/base.css?v=20260826">
   <link rel="stylesheet" href="css/portfolio.css?v=20260829-7">
+  <style>
+    #social .media-row-control,
+    #ads .media-row-control { display: none !important; }
+    #social .media-row,
+    #ads .media-row { grid-template-columns: minmax(0, 1fr) !important; gap: 0 !important; }
+  </style>
 </head>
 <body class="home-page portfolio-redesign">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -131,9 +137,20 @@
   <script src="js/campaign-data.js?v=20260829-7" defer></script>
   <script src="js/portfolio-data.js?v=20260829-7" defer></script>
   <script src="js/media-viewer.js?v=20260829-7" defer></script>
-  <script src="js/portfolio.js?v=20260829-7" defer></script>
-  <script src="js/portfolio-motion.js?v=20260829-7" defer></script>
+  <script src="js/portfolio.js?v=20260829-8" defer></script>
+  <script src="js/portfolio-motion.js?v=20260829-8" defer></script>
   <script src="js/nav.js?v=20260826" defer></script>
   <script src="js/reveal.js?v=20260826" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('#social .media-row-control, #ads .media-row-control').forEach(function (button) {
+        button.remove();
+      });
+      document.querySelectorAll('#social .media-row, #ads .media-row').forEach(function (row) {
+        row.style.gridTemplateColumns = 'minmax(0, 1fr)';
+        row.style.gap = '0';
+      });
+    });
+  </script>
 </body>
 </html>
