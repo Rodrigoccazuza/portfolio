@@ -35,7 +35,10 @@
 .behind-designs-heading h2 { max-width: 14ch; font-size: clamp(2.5rem, 6vw, 5rem); }
 .behind-designs-heading > p:not(.eyebrow) { max-width: 54ch; }
 .behind-designs-heading .btn { margin-top: var(--space-sm); }
-.behind-designs-gallery { display: grid; grid-template-columns: repeat(7, minmax(9rem, 1fr)); align-items: center; gap: var(--space-xs); width: calc(100% + (var(--space-xl) * 2)); margin: var(--space-xl) calc(var(--space-xl) * -1) 0; padding-block: var(--space-lg); perspective: 80rem; }
+.behind-designs-gallery { width: 100%; margin-top: var(--space-xl); padding-block: var(--space-lg); overflow: hidden; perspective: 80rem; mask-image: linear-gradient(90deg, transparent, #000 var(--space-xl), #000 calc(100% - var(--space-xl)), transparent); }
+.behind-designs-track { display: flex; width: max-content; animation: showcase-loop 46s linear infinite; will-change: transform; }
+.behind-designs-gallery:hover .behind-designs-track, .behind-designs-gallery:focus-within .behind-designs-track { animation-play-state: paused; }
+.behind-designs-group { display: grid; flex: none; grid-template-columns: repeat(7, minmax(9rem, 1fr)); align-items: center; gap: var(--space-xs); width: max(100vw, 78rem); padding-inline: var(--space-xs); }
 .showcase-tile { position: relative; min-width: 0; padding: 0; border: 0; border-radius: var(--radius-medium); background: transparent; cursor: zoom-in; animation: showcase-float 8s ease-in-out infinite; animation-delay: var(--showcase-delay, 0s); }
 .showcase-tile:nth-child(1), .showcase-tile:nth-child(7) { transform: translateY(var(--space-lg)) rotateY(8deg); }
 .showcase-tile:nth-child(2), .showcase-tile:nth-child(6) { transform: translateY(var(--space-sm)) rotateY(5deg); }
@@ -49,6 +52,7 @@
 .showcase-tile:hover, .showcase-tile:focus-visible { z-index: 3; }
 .showcase-tile:hover .showcase-tile-media, .showcase-tile:focus-visible .showcase-tile-media { transform: scale(1.1); border-color: var(--color-accent-light); box-shadow: var(--shadow-glow); }
 @keyframes showcase-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 calc(var(--space-xs) * -1); } }
+@keyframes showcase-loop { to { transform: translateX(-50%); } }
 
 .showcase-modal { width: min(70rem, calc(100% - (var(--space-lg) * 2))); max-width: none; max-height: calc(100dvh - (var(--space-lg) * 2)); padding: 0; border: 1px solid var(--color-border-strong); border-radius: var(--radius-large); background: var(--color-surface); color: var(--color-text-primary); box-shadow: var(--shadow-modal); }
 .showcase-modal::backdrop { background: rgba(0, 0, 0, .88); backdrop-filter: blur(8px); }
@@ -162,8 +166,9 @@
   .toolkit-marquee-heading { display: grid; margin-bottom: var(--space-md); }
   .toolkit-marquee-group li { min-width: 11rem; min-height: 6rem; padding: var(--space-sm); }
   .toolkit-marquee-group img { width: 3rem; height: 3rem; }
-  .behind-designs-gallery { grid-template-columns: repeat(7, minmax(10rem, 1fr)); width: 100%; margin-inline: 0; padding-inline: var(--space-md); overflow-x: auto; scroll-snap-type: x mandatory; perspective: none; }
-  .showcase-tile { scroll-snap-align: center; transform: none !important; }
+  .behind-designs-gallery { perspective: none; mask-image: linear-gradient(90deg, transparent, #000 var(--space-md), #000 calc(100% - var(--space-md)), transparent); }
+  .behind-designs-group { grid-template-columns: repeat(7, 10rem); width: auto; }
+  .showcase-tile { transform: none !important; }
   .showcase-modal { width: calc(100% - (var(--space-md) * 2)); max-height: calc(100dvh - (var(--space-md) * 2)); }
   .showcase-modal-panel { padding: var(--space-md); }
   .showcase-modal-media { min-height: 52vh; }
@@ -198,6 +203,9 @@
 @media (prefers-reduced-motion: reduce) {
   .portfolio-card, .campaign-card { transform: none !important; }
   .showcase-tile, .showcase-modal[open] { animation: none; }
+  .behind-designs-gallery { overflow-x: auto; mask-image: none; }
+  .behind-designs-track { animation: none; }
+  .behind-designs-group[aria-hidden="true"] { display: none; }
   .toolkit-marquee-viewport { overflow-x: auto; mask-image: none; }
   .toolkit-marquee-track { animation: none; }
   .toolkit-marquee-group[aria-hidden="true"] { display: none; }

@@ -54,25 +54,35 @@
       showcaseModal.showModal();
     }
 
-    data.behindDesigns.forEach(function (item, index) {
-      var button = element('button', 'showcase-tile');
-      button.type = 'button';
-      button.setAttribute('aria-label', 'Open full preview: ' + item.label);
-      button.style.setProperty('--showcase-delay', (index * -1.4) + 's');
-      var media = element('span', 'showcase-tile-media');
-      if (item.src) {
-        var image = element('img');
-        image.src = item.src;
-        image.alt = '';
-        image.loading = 'lazy';
-        media.appendChild(image);
-      } else {
-        media.appendChild(element('span', 'showcase-tile-label', item.label));
-      }
-      button.appendChild(media);
-      button.addEventListener('click', function () { openPreview(item); });
-      showcaseRoot.appendChild(button);
-    });
+    var track = element('div', 'behind-designs-track');
+    function createGroup(isDuplicate) {
+      var group = element('div', 'behind-designs-group');
+      if (isDuplicate) group.setAttribute('aria-hidden', 'true');
+      data.behindDesigns.forEach(function (item, index) {
+        var button = element('button', 'showcase-tile');
+        button.type = 'button';
+        button.setAttribute('aria-label', 'Open full preview: ' + item.label);
+        button.style.setProperty('--showcase-delay', (index * -1.4) + 's');
+        if (isDuplicate) button.tabIndex = -1;
+        var media = element('span', 'showcase-tile-media');
+        if (item.src) {
+          var image = element('img');
+          image.src = item.src;
+          image.alt = '';
+          image.loading = 'lazy';
+          media.appendChild(image);
+        } else {
+          media.appendChild(element('span', 'showcase-tile-label', item.label));
+        }
+        button.appendChild(media);
+        button.addEventListener('click', function () { openPreview(item); });
+        group.appendChild(button);
+      });
+      return group;
+    }
+    track.appendChild(createGroup(false));
+    track.appendChild(createGroup(true));
+    showcaseRoot.appendChild(track);
 
     closeButton.addEventListener('click', function () { showcaseModal.close(); });
     showcaseModal.addEventListener('click', function (event) {
