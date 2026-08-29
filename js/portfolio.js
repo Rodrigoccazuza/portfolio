@@ -173,7 +173,124 @@
     return header;
   }
 
+  function websiteLayer(project, index) {
+    var article = element('article', 'website-layer' + (index === 0 ? ' is-selected' : ''));
+    article.dataset.projectId = project.id;
+    article.style.setProperty('--layer-index', index);
+    var selector = element('button', 'website-layer-selector');
+    selector.type = 'button';
+    selector.setAttribute('aria-expanded', index === 0 ? 'true' : 'false');
+    selector.setAttribute('aria-controls', project.id + '-details');
+    selector.setAttribute('aria-label', 'Select ' + project.title);
+    var dots = element('span', 'website-window-dots');
+    dots.setAttribute('aria-hidden', 'true');
+    dots.textContent = '● ● ●';
+    selector.appendChild(dots);
+    selector.appendChild(element('strong', '', project.title));
+    selector.appendChild(element('span', 'website-layer-category', project.category));
+    var status = element('span', 'website-layer-status', index === 0 ? 'Selected' : 'Select');
+    selector.appendChild(status);
+    article.appendChild(selector);
+
+    var panel = element('div', 'website-layer-panel');
+    panel.id = project.id + '-details';
+    panel.appendChild(element('p', 'website-layer-description', project.description));
+    var metadata = meta(project);
+    if (metadata) panel.appendChild(metadata);
+    panel.appendChild(placeholder(project.media));
+    if (project.url) {
+      var visit = element('a', 'btn btn-primary website-visit', 'Visit Website ↗');
+      visit.href = project.url;
+      visit.target = '_blank';
+      visit.rel = 'noopener noreferrer';
+      panel.appendChild(visit);
+    } else {
+      var pending = element('span', 'btn btn-primary website-visit is-disabled', 'Visit Website ↗');
+      pending.setAttribute('aria-disabled', 'true');
+      panel.appendChild(pending);
+    }
+    article.appendChild(panel);
+    return article;
+  }
+
+  function websiteTools() {
+    var area = element('div', 'website-tools');
+    area.appendChild(element('p', 'website-support-label', 'Tools'));
+    var grid = element('ul', 'website-tools-grid');
+    data.websiteTools.forEach(function (tool) {
+      var item = element('li');
+      item.setAttribute('aria-label', tool.name);
+      item.title = tool.name;
+      if (tool.src) {
+        var icon = element('img');
+        icon.src = tool.src;
+        icon.alt = '';
+        icon.width = 48;
+        icon.height = 48;
+        icon.loading = 'lazy';
+        item.appendChild(icon);
+      } else {
+        item.appendChild(element('span', 'website-tool-mark', tool.mark));
+      }
+      item.appendChild(element('strong', '', tool.name));
+      grid.appendChild(item);
+    });
+    area.appendChild(grid);
+    return area;
+  }
+
+  function websiteProcess() {
+    var area = element('div', 'website-process');
+    area.appendChild(element('p', 'website-support-label', 'From concept to build'));
+    var list = element('ol', 'website-process-list');
+    data.websiteProcess.forEach(function (step, index) {
+      var item = element('li');
+      item.appendChild(element('span', 'website-process-icon', String(index + 1).padStart(2, '0')));
+      item.appendChild(element('strong', '', step));
+      list.appendChild(item);
+    });
+    area.appendChild(list);
+    area.appendChild(element('p', 'website-process-copy', 'Each website begins with understanding the idea, audience and objective. I move from research and early sketches into wireframes and interactive prototypes before translating the final experience into a responsive, production-ready implementation.'));
+    return area;
+  }
+
+  function renderWebsitesSection(section) {
+    var node = element('section', 'section websites-showcase');
+    node.id = section.id;
+    node.setAttribute('aria-labelledby', section.id + '-title');
+    var container = element('div', 'container');
+    var label = element('h2', 'eyebrow', 'Websites');
+    label.id = section.id + '-title';
+    container.appendChild(label);
+    var composition = element('div', 'websites-composition');
+    var stack = element('div', 'website-stack');
+    section.projects.forEach(function (project, index) { stack.appendChild(websiteLayer(project, index)); });
+    var support = element('aside', 'website-support', '');
+    support.setAttribute('aria-label', 'Website tools and process');
+    support.appendChild(websiteTools());
+    support.appendChild(websiteProcess());
+    composition.appendChild(stack);
+    composition.appendChild(support);
+    container.appendChild(composition);
+    node.appendChild(container);
+
+    var layers = Array.prototype.slice.call(stack.querySelectorAll('.website-layer'));
+    layers.forEach(function (layer) {
+      layer.querySelector('.website-layer-selector').addEventListener('click', function () {
+        layers.forEach(function (candidate) {
+          var selected = candidate === layer;
+          candidate.classList.toggle('is-selected', selected);
+          candidate.querySelector('.website-layer-selector').setAttribute('aria-expanded', String(selected));
+          candidate.querySelector('.website-layer-status').textContent = selected ? 'Selected' : 'Select';
+        });
+      });
+    });
+    window.requestAnimationFrame(function () { stack.classList.add('is-ready'); });
+    return node;
+  }
+
   function renderSection(section) {
+    if (section.layout === 'websites') return renderWebsitesSection(section);
     var node = element('section', 'section portfolio-work-section portfolio-layout--' + section.layout);
     node.id = section.id;
     node.setAttribute('aria-labelledby', section.id + '-title');

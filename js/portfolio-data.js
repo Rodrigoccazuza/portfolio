@@ -1,5 +1,17 @@
 /* Central placeholder content contract. Replace this object when final data arrives. */
 window.portfolioPlaceholderData = {
+  websiteTools: [
+    { name: 'WordPress', src: 'images/tools/wordpress.png' },
+    { name: 'Elementor', src: 'images/tools/elementor.png' },
+    { name: 'Webflow', src: 'images/tools/webflow.png' },
+    { name: 'Framer', mark: 'F' },
+    { name: 'Claude', mark: '✣' },
+    { name: 'VS Code', src: 'images/tools/vscode.png' },
+    { name: 'HTML5', src: 'images/tools/html5.png' },
+    { name: 'CSS3', src: 'images/tools/css3.png' },
+    { name: 'JavaScript', src: 'images/tools/javascript.png' }
+  ],
+  websiteProcess: ['Concept', 'Research', 'Sketch', 'Wireframes', 'Prototype', 'Implementation'],
   behindDesigns: [
     { id: 'showcase-one', label: '[PROJECT IMAGE 01]', alt: '[PROJECT IMAGE ALT 01]', src: '' },
     { id: 'showcase-two', label: '[PROJECT IMAGE 02]', alt: '[PROJECT IMAGE ALT 02]', src: '' },
@@ -14,8 +26,11 @@ window.portfolioPlaceholderData = {
       id: 'websites', index: '01', label: 'Websites', layout: 'websites', title: '[WEBSITE SECTION HEADLINE]',
       description: '[SECTION DESCRIPTION — editorial web design and front-end implementation context.]',
       projects: [
-        { id: 'website-featured', title: '[FEATURED PROJECT TITLE WITH A LONGER REALISTIC LENGTH]', description: '[PROJECT DESCRIPTION — two or three lines describing scope, outcome, and approach without inventing claims.]', category: '[PROJECT CATEGORY]', year: '[PROJECT YEAR]', role: '[PROJECT ROLE]', services: ['[SERVICE]', '[LONGER SERVICE LABEL]'], technologies: ['[TECHNOLOGY]', '[LONG TECHNOLOGY NAME]'], media: { type: 'image', src: '', alt: '[PROJECT IMAGE ALT]', label: '[FEATURED WEBSITE IMAGE]', ratio: 'wide' }, url: '', featured: true },
-        { id: 'website-secondary', title: '[SHORT PROJECT TITLE]', description: '[ONE-LINE PROJECT DESCRIPTION]', category: '[PROJECT CATEGORY]', year: '', role: '[PROJECT ROLE]', services: ['[SERVICE]'], technologies: [], media: { type: 'image', src: '', alt: '[PROJECT IMAGE ALT]', label: '[WEBSITE IMAGE]', ratio: 'landscape' }, url: '' }
+        { id: 'website-one', title: '[WEBSITE PROJECT 01]', description: '[PROJECT DESCRIPTION — concise context for the selected website, objective, and implementation.]', category: '[WEBSITE CATEGORY]', year: '[YEAR]', role: '[ROLE]', media: { type: 'image', src: '', alt: '[WEBSITE PREVIEW ALT 01]', label: '[WEBSITE PREVIEW 01]', ratio: 'wide' }, url: '' },
+        { id: 'website-two', title: '[WEBSITE PROJECT WITH A LONGER TITLE]', description: '[SHORT PROJECT DESCRIPTION]', category: '[WEBSITE CATEGORY]', year: '', role: '[ROLE]', media: { type: 'image', src: '', alt: '[WEBSITE PREVIEW ALT 02]', label: '[WEBSITE PREVIEW 02]', ratio: 'wide' }, url: '' },
+        { id: 'website-three', title: '[WEBSITE PROJECT 03]', description: '[PROJECT DESCRIPTION WITH A REALISTIC TWO-LINE LENGTH]', category: '[WEBSITE CATEGORY]', year: '[YEAR]', role: '', media: { type: 'image', src: '', alt: '[WEBSITE PREVIEW ALT 03]', label: '[WEBSITE PREVIEW 03]', ratio: 'wide' }, url: '' },
+        { id: 'website-four', title: '[SHORT WEBSITE TITLE]', description: '[SHORT PROJECT DESCRIPTION]', category: '[WEBSITE CATEGORY]', year: '', role: '[ROLE]', media: { type: 'image', src: '', alt: '[WEBSITE PREVIEW ALT 04]', label: '[WEBSITE PREVIEW 04]', ratio: 'wide' }, url: '' },
+        { id: 'website-five', title: '[WEBSITE PROJECT 05]', description: '[PROJECT DESCRIPTION — optional content-length test.]', category: '[WEBSITE CATEGORY]', year: '[YEAR]', role: '[ROLE]', media: { type: 'image', src: '', alt: '[WEBSITE PREVIEW ALT 05]', label: '[WEBSITE PREVIEW 05]', ratio: 'wide' }, url: '' }
       ]
     },
     {
