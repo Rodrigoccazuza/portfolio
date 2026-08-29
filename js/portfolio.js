@@ -317,7 +317,7 @@
 
   function renderDesignSystemDetails(root, project) {
     root.textContent = '';
-    root.appendChild(element('p', 'design-system-accent', '[SYSTEM POSITIONING STATEMENT]'));
+    root.appendChild(element('p', 'design-system-accent', project.statement || 'A flexible system built for consistent expression.'));
     root.appendChild(element('h3', '', project.title));
     if (project.description) root.appendChild(element('p', '', project.description));
     var metadata = meta(project);
@@ -485,21 +485,23 @@
     return node;
   }
 
-  function mediaRailTile(project, itemIndex) {
+  function mediaRailTile(project, item, itemIndex) {
     var article = element('article', 'media-rail-card');
     article.setAttribute('aria-label', project.format + ' creative ' + (itemIndex + 1));
-    var media = placeholder({
-      src: '',
-      alt: project.media.alt + ' ' + (itemIndex + 1),
-      label: project.media.label + ' ' + String(itemIndex + 1).padStart(2, '0'),
-      ratio: 'portrait'
-    });
-    article.appendChild(media);
-    if (project.format === 'Video') {
-      var play = element('span', 'media-rail-play', '▶ [DURATION]');
-      play.setAttribute('aria-hidden', 'true');
-      media.appendChild(play);
+    var media;
+    if (project.format === 'Video' && item && item.src) {
+      media = element('div', 'project-media project-media--portrait');
+      var video = element('video');
+      video.src = item.src;
+      video.setAttribute('aria-label', item.alt || project.media.alt);
+      video.controls = true;
+      video.preload = 'metadata';
+      video.playsInline = true;
+      media.appendChild(video);
+    } else {
+      media = placeholder({ src: item && item.src, alt: (item && item.alt) || project.media.alt, label: project.title, ratio: 'portrait' });
     }
+    article.appendChild(media);
     return article;
   }
 
@@ -521,7 +523,9 @@
       viewport.tabIndex = 0;
       viewport.setAttribute('aria-label', project.format + ' creative gallery');
       var track = element('div', 'media-row-track');
-      for (var index = 0; index < project.media.count; index += 1) track.appendChild(mediaRailTile(project, index));
+      var mediaItems = project.media.items || [];
+      var itemCount = mediaItems.length || project.media.count || 0;
+      for (var index = 0; index < itemCount; index += 1) track.appendChild(mediaRailTile(project, mediaItems[index], index));
       viewport.appendChild(track);
       var next = element('button', 'media-row-control media-row-next', '→');
       next.type = 'button';
@@ -577,21 +581,13 @@
   function renderYouTubePlayer(root, project) {
     root.textContent = '';
     var screen = element('div', 'youtube-player-screen');
-    screen.appendChild(placeholder({ src: project.media.src, alt: project.media.alt, label: project.media.label, ratio: 'video' }));
-    var copy = element('div', 'youtube-player-copy');
-    copy.appendChild(element('h3', '', project.title));
-    if (project.description) copy.appendChild(element('p', '', project.description));
-    screen.appendChild(copy);
-    var play = element('button', 'youtube-play-button', '▶');
-    play.type = 'button';
-    play.setAttribute('aria-label', 'Play placeholder video: ' + project.title);
-    screen.appendChild(play);
-    var controls = element('div', 'youtube-player-controls');
-    controls.setAttribute('aria-hidden', 'true');
-    controls.appendChild(element('span', '', '▶  |◀  🔊'));
-    controls.appendChild(element('i'));
-    controls.appendChild(element('span', '', '[TIME] / [DURATION]  ⚙  ⛶'));
-    screen.appendChild(controls);
+    var iframe = element('iframe', 'youtube-embed');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + project.youtubeId;
+    iframe.title = project.title;
+    iframe.loading = 'lazy';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    screen.appendChild(iframe);
     root.appendChild(screen);
   }
 
@@ -614,17 +610,22 @@
       button.type = 'button';
       button.setAttribute('aria-label', 'Select video: ' + project.title);
       button.dataset.videoIndex = index;
-      var thumb = element('span', 'youtube-playlist-thumb', '[THUMBNAIL]');
+      var thumb = element('span', 'youtube-playlist-thumb');
+      var thumbImage = element('img');
+      thumbImage.src = project.media.src;
+      thumbImage.alt = '';
+      thumbImage.loading = 'lazy';
+      thumb.appendChild(thumbImage);
       button.appendChild(thumb);
       var copy = element('span');
       copy.appendChild(element('strong', '', project.title));
-      copy.appendChild(element('small', '', '[DURATION]'));
+      copy.appendChild(element('small', '', project.category || 'Drigo · YouTube'));
       button.appendChild(copy);
       list.appendChild(button);
     });
     sidebar.appendChild(list);
     var filters = element('div', 'youtube-filters');
-    ['All', 'Branding', 'Design', 'Strategy', 'Process'].forEach(function (filter, index) {
+    ['All', 'Video Journal', 'Creative Process', 'Creator Journal'].forEach(function (filter, index) {
       var button = element('button', index === 0 ? 'is-active' : '', filter);
       button.type = 'button';
       button.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
@@ -633,6 +634,10 @@
           var active = candidate === button;
           candidate.classList.toggle('is-active', active);
           candidate.setAttribute('aria-pressed', String(active));
+        });
+        Array.prototype.forEach.call(list.querySelectorAll('.youtube-playlist-item'), function (item) {
+          var video = section.projects[Number(item.dataset.videoIndex)];
+          item.hidden = filter !== 'All' && video.category !== filter;
         });
       });
       filters.appendChild(button);

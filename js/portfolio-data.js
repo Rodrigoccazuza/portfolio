@@ -1,113 +1,86 @@
-/* Central placeholder content contract. Replace this object when final data arrives. */
-window.portfolioPlaceholderData = {
-  websiteTools: [
-    { name: 'WordPress', src: 'images/tools/wordpress.png' },
-    { name: 'Elementor', src: 'images/tools/elementor.png' },
-    { name: 'Webflow', src: 'images/tools/webflow.png' },
-    { name: 'Framer', mark: 'F' },
-    { name: 'Claude', mark: '✣' },
-    { name: 'VS Code', src: 'images/tools/vscode.png' },
-    { name: 'HTML5', src: 'images/tools/html5.png' },
-    { name: 'CSS3', src: 'images/tools/css3.png' },
-    { name: 'JavaScript', src: 'images/tools/javascript.png' }
-  ],
-  websiteProcess: ['Concept', 'Research', 'Sketch', 'Wireframes', 'Prototype', 'Implementation'],
-  designSystemElements: [
-    { title: 'Design Tokens', description: 'Colors, type, spacing, radius, and motion.' },
-    { title: 'Brand Guidelines', description: 'Clear rules for voice, visuals, and usage.' },
-    { title: 'Component Library', description: 'Reusable, accessible, production-ready patterns.' },
-    { title: 'Documentation', description: 'Guidance built for teams and long-term scale.' }
-  ],
-  emailDisciplines: ['Strategy', 'Copy Direction', 'Layout', 'Responsive Email', 'Development', 'Testing'],
-  behindDesigns: [
-    { id: 'showcase-one', label: '[PROJECT IMAGE 01]', alt: '[PROJECT IMAGE ALT 01]', src: '' },
-    { id: 'showcase-two', label: '[PROJECT IMAGE 02]', alt: '[PROJECT IMAGE ALT 02]', src: '' },
-    { id: 'showcase-three', label: '[PROJECT IMAGE 03]', alt: '[PROJECT IMAGE ALT 03]', src: '' },
-    { id: 'showcase-four', label: '[PROJECT IMAGE 04]', alt: '[PROJECT IMAGE ALT 04]', src: '' },
-    { id: 'showcase-five', label: '[PROJECT IMAGE 05]', alt: '[PROJECT IMAGE ALT 05]', src: '' },
-    { id: 'showcase-six', label: '[PROJECT IMAGE 06]', alt: '[PROJECT IMAGE ALT 06]', src: '' },
-    { id: 'showcase-seven', label: '[PROJECT IMAGE 07]', alt: '[PROJECT IMAGE ALT 07]', src: '' }
-  ],
-  sections: [
-    {
-      id: 'websites', index: '01', label: 'Websites', layout: 'websites', title: '[WEBSITE SECTION HEADLINE]',
-      description: '[SECTION DESCRIPTION — editorial web design and front-end implementation context.]',
-      projects: [
-        { id: 'website-one', title: '[WEBSITE PROJECT 01]', description: '[PROJECT DESCRIPTION — concise context for the selected website, objective, and implementation.]', category: '[WEBSITE CATEGORY]', year: '[YEAR]', role: '[ROLE]', media: { type: 'image', src: '', alt: '[WEBSITE PREVIEW ALT 01]', label: '[WEBSITE PREVIEW 01]', ratio: 'wide' }, url: '' },
-        { id: 'website-two', title: '[WEBSITE PROJECT WITH A LONGER TITLE]', description: '[SHORT PROJECT DESCRIPTION]', category: '[WEBSITE CATEGORY]', year: '', role: '[ROLE]', media: { type: 'image', src: '', alt: '[WEBSITE PREVIEW ALT 02]', label: '[WEBSITE PREVIEW 02]', ratio: 'wide' }, url: '' },
-        { id: 'website-three', title: '[WEBSITE PROJECT 03]', description: '[PROJECT DESCRIPTION WITH A REALISTIC TWO-LINE LENGTH]', category: '[WEBSITE CATEGORY]', year: '[YEAR]', role: '', media: { type: 'image', src: '', alt: '[WEBSITE PREVIEW ALT 03]', label: '[WEBSITE PREVIEW 03]', ratio: 'wide' }, url: '' },
-        { id: 'website-four', title: '[SHORT WEBSITE TITLE]', description: '[SHORT PROJECT DESCRIPTION]', category: '[WEBSITE CATEGORY]', year: '', role: '[ROLE]', media: { type: 'image', src: '', alt: '[WEBSITE PREVIEW ALT 04]', label: '[WEBSITE PREVIEW 04]', ratio: 'wide' }, url: '' },
-        { id: 'website-five', title: '[WEBSITE PROJECT 05]', description: '[PROJECT DESCRIPTION — optional content-length test.]', category: '[WEBSITE CATEGORY]', year: '[YEAR]', role: '[ROLE]', media: { type: 'image', src: '', alt: '[WEBSITE PREVIEW ALT 05]', label: '[WEBSITE PREVIEW 05]', ratio: 'wide' }, url: '' }
-      ]
-    },
-    {
-      id: 'design-systems', index: '02', label: 'Design Systems', layout: 'systems', title: '[DESIGN SYSTEMS SECTION HEADLINE]',
-      description: '[SECTION DESCRIPTION — reusable visual language, components, and consistency.]',
-      projects: [
-        { id: 'system-one', title: '[DESIGN SYSTEM TITLE]', description: '[SYSTEM DESCRIPTION WITH REALISTIC LENGTH]', category: '[SYSTEM CATEGORY]', year: '[YEAR]', role: '[ROLE]', services: ['[FOUNDATIONS]', '[COMPONENTS]'], technologies: [], media: { type: 'image', src: '', alt: '[SYSTEM PREVIEW ALT]', label: '[FOUNDATIONS PREVIEW]', ratio: 'square' }, url: '' },
-        { id: 'system-two', title: '[LONGER DESIGN SYSTEM PROJECT TITLE]', description: '[SHORT SYSTEM DESCRIPTION]', category: '[SYSTEM CATEGORY]', year: '', role: '', services: ['[TOKENS]', '[PATTERNS]', '[DOCUMENTATION]'], technologies: [], media: { type: 'image', src: '', alt: '[SYSTEM PREVIEW ALT]', label: '[COMPONENT PREVIEW]', ratio: 'square' }, url: '' },
-        { id: 'system-three', title: '[DESIGN SYSTEM TITLE]', description: '', category: '[SYSTEM CATEGORY]', year: '[YEAR]', role: '[ROLE]', services: ['[GUIDELINES]'], technologies: [], media: { type: 'image', src: '', alt: '[SYSTEM PREVIEW ALT]', label: '[PATTERN PREVIEW]', ratio: 'square' }, url: '' }
-      ]
-    },
-    {
-      id: 'email', index: '03', label: 'Email', layout: 'rail', title: '[EMAIL CAMPAIGNS SECTION HEADLINE]',
-      description: '[SECTION DESCRIPTION — modular campaign and lifecycle email design.]',
-      projects: [
-        { id: 'email-one', title: '[FEATURED EMAIL CAMPAIGN TITLE]', description: '[CAMPAIGN DESCRIPTION — realistic multi-line context for the featured composition.]', category: '[EMAIL CATEGORY]', year: '[YEAR]', role: '[ROLE]', services: ['[SERVICE]', '[SERVICE]'], technologies: [], media: { type: 'image', src: '', alt: '[EMAIL PREVIEW ALT]', label: '[FEATURED EMAIL CREATIVE]', ratio: 'portrait' }, url: '', featured: true },
-        { id: 'email-two', title: '[EMAIL CAMPAIGN TITLE]', description: '[SHORT CAMPAIGN DESCRIPTION]', category: '[EMAIL CATEGORY]', year: '', role: '', services: ['[SERVICE]'], technologies: [], media: { type: 'image', src: '', alt: '[EMAIL PREVIEW ALT]', label: '[EMAIL CREATIVE]', ratio: 'portrait' }, url: '' },
-        { id: 'email-three', title: '[LONGER EMAIL CAMPAIGN TITLE FOR WRAPPING]', description: '', category: '[EMAIL CATEGORY]', year: '[YEAR]', role: '', services: [], technologies: [], media: { type: 'image', src: '', alt: '[EMAIL PREVIEW ALT]', label: '[EMAIL CREATIVE]', ratio: 'portrait' }, url: '' },
-        { id: 'email-four', title: '[EMAIL CAMPAIGN TITLE 04]', description: '[SHORT CAMPAIGN DESCRIPTION]', category: '[EMAIL CATEGORY]', year: '', role: '[ROLE]', services: ['[SERVICE]'], technologies: [], media: { type: 'image', src: '', alt: '[EMAIL PREVIEW ALT 04]', label: '[EMAIL CREATIVE 04]', ratio: 'portrait' }, url: '' },
-        { id: 'email-five', title: '[EMAIL CAMPAIGN TITLE 05]', description: '[CAMPAIGN DESCRIPTION WITH A REALISTIC TWO-LINE LENGTH]', category: '[EMAIL CATEGORY]', year: '[YEAR]', role: '', services: ['[SERVICE]'], technologies: [], media: { type: 'image', src: '', alt: '[EMAIL PREVIEW ALT 05]', label: '[EMAIL CREATIVE 05]', ratio: 'portrait' }, url: '' }
-      ]
-    },
-    {
-      id: 'social', index: '04', label: 'Social Media', layout: 'rows', title: '[SOCIAL MEDIA SECTION HEADLINE]',
-      description: '[SECTION DESCRIPTION — cohesive social campaigns and content systems.]',
-      projects: [
-        { id: 'social-one', title: '[SOCIAL CAMPAIGN TITLE]', description: '[CAMPAIGN DESCRIPTION]', category: '[SOCIAL CATEGORY]', format: 'Static', year: '[YEAR]', role: '[ROLE]', services: ['[SERVICE]'], technologies: [], media: { type: 'gallery', src: '', alt: '[SOCIAL CREATIVE ALT]', label: '[SOCIAL STATIC CREATIVE]', ratio: 'portrait', count: 6 }, url: '' },
-        { id: 'social-two', title: '[LONGER SOCIAL CAMPAIGN TITLE]', description: '[A LONGER DESCRIPTION TO TEST HOW SUPPORTING COPY WRAPS ON SMALLER VIEWPORTS.]', category: '[SOCIAL CATEGORY]', format: 'Video', year: '', role: '', services: ['[SERVICE]', '[SERVICE]'], technologies: [], media: { type: 'gallery', src: '', alt: '[SOCIAL CREATIVE ALT]', label: '[SOCIAL VIDEO CREATIVE]', ratio: 'portrait', count: 6 }, url: '' }
-      ]
-    },
-    {
-      id: 'ads', index: '05', label: 'Ads', layout: 'rows', title: '[PAID ADVERTISING SECTION HEADLINE]',
-      description: '[SECTION DESCRIPTION — campaign-ready creative across paid-media formats.]',
-      projects: [
-        { id: 'ads-one', title: '[AD CAMPAIGN TITLE]', description: '[PAID-MEDIA CAMPAIGN DESCRIPTION]', category: '[AD CATEGORY]', format: 'Static', year: '[YEAR]', role: '[ROLE]', services: ['[SERVICE]'], technologies: [], media: { type: 'gallery', src: '', alt: '[AD CREATIVE ALT]', label: '[STATIC AD CREATIVE]', ratio: 'portrait', count: 6 }, url: '' },
-        { id: 'ads-two', title: '[LONGER AD CAMPAIGN TITLE]', description: '', category: '[AD CATEGORY]', format: 'Video', year: '', role: '', services: ['[SERVICE]', '[FORMAT]'], technologies: [], media: { type: 'gallery', src: '', alt: '[AD CREATIVE ALT]', label: '[VIDEO AD CREATIVE]', ratio: 'portrait', count: 6 }, url: '' }
-      ]
-    },
-    {
-      id: 'multimedia', index: '06', label: 'Multimedia', layout: 'asymmetric', title: '[MULTIMEDIA SECTION HEADLINE]',
-      description: '[SECTION DESCRIPTION — selected work across additional creative disciplines.]',
-      projects: [
-        { id: 'other-one', title: '[FEATURED MULTIMEDIA PROJECT TITLE]', description: '[MULTIMEDIA PROJECT DESCRIPTION WITH REALISTIC LENGTH]', category: '[PROJECT CATEGORY]', year: '[YEAR]', role: '[ROLE]', services: ['[SERVICE]'], technologies: [], media: { type: 'image', src: '', alt: '[MULTIMEDIA PREVIEW ALT]', label: '[MULTIMEDIA IMAGE]', ratio: 'wide' }, url: '', featured: true },
-        { id: 'other-two', title: '[MULTIMEDIA PROJECT TITLE]', description: '[SHORT DESCRIPTION]', category: '[PROJECT CATEGORY]', year: '', role: '', services: [], technologies: [], media: { type: 'image', src: '', alt: '[MULTIMEDIA PREVIEW ALT]', label: '[PROJECT IMAGE]', ratio: 'square' }, url: '' },
-        { id: 'other-three', title: '[SHORT TITLE]', description: '', category: '[PROJECT CATEGORY]', year: '[YEAR]', role: '', services: [], technologies: [], media: { type: 'image', src: '', alt: '[MULTIMEDIA PREVIEW ALT]', label: '[PROJECT IMAGE]', ratio: 'landscape' }, url: '' },
-        { id: 'other-four', title: '[MULTIMEDIA PROJECT 04]', description: '[SHORT DESCRIPTION]', category: '[PROJECT CATEGORY]', year: '', role: '[ROLE]', services: [], technologies: [], media: { type: 'image', src: '', alt: '[MULTIMEDIA PREVIEW ALT 04]', label: '[PROJECT IMAGE 04]', ratio: 'landscape' }, url: '' },
-        { id: 'other-five', title: '[MULTIMEDIA PROJECT 05]', description: '[SHORT DESCRIPTION]', category: '[PROJECT CATEGORY]', year: '[YEAR]', role: '', services: [], technologies: [], media: { type: 'image', src: '', alt: '[MULTIMEDIA PREVIEW ALT 05]', label: '[PROJECT IMAGE 05]', ratio: 'landscape' }, url: '' }
-      ]
-    },
-    {
-      id: 'youtube', index: '07', label: 'YouTube', layout: 'video', title: '[VIDEO SECTION HEADLINE]',
-      description: '[SECTION DESCRIPTION — long-form, short-form, motion, and production context.]',
-      projects: [
-        { id: 'video-one', title: '[FEATURED VIDEO TITLE]', description: '[VIDEO DESCRIPTION — supporting information with a realistic two-line length.]', category: '[VIDEO CATEGORY]', year: '[YEAR]', role: '[ROLE]', services: ['[EDITING]', '[PRODUCTION]'], technologies: [], media: { type: 'video', src: '', alt: '[VIDEO THUMBNAIL ALT]', label: '[VIDEO THUMBNAIL]', ratio: 'video' }, url: '', featured: true },
-        { id: 'video-two', title: '[SECONDARY VIDEO TITLE]', description: '[SHORT VIDEO DESCRIPTION]', category: '[VIDEO CATEGORY]', year: '', role: '', services: ['[SERVICE]'], technologies: [], media: { type: 'video', src: '', alt: '[VIDEO THUMBNAIL ALT]', label: '[VIDEO THUMBNAIL]', ratio: 'video' }, url: '' },
-        { id: 'video-three', title: '[VIDEO TITLE 03]', description: '[SHORT VIDEO DESCRIPTION]', category: '[VIDEO CATEGORY]', year: '[YEAR]', role: '[ROLE]', services: ['[SERVICE]'], technologies: [], media: { type: 'video', src: '', alt: '[VIDEO THUMBNAIL ALT 03]', label: '[VIDEO THUMBNAIL 03]', ratio: 'video' }, url: '' },
-        { id: 'video-four', title: '[LONGER VIDEO TITLE FOR RESPONSIVE TESTING]', description: '[VIDEO DESCRIPTION]', category: '[VIDEO CATEGORY]', year: '', role: '', services: ['[SERVICE]'], technologies: [], media: { type: 'video', src: '', alt: '[VIDEO THUMBNAIL ALT 04]', label: '[VIDEO THUMBNAIL 04]', ratio: 'video' }, url: '' }
-      ]
-    },
-    {
-      id: 'campaigns', index: '08', label: 'Campaigns', layout: 'campaigns', title: '[CAMPAIGNS SECTION HEADLINE]',
-      description: '[SECTION DESCRIPTION — integrated and seasonal campaign modules.]',
-      projects: [
-        { id: 'campaign-one', title: '[CAMPAIGN TITLE]', category: '[CAMPAIGN CATEGORY]', year: '[YEAR]' },
-        { id: 'campaign-two', title: '[LONGER CAMPAIGN TITLE]', category: '[CAMPAIGN CATEGORY]', year: '' },
-        { id: 'campaign-three', title: '[CAMPAIGN TITLE]', category: '[CAMPAIGN CATEGORY]', year: '[YEAR]' },
-        { id: 'campaign-four', title: '[SHORT TITLE]', category: '[CAMPAIGN CATEGORY]', year: '' },
-        { id: 'campaign-five', title: '[CAMPAIGN TITLE]', category: '[CAMPAIGN CATEGORY]', year: '[YEAR]' },
-        { id: 'campaign-six', title: '[LONG CAMPAIGN TITLE FOR RESPONSIVE TESTING]', category: '[CAMPAIGN CATEGORY]', year: '' }
-      ]
-    }
-  ]
-};
+/* Production content from main and the supplied media archive. */
+(function () {
+  var imageItems = function (folder, names) { return names.map(function (name) { return { src: 'assets/content/' + folder + '/' + name + '.png', alt: name.replace(/-/g, ' ') }; }); };
+  var socialNames = ['skin-types-01','skin-types-02','boy-tox-01','boy-tox-02','coolsculpting-01','coolsculpting-02','hydrafacial-01','hydrafacial-02','masseter-01','masseter-02','microneedling-01','microneedling-02','treatment-covers-01','treatment-covers-02'];
+  var adNames = ['campaign-01','campaign-02','campaign-03','campaign-04','valentines-01','valentines-02','valentines-03','valentines-04','wrinkle-before-after-01','wrinkle-before-after-02','wrinkle-before-after-03','wrinkle-before-after-04'];
+  var email = function (id, title, file, category, description) { return { id: id, title: title, description: description, category: category, role: 'Email Design', media: { type: 'image', src: 'assets/content/email/' + file + '.png', alt: title + ' email design' } }; };
+  window.portfolioPlaceholderData = {
+    websiteTools: [
+      { name: 'WordPress', src: 'images/tools/wordpress.png' }, { name: 'Elementor', src: 'images/tools/elementor.png' }, { name: 'Webflow', src: 'images/tools/webflow.png' },
+      { name: 'Framer', mark: 'F' }, { name: 'Claude', mark: '✣' }, { name: 'VS Code', src: 'images/tools/vscode.png' },
+      { name: 'HTML5', src: 'images/tools/html5.png' }, { name: 'CSS3', src: 'images/tools/css3.png' }, { name: 'JavaScript', src: 'images/tools/javascript.png' }
+    ],
+    websiteProcess: ['Concept', 'Research', 'Sketch', 'Wireframes', 'Prototype', 'Implementation'],
+    designSystemElements: [
+      { title: 'Design Tokens', description: 'Colors, type, spacing, radius, and motion.' }, { title: 'Brand Guidelines', description: 'Clear rules for voice, visuals, and usage.' },
+      { title: 'Component Library', description: 'Reusable, accessible, production-ready patterns.' }, { title: 'Documentation', description: 'Guidance built for teams and long-term scale.' }
+    ],
+    emailDisciplines: ['Strategy', 'Copy Direction', 'Layout', 'Responsive Email', 'Development', 'Testing'],
+    behindDesigns: [
+      { id: 'showcase-one', label: 'Skin Types', alt: 'Skin types social media artwork', src: 'assets/content/social/skin-types-01.png' },
+      { id: 'showcase-two', label: 'Valentine’s Day', alt: 'Valentine’s Day campaign artwork', src: 'assets/content/ads/valentines-01.png' },
+      { id: 'showcase-three', label: 'Hydrafacial', alt: 'Hydrafacial social media artwork', src: 'assets/content/social/hydrafacial-01.png' },
+      { id: 'showcase-four', label: 'Spring Sale', alt: 'Spring sale email campaign', src: 'assets/content/email/spring-sale.png' },
+      { id: 'showcase-five', label: 'Microneedling', alt: 'Microneedling social media artwork', src: 'assets/content/social/microneedling-01.png' },
+      { id: 'showcase-six', label: 'Wrinkle Treatment', alt: 'Wrinkle treatment ad artwork', src: 'assets/content/ads/wrinkle-before-after-01.png' },
+      { id: 'showcase-seven', label: 'Mother’s Day', alt: 'Mother’s Day artwork', src: 'assets/content/other/mothers-day.png' }
+    ],
+    sections: [
+      { id: 'websites', index: '01', label: 'Websites', layout: 'websites', title: 'Web experiences built with intent', description: 'Selected websites combining brand thinking, clear UX, and front-end implementation.', projects: [
+        { id: 'prisma', title: 'Prisma Providers', description: 'A multilingual website supporting a clear path through a complex life process.', category: 'Multilingual Brand Site', role: 'Design & Development', media: { type: 'image', src: 'images/site/hero.jpg', alt: 'Prisma Providers website preview' }, url: 'https://prismaproviders.com/' },
+        { id: 'cuia', title: 'Cuia Restaurant', description: 'A contemporary restaurant website shaped around atmosphere, menu, and discovery.', category: 'Hospitality Website', role: 'Design & Development', media: { type: 'image', src: 'assets/content/other/valentines-header.png', alt: 'Cuia Restaurant website preview' }, url: 'https://rodrigoccazuza.github.io/Cuiarestaurant/' },
+        { id: 'data-money', title: 'Your Data Your Money', description: 'A digital experience about ownership, privacy, and the value of personal data.', category: 'Campaign Website', role: 'Design & Framer Build', media: { type: 'image', src: 'images/generated-thumbs/WEB DESIGN/SOCIAL PROJECT/screencapture-yourdatayourmoney-framer-website-2025-07-17-00_00_53.jpg', alt: 'Your Data Your Money website preview' }, url: 'https://yourdatayourmoney.framer.website/' },
+        { id: 'taina', title: 'Tainá Borges Photography', description: 'A warm editorial portfolio for a New York photographer.', category: 'Creative Portfolio', role: 'Design & Development', media: { type: 'image', src: 'images/generated-thumbs/WEB DESIGN/TAINA WEBSITE/taina-borges-website/project/assets/IMG_0122.jpg', alt: 'Tainá Borges Photography website preview' }, url: 'https://rodrigoccazuza.github.io/taina-borges-website/' },
+        { id: 'bmi', title: 'BMI Calculator', description: 'A focused browser tool for quick body-mass-index calculations.', category: 'Interactive Web Tool', role: 'Front-End Development', media: { type: 'image', src: 'assets/content/social/coolsculpting-01.png', alt: 'BMI Calculator preview' }, url: 'https://rodrigoccazuza.github.io/calculadoraIMC/' }
+      ] },
+      { id: 'design-systems', index: '02', label: 'Design Systems', layout: 'systems', title: 'Scalable visual systems', description: 'Brand foundations and reusable components built to stay consistent across every touchpoint.', projects: [
+        { id: 'bodyfactory-system', title: 'BodyFactory', statement: 'A premium wellness system designed for clarity and consistency.', description: 'Brand guidelines and visual-system source material for a multi-service wellness brand.', category: 'Brand Foundations', role: 'Visual System', url: 'projects/brand-systems-bodyfactory/' },
+        { id: 'prisma-system', title: 'Prisma Providers', statement: 'A clear, multilingual path through a complex life process.', description: 'A multilingual system that makes complex information feel human and navigable.', category: 'Multilingual System', role: 'Brand & Digital', url: 'projects/brand-systems-prisma-providers/' },
+        { id: 'data-system', title: 'Your Data Your Money', statement: 'Own it. Earn it. Your data has value.', description: 'A bold campaign identity translated into a flexible digital visual language.', category: 'Campaign System', role: 'Brand & Web', url: 'projects/brand-systems-social-project/' },
+        { id: 'taina-system', title: 'Tainá Photography', statement: 'Warm, natural photography with an editorial New York point of view.', description: 'A restrained portfolio system that lets image-making remain the focus.', category: 'Portfolio System', role: 'Brand & Web', url: 'projects/brand-systems-taina-photography/' }
+      ] },
+      { id: 'email', index: '03', label: 'Email', layout: 'rail', title: 'E-mail campaigns', description: 'Lifecycle and seasonal email creative designed as connected campaign systems.', projects: [
+        email('email-july', 'Fourth of July', 'fourth-of-july', 'Seasonal Campaign', 'A multi-send promotion from early access through last chance.'),
+        email('email-welcome', 'Welcome Flow', 'welcome-flow', 'Lifecycle Flow', 'A connected welcome sequence introducing the brand and its services.'),
+        email('email-winter', 'Winter Campaign', 'winter-campaign', 'Seasonal Campaign', 'Coordinated seasonal campaign creative.'),
+        email('email-masseter', 'Masseter Minimizing', 'masseter-minimizing', 'Treatment Campaign', 'Treatment-focused creative with a clear educational hierarchy.'),
+        email('email-valentine', 'Valentine’s Day', 'valentines-day', 'Seasonal Campaign', 'A two-part Valentine’s Day offer campaign.'),
+        email('email-spring', 'Spring Sale', 'spring-sale', 'Seasonal Campaign', 'A coordinated spring promotional series.'),
+        email('email-black-friday', 'Black Friday', 'black-friday', 'Retail Campaign', 'Early-access and event-day creative.'),
+        email('email-coolsculpting', 'CoolSculpting', 'coolsculpting', 'Treatment Campaign', 'Service-focused education and conversion creative.'),
+        email('email-cyber', 'Cyber Monday', 'cyber-monday', 'Retail Campaign', 'Anticipation and promotional messaging for Cyber Monday.'),
+        email('email-wrinkle', 'Flat-Fee Wrinkle Treatment', 'wrinkle-treatment', 'Treatment Campaign', 'A direct treatment-focused value proposition.')
+      ] },
+      { id: 'social', index: '04', label: 'Social Media', layout: 'rows', title: 'Social media systems', description: 'Static and motion-led content organized as repeatable campaign families.', projects: [
+        { id: 'social-static', title: 'BodyFactory Feed Content', description: 'Educational, promotional, and treatment-focused feed content.', category: 'Organic Social', format: 'Static', media: { type: 'gallery', alt: 'BodyFactory social creative', items: imageItems('social', socialNames) } },
+        { id: 'social-video', title: 'Social Video Content', description: 'Short-form edits for Instagram feeds and creator-led social storytelling.', category: 'Organic Social', format: 'Video', media: { type: 'gallery', alt: 'Social video', items: [
+          { src: 'assets/portfolio-media-web/SOCIAL MEDIA/MYDATAMYMONEY - INSTAGRAM/better audio final version.m4v', alt: 'Your Data Your Money social video' }, { src: 'assets/portfolio-media-web/SOCIAL MEDIA/MYDATAMYMONEY - INSTAGRAM/videotwofinal.m4v', alt: 'Your Data Your Money video edit' },
+          { src: 'assets/portfolio-media-web/VIDEO EDITING/INSTAGRAM FEED/2 FORMATOS.m4v', alt: 'Instagram format edit' }, { src: 'assets/portfolio-media-web/VIDEO EDITING/INSTAGRAM FEED/HYDRAFACIAL PRO IG .m4v', alt: 'Hydrafacial Pro Instagram video' }, { src: 'assets/portfolio-media-web/VIDEO EDITING/INSTAGRAM FEED/POV FACIAL.m4v', alt: 'POV facial Instagram video' }
+        ] } }
+      ] },
+      { id: 'ads', index: '05', label: 'Ads', layout: 'rows', title: 'Paid media creative', description: 'Static and video ad concepts structured for campaign variation and performance testing.', projects: [
+        { id: 'ads-static', title: 'BodyFactory Paid Social', description: 'Promotional, seasonal, and before-and-after advertising creative.', category: 'Paid Social', format: 'Static', media: { type: 'gallery', alt: 'Paid social ad', items: imageItems('ads', adNames) } },
+        { id: 'ads-video', title: 'Meta Video Ads', description: 'Short paid-media edits organized as a dedicated video-ad set.', category: 'Meta Ads', format: 'Video', media: { type: 'gallery', alt: 'Meta video ad', items: [
+          { src: 'assets/portfolio-media-web/META ADS/VIDEO AD/A615C244-3978-4652-B612-7C476AF936CD.m4v', alt: 'BodyFactory Meta video ad' }, { src: 'assets/portfolio-media-web/META ADS/VIDEO AD/BLOND_POV_AD_16.9.m4v', alt: 'Blond POV Meta video ad' }, { src: 'assets/portfolio-media-web/META ADS/VIDEO AD/BLOND_RESULTS_ADS_16.9.m4v', alt: 'Blond results Meta video ad' }
+        ] } }
+      ] },
+      { id: 'multimedia', index: '06', label: 'Multimedia', layout: 'asymmetric', title: 'Additional creative work', description: 'Campaign extensions, link-in-bio experiences, and supporting digital pieces.', projects: [
+        { id: 'other-one', title: 'Mother’s Day', description: 'Seasonal campaign artwork.', media: { type: 'image', src: 'assets/content/other/mothers-day.png', alt: 'Mother’s Day artwork', ratio: 'wide' }, featured: true },
+        { id: 'other-two', title: 'Linktree Experience', description: 'Branded link-in-bio design.', media: { type: 'image', src: 'assets/content/other/linktree-01.png', alt: 'Linktree experience' } },
+        { id: 'other-three', title: 'Linktree System', description: 'Supporting link-in-bio screen.', media: { type: 'image', src: 'assets/content/other/linktree-02.png', alt: 'Linktree system' } },
+        { id: 'other-four', title: 'Hydrafacial Promotion', description: 'Promotional campaign extension.', media: { type: 'image', src: 'assets/content/other/hydrafacial-promo.png', alt: 'Hydrafacial promotion' } },
+        { id: 'other-five', title: 'Valentine’s Header', description: 'Seasonal email and social header.', media: { type: 'image', src: 'assets/content/other/valentines-header.png', alt: 'Valentine’s header' } }
+      ] },
+      { id: 'youtube', index: '07', label: 'YouTube', layout: 'video', title: 'Documenting the creative process', description: 'Creator-led films about making work, building consistency, video journaling, and life in New York City.', channelUrl: 'https://www.youtube.com/@Drigoverse', projects: [
+        { id: 'video-one', title: 'Vlogged for 90+ days with my Osmo Pocket 3 in NYC and somethings changed...', description: 'A reflection on documenting life with the Osmo Pocket 3 in New York City.', category: 'Video Journal', youtubeId: 'DKAxc6Bq5tw', media: { src: 'https://i.ytimg.com/vi/DKAxc6Bq5tw/hqdefault.jpg', alt: 'Osmo Pocket 3 video thumbnail' }, url: 'https://www.youtube.com/watch?v=DKAxc6Bq5tw' },
+        { id: 'video-two', title: 'The Only Ability That Keeps You Consistent (It’s Not Motivation)', description: 'A creator’s perspective on consistency.', category: 'Creative Process', youtubeId: 'C2iItT8LrdM', media: { src: 'https://i.ytimg.com/vi/C2iItT8LrdM/hqdefault.jpg', alt: 'Consistency video thumbnail' } },
+        { id: 'video-three', title: 'If It Serves No Purpose, Why Do We Create?', description: 'A reflection on creativity and purpose.', category: 'Creative Process', youtubeId: 'iUdTDfxJh58', media: { src: 'https://i.ytimg.com/vi/iUdTDfxJh58/hqdefault.jpg', alt: 'Why we create video thumbnail' } },
+        { id: 'video-four', title: 'Things I wish I knew before starting as a small creator', description: 'Lessons from building a small creator practice.', category: 'Creator Journal', youtubeId: 'bjqbUIukLDk', media: { src: 'https://i.ytimg.com/vi/bjqbUIukLDk/hqdefault.jpg', alt: 'Small creator video thumbnail' } },
+        { id: 'video-five', title: 'The raw reality of documenting the process', description: 'An honest look at documenting creative work.', category: 'Creator Journal', youtubeId: 'jbLNX6MIYDY', media: { src: 'https://i.ytimg.com/vi/jbLNX6MIYDY/hqdefault.jpg', alt: 'Documenting the process thumbnail' } }
+      ] },
+      { id: 'campaigns', index: '08', label: 'Campaigns', layout: 'campaigns', title: 'Campaign archive', description: 'Seasonal and treatment-focused campaign families.', projects: [
+        { id: 'campaign-one', title: 'Valentine’s Day', category: 'Seasonal' }, { id: 'campaign-two', title: 'Masseter Minimizing', category: 'Treatment' }, { id: 'campaign-three', title: 'Black Friday', category: 'Retail' }, { id: 'campaign-four', title: 'Spring Sale', category: 'Seasonal' }, { id: 'campaign-five', title: 'Wrinkle Treatment', category: 'Treatment' }, { id: 'campaign-six', title: 'Fourth of July', category: 'Seasonal' }
+      ] }
+    ]
+  };
+}());
