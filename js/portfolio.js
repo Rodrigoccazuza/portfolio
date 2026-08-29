@@ -259,7 +259,7 @@
     node.id = section.id;
     node.setAttribute('aria-labelledby', section.id + '-title');
     var container = element('div', 'container');
-    var label = element('h2', 'eyebrow', 'Websites');
+    var label = element('h2', 'eyebrow portfolio-category-label', 'Websites');
     label.id = section.id + '-title';
     container.appendChild(label);
     var composition = element('div', 'websites-composition');
@@ -289,8 +289,206 @@
     return node;
   }
 
+  function systemCanvas(project, index) {
+    var button = element('button', 'system-canvas');
+    button.type = 'button';
+    button.dataset.projectId = project.id;
+    button.dataset.canvasIndex = index;
+    button.setAttribute('aria-label', 'Select design system: ' + project.title);
+    button.setAttribute('aria-pressed', index === 2 ? 'true' : 'false');
+    button.style.setProperty('--canvas-index', index);
+    var visual = element('span', 'system-canvas-visual');
+    visual.setAttribute('aria-hidden', 'true');
+    visual.appendChild(element('i', 'system-canvas-type', 'Aa'));
+    var rings = element('i', 'system-canvas-rings');
+    visual.appendChild(rings);
+    var components = element('i', 'system-canvas-components');
+    components.appendChild(element('b', '', 'Button'));
+    components.appendChild(element('b', '', 'Secondary'));
+    components.appendChild(element('b', '', '•••'));
+    visual.appendChild(components);
+    button.appendChild(visual);
+    var caption = element('span', 'system-canvas-caption');
+    caption.appendChild(element('strong', '', project.title));
+    caption.appendChild(element('span', '', project.category));
+    button.appendChild(caption);
+    return button;
+  }
+
+  function renderDesignSystemDetails(root, project) {
+    root.textContent = '';
+    root.appendChild(element('p', 'design-system-accent', '[SYSTEM POSITIONING STATEMENT]'));
+    root.appendChild(element('h3', '', project.title));
+    if (project.description) root.appendChild(element('p', '', project.description));
+    var metadata = meta(project);
+    if (metadata) root.appendChild(metadata);
+    var elements = element('ul', 'system-elements');
+    data.designSystemElements.forEach(function (systemElement, index) {
+      var item = element('li');
+      item.appendChild(element('span', 'system-element-icon', String(index + 1).padStart(2, '0')));
+      var copy = element('span');
+      copy.appendChild(element('strong', '', systemElement.title));
+      copy.appendChild(element('small', '', systemElement.description));
+      item.appendChild(copy);
+      elements.appendChild(item);
+    });
+    root.appendChild(elements);
+    if (project.url) {
+      var link = element('a', 'btn btn-primary system-cta', 'View System ↗');
+      link.href = project.url;
+      root.appendChild(link);
+    } else {
+      var disabled = element('span', 'btn btn-primary system-cta is-disabled', 'View System ↗');
+      disabled.setAttribute('aria-disabled', 'true');
+      root.appendChild(disabled);
+    }
+  }
+
+  function renderDesignSystemsSection(section) {
+    var node = element('section', 'section design-systems-showcase');
+    node.id = section.id;
+    node.setAttribute('aria-labelledby', section.id + '-title');
+    var container = element('div', 'container');
+    var label = element('h2', 'eyebrow portfolio-category-label', 'Design Systems');
+    label.id = section.id + '-title';
+    container.appendChild(label);
+    var composition = element('div', 'design-systems-composition');
+    var stage = element('div', 'system-canvas-stage');
+    var detailsRoot = element('div', 'design-system-details');
+    detailsRoot.setAttribute('aria-live', 'polite');
+    section.projects.forEach(function (project, index) { stage.appendChild(systemCanvas(project, index)); });
+    composition.appendChild(stage);
+    composition.appendChild(detailsRoot);
+    container.appendChild(composition);
+    node.appendChild(container);
+
+    var activeIndex = Math.min(2, section.projects.length - 1);
+    var canvases = Array.prototype.slice.call(stage.querySelectorAll('.system-canvas'));
+    function selectSystem(index) {
+      activeIndex = index;
+      canvases.forEach(function (canvas, canvasIndex) {
+        var selected = canvasIndex === activeIndex;
+        canvas.classList.toggle('is-selected', selected);
+        canvas.setAttribute('aria-pressed', String(selected));
+      });
+      renderDesignSystemDetails(detailsRoot, section.projects[activeIndex]);
+    }
+    canvases.forEach(function (canvas, index) { canvas.addEventListener('click', function () { selectSystem(index); }); });
+    selectSystem(activeIndex);
+    window.requestAnimationFrame(function () { stage.classList.add('is-ready'); });
+    return node;
+  }
+
+  function emailCard(project, index) {
+    var button = element('button', 'email-deck-card');
+    button.type = 'button';
+    button.dataset.cardIndex = index;
+    button.setAttribute('aria-label', 'Select email campaign: ' + project.title);
+    var frame = element('span', 'email-card-frame');
+    if (project.media.src) {
+      var image = element('img');
+      image.src = project.media.src;
+      image.alt = '';
+      image.loading = 'lazy';
+      frame.appendChild(image);
+    } else {
+      frame.appendChild(element('span', 'email-card-brand', '[EMAIL HEADER]'));
+      frame.appendChild(element('strong', 'email-card-headline', project.title));
+      frame.appendChild(element('span', 'email-card-copy', '[EMAIL CREATIVE PREVIEW]'));
+      frame.appendChild(element('span', 'email-card-button', '[CTA]'));
+      frame.appendChild(element('i', 'email-card-art'));
+    }
+    button.appendChild(frame);
+    return button;
+  }
+
+  function renderEmailDetails(root, project) {
+    root.textContent = '';
+    var copy = element('div');
+    copy.appendChild(element('h3', '', project.title));
+    if (project.description) copy.appendChild(element('p', '', project.description));
+    var metadata = meta(project);
+    if (metadata) copy.appendChild(metadata);
+    root.appendChild(copy);
+    if (project.url) {
+      var link = element('a', 'btn btn-primary', 'View Campaign ↗');
+      link.href = project.url;
+      root.appendChild(link);
+    } else {
+      var disabled = element('span', 'btn btn-primary is-disabled', 'View Campaign ↗');
+      disabled.setAttribute('aria-disabled', 'true');
+      root.appendChild(disabled);
+    }
+  }
+
+  function renderEmailSection(section) {
+    var node = element('section', 'section email-showcase');
+    node.id = section.id;
+    node.setAttribute('aria-labelledby', section.id + '-title');
+    var container = element('div', 'container');
+    var label = element('h2', 'eyebrow portfolio-category-label', 'Email Campaigns');
+    label.id = section.id + '-title';
+    container.appendChild(label);
+    var intro = element('div', 'email-showcase-intro');
+    intro.appendChild(element('h3', '', section.title));
+    intro.appendChild(element('p', '', section.description));
+    container.appendChild(intro);
+    var deckShell = element('div', 'email-deck-shell');
+    var previous = element('button', 'email-deck-control email-deck-previous', '←');
+    previous.type = 'button';
+    previous.setAttribute('aria-label', 'Previous email campaign');
+    var next = element('button', 'email-deck-control email-deck-next', '→');
+    next.type = 'button';
+    next.setAttribute('aria-label', 'Next email campaign');
+    var deck = element('div', 'email-deck');
+    deck.tabIndex = 0;
+    deck.setAttribute('aria-label', 'Email campaign deck. Use left and right arrow keys to navigate.');
+    section.projects.forEach(function (project, index) { deck.appendChild(emailCard(project, index)); });
+    deckShell.appendChild(previous);
+    deckShell.appendChild(deck);
+    deckShell.appendChild(next);
+    container.appendChild(deckShell);
+    var detailsRoot = element('div', 'email-selected-details');
+    detailsRoot.setAttribute('aria-live', 'polite');
+    container.appendChild(detailsRoot);
+    var disciplines = element('ul', 'email-disciplines');
+    data.emailDisciplines.forEach(function (discipline) { disciplines.appendChild(element('li', '', discipline)); });
+    container.appendChild(disciplines);
+    node.appendChild(container);
+
+    var cards = Array.prototype.slice.call(deck.querySelectorAll('.email-deck-card'));
+    var activeIndex = Math.floor(cards.length / 2);
+    function selectEmail(index) {
+      activeIndex = (index + cards.length) % cards.length;
+      cards.forEach(function (card, cardIndex) {
+        var offset = cardIndex - activeIndex;
+        if (offset > cards.length / 2) offset -= cards.length;
+        if (offset < cards.length / -2) offset += cards.length;
+        card.style.setProperty('--email-offset', offset);
+        card.style.setProperty('--email-x', (offset * 13) + 'rem');
+        card.style.zIndex = String(10 - Math.abs(offset));
+        card.dataset.distance = Math.abs(offset);
+        card.classList.toggle('is-selected', cardIndex === activeIndex);
+        card.setAttribute('aria-pressed', String(cardIndex === activeIndex));
+      });
+      renderEmailDetails(detailsRoot, section.projects[activeIndex]);
+    }
+    cards.forEach(function (card, index) { card.addEventListener('click', function () { selectEmail(index); }); });
+    previous.addEventListener('click', function () { selectEmail(activeIndex - 1); });
+    next.addEventListener('click', function () { selectEmail(activeIndex + 1); });
+    deck.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); selectEmail(activeIndex - 1); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); selectEmail(activeIndex + 1); }
+    });
+    selectEmail(activeIndex);
+    window.requestAnimationFrame(function () { deck.classList.add('is-ready'); });
+    return node;
+  }
+
   function renderSection(section) {
     if (section.layout === 'websites') return renderWebsitesSection(section);
+    if (section.layout === 'systems') return renderDesignSystemsSection(section);
+    if (section.layout === 'rail') return renderEmailSection(section);
     var node = element('section', 'section portfolio-work-section portfolio-layout--' + section.layout);
     node.id = section.id;
     node.setAttribute('aria-labelledby', section.id + '-title');
@@ -314,9 +512,4 @@
   workRoot.appendChild(workFragment);
   renderShowcase();
 
-  var rails = document.querySelectorAll('.portfolio-layout--rail .portfolio-projects');
-  rails.forEach(function (rail) {
-    rail.tabIndex = 0;
-    rail.setAttribute('aria-label', 'Scrollable email project gallery');
-  });
 }());

@@ -12,6 +12,13 @@ window.portfolioPlaceholderData = {
     { name: 'JavaScript', src: 'images/tools/javascript.png' }
   ],
   websiteProcess: ['Concept', 'Research', 'Sketch', 'Wireframes', 'Prototype', 'Implementation'],
+  designSystemElements: [
+    { title: 'Design Tokens', description: 'Colors, type, spacing, radius, and motion.' },
+    { title: 'Brand Guidelines', description: 'Clear rules for voice, visuals, and usage.' },
+    { title: 'Component Library', description: 'Reusable, accessible, production-ready patterns.' },
+    { title: 'Documentation', description: 'Guidance built for teams and long-term scale.' }
+  ],
+  emailDisciplines: ['Strategy', 'Copy Direction', 'Layout', 'Responsive Email', 'Development', 'Testing'],
   behindDesigns: [
     { id: 'showcase-one', label: '[PROJECT IMAGE 01]', alt: '[PROJECT IMAGE ALT 01]', src: '' },
     { id: 'showcase-two', label: '[PROJECT IMAGE 02]', alt: '[PROJECT IMAGE ALT 02]', src: '' },
@@ -48,7 +55,9 @@ window.portfolioPlaceholderData = {
       projects: [
         { id: 'email-one', title: '[FEATURED EMAIL CAMPAIGN TITLE]', description: '[CAMPAIGN DESCRIPTION — realistic multi-line context for the featured composition.]', category: '[EMAIL CATEGORY]', year: '[YEAR]', role: '[ROLE]', services: ['[SERVICE]', '[SERVICE]'], technologies: [], media: { type: 'image', src: '', alt: '[EMAIL PREVIEW ALT]', label: '[FEATURED EMAIL CREATIVE]', ratio: 'portrait' }, url: '', featured: true },
         { id: 'email-two', title: '[EMAIL CAMPAIGN TITLE]', description: '[SHORT CAMPAIGN DESCRIPTION]', category: '[EMAIL CATEGORY]', year: '', role: '', services: ['[SERVICE]'], technologies: [], media: { type: 'image', src: '', alt: '[EMAIL PREVIEW ALT]', label: '[EMAIL CREATIVE]', ratio: 'portrait' }, url: '' },
-        { id: 'email-three', title: '[LONGER EMAIL CAMPAIGN TITLE FOR WRAPPING]', description: '', category: '[EMAIL CATEGORY]', year: '[YEAR]', role: '', services: [], technologies: [], media: { type: 'image', src: '', alt: '[EMAIL PREVIEW ALT]', label: '[EMAIL CREATIVE]', ratio: 'portrait' }, url: '' }
+        { id: 'email-three', title: '[LONGER EMAIL CAMPAIGN TITLE FOR WRAPPING]', description: '', category: '[EMAIL CATEGORY]', year: '[YEAR]', role: '', services: [], technologies: [], media: { type: 'image', src: '', alt: '[EMAIL PREVIEW ALT]', label: '[EMAIL CREATIVE]', ratio: 'portrait' }, url: '' },
+        { id: 'email-four', title: '[EMAIL CAMPAIGN TITLE 04]', description: '[SHORT CAMPAIGN DESCRIPTION]', category: '[EMAIL CATEGORY]', year: '', role: '[ROLE]', services: ['[SERVICE]'], technologies: [], media: { type: 'image', src: '', alt: '[EMAIL PREVIEW ALT 04]', label: '[EMAIL CREATIVE 04]', ratio: 'portrait' }, url: '' },
+        { id: 'email-five', title: '[EMAIL CAMPAIGN TITLE 05]', description: '[CAMPAIGN DESCRIPTION WITH A REALISTIC TWO-LINE LENGTH]', category: '[EMAIL CATEGORY]', year: '[YEAR]', role: '', services: ['[SERVICE]'], technologies: [], media: { type: 'image', src: '', alt: '[EMAIL PREVIEW ALT 05]', label: '[EMAIL CREATIVE 05]', ratio: 'portrait' }, url: '' }
       ]
     },
     {
