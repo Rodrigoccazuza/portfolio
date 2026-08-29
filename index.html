@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@1,500;1,600&amp;family=Poppins:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/tokens.css?v=20260826">
   <link rel="stylesheet" href="css/base.css?v=20260826">
-  <link rel="stylesheet" href="css/portfolio.css?v=20260828">
+  <link rel="stylesheet" href="css/portfolio.css?v=20260829">
 </head>
 <body class="home-page portfolio-redesign">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -100,7 +100,15 @@
         </div>
       </div>
     </section>
-    <nav class="portfolio-index" aria-label="Portfolio categories"><div class="container"><p class="portfolio-index-label">Explore the work</p><ol id="category-index"></ol></div></nav>
+    <section class="behind-designs" aria-labelledby="behind-designs-title">
+      <div class="container behind-designs-heading">
+        <p class="eyebrow">Behind the designs</p>
+        <h2 id="behind-designs-title">[SHOWCASE HEADLINE] <span class="accent-italic">[EDITORIAL ACCENT]</span></h2>
+        <p>[SHOWCASE DESCRIPTION — a concise introduction to the extended creative portfolio.]</p>
+        <a class="btn btn-primary" href="#contact">Get in touch <span aria-hidden="true">↓</span></a>
+      </div>
+      <div id="behind-designs-gallery" class="behind-designs-gallery" aria-label="Selected work image placeholders"></div>
+    </section>
     <section class="section expertise-snapshot" id="expertise" aria-labelledby="expertise-title">
       <div class="container expertise-snapshot-grid">
         <div><p class="eyebrow">Approach</p><h2 id="expertise-title">[EXPERTISE STATEMENT] <span class="accent-italic">[EDITORIAL ACCENT]</span></h2></div>
@@ -115,9 +123,17 @@
       <div class="container portfolio-contact-inner"><p class="eyebrow">Next project</p><h2 id="contact-title">[CONTACT HEADLINE] <span class="accent-italic">[EDITORIAL ACCENT]</span></h2><p>[CONTACT DESCRIPTION — a concise invitation for the future final content.]</p><a class="btn btn-primary" href="contact/">[CONTACT CTA] <span aria-hidden="true">↗</span></a></div>
     </section>
   </main>
+  <dialog class="showcase-modal" id="showcase-modal" aria-labelledby="showcase-modal-title">
+    <div class="showcase-modal-panel">
+      <button class="showcase-modal-close" type="button" aria-label="Close image viewer">×</button>
+      <p class="eyebrow">Full image preview</p>
+      <h2 id="showcase-modal-title">[PROJECT IMAGE]</h2>
+      <div class="showcase-modal-media" role="img" aria-label="Full project image placeholder"><span>[FULL PROJECT IMAGE]</span></div>
+    </div>
+  </dialog>
   <footer class="portfolio-footer"><div class="container portfolio-footer-grid"><a class="nav-logo" href="" aria-label="Rodrigo Cazuza home"><img src="images/site/rodrigo-cazuza-wordmark.png" alt="" width="180" height="54"></a><p>[FOOTER POSITIONING STATEMENT]</p><a href="#main-content">Back to top ↑</a></div></footer>
-  <script src="js/portfolio-data.js?v=20260826" defer></script>
-  <script src="js/portfolio.js?v=20260826" defer></script>
+  <script src="js/portfolio-data.js?v=20260829" defer></script>
+  <script src="js/portfolio.js?v=20260829" defer></script>
   <script src="js/nav.js?v=20260826" defer></script>
   <script src="js/reveal.js?v=20260826" defer></script>
 </body>

@@ -1,5 +1,14 @@
 /* Central placeholder content contract. Replace this object when final data arrives. */
 window.portfolioPlaceholderData = {
+  behindDesigns: [
+    { id: 'showcase-one', label: '[PROJECT IMAGE 01]', alt: '[PROJECT IMAGE ALT 01]', src: '' },
+    { id: 'showcase-two', label: '[PROJECT IMAGE 02]', alt: '[PROJECT IMAGE ALT 02]', src: '' },
+    { id: 'showcase-three', label: '[PROJECT IMAGE 03]', alt: '[PROJECT IMAGE ALT 03]', src: '' },
+    { id: 'showcase-four', label: '[PROJECT IMAGE 04]', alt: '[PROJECT IMAGE ALT 04]', src: '' },
+    { id: 'showcase-five', label: '[PROJECT IMAGE 05]', alt: '[PROJECT IMAGE ALT 05]', src: '' },
+    { id: 'showcase-six', label: '[PROJECT IMAGE 06]', alt: '[PROJECT IMAGE ALT 06]', src: '' },
+    { id: 'showcase-seven', label: '[PROJECT IMAGE 07]', alt: '[PROJECT IMAGE ALT 07]', src: '' }
+  ],
   sections: [
     {
       id: 'websites', index: '01', label: 'Websites', layout: 'websites', title: '[WEBSITE SECTION HEADLINE]',

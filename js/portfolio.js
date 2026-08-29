@@ -2,9 +2,10 @@
   'use strict';
 
   var data = window.portfolioPlaceholderData;
-  var indexRoot = document.getElementById('category-index');
   var workRoot = document.getElementById('work');
-  if (!data || !indexRoot || !workRoot) return;
+  var showcaseRoot = document.getElementById('behind-designs-gallery');
+  var showcaseModal = document.getElementById('showcase-modal');
+  if (!data || !workRoot) return;
 
   function element(tag, className, text) {
     var node = document.createElement(tag);
@@ -30,6 +31,53 @@
     marker.setAttribute('aria-hidden', 'true');
     wrap.appendChild(marker);
     return wrap;
+  }
+
+  function renderShowcase() {
+    if (!showcaseRoot || !showcaseModal || !data.behindDesigns) return;
+    var modalTitle = showcaseModal.querySelector('#showcase-modal-title');
+    var modalMedia = showcaseModal.querySelector('.showcase-modal-media');
+    var closeButton = showcaseModal.querySelector('.showcase-modal-close');
+
+    function openPreview(item) {
+      modalTitle.textContent = item.label;
+      modalMedia.textContent = '';
+      modalMedia.setAttribute('aria-label', item.alt);
+      if (item.src) {
+        var fullImage = element('img');
+        fullImage.src = item.src;
+        fullImage.alt = item.alt;
+        modalMedia.appendChild(fullImage);
+      } else {
+        modalMedia.appendChild(element('span', '', '[FULL PROJECT IMAGE]'));
+      }
+      showcaseModal.showModal();
+    }
+
+    data.behindDesigns.forEach(function (item, index) {
+      var button = element('button', 'showcase-tile');
+      button.type = 'button';
+      button.setAttribute('aria-label', 'Open full preview: ' + item.label);
+      button.style.setProperty('--showcase-delay', (index * -1.4) + 's');
+      var media = element('span', 'showcase-tile-media');
+      if (item.src) {
+        var image = element('img');
+        image.src = item.src;
+        image.alt = '';
+        image.loading = 'lazy';
+        media.appendChild(image);
+      } else {
+        media.appendChild(element('span', 'showcase-tile-label', item.label));
+      }
+      button.appendChild(media);
+      button.addEventListener('click', function () { openPreview(item); });
+      showcaseRoot.appendChild(button);
+    });
+
+    closeButton.addEventListener('click', function () { showcaseModal.close(); });
+    showcaseModal.addEventListener('click', function (event) {
+      if (event.target === showcaseModal) showcaseModal.close();
+    });
   }
 
   function gallery(media) {
@@ -132,20 +180,12 @@
     return node;
   }
 
-  var indexFragment = document.createDocumentFragment();
   var workFragment = document.createDocumentFragment();
   data.sections.forEach(function (section) {
-    var item = element('li');
-    var link = element('a');
-    link.href = '#' + section.id;
-    link.appendChild(element('span', '', section.index));
-    link.appendChild(document.createTextNode(section.label));
-    item.appendChild(link);
-    indexFragment.appendChild(item);
     workFragment.appendChild(renderSection(section));
   });
-  indexRoot.appendChild(indexFragment);
   workRoot.appendChild(workFragment);
+  renderShowcase();
 
   var rails = document.querySelectorAll('.portfolio-layout--rail .portfolio-projects');
   rails.forEach(function (rail) {
