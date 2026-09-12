@@ -66,12 +66,17 @@
   });
 })();
 
-// Keep the homepage enhancement modular instead of coupling it to navigation logic.
-// The corridor script watches for the dynamically rendered Behind the Designs gallery.
+// Keep homepage enhancements modular instead of coupling them to navigation logic.
 (function () {
   if (!document.getElementById('behind-designs-gallery')) return;
-  var script = document.createElement('script');
-  script.src = 'js/behind-designs-corridor.js?v=20260912';
-  script.defer = true;
-  document.head.appendChild(script);
+
+  var corridor = document.createElement('script');
+  corridor.src = 'js/behind-designs-corridor.js?v=20260912';
+  corridor.defer = true;
+  document.head.appendChild(corridor);
+
+  var aurora = document.createElement('script');
+  aurora.src = 'js/website-aurora-cards.js?v=20260912';
+  aurora.defer = true;
+  document.head.appendChild(aurora);
 })();
