@@ -79,4 +79,9 @@
   aurora.src = 'js/website-aurora-cards.js?v=20260912';
   aurora.defer = true;
   document.head.appendChild(aurora);
+
+  var emailFan = document.createElement('script');
+  emailFan.src = 'js/email-fan-carousel.js?v=20260912';
+  emailFan.defer = true;
+  document.head.appendChild(emailFan);
 })();
