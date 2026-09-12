@@ -65,3 +65,13 @@
     if (window.innerWidth > 860 && links.getAttribute('data-open') === 'true') closeMenu();
   });
 })();
+
+// Keep the homepage enhancement modular instead of coupling it to navigation logic.
+// The corridor script watches for the dynamically rendered Behind the Designs gallery.
+(function () {
+  if (!document.getElementById('behind-designs-gallery')) return;
+  var script = document.createElement('script');
+  script.src = 'js/behind-designs-corridor.js?v=20260912';
+  script.defer = true;
+  document.head.appendChild(script);
+})();
