@@ -50,6 +50,7 @@
       video.src = item.src;
       video.controls = true;
       video.autoplay = true;
+      video.preload = 'metadata';
       video.playsInline = true;
       video.setAttribute('aria-label', item.alt || item.title || 'Portfolio video');
       stage.appendChild(video);
@@ -57,6 +58,7 @@
       var image = document.createElement('img');
       image.src = item.src;
       image.alt = item.alt || item.title || '';
+      image.decoding = 'async';
       image.draggable = false;
       stage.appendChild(image);
     }
@@ -130,7 +132,79 @@
   });
   viewport.addEventListener('pointerup', function () { dragging = false; });
   viewport.addEventListener('pointercancel', function () { dragging = false; });
-  window.addEventListener('resize', updateTransform);
+  window.addEventListener('resize', updateTransform, { passive: true });
 
   window.PortfolioMediaViewer = { open: open, close: close };
+}());
+
+// Performance layer: preserve original media quality while deferring expensive
+// below-the-fold rendering, video requests, and synchronous image decoding.
+(function () {
+  'use strict';
+
+  var style = document.createElement('style');
+  style.textContent = `
+    .portfolio-sections > section {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 900px;
+    }
+    .portfolio-sections img { image-rendering: auto; }
+  `;
+  document.head.appendChild(style);
+
+  function tuneImage(image) {
+    if (!image || image.classList.contains('hero-background')) return;
+    image.decoding = 'async';
+    if (!image.hasAttribute('loading')) image.loading = 'lazy';
+    try { image.fetchPriority = 'low'; } catch (error) {}
+  }
+
+  var videoObserver = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var video = entry.target;
+      if (!entry.isIntersecting || video.dataset.deferredLoaded === 'true') return;
+      var src = video.dataset.deferredSrc;
+      if (src) {
+        video.src = src;
+        delete video.dataset.deferredSrc;
+        video.dataset.deferredLoaded = 'true';
+        video.preload = 'metadata';
+        video.load();
+        if (video.autoplay && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          video.play().catch(function () {});
+        }
+      }
+      videoObserver.unobserve(video);
+    });
+  }, { rootMargin: '700px 0px', threshold: 0.01 }) : null;
+
+  function tuneVideo(video) {
+    if (!video || video.closest('#media-viewer') || video.dataset.deferredManaged === 'true') return;
+    video.dataset.deferredManaged = 'true';
+    video.preload = 'none';
+    var src = video.getAttribute('src');
+    if (!src || !videoObserver) return;
+    video.dataset.deferredSrc = src;
+    video.removeAttribute('src');
+    video.load();
+    videoObserver.observe(video);
+  }
+
+  function tuneNode(node) {
+    if (!node || node.nodeType !== 1) return;
+    if (node.tagName === 'IMG') tuneImage(node);
+    if (node.tagName === 'VIDEO') tuneVideo(node);
+    Array.prototype.forEach.call(node.querySelectorAll ? node.querySelectorAll('img') : [], tuneImage);
+    Array.prototype.forEach.call(node.querySelectorAll ? node.querySelectorAll('video') : [], tuneVideo);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('img'), tuneImage);
+  Array.prototype.forEach.call(document.querySelectorAll('video'), tuneVideo);
+
+  var observer = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      Array.prototype.forEach.call(mutation.addedNodes, tuneNode);
+    });
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
 }());
