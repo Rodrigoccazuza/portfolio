@@ -127,7 +127,7 @@
         }
       }
 
-      ${ROOT_SELECTOR} .email-deck-card:active { --fan-press-scale: .985; }
+      ${ROOT_SELECTOR} .email-deck-card:active { filter: saturate(1) brightness(.96); }
       ${ROOT_SELECTOR} .email-deck-card:focus-visible {
         outline: 2px solid var(--color-accent-light);
         outline-offset: .35rem;
@@ -251,7 +251,7 @@
     card.style.setProperty('--fan-z', z.toFixed(2) + 'px');
     card.style.setProperty('--fan-rotate', rotate.toFixed(2) + 'deg');
     card.style.setProperty('--fan-y-rotate', yRotate.toFixed(2) + 'deg');
-    card.style.setProperty('--fan-scale', 'calc(' + scale.toFixed(3) + ' * var(--fan-press-scale, 1))');
+    card.style.setProperty('--fan-scale', scale.toFixed(3));
     card.style.setProperty('--fan-opacity', opacity.toFixed(3));
     card.style.setProperty('--fan-saturation', saturation.toFixed(3));
     card.style.setProperty('--fan-brightness', brightness.toFixed(3));
@@ -324,7 +324,6 @@
       selectWithoutPreview(cards.indexOf(card));
     }, true);
 
-    // Touch swipe navigation keeps the fan usable without visible side controls.
     var pointerStart = null;
     deck.addEventListener('pointerdown', function (event) { pointerStart = event.clientX; }, { passive: true });
     deck.addEventListener('pointerup', function (event) {
@@ -348,7 +347,6 @@
       observer.observe(card, { attributes: true, attributeFilter: ['class'] });
     });
 
-    // Keep the existing arrow controls but let the dots mirror their result.
     if (previous) previous.addEventListener('click', function () { window.requestAnimationFrame(sync); });
     if (next) next.addEventListener('click', function () { window.requestAnimationFrame(sync); });
 
