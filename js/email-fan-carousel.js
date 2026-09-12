@@ -203,7 +203,7 @@
     document.head.appendChild(style);
   }
 
-  function projectTitleForCard(card, index) {
+  function projectTitleForCard(index) {
     var data = window.portfolioPlaceholderData;
     var emailSection = data && data.sections && data.sections.filter(function (section) { return section.id === 'email'; })[0];
     return emailSection && emailSection.projects && emailSection.projects[index]
@@ -215,9 +215,6 @@
     var rawOffset = parseFloat(card.style.getPropertyValue('--email-offset'));
     if (!Number.isFinite(rawOffset)) rawOffset = index;
 
-    // The source carousel wraps offsets around the center. Those offsets become
-    // the fan geometry: lateral spread, a shallow downward arc, rotation,
-    // perspective turn, scale, and depth.
     var distance = Math.abs(rawOffset);
     var viewport = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     var spacing = viewport <= 620 ? 42 : viewport <= 900 ? 56 : 72;
@@ -251,7 +248,6 @@
     card.style.setProperty('--fan-opacity', opacity.toFixed(3));
     card.style.setProperty('--fan-saturation', saturation.toFixed(3));
     card.style.setProperty('--fan-brightness', brightness.toFixed(3));
-    card.dataset.fanOffset = String(rawOffset);
   }
 
   function enhance(root) {
@@ -264,26 +260,25 @@
 
     var cards = Array.prototype.slice.call(deck.querySelectorAll('.email-deck-card'));
     cards.forEach(function (card, index) {
-      card.dataset.fanLabel = projectTitleForCard(card, index);
+      card.dataset.fanLabel = projectTitleForCard(index);
       updateFanCard(card, index);
     });
 
-    var syncing = false;
-    var observer = new MutationObserver(function (mutations) {
-      if (syncing) return;
-      var touched = [];
-      mutations.forEach(function (mutation) {
-        if (mutation.target && mutation.target.classList && mutation.target.classList.contains('email-deck-card')) {
-          if (touched.indexOf(mutation.target) === -1) touched.push(mutation.target);
-        }
+    // Existing portfolio.js updates every card's --email-offset and then toggles
+    // the selected class. Watching only class changes lets us resample the new
+    // offsets after each selection without observing our own style writes.
+    var scheduled = false;
+    var observer = new MutationObserver(function () {
+      if (scheduled) return;
+      scheduled = true;
+      window.requestAnimationFrame(function () {
+        cards.forEach(updateFanCard);
+        scheduled = false;
       });
-      if (!touched.length) return;
-      syncing = true;
-      touched.forEach(function (card) { updateFanCard(card, cards.indexOf(card)); });
-      syncing = false;
     });
-
-    observer.observe(deck, { subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
+    cards.forEach(function (card) {
+      observer.observe(card, { attributes: true, attributeFilter: ['class'] });
+    });
 
     var resizeTimer;
     window.addEventListener('resize', function () {
@@ -302,8 +297,6 @@
       return;
     }
 
-    // Portfolio sections are rendered from data; observe briefly in case this
-    // enhancement loads before the email section has been mounted.
     var observer = new MutationObserver(function () {
       var found = document.querySelector(ROOT_SELECTOR);
       if (!found) return;
