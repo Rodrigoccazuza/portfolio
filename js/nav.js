@@ -63,30 +63,56 @@
 
   window.addEventListener('resize', function () {
     if (window.innerWidth > 860 && links.getAttribute('data-open') === 'true') closeMenu();
-  });
+  }, { passive: true });
 })();
 
-// Keep homepage enhancements modular instead of coupling them to navigation logic.
+// Keep homepage enhancements modular and only parse below-fold effects shortly
+// before their section reaches the viewport.
 (function () {
   if (!document.getElementById('behind-designs-gallery')) return;
 
-  var corridor = document.createElement('script');
-  corridor.src = 'js/behind-designs-corridor.js?v=20260912';
-  corridor.defer = true;
-  document.head.appendChild(corridor);
+  var loaded = {};
+  function loadScript(src) {
+    if (loaded[src]) return;
+    loaded[src] = true;
+    var script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    document.head.appendChild(script);
+  }
 
-  var aurora = document.createElement('script');
-  aurora.src = 'js/website-aurora-cards.js?v=20260912';
-  aurora.defer = true;
-  document.head.appendChild(aurora);
+  // This section is directly below the hero/toolkit, so keep its effect ready.
+  loadScript('js/behind-designs-corridor.js?v=20260912');
 
-  var emailFan = document.createElement('script');
-  emailFan.src = 'js/email-fan-carousel.js?v=20260912';
-  emailFan.defer = true;
-  document.head.appendChild(emailFan);
+  var enhancements = [
+    { selector: '#websites', src: 'js/website-aurora-cards.js?v=20260912' },
+    { selector: '#design-systems', src: 'js/design-system-scroll-stack.js?v=20260912' },
+    { selector: '#email', src: 'js/email-fan-carousel.js?v=20260912' }
+  ];
 
-  var designStack = document.createElement('script');
-  designStack.src = 'js/design-system-scroll-stack.js?v=20260912';
-  designStack.defer = true;
-  document.head.appendChild(designStack);
-})();
+  function watchEnhancement(item) {
+    var target = document.querySelector(item.selector);
+    if (!target) return false;
+    if (!('IntersectionObserver' in window)) {
+      loadScript(item.src);
+      return true;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
+      observer.disconnect();
+      loadScript(item.src);
+    }, { rootMargin: '1200px 0px', threshold: 0.01 });
+    observer.observe(target);
+    return true;
+  }
+
+  var pending = enhancements.filter(function (item) { return !watchEnhancement(item); });
+  if (!pending.length) return;
+
+  // Portfolio sections are data-rendered. Observe only until those targets exist.
+  var mountObserver = new MutationObserver(function () {
+    pending = pending.filter(function (item) { return !watchEnhancement(item); });
+    if (!pending.length) mountObserver.disconnect();
+  });
+  mountObserver.observe(document.getElementById('work') || document.body, { childList: true, subtree: true });
+}());
