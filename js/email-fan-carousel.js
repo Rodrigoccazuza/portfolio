@@ -1,7 +1,6 @@
-// Email Campaigns: native card-fan carousel adaptation.
-// Keeps the existing portfolio data, selection logic, viewer, keyboard controls,
-// and campaign detail panel while translating the supplied React component's
-// fan-card presentation into the portfolio's existing HTML/CSS/JS architecture.
+// Email Campaigns: reference-matched card fan carousel.
+// Keeps the existing portfolio data and details panel while presenting a clean,
+// centered fan. Side cards select first; clicking the centered card opens preview.
 (function () {
   'use strict';
 
@@ -14,39 +13,51 @@
     var style = document.createElement('style');
     style.id = STYLE_ID;
     style.textContent = `
+      ${ROOT_SELECTOR} .email-showcase-intro { margin-bottom: 0; }
+
       ${ROOT_SELECTOR} .email-deck-shell {
-        margin-top: clamp(2rem, 5vw, 4.5rem);
-        grid-template-columns: 3.25rem minmax(0, 1fr) 3.25rem;
-        gap: clamp(.5rem, 1.5vw, 1rem);
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 3rem auto 3rem 1fr;
+        grid-template-rows: minmax(0, 1fr) 3.5rem;
+        align-items: center;
+        gap: .7rem;
+        margin-top: clamp(1.75rem, 4vw, 3.5rem);
       }
 
       ${ROOT_SELECTOR} .email-deck {
-        min-height: clamp(34rem, 57vw, 43rem);
-        overflow: visible;
-        perspective: 90rem;
-        perspective-origin: 50% 42%;
+        grid-column: 1 / -1;
+        grid-row: 1;
+        position: relative;
+        min-height: clamp(36rem, 58vw, 45rem);
+        overflow: hidden;
+        perspective: 95rem;
+        perspective-origin: 50% 48%;
         isolation: isolate;
+        border-radius: 1.5rem;
       }
 
       ${ROOT_SELECTOR} .email-deck::before {
         content: "";
         position: absolute;
         left: 50%;
-        bottom: 4.5%;
-        width: min(46rem, 88%);
-        height: 8rem;
+        bottom: 5%;
+        width: min(56rem, 92%);
+        height: 7rem;
         border-radius: 50%;
-        background: radial-gradient(ellipse at center, rgba(96, 38, 236, .22), rgba(96, 38, 236, .06) 45%, transparent 72%);
-        filter: blur(18px);
+        background: radial-gradient(ellipse at center, rgba(96,38,236,.16), rgba(96,38,236,.04) 52%, transparent 74%);
+        filter: blur(20px);
         transform: translateX(-50%);
         pointer-events: none;
-        opacity: .8;
       }
 
       ${ROOT_SELECTOR} .email-deck-card {
-        top: 46%;
+        top: 44%;
         left: 50%;
-        width: clamp(13rem, 20vw, 19rem);
+        width: clamp(12.75rem, 18vw, 17rem);
+        padding: 0;
+        border: 0;
+        background: transparent;
         transform-origin: 50% 118%;
         transform:
           translate(-50%, -50%)
@@ -57,26 +68,31 @@
         opacity: var(--fan-opacity, .72) !important;
         filter: saturate(var(--fan-saturation, .82)) brightness(var(--fan-brightness, .9));
         transition:
-          transform 720ms cubic-bezier(.22, 1, .36, 1),
-          opacity 520ms ease,
-          filter 520ms ease;
+          transform 520ms cubic-bezier(.23,1,.32,1),
+          opacity 360ms ease,
+          filter 360ms ease;
         will-change: transform;
       }
 
-      ${ROOT_SELECTOR} .email-deck.is-ready .email-deck-card {
-        animation: none;
-      }
+      ${ROOT_SELECTOR} .email-deck.is-ready .email-deck-card { animation: none; }
 
-      ${ROOT_SELECTOR} .email-deck-card .email-card-frame {
-        min-height: clamp(22rem, 31vw, 29rem);
+      ${ROOT_SELECTOR} .email-card-frame {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: clamp(25rem, 36vw, 31rem);
+        min-height: 0;
         padding: 0;
-        border-color: rgba(255, 255, 255, .13);
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,.14);
+        border-radius: clamp(1rem, 1.8vw, 1.5rem);
         background: #111;
-        box-shadow: 0 14px 34px rgba(0, 0, 0, .24);
+        box-shadow: 0 16px 36px rgba(0,0,0,.32);
         transition:
-          border-color 520ms ease,
-          box-shadow 520ms ease,
-          transform 520ms cubic-bezier(.22, 1, .36, 1);
+          height 420ms cubic-bezier(.23,1,.32,1),
+          border-color 260ms ease,
+          box-shadow 260ms ease,
+          background-color 260ms ease;
       }
 
       ${ROOT_SELECTOR} .email-card-frame img {
@@ -85,130 +101,121 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: top center;
+        display: block;
       }
 
-      ${ROOT_SELECTOR} .email-deck-card::after {
-        content: attr(data-fan-label);
-        position: absolute;
-        left: 50%;
-        bottom: -2.35rem;
-        width: max-content;
-        max-width: 12rem;
-        padding: .38rem .65rem;
-        border: 1px solid rgba(255, 255, 255, .12);
-        border-radius: 999px;
-        background: rgba(13, 13, 13, .72);
-        color: rgba(255, 255, 255, .74);
-        font: 600 .68rem/1.2 var(--font-body);
-        letter-spacing: .035em;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        opacity: 0;
-        transform: translate(-50%, .35rem);
-        transition: opacity 220ms ease, transform 220ms ease;
-        pointer-events: none;
-        backdrop-filter: blur(12px);
-      }
-
-      ${ROOT_SELECTOR} .email-deck-card:hover::after,
-      ${ROOT_SELECTOR} .email-deck-card:focus-visible::after,
-      ${ROOT_SELECTOR} .email-deck-card.is-selected::after {
-        opacity: 1;
-        transform: translate(-50%, 0);
-      }
-
-      ${ROOT_SELECTOR} .email-deck-card.is-selected {
-        filter: saturate(1) brightness(1.02);
-      }
-
+      /* The focused campaign reveals the complete long-form email rather than cropping it. */
       ${ROOT_SELECTOR} .email-deck-card.is-selected .email-card-frame {
-        border-color: var(--color-accent-light);
-        box-shadow:
-          0 26px 65px rgba(0, 0, 0, .44),
-          0 0 0 1px rgba(155, 92, 255, .15),
-          0 0 42px rgba(96, 38, 236, .22);
+        height: clamp(31rem, 45vw, 38rem);
+        border-color: rgba(255,255,255,.34);
+        background: #f4f4f2;
+        box-shadow: 0 28px 70px rgba(0,0,0,.48), 0 0 0 1px rgba(155,92,255,.16);
       }
 
-      ${ROOT_SELECTOR} .email-deck-card:hover:not(.is-selected),
-      ${ROOT_SELECTOR} .email-deck-card:focus-visible:not(.is-selected) {
-        --fan-hover-lift: -1.05rem;
-        filter: saturate(1) brightness(1.05);
+      ${ROOT_SELECTOR} .email-deck-card.is-selected .email-card-frame img {
+        object-fit: contain;
+        object-position: top center;
       }
 
+      ${ROOT_SELECTOR} .email-deck-card.is-selected { filter: saturate(1) brightness(1); }
+
+      @media (hover: hover) and (pointer: fine) {
+        ${ROOT_SELECTOR} .email-deck-card:hover:not(.is-selected) {
+          --fan-hover-lift: -.65rem;
+          filter: saturate(.98) brightness(1.03);
+        }
+      }
+
+      ${ROOT_SELECTOR} .email-deck-card:active { --fan-press-scale: .985; }
       ${ROOT_SELECTOR} .email-deck-card:focus-visible {
         outline: 2px solid var(--color-accent-light);
-        outline-offset: .3rem;
+        outline-offset: .35rem;
       }
 
       ${ROOT_SELECTOR} .email-deck-control {
-        z-index: 80;
+        position: static;
+        z-index: 30;
+        display: grid;
+        place-items: center;
         width: 3rem;
         height: 3rem;
-        background: rgba(18, 18, 18, .84);
-        backdrop-filter: blur(14px);
+        padding: 0;
+        border: 1px solid rgba(255,255,255,.16);
+        border-radius: 50%;
+        background: rgba(18,18,18,.9);
+        color: var(--color-text-primary);
+        backdrop-filter: blur(12px);
+        transition: transform 160ms cubic-bezier(.23,1,.32,1), border-color 160ms ease, background 160ms ease;
       }
+      ${ROOT_SELECTOR} .email-deck-previous { grid-column: 2; grid-row: 2; }
+      ${ROOT_SELECTOR} .email-deck-next { grid-column: 4; grid-row: 2; }
+      ${ROOT_SELECTOR} .email-deck-control:hover { transform: scale(1.07); border-color: var(--color-accent-light); }
+      ${ROOT_SELECTOR} .email-deck-control:active { transform: scale(.96); }
+
+      ${ROOT_SELECTOR} .email-fan-pagination {
+        grid-column: 3;
+        grid-row: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .55rem;
+      }
+
+      ${ROOT_SELECTOR} .email-fan-dot {
+        width: .48rem;
+        height: .48rem;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255,255,255,.28);
+        cursor: pointer;
+        transition: transform 160ms cubic-bezier(.23,1,.32,1), background 160ms ease;
+      }
+      ${ROOT_SELECTOR} .email-fan-dot.is-active { background: var(--color-text-primary); transform: scale(1.28); }
+      ${ROOT_SELECTOR} .email-fan-dot:hover { background: var(--color-accent-light); transform: scale(1.22); }
+      ${ROOT_SELECTOR} .email-fan-dot:focus-visible { outline: 2px solid var(--color-accent-light); outline-offset: .2rem; }
 
       ${ROOT_SELECTOR} .email-selected-details {
         position: relative;
-        z-index: 90;
-        margin-top: clamp(.5rem, 2vw, 1.5rem);
+        z-index: 40;
+        margin-top: clamp(1rem, 2vw, 1.5rem);
       }
 
       @media (max-width: 900px) {
-        ${ROOT_SELECTOR} .email-deck {
-          min-height: 34rem;
-          overflow: hidden;
-          margin-inline: -.5rem;
-        }
-        ${ROOT_SELECTOR} .email-deck-card {
-          width: clamp(12.5rem, 33vw, 16rem);
-        }
+        ${ROOT_SELECTOR} .email-deck { min-height: 37rem; }
+        ${ROOT_SELECTOR} .email-deck-card { width: clamp(12rem, 29vw, 15rem); }
+        ${ROOT_SELECTOR} .email-card-frame { height: 25rem; }
+        ${ROOT_SELECTOR} .email-deck-card.is-selected .email-card-frame { height: 31rem; }
       }
 
       @media (max-width: 620px) {
         ${ROOT_SELECTOR} .email-deck-shell {
-          grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
-          gap: .2rem;
+          grid-template-columns: 1fr 2.65rem auto 2.65rem 1fr;
+          gap: .45rem;
         }
         ${ROOT_SELECTOR} .email-deck {
-          min-height: 29rem;
+          min-height: 31rem;
+          margin-inline: calc(var(--space-sm) * -1);
+          border-radius: 0;
           perspective: none;
         }
-        ${ROOT_SELECTOR} .email-deck-card {
-          top: 45%;
-          width: 12.75rem;
-        }
-        ${ROOT_SELECTOR} .email-deck-card .email-card-frame {
-          min-height: 21rem;
-        }
-        ${ROOT_SELECTOR} .email-deck-control {
-          width: 2.45rem;
-          height: 2.45rem;
-          font-size: 1rem;
-        }
-        ${ROOT_SELECTOR} .email-deck-card::after {
-          display: none;
-        }
+        ${ROOT_SELECTOR} .email-deck-card { top: 43%; width: 11.75rem; }
+        ${ROOT_SELECTOR} .email-card-frame { height: 21rem; border-radius: 1rem; }
+        ${ROOT_SELECTOR} .email-deck-card.is-selected .email-card-frame { height: 26rem; }
+        ${ROOT_SELECTOR} .email-deck-control { width: 2.55rem; height: 2.55rem; }
+        ${ROOT_SELECTOR} .email-fan-pagination { gap: .4rem; }
+        ${ROOT_SELECTOR} .email-fan-dot { width: .4rem; height: .4rem; }
       }
 
       @media (prefers-reduced-motion: reduce) {
         ${ROOT_SELECTOR} .email-deck-card,
-        ${ROOT_SELECTOR} .email-deck-card .email-card-frame,
-        ${ROOT_SELECTOR} .email-deck-card::after {
-          transition-duration: .01ms !important;
-        }
+        ${ROOT_SELECTOR} .email-card-frame,
+        ${ROOT_SELECTOR} .email-deck-control,
+        ${ROOT_SELECTOR} .email-fan-dot { transition-duration: .01ms !important; }
       }
     `;
     document.head.appendChild(style);
-  }
-
-  function projectTitleForCard(index) {
-    var data = window.portfolioPlaceholderData;
-    var emailSection = data && data.sections && data.sections.filter(function (section) { return section.id === 'email'; })[0];
-    return emailSection && emailSection.projects && emailSection.projects[index]
-      ? emailSection.projects[index].title
-      : 'Email campaign';
   }
 
   function updateFanCard(card, index) {
@@ -217,24 +224,24 @@
 
     var distance = Math.abs(rawOffset);
     var viewport = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-    var spacing = viewport <= 620 ? 42 : viewport <= 900 ? 56 : 72;
+    var spacing = viewport <= 620 ? 48 : viewport <= 900 ? 72 : 106;
     var x = rawOffset * spacing;
-    var y = Math.pow(distance, 1.42) * (viewport <= 620 ? 10 : 14);
-    var rotate = rawOffset * (viewport <= 620 ? 5.4 : 7.2);
-    var yRotate = rawOffset * -2.25;
-    var scale = Math.max(viewport <= 620 ? .72 : .68, 1 - distance * (viewport <= 620 ? .085 : .07));
-    var opacity = Math.max(.28, 1 - distance * .115);
-    var saturation = Math.max(.55, 1 - distance * .095);
-    var brightness = Math.max(.64, 1 - distance * .065);
-    var z = Math.max(-180, -distance * 26);
+    var y = Math.pow(distance, 1.34) * (viewport <= 620 ? 8 : 11.5);
+    var rotate = rawOffset * (viewport <= 620 ? 6 : 9.2);
+    var yRotate = rawOffset * -1.2;
+    var scale = Math.max(viewport <= 620 ? .72 : .62, 1 - distance * (viewport <= 620 ? .08 : .075));
+    var opacity = Math.max(.32, 1 - distance * .09);
+    var saturation = Math.max(.68, 1 - distance * .07);
+    var brightness = Math.max(.72, 1 - distance * .055);
+    var z = Math.max(-220, -distance * 34);
 
     if (card.classList.contains('is-selected')) {
-      y = -18;
-      scale = viewport <= 620 ? 1 : 1.045;
+      y = -10;
+      scale = viewport <= 620 ? 1.03 : 1.1;
       opacity = 1;
       saturation = 1;
-      brightness = 1.02;
-      z = 42;
+      brightness = 1;
+      z = 60;
       rotate = 0;
       yRotate = 0;
     }
@@ -244,7 +251,7 @@
     card.style.setProperty('--fan-z', z.toFixed(2) + 'px');
     card.style.setProperty('--fan-rotate', rotate.toFixed(2) + 'deg');
     card.style.setProperty('--fan-y-rotate', yRotate.toFixed(2) + 'deg');
-    card.style.setProperty('--fan-scale', scale.toFixed(3));
+    card.style.setProperty('--fan-scale', 'calc(' + scale.toFixed(3) + ' * var(--fan-press-scale, 1))');
     card.style.setProperty('--fan-opacity', opacity.toFixed(3));
     card.style.setProperty('--fan-saturation', saturation.toFixed(3));
     card.style.setProperty('--fan-brightness', brightness.toFixed(3));
@@ -253,26 +260,87 @@
   function enhance(root) {
     if (!root || root.dataset.fanCarouselEnhanced === 'true') return;
     var deck = root.querySelector('.email-deck');
-    if (!deck) return;
+    var shell = root.querySelector('.email-deck-shell');
+    if (!deck || !shell) return;
 
     root.dataset.fanCarouselEnhanced = 'true';
     root.classList.add('email-fan-carousel');
 
     var cards = Array.prototype.slice.call(deck.querySelectorAll('.email-deck-card'));
-    cards.forEach(function (card, index) {
-      card.dataset.fanLabel = projectTitleForCard(index);
-      updateFanCard(card, index);
-    });
+    var previous = root.querySelector('.email-deck-previous');
+    var next = root.querySelector('.email-deck-next');
+    var selectingWithoutPreview = false;
 
-    // Existing portfolio.js updates every card's --email-offset and then toggles
-    // the selected class. Watching only class changes lets us resample the new
-    // offsets after each selection without observing our own style writes.
+    function selectedIndex() {
+      var index = cards.findIndex(function (card) { return card.classList.contains('is-selected'); });
+      return index < 0 ? 0 : index;
+    }
+
+    function selectWithoutPreview(index) {
+      var card = cards[(index + cards.length) % cards.length];
+      if (!card) return;
+      var viewer = window.PortfolioMediaViewer;
+      var originalOpen = viewer && viewer.open;
+      if (viewer && originalOpen) viewer.open = function () {};
+      selectingWithoutPreview = true;
+      card.click();
+      selectingWithoutPreview = false;
+      if (viewer && originalOpen) viewer.open = originalOpen;
+    }
+
+    var pagination = document.createElement('div');
+    pagination.className = 'email-fan-pagination';
+    pagination.setAttribute('aria-label', 'Email campaign pagination');
+    var dots = cards.map(function (card, index) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'email-fan-dot';
+      dot.setAttribute('aria-label', 'Show email campaign ' + (index + 1));
+      dot.addEventListener('click', function () { selectWithoutPreview(index); });
+      pagination.appendChild(dot);
+      return dot;
+    });
+    shell.appendChild(pagination);
+
+    function sync() {
+      cards.forEach(updateFanCard);
+      var active = selectedIndex();
+      dots.forEach(function (dot, index) {
+        var isActive = index === active;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+      });
+    }
+
+    // Side cards behave like the reference carousel: first click centers them.
+    // Clicking the already-centered card retains the existing full-preview action.
+    deck.addEventListener('click', function (event) {
+      if (selectingWithoutPreview) return;
+      var card = event.target.closest('.email-deck-card');
+      if (!card || card.classList.contains('is-selected')) return;
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      selectWithoutPreview(cards.indexOf(card));
+    }, true);
+
+    // Touch swipe navigation keeps the fan usable without visible side controls.
+    var pointerStart = null;
+    deck.addEventListener('pointerdown', function (event) { pointerStart = event.clientX; }, { passive: true });
+    deck.addEventListener('pointerup', function (event) {
+      if (pointerStart === null) return;
+      var delta = event.clientX - pointerStart;
+      pointerStart = null;
+      if (Math.abs(delta) < 45) return;
+      selectWithoutPreview(selectedIndex() + (delta < 0 ? 1 : -1));
+    }, { passive: true });
+
     var scheduled = false;
     var observer = new MutationObserver(function () {
       if (scheduled) return;
       scheduled = true;
       window.requestAnimationFrame(function () {
-        cards.forEach(updateFanCard);
+        sync();
         scheduled = false;
       });
     });
@@ -280,22 +348,23 @@
       observer.observe(card, { attributes: true, attributeFilter: ['class'] });
     });
 
+    // Keep the existing arrow controls but let the dots mirror their result.
+    if (previous) previous.addEventListener('click', function () { window.requestAnimationFrame(sync); });
+    if (next) next.addEventListener('click', function () { window.requestAnimationFrame(sync); });
+
     var resizeTimer;
     window.addEventListener('resize', function () {
       window.clearTimeout(resizeTimer);
-      resizeTimer = window.setTimeout(function () {
-        cards.forEach(updateFanCard);
-      }, 100);
+      resizeTimer = window.setTimeout(sync, 100);
     }, { passive: true });
+
+    sync();
   }
 
   function init() {
     installStyles();
     var root = document.querySelector(ROOT_SELECTOR);
-    if (root) {
-      enhance(root);
-      return;
-    }
+    if (root) return enhance(root);
 
     var observer = new MutationObserver(function () {
       var found = document.querySelector(ROOT_SELECTOR);
