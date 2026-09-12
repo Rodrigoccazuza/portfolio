@@ -87,7 +87,7 @@
   var enhancements = [
     { selector: '#websites', src: 'js/website-aurora-cards.js?v=20260912' },
     { selector: '#design-systems', src: 'js/design-system-scroll-stack.js?v=20260912' },
-    { selector: '#email', src: 'js/email-fan-carousel.js?v=20260912' }
+    { selector: '#email', src: 'js/email-fan-carousel.js?v=20260912-stack2' }
   ];
 
   function watchEnhancement(item) {
