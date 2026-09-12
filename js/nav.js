@@ -84,4 +84,9 @@
   emailFan.src = 'js/email-fan-carousel.js?v=20260912';
   emailFan.defer = true;
   document.head.appendChild(emailFan);
+
+  var designStack = document.createElement('script');
+  designStack.src = 'js/design-system-scroll-stack.js?v=20260912';
+  designStack.defer = true;
+  document.head.appendChild(designStack);
 })();
