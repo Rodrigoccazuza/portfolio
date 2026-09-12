@@ -1,5 +1,6 @@
-// Design Systems: native scrollable card stack adaptation.
-// Reuses the existing project cards, selection logic, details panel, and links.
+// Design Systems: reference-matched scrollable card stack.
+// Presents one focused landscape card at a time, with a compact metadata footer
+// and pagination dots, while preserving the existing selection/details behavior.
 (function () {
   'use strict';
 
@@ -8,158 +9,253 @@
 
   function installStyles() {
     if (document.getElementById(STYLE_ID)) return;
+
     var style = document.createElement('style');
     style.id = STYLE_ID;
     style.textContent = `
       ${ROOT_SELECTOR} .design-systems-composition {
-        grid-template-columns: minmax(0, 1.08fr) minmax(22rem, .92fr);
+        grid-template-columns: minmax(0, 1.1fr) minmax(22rem, .9fr);
         gap: clamp(2rem, 5vw, 5rem);
-        align-items: start;
+        align-items: center;
       }
 
       ${ROOT_SELECTOR} .system-canvas-stage {
         position: relative;
-        height: min(72vh, 42rem);
-        min-height: 34rem;
-        overflow-y: auto;
-        overflow-x: visible;
-        overscroll-behavior: contain;
-        scroll-snap-type: y mandatory;
-        scrollbar-width: none;
+        display: grid;
+        place-items: center;
+        width: 100%;
+        max-width: 48rem;
+        min-height: 35rem;
+        margin-inline: auto;
+        overflow: visible;
         perspective: 1200px;
-        perspective-origin: 50% 30%;
-        mask-image: linear-gradient(to bottom, transparent 0, #000 5%, #000 92%, transparent 100%);
+        perspective-origin: 50% 45%;
       }
 
-      ${ROOT_SELECTOR} .system-canvas-stage::-webkit-scrollbar { display: none; }
-
-      ${ROOT_SELECTOR} .system-scroll-stack-track {
+      ${ROOT_SELECTOR} .system-card-stack-viewport {
         position: relative;
-        min-height: calc(var(--stack-count, 5) * 15rem + 30rem);
-        padding: 3rem 0 18rem;
+        width: min(100%, 40.5rem);
+        aspect-ratio: 1.63 / 1;
+        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-select: none;
       }
 
       ${ROOT_SELECTOR} .system-canvas {
-        position: sticky !important;
-        top: calc(2.75rem + (var(--stack-index, 0) * .7rem));
+        position: absolute !important;
+        inset: 0 !important;
+        top: auto !important;
         left: auto !important;
-        z-index: calc(30 + var(--stack-index, 0));
-        width: min(92%, 34rem) !important;
-        height: 22rem;
-        margin: 0 auto 8rem;
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) 5.25rem;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0;
+        overflow: hidden;
+        border: 4px solid #343434;
+        border-radius: 2rem;
+        background: #080808;
+        color: #fff;
+        box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, .26);
+        cursor: pointer;
         transform:
-          translate3d(0, var(--stack-y, 0px), var(--stack-z, 0px))
+          translate3d(var(--stack-x, 0), var(--stack-y, 0), var(--stack-z, 0))
           rotateX(var(--stack-rx, 0deg))
-          rotateZ(var(--stack-rz, 0deg))
+          rotateY(var(--stack-ry, 0deg))
           scale(var(--stack-scale, 1)) !important;
         opacity: var(--stack-opacity, 1);
-        filter: saturate(var(--stack-saturation, 1)) brightness(var(--stack-brightness, 1));
-        transform-origin: 50% 0%;
+        filter: brightness(var(--stack-brightness, 1));
+        transform-origin: 50% 55%;
         transition:
           transform 200ms cubic-bezier(.22, 1, .36, 1),
           opacity 200ms ease,
           filter 200ms ease,
           border-color 200ms ease,
           box-shadow 200ms ease;
-        scroll-snap-align: start;
-        will-change: transform;
+        will-change: transform, opacity;
         backface-visibility: hidden;
       }
 
-      ${ROOT_SELECTOR} .system-canvas::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        pointer-events: none;
-        background: linear-gradient(180deg, rgba(255,255,255,.06), transparent 22%, transparent 76%, rgba(0,0,0,.12));
-      }
-
-      ${ROOT_SELECTOR} .system-canvas.is-selected {
-        z-index: 80;
-        border-color: var(--color-accent-light);
-        box-shadow:
-          0 24px 64px rgba(0,0,0,.34),
-          0 0 0 1px rgba(155,92,255,.14),
-          0 0 36px rgba(96,38,236,.16);
-      }
-
-      ${ROOT_SELECTOR} .system-canvas:hover,
-      ${ROOT_SELECTOR} .system-canvas:focus-visible {
-        filter: saturate(1.05) brightness(1.04);
-      }
-
-      ${ROOT_SELECTOR} .system-canvas:focus-visible {
-        outline: 2px solid var(--color-accent-light);
-        outline-offset: .3rem;
-      }
+      ${ROOT_SELECTOR} .system-canvas::before,
+      ${ROOT_SELECTOR} .system-canvas::after { display: none !important; }
 
       ${ROOT_SELECTOR} .system-canvas-visual {
-        min-height: 0;
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 0 !important;
+        overflow: hidden;
+        background: #151515;
+      }
+
+      ${ROOT_SELECTOR} .system-canvas-visual::before { display: none !important; }
+
+      ${ROOT_SELECTOR} .system-canvas-visual img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
       }
 
       ${ROOT_SELECTOR} .system-canvas-caption {
         position: relative;
-        z-index: 2;
-        background: rgba(15,15,15,.88);
-        backdrop-filter: blur(14px);
+        z-index: 3;
+        display: grid;
+        grid-template-columns: 3.25rem minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        column-gap: .9rem;
+        align-content: center;
+        padding: .75rem 1.4rem;
+        border: 0;
+        background: #080808;
+        text-align: left;
       }
 
-      ${ROOT_SELECTOR} .design-system-details {
-        position: sticky;
-        top: 7rem;
+      ${ROOT_SELECTOR} .system-canvas-caption::before {
+        content: "";
+        grid-column: 1;
+        grid-row: 1 / 3;
+        width: 3rem;
+        height: 3rem;
+        align-self: center;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        background-image: var(--system-thumb);
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 0 0 1px rgba(255,255,255,.15);
+      }
+
+      ${ROOT_SELECTOR} .system-canvas-caption strong {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+        margin: 0;
+        color: #fff;
+        font: 700 clamp(1rem, 2vw, 1.35rem)/1.08 var(--font-display);
+        letter-spacing: -.02em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      ${ROOT_SELECTOR} .system-canvas-caption > span {
+        grid-column: 2;
+        grid-row: 2;
         align-self: start;
+        margin-top: .15rem;
+        color: #9b9b9b;
+        font: 600 clamp(.78rem, 1.5vw, .95rem)/1.2 var(--font-body);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      ${ROOT_SELECTOR} .system-canvas.is-selected {
+        border-color: #3b3b3b;
+        box-shadow: 0 1.7rem 3.25rem rgba(0, 0, 0, .36);
+      }
+
+      ${ROOT_SELECTOR} .system-canvas:focus-visible {
+        outline: 2px solid var(--color-accent-light);
+        outline-offset: .45rem;
+      }
+
+      ${ROOT_SELECTOR} .system-stack-pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .9rem;
+        margin-top: 2.15rem;
+      }
+
+      ${ROOT_SELECTOR} .system-stack-dot {
+        width: 1rem;
+        height: 1rem;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: #d7d9e0;
+        opacity: 1;
+        cursor: pointer;
+        transition: transform 180ms ease, background 180ms ease;
+      }
+
+      ${ROOT_SELECTOR} .system-stack-dot:hover,
+      ${ROOT_SELECTOR} .system-stack-dot:focus-visible {
+        transform: scale(1.2);
+      }
+
+      ${ROOT_SELECTOR} .system-stack-dot.is-active {
+        background: var(--color-accent-light, #d457ff);
+        transform: scale(1.18);
+      }
+
+      ${ROOT_SELECTOR} .system-stack-dot:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: .2rem;
       }
 
       ${ROOT_SELECTOR} .system-stack-hint {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: .5rem;
-        margin-top: .75rem;
+        margin: .9rem 0 0;
         color: var(--color-text-secondary);
         font-size: var(--text-xs);
-        letter-spacing: .08em;
-        text-transform: uppercase;
+        text-align: center;
       }
 
-      ${ROOT_SELECTOR} .system-stack-hint i { color: var(--color-accent-light); }
+      ${ROOT_SELECTOR} .design-system-details {
+        position: relative;
+        top: auto;
+        align-self: center;
+      }
 
       @media (max-width: 1024px) {
         ${ROOT_SELECTOR} .design-systems-composition { grid-template-columns: 1fr; }
-        ${ROOT_SELECTOR} .system-canvas-stage { height: 38rem; max-width: 48rem; width: 100%; margin-inline: auto; }
-        ${ROOT_SELECTOR} .design-system-details { position: relative; top: auto; }
+        ${ROOT_SELECTOR} .system-canvas-stage { max-width: 44rem; min-height: 33rem; }
+        ${ROOT_SELECTOR} .design-system-details { max-width: 44rem; margin-inline: auto; padding-left: 0; }
       }
 
       @media (max-width: 620px) {
-        ${ROOT_SELECTOR} .system-canvas-stage {
-          height: 31rem;
-          min-height: 31rem;
-          perspective: 900px;
-          mask-image: linear-gradient(to bottom, transparent 0, #000 4%, #000 94%, transparent 100%);
-        }
-        ${ROOT_SELECTOR} .system-scroll-stack-track {
-          min-height: calc(var(--stack-count, 5) * 12rem + 24rem);
-          padding-top: 2rem;
+        ${ROOT_SELECTOR} .system-canvas-stage { min-height: 25rem; }
+        ${ROOT_SELECTOR} .system-card-stack-viewport {
+          width: min(100%, 30rem);
+          aspect-ratio: 1.45 / 1;
         }
         ${ROOT_SELECTOR} .system-canvas {
-          top: calc(1.75rem + (var(--stack-index, 0) * .45rem));
-          width: 92% !important;
-          height: 18rem !important;
-          margin-bottom: 6rem;
+          grid-template-rows: minmax(0, 1fr) 4.35rem;
+          border-width: 3px;
+          border-radius: 1.4rem;
         }
-        ${ROOT_SELECTOR} .system-canvas-caption { padding: var(--space-sm); }
+        ${ROOT_SELECTOR} .system-canvas-caption {
+          grid-template-columns: 2.55rem minmax(0, 1fr);
+          column-gap: .7rem;
+          padding: .55rem .85rem;
+        }
+        ${ROOT_SELECTOR} .system-canvas-caption::before {
+          width: 2.35rem;
+          height: 2.35rem;
+          border-width: 2px;
+        }
+        ${ROOT_SELECTOR} .system-stack-pagination { gap: .7rem; margin-top: 1.4rem; }
+        ${ROOT_SELECTOR} .system-stack-dot { width: .78rem; height: .78rem; }
       }
 
       @media (prefers-reduced-motion: reduce) {
-        ${ROOT_SELECTOR} .system-canvas { transition-duration: .01ms !important; }
+        ${ROOT_SELECTOR} .system-canvas,
+        ${ROOT_SELECTOR} .system-stack-dot { transition-duration: .01ms !important; }
       }
     `;
+
     document.head.appendChild(style);
   }
 
   function enhance(root) {
     if (!root || root.dataset.scrollStackEnhanced === 'true') return;
+
     var stage = root.querySelector('.system-canvas-stage');
     if (!stage) return;
 
@@ -169,99 +265,167 @@
     root.dataset.scrollStackEnhanced = 'true';
     root.classList.add('design-system-scroll-stack');
 
-    var track = document.createElement('div');
-    track.className = 'system-scroll-stack-track';
-    track.style.setProperty('--stack-count', cards.length);
+    var viewport = document.createElement('div');
+    viewport.className = 'system-card-stack-viewport';
+    viewport.setAttribute('aria-label', 'Design system carousel');
+    viewport.tabIndex = 0;
 
     cards.forEach(function (card, index) {
+      var image = card.querySelector('.system-canvas-visual img');
+      if (image && image.src) card.style.setProperty('--system-thumb', 'url("' + image.src.replace(/"/g, '\\"') + '")');
       card.style.setProperty('--stack-index', index);
-      track.appendChild(card);
+      viewport.appendChild(card);
     });
-    stage.appendChild(track);
+
+    stage.appendChild(viewport);
+
+    var pagination = document.createElement('div');
+    pagination.className = 'system-stack-pagination';
+    pagination.setAttribute('role', 'tablist');
+    pagination.setAttribute('aria-label', 'Choose design system');
+
+    var dots = cards.map(function (card, index) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'system-stack-dot';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Show design system ' + (index + 1));
+      dot.dataset.index = index;
+      pagination.appendChild(dot);
+      return dot;
+    });
+
+    stage.appendChild(pagination);
 
     var hint = document.createElement('p');
     hint.className = 'system-stack-hint';
-    hint.innerHTML = '<i class="bi bi-mouse" aria-hidden="true"></i><span>Scroll to explore systems</span>';
-    stage.insertAdjacentElement('afterend', hint);
+    hint.textContent = 'Scroll, swipe, or use the dots to explore';
+    stage.appendChild(hint);
 
     var currentIndex = cards.findIndex(function (card) { return card.classList.contains('is-selected'); });
     if (currentIndex < 0) currentIndex = 0;
-    var raf = 0;
-    var syncingSelection = false;
+    var switching = false;
+    var wheelLock = false;
+    var touchStartY = null;
+    var touchStartX = null;
 
-    function metrics() {
-      return window.innerWidth <= 620 ? { step: 190, spread: 15 } : { step: 238, spread: 22 };
+    function wrappedDistance(index, active) {
+      var diff = index - active;
+      var half = cards.length / 2;
+      if (diff > half) diff -= cards.length;
+      if (diff < -half) diff += cards.length;
+      return diff;
     }
 
     function render() {
-      raf = 0;
-      var m = metrics();
-      var progress = stage.scrollTop / m.step;
-      var nearest = Math.max(0, Math.min(cards.length - 1, Math.round(progress)));
-
       cards.forEach(function (card, index) {
-        var relative = index - progress;
-        var distance = Math.abs(relative);
-        var before = relative < 0;
-        var y = before ? Math.max(-34, relative * 18) : Math.min(42, relative * m.spread);
-        var z = -Math.min(180, distance * 46);
-        var scale = Math.max(.82, 1 - distance * .055);
-        var rx = before ? Math.min(7, distance * 2.4) : Math.min(3.5, distance * 1.25);
-        var rz = Math.max(-2.4, Math.min(2.4, relative * .7));
-        var opacity = Math.max(.42, 1 - distance * .12);
-        var saturation = Math.max(.62, 1 - distance * .1);
-        var brightness = Math.max(.7, 1 - distance * .07);
+        var rel = wrappedDistance(index, currentIndex);
+        var distance = Math.abs(rel);
+        var selected = index === currentIndex;
 
-        if (index === nearest) {
-          y -= 6;
-          z = 22;
+        var x = rel * 7;
+        var y = distance * 11;
+        var z = -distance * 78;
+        var scale = Math.max(.88, 1 - distance * .035);
+        var rx = distance * 1.2;
+        var ry = rel * -1.5;
+        var opacity = selected ? 1 : (distance === 1 ? .16 : 0);
+        var brightness = selected ? 1 : .64;
+
+        if (selected) {
+          x = 0;
+          y = 0;
+          z = 24;
           scale = 1;
           rx = 0;
-          rz = 0;
-          opacity = 1;
-          saturation = 1;
-          brightness = 1;
+          ry = 0;
         }
 
+        card.style.setProperty('--stack-x', x.toFixed(2) + 'px');
         card.style.setProperty('--stack-y', y.toFixed(2) + 'px');
         card.style.setProperty('--stack-z', z.toFixed(2) + 'px');
         card.style.setProperty('--stack-scale', scale.toFixed(3));
         card.style.setProperty('--stack-rx', rx.toFixed(2) + 'deg');
-        card.style.setProperty('--stack-rz', rz.toFixed(2) + 'deg');
+        card.style.setProperty('--stack-ry', ry.toFixed(2) + 'deg');
         card.style.setProperty('--stack-opacity', opacity.toFixed(3));
-        card.style.setProperty('--stack-saturation', saturation.toFixed(3));
         card.style.setProperty('--stack-brightness', brightness.toFixed(3));
-      });
+        card.style.zIndex = selected ? '30' : String(20 - distance);
+        card.style.pointerEvents = selected ? 'auto' : 'none';
+        card.setAttribute('aria-hidden', selected ? 'false' : 'true');
+        card.tabIndex = selected ? 0 : -1;
 
-      if (nearest !== currentIndex && !syncingSelection) {
-        currentIndex = nearest;
-        syncingSelection = true;
-        cards[nearest].click();
-        syncingSelection = false;
+        dotState(dots[index], selected);
+      });
+    }
+
+    function dotState(dot, active) {
+      dot.classList.toggle('is-active', active);
+      dot.setAttribute('aria-selected', active ? 'true' : 'false');
+      dot.tabIndex = active ? 0 : -1;
+    }
+
+    function activate(index, source) {
+      var next = (index + cards.length) % cards.length;
+      if (next === currentIndex && source !== 'init') return;
+
+      currentIndex = next;
+      render();
+
+      if (!switching) {
+        switching = true;
+        cards[currentIndex].click();
+        switching = false;
       }
     }
 
-    function requestRender() {
-      if (!raf) raf = window.requestAnimationFrame(render);
-    }
-
-    stage.addEventListener('scroll', requestRender, { passive: true });
-    window.addEventListener('resize', requestRender, { passive: true });
+    dots.forEach(function (dot, index) {
+      dot.addEventListener('click', function () { activate(index, 'dot'); });
+    });
 
     cards.forEach(function (card, index) {
       card.addEventListener('click', function () {
-        if (syncingSelection) return;
-        currentIndex = index;
-        var m = metrics();
-        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        stage.scrollTo({ top: index * m.step, behavior: reduced ? 'auto' : 'smooth' });
+        if (switching) return;
+        if (index !== currentIndex) activate(index, 'card');
       });
     });
 
-    // Align the stack with whichever project the existing section selected initially.
-    var m = metrics();
-    stage.scrollTop = currentIndex * m.step;
-    render();
+    viewport.addEventListener('wheel', function (event) {
+      if (Math.abs(event.deltaY) < 8 || wheelLock) return;
+      event.preventDefault();
+      wheelLock = true;
+      activate(currentIndex + (event.deltaY > 0 ? 1 : -1), 'wheel');
+      window.setTimeout(function () { wheelLock = false; }, 260);
+    }, { passive: false });
+
+    viewport.addEventListener('touchstart', function (event) {
+      if (!event.touches || !event.touches[0]) return;
+      touchStartY = event.touches[0].clientY;
+      touchStartX = event.touches[0].clientX;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', function (event) {
+      if (touchStartY === null || touchStartX === null || !event.changedTouches || !event.changedTouches[0]) return;
+      var dy = event.changedTouches[0].clientY - touchStartY;
+      var dx = event.changedTouches[0].clientX - touchStartX;
+      touchStartY = null;
+      touchStartX = null;
+      if (Math.max(Math.abs(dx), Math.abs(dy)) < 34) return;
+      if (Math.abs(dx) > Math.abs(dy)) activate(currentIndex + (dx < 0 ? 1 : -1), 'swipe');
+      else activate(currentIndex + (dy < 0 ? 1 : -1), 'swipe');
+    }, { passive: true });
+
+    viewport.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+        event.preventDefault();
+        activate(currentIndex + 1, 'keyboard');
+      }
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        activate(currentIndex - 1, 'keyboard');
+      }
+    });
+
+    activate(currentIndex, 'init');
   }
 
   function init() {
