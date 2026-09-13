@@ -70,12 +70,19 @@
 // need a React/Tailwind/shadcn migration for a single visual component.
 (function () {
   if (!document.body.classList.contains('portfolio-redesign')) return;
-  if (document.querySelector('script[data-mesh-drift-loader]')) return;
-  var shader = document.createElement('script');
-  shader.src = 'js/mesh-drift-background.js?v=20260913';
-  shader.async = true;
-  shader.dataset.meshDriftLoader = 'true';
-  document.head.appendChild(shader);
+
+  function loadOnce(src, marker) {
+    if (document.querySelector('script[' + marker + ']')) return;
+    var script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    script.setAttribute(marker, 'true');
+    document.head.appendChild(script);
+  }
+
+  // The responsive hero fix is intentionally independent of WebGL support.
+  loadOnce('js/hero-responsive-fix.js?v=20260913-1', 'data-hero-responsive-fix');
+  loadOnce('js/mesh-drift-background.js?v=20260913', 'data-mesh-drift-loader');
 })();
 
 // Keep homepage enhancements modular and only parse below-fold effects shortly
