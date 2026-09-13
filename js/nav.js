@@ -66,23 +66,33 @@
   }, { passive: true });
 })();
 
-// Site-wide Mesh Drift shader background. Kept native so the portfolio does not
-// need a React/Tailwind/shadcn migration for a single visual component.
+// Site-wide Mesh Drift shader background + hero correction.
+// Important: load the shader first, then apply the hero override after it finishes,
+// so the shader can never re-hide the original hero photograph.
 (function () {
   if (!document.body.classList.contains('portfolio-redesign')) return;
 
-  function loadOnce(src, marker) {
-    if (document.querySelector('script[' + marker + ']')) return;
-    var script = document.createElement('script');
-    script.src = src;
-    script.async = true;
-    script.setAttribute(marker, 'true');
-    document.head.appendChild(script);
+  function appendHeroFix() {
+    if (document.querySelector('script[data-hero-responsive-fix]')) return;
+    var heroFix = document.createElement('script');
+    heroFix.src = 'js/hero-responsive-fix.js?v=20260913-3';
+    heroFix.async = false;
+    heroFix.setAttribute('data-hero-responsive-fix', 'true');
+    document.head.appendChild(heroFix);
   }
 
-  // The responsive hero fix is intentionally independent of WebGL support.
-  loadOnce('js/hero-responsive-fix.js?v=20260913-2', 'data-hero-responsive-fix');
-  loadOnce('js/mesh-drift-background.js?v=20260913', 'data-mesh-drift-loader');
+  if (document.querySelector('script[data-mesh-drift-loader]')) {
+    appendHeroFix();
+    return;
+  }
+
+  var shader = document.createElement('script');
+  shader.src = 'js/mesh-drift-background.js?v=20260913-2';
+  shader.async = true;
+  shader.setAttribute('data-mesh-drift-loader', 'true');
+  shader.onload = appendHeroFix;
+  shader.onerror = appendHeroFix;
+  document.head.appendChild(shader);
 })();
 
 // Keep homepage enhancements modular and only parse below-fold effects shortly
