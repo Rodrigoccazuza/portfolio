@@ -81,7 +81,7 @@
   }
 
   // The responsive hero fix is intentionally independent of WebGL support.
-  loadOnce('js/hero-responsive-fix.js?v=20260913-1', 'data-hero-responsive-fix');
+  loadOnce('js/hero-responsive-fix.js?v=20260913-2', 'data-hero-responsive-fix');
   loadOnce('js/mesh-drift-background.js?v=20260913', 'data-mesh-drift-loader');
 })();
 
