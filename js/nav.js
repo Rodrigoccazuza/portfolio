@@ -66,6 +66,18 @@
   }, { passive: true });
 })();
 
+// Site-wide Mesh Drift shader background. Kept native so the portfolio does not
+// need a React/Tailwind/shadcn migration for a single visual component.
+(function () {
+  if (!document.body.classList.contains('portfolio-redesign')) return;
+  if (document.querySelector('script[data-mesh-drift-loader]')) return;
+  var shader = document.createElement('script');
+  shader.src = 'js/mesh-drift-background.js?v=20260913';
+  shader.async = true;
+  shader.dataset.meshDriftLoader = 'true';
+  document.head.appendChild(shader);
+})();
+
 // Keep homepage enhancements modular and only parse below-fold effects shortly
 // before their section reaches the viewport.
 (function () {
