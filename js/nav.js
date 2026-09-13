@@ -66,32 +66,31 @@
   }, { passive: true });
 })();
 
-// Site-wide Mesh Drift shader background + hero correction.
-// Important: load the shader first, then apply the hero override after it finishes,
-// so the shader can never re-hide the original hero photograph.
+// Site-wide Mesh Drift shader background. The hero itself is intentionally
+// restored to its original portfolio CSS/image treatment after the shader loads.
 (function () {
   if (!document.body.classList.contains('portfolio-redesign')) return;
 
-  function appendHeroFix() {
-    if (document.querySelector('script[data-hero-responsive-fix]')) return;
-    var heroFix = document.createElement('script');
-    heroFix.src = 'js/hero-responsive-fix.js?v=20260913-3';
-    heroFix.async = false;
-    heroFix.setAttribute('data-hero-responsive-fix', 'true');
-    document.head.appendChild(heroFix);
+  function appendHeroRestore() {
+    if (document.querySelector('script[data-hero-legacy-restore]')) return;
+    var restore = document.createElement('script');
+    restore.src = 'js/hero-legacy-restore.js?v=20260913-1';
+    restore.async = false;
+    restore.setAttribute('data-hero-legacy-restore', 'true');
+    document.head.appendChild(restore);
   }
 
   if (document.querySelector('script[data-mesh-drift-loader]')) {
-    appendHeroFix();
+    appendHeroRestore();
     return;
   }
 
   var shader = document.createElement('script');
-  shader.src = 'js/mesh-drift-background.js?v=20260913-2';
+  shader.src = 'js/mesh-drift-background.js?v=20260913-3';
   shader.async = true;
   shader.setAttribute('data-mesh-drift-loader', 'true');
-  shader.onload = appendHeroFix;
-  shader.onerror = appendHeroFix;
+  shader.onload = appendHeroRestore;
+  shader.onerror = appendHeroRestore;
   document.head.appendChild(shader);
 })();
 
