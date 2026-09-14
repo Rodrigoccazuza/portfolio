@@ -4,10 +4,9 @@
   'use strict';
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const output = document.querySelector('.text-type__content');
-  const pauseButton = document.querySelector('.typing-toggle');
   const words = ['Multimedia', 'Graphic', 'E-mail', 'Web', 'VibeCode', 'AI', 'Motion', 'Video', 'Creative'];
-  let index = 0, length = words[0].length, deleting = true, timer, paused = false, visible = true;
-  function schedule(delay) { clearTimeout(timer); if (!paused && visible && !document.hidden && !reduced.matches) timer = setTimeout(tick, delay); }
+  let index = 0, length = words[0].length, deleting = true, timer;
+  function schedule(delay) { clearTimeout(timer); if (!document.hidden && !reduced.matches) timer = setTimeout(tick, delay); }
   function tick() {
     if (!output) return;
     if (deleting) {
@@ -20,9 +19,7 @@
     output.textContent = words[index].slice(0, length); schedule(deleting ? 30 : 75);
   }
   if (output) {
-    const observer = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; schedule(1400); });
-    observer.observe(output.closest('.hero-intro'));
-    pauseButton.addEventListener('click', () => { paused = !paused; pauseButton.textContent = paused ? 'Resume text' : 'Pause text'; pauseButton.setAttribute('aria-pressed', String(paused)); schedule(400); });
+    schedule(1400);
     document.addEventListener('visibilitychange', () => schedule(1400));
     reduced.addEventListener('change', () => { if (reduced.matches) { output.textContent = words[0]; index=0;length=words[0].length;deleting=true; } schedule(1400); });
   }

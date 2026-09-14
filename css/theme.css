@@ -114,9 +114,6 @@ body .portfolio-hero::after{background:linear-gradient(90deg,var(--background),c
 body .portfolio-hero :is(.hero-kicker,#hero-title,.hero-statement-title,.hero-statement p,.hero-services strong){color:var(--foreground)}
 body #hero-title .accent-italic{font-family:'Array',sans-serif;font-style:normal;color:var(--color-green)}
 
-.hero-theme-controls{position:relative;z-index:3;display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
-.theme-toggle,.typing-toggle{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:10px 16px;border:1px solid var(--border);border-radius:999px;background:var(--card);color:var(--foreground);font:500 13px var(--font-body);cursor:pointer}
-.theme-toggle:focus-visible,.typing-toggle:focus-visible{outline:3px solid var(--ring);outline-offset:4px}
 .text-type{display:inline-block;min-height:1.2em;white-space:nowrap}.text-type__cursor{display:inline-block;margin-left:.1em;font-size:.7em;color:var(--primary);animation:typing-cursor 1s step-end infinite}
 @keyframes typing-cursor{50%{opacity:0}}
 #hero-title .text-type{font-size:clamp(2rem,6.4vw,6rem);letter-spacing:-.045em;line-height:1.15;min-height:1.15em}
@@ -125,12 +122,12 @@ body #hero-title .accent-italic{font-family:'Array',sans-serif;font-style:normal
 .parallax-viewport.is-dragging{cursor:grabbing;scroll-snap-type:none!important;user-select:none}
 .parallax-viewport .project-media{overflow:hidden}.parallax-viewport video{translate:var(--parallax-x,0px) 0;scale:1.06;pointer-events:none}
 .parallax-hint{margin:12px 0;font-size:12px;color:var(--muted-foreground)}
-@media(prefers-reduced-motion:reduce){.text-type__cursor{animation:none}.parallax-viewport video{translate:none;scale:1}.typing-toggle{display:none}}
+@media(prefers-reduced-motion:reduce){.text-type__cursor{animation:none}.parallax-viewport video{translate:none;scale:1}}
 
 body .media-viewer{background:var(--popover);color:var(--popover-foreground)}
 body .youtube-play-button,body .media-rail-play{color:#fff}
 
-/* Hero corrections: original green, stable navigation and Playfair typing. */
+/* Hero corrections: original green, stable navigation and JetBrains Mono typing. */
 body.home-page.portfolio-redesign .site-header { background:transparent; border:0; box-shadow:none; }
 body.home-page.portfolio-redesign .nav-links a:not(.btn) { background:transparent; color:#fff; }
 body.home-page.portfolio-redesign .nav-links a:not(.btn):hover { color:var(--color-green); }
@@ -142,7 +139,7 @@ body.home-page.portfolio-redesign .nav-links a:not(.btn):hover { color:var(--col
  body.home-page.portfolio-redesign .nav-links { background:var(--card); }
 }
 body.home-page.portfolio-redesign #hero-title .picked {
- font-family:'Playfair',Georgia,serif;
+ font-family:'JetBrains Mono',monospace;
  font-size:63.24px;
  font-weight:500;
  letter-spacing:0em;
@@ -158,3 +155,13 @@ body.home-page.portfolio-redesign #hero-title .picked .text-type__cursor { color
   min-height:1.05em;
  }
 }
+
+/* Footer content must never wait for scroll-triggered visibility. */
+.site-footer, .site-footer .footer-cta-copy > *, .site-footer .footer-panel-intro, .site-footer .footer-columns > *, .site-footer .footer-bottom > * { opacity:1 !important; visibility:visible !important; }
+.site-footer .footer-portrait { visibility:visible !important; pointer-events:none; }
+
+/* Override legacy black-on-green footer copy for the current dark cards. */
+body .site-footer .footer-identity, body .site-footer .footer-columns h3 { color:var(--foreground); }
+body .site-footer .footer-panel-intro > p:last-child, body .site-footer .footer-columns p, body .site-footer .footer-links a, body .site-footer .footer-email, body .site-footer .social-row a { color:var(--muted-foreground); }
+body .site-footer .footer-links a:hover, body .site-footer .footer-email:hover, body .site-footer .social-row a:hover { color:var(--color-green); }
+body .site-footer .footer-panel-intro, body .site-footer .social-row a { border-color:var(--border); }

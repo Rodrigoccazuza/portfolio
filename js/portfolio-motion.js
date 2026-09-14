@@ -305,8 +305,6 @@
       reveal('.toolkit-marquee', { y: 18, duration: 0.7, start: 'top 92%' });
       reveal('.behind-designs-heading > *', { y: 28, duration: 0.72, delay: 0.045 });
       reveal('.behind-socials a', { y: 16, scale: 0.96, duration: 0.58, delay: 0.035, start: 'top 94%' });
-      reveal('.footer-portrait', { x: 36, y: 0, scale: 0.98, duration: 0.9, start: 'top 88%' });
-      reveal('.footer-panel-intro, .footer-columns > *, .footer-bottom > *', { y: 22, duration: 0.7, delay: 0.025, start: 'top 92%' });
 
       staggerWithin('.behind-designs-gallery', ':scope > *', {
         y: 30,
@@ -347,18 +345,7 @@
         }
       });
 
-      var footerCopy = document.querySelectorAll('.footer-cta-copy > *');
-      if (footerCopy.length && ScrollTrigger) {
-        gsap.fromTo(footerCopy, { autoAlpha: 0, y: 24 }, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.68,
-          stagger: 0.09,
-          ease: 'power3.out',
-          clearProps: 'transform,opacity,visibility',
-          scrollTrigger: { trigger: '.site-footer', start: 'top 82%', once: true }
-        });
-      }
+      // Footer is static HTML: never hide it behind an animation trigger.
     }
 
     function initMicroInteractions() {
