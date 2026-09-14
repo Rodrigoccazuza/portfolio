@@ -31,9 +31,11 @@
       var media = document.createElement('span');
       media.className = 'campaign-asset-media';
       var image = document.createElement('img');
-      image.src = asset.src;
+      image.src = asset.thumbnail || asset.src;
       image.alt = asset.alt;
       image.loading = 'lazy';
+      image.decoding = 'async';
+      if (asset.width && asset.height) { image.width = asset.width; image.height = asset.height; }
       media.appendChild(image);
       button.appendChild(media);
       var name = document.createElement('strong');

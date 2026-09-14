@@ -37,7 +37,7 @@
     var wrap = element('div', 'project-media project-media--' + (media.ratio || 'landscape'));
     if (media.src) {
       var image = element('img');
-      image.src = media.src;
+      image.src = media.thumbnail || media.src;
       image.alt = media.alt || '';
       image.loading = 'lazy';
       wrap.appendChild(image);
@@ -223,6 +223,11 @@
       elements.appendChild(item);
     });
     root.appendChild(elements);
+    if (project.assetsUrl) {
+      var assetsLink = element('a', 'btn btn-secondary system-cta', 'View brand files');
+      assetsLink.href = project.assetsUrl;
+      root.appendChild(assetsLink);
+    }
     if (project.url) {
       var link = element('a', 'btn btn-primary system-cta', 'View System ');
       link.appendChild(icon('arrow-up-right'));
@@ -280,7 +285,7 @@
     var frame = element('span', 'email-card-frame');
     if (project.media.src) {
       var image = element('img');
-      image.src = project.media.src;
+      image.src = project.media.thumbnail || project.media.src;
       image.alt = '';
       image.loading = 'lazy';
       frame.appendChild(image);
@@ -388,7 +393,11 @@
     var open = element('button', 'media-rail-open');
     open.type = 'button';
     open.setAttribute('aria-label', 'Open ' + ((item && item.alt) || project.title));
-    if (project.format === 'Video' && item && item.src) {
+    if (project.format === 'Video' && item && item.thumbnail) {
+      // Imported video downloads start only when the visitor opens the viewer.
+      media = placeholder({ src: item.thumbnail, alt: item.alt, ratio: 'portrait' });
+      open.setAttribute('aria-label', 'Play ' + (item.alt || project.title));
+    } else if (project.format === 'Video' && item && item.src) {
       media = element('div', 'project-media project-media--portrait');
       var video = element('video');
       video.src = item.src;
@@ -400,12 +409,12 @@
       video.playsInline = true;
       media.appendChild(video);
     } else {
-      media = placeholder({ src: item && item.src, alt: (item && item.alt) || project.media.alt, label: project.title, ratio: 'portrait' });
+      media = placeholder({ src: item && (item.thumbnail || item.src), alt: (item && item.alt) || project.media.alt, label: project.title, ratio: 'portrait' });
     }
     open.appendChild(media);
     open.addEventListener('click', function () { openViewer(collection, itemIndex, open); });
     article.appendChild(open);
-    if (project.format === 'Video') {
+    if (project.format === 'Video' && !(item && item.thumbnail)) {
       var mute = addIconButton(element('button', 'media-rail-mute'), 'volume-mute-fill');
       mute.type = 'button';
       mute.setAttribute('aria-label', 'Unmute video');
@@ -556,6 +565,9 @@
       list.appendChild(button);
     });
     sidebar.appendChild(list);
+    var sourceLink = element('a', 'btn btn-secondary', 'View uploaded film & source files');
+    sourceLink.href = 'projects/youtube-youtube/#asset-library';
+    sidebar.appendChild(sourceLink);
     var filters = element('div', 'youtube-filters');
     ['All', 'Video Journal', 'Creative Process', 'Creator Journal'].forEach(function (filter, index) {
       var button = element('button', index === 0 ? 'is-active' : '', filter);
@@ -628,6 +640,14 @@
         id: 'social-video', label: 'Social Video', projects: section.projects.filter(function (p) { return p.format === 'Video'; })
       }));
       folderSection.appendChild(videos);
+      var libraryLinks = element('nav', 'container import-library-links');
+      libraryLinks.setAttribute('aria-label', 'Complete creative libraries');
+      [['Social library', 'social-media-bodyfactory-instagram'], ['Video & raw footage', 'video-instagram-feed'], ['Paid creative', 'meta-ad-creatives-video-ad']].forEach(function (entry) {
+        var link = element('a', 'btn btn-secondary', entry[0]);
+        link.href = 'projects/' + entry[1] + '/#asset-library';
+        libraryLinks.appendChild(link);
+      });
+      folderSection.appendChild(libraryLinks);
       return folderSection;
     }
     if (section.layout === 'asymmetric') return renderMultimediaSection(section);

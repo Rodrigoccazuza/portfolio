@@ -1,0 +1,21 @@
+/* Imported media inherits the portfolio's existing type, spacing and galleries. */
+.imported-assets h2 { margin-bottom: var(--space-lg); }
+.import-group { padding-block: var(--space-md); border-bottom: 1px solid var(--color-border); }
+.import-group summary { cursor: pointer; font-weight: 600; overflow-wrap: anywhere; }
+.import-group summary span { font-weight: 400; }
+.import-group[open] summary { margin-bottom: var(--space-md); }
+.import-group .deck-gallery { align-items: start; }
+.import-group .deck-page-card { min-width: 0; }
+.import-group .deck-page-title { overflow-wrap: anywhere; }
+.import-group .deck-page-card img { object-fit: contain; }
+.import-video { min-width: 0; margin: 0; }
+.import-video video { display: block; width: 100%; height: auto; max-height: 36rem; object-fit: contain; background: var(--color-background); }
+.import-video figcaption { padding-block: var(--space-sm); overflow-wrap: anywhere; }
+.import-downloads { padding-left: var(--space-lg); }
+.import-downloads li { padding-block: var(--space-xs); overflow-wrap: anywhere; }
+.import-source-link { margin-top: var(--space-lg); }
+.import-group summary:focus-visible { outline: 2px solid var(--color-green); outline-offset: 4px; }
+
+.import-library-links { display: flex; flex-wrap: wrap; gap: var(--space-md); padding-block: var(--space-md); }
+
+.imported-assets { scroll-margin-top: 6rem; }

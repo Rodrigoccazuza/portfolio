@@ -48,16 +48,16 @@
     const collection = el('div', 'folder-collection'); container.append(collection);
     groups.forEach((group, groupIndex) => {
       const folder = el('div', 'interactive-folder'); const cover = el('button', 'folder-cover'); cover.type = 'button'; cover.setAttribute('aria-expanded', 'false');
-      const previews = el('span', 'folder-previews'); previews.setAttribute('aria-hidden', 'true'); group.items.filter(m => !/\.(m4v|mp4|webm)$/i.test(m.src)).slice(0,5).forEach((m,i) => { const photo = img(m.src, ''); photo.style.setProperty('--offset', i - 2); previews.append(photo); });
+      const previews = el('span', 'folder-previews'); previews.setAttribute('aria-hidden', 'true'); group.items.filter(m => !/\.(m4v|mp4|webm)$/i.test(m.src)).slice(0,5).forEach((m,i) => { const photo = img(m.thumbnail || m.src, ''); photo.style.setProperty('--offset', i - 2); previews.append(photo); });
       if (!previews.children.length) previews.append(el('span', 'folder-video', '▶'));
       cover.append(previews, el('span', 'folder-front', group.title), el('span', 'folder-count', group.items.length + ' pieces · Open folder'));
       const panel = el('div', 'folder-panel'); panel.id = section.id + '-folder-' + groupIndex; panel.hidden = true; cover.setAttribute('aria-controls', panel.id);
       const close = el('button', 'folder-close', 'Close folder ↑'); close.type = 'button';
       const hint = el('p', 'folder-hint', 'Open a piece for the full preview. Drag an image down to close.');
       const grid = el('div', 'folder-photos');
-      const items = group.items.map(m => ({src:m.src, alt:m.alt || m.title || group.title, title:m.title || m.alt || group.title, type:m.type === 'video' || /\.(m4v|mp4|webm)$/i.test(m.src) ? 'video' : 'image'}));
+      const items = group.items.map(m => ({src:m.src, thumbnail:m.thumbnail, alt:m.alt || m.title || group.title, title:m.title || m.alt || group.title, type:m.type === 'video' || /\.(m4v|mp4|webm)$/i.test(m.src) ? 'video' : 'image'}));
       function toggle(open) { folder.classList.toggle('is-open', open); collection.classList.toggle('has-open-folder', !!collection.querySelector('.is-open')); panel.hidden = !open; cover.hidden = open; cover.setAttribute('aria-expanded', String(open)); if (open) close.focus({preventScroll:true}); else cover.focus({preventScroll:true}); }
-      items.forEach((m,i) => { const button = el('button', 'folder-photo'); button.type = 'button'; button.setAttribute('aria-label', 'Open ' + m.title); if (m.type === 'video') { const v = el('video'); v.src=m.src; v.preload='none'; v.muted=true; v.playsInline=true; button.append(v, el('span', 'folder-play', '▶ Play video')); } else button.append(img(m.src, m.alt)); button.append(el('span', 'folder-caption', m.title)); let start = null; let dragged = false;
+      items.forEach((m,i) => { const button = el('button', 'folder-photo'); button.type = 'button'; button.setAttribute('aria-label', 'Open ' + m.title); if (m.type === 'video') { const v = el('video'); v.src=m.src; v.preload='none'; v.muted=true; v.playsInline=true; button.append(v, el('span', 'folder-play', '▶ Play video')); } else button.append(img(m.thumbnail || m.src, m.alt)); button.append(el('span', 'folder-caption', m.title)); let start = null; let dragged = false;
         button.addEventListener('pointerdown', e => { if (e.pointerType === 'mouse') { start = e.clientY; dragged = false; button.setPointerCapture(e.pointerId); } });
         button.addEventListener('pointerup', e => { if (start !== null && e.clientY - start > 100) { dragged = true; toggle(false); } start = null; }); button.addEventListener('pointercancel', () => {start=null;});
         button.addEventListener('click', () => { if (dragged) {dragged=false;return;} openViewer(items,i,button); }); grid.append(button); });
