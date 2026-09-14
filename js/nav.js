@@ -66,32 +66,16 @@
   }, { passive: true });
 })();
 
-// Site-wide Mesh Drift shader background. The hero itself is intentionally
-// restored to its original portfolio CSS/image treatment after the shader loads.
+// Homepage-only alignment patch. The site has returned to its original plain
+// background; this stylesheet only stabilizes the hero and mobile navigation.
 (function () {
   if (!document.body.classList.contains('portfolio-redesign')) return;
-
-  function appendHeroRestore() {
-    if (document.querySelector('script[data-hero-legacy-restore]')) return;
-    var restore = document.createElement('script');
-    restore.src = 'js/hero-legacy-restore.js?v=20260913-1';
-    restore.async = false;
-    restore.setAttribute('data-hero-legacy-restore', 'true');
-    document.head.appendChild(restore);
-  }
-
-  if (document.querySelector('script[data-mesh-drift-loader]')) {
-    appendHeroRestore();
-    return;
-  }
-
-  var shader = document.createElement('script');
-  shader.src = 'js/mesh-drift-background.js?v=20260913-3';
-  shader.async = true;
-  shader.setAttribute('data-mesh-drift-loader', 'true');
-  shader.onload = appendHeroRestore;
-  shader.onerror = appendHeroRestore;
-  document.head.appendChild(shader);
+  if (document.querySelector('link[data-homepage-layout-fix]')) return;
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'css/homepage-layout-fix.css?v=20260913-1';
+  link.setAttribute('data-homepage-layout-fix', 'true');
+  document.head.appendChild(link);
 })();
 
 // Keep homepage enhancements modular and only parse below-fold effects shortly
