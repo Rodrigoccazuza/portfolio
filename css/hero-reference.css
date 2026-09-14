@@ -90,19 +90,25 @@ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-se
  }
  body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero { margin:12px; min-height:780px; border-radius:32px; }
  body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-inner {
-  padding:120px 7% 32px; grid-template-columns:1fr; grid-template-rows:auto auto minmax(140px,1fr);
+  padding:156px 7% 32px; grid-template-columns:1fr; grid-template-rows:auto auto minmax(140px,1fr);
  }
- body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-background { object-position:65% center; opacity:.65!important; }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-background { object-position:61% center; opacity:.65!important; }
  body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero::after {
   background:linear-gradient(90deg,rgba(0,0,0,.86),rgba(0,0,0,.24)),linear-gradient(0deg,rgba(0,0,0,.7),transparent 60%);
  }
  body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero #hero-title { font-size:clamp(64px,13vw,110px); }
  body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero #hero-title .picked { font-size:clamp(26px,5.7vw,44px); }
  body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-statement { max-width:480px; margin-top:32px; }
- body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-services { margin-left:0; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-services { margin-left:0; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; text-align:center; }
 }
 @media(max-width:420px) {
- body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-inner { padding:110px 6% 28px; }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-inner { padding:143px 6% 28px; }
  body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-actions { gap:10px; }
  body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-actions .btn { padding:12px 17px; font-size:12px; }
+}
+
+/* Center each service number together with its complete label on mobile. */
+@media(max-width:860px) {
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-services > div { justify-items:center; text-align:center; }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-services strong { width:100%; text-align:center; }
 }
