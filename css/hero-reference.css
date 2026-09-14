@@ -1,0 +1,108 @@
+/* Hero-only reference layout. No below-hero selectors. */
+body.home-page.portfolio-redesign.hero-reference-layout .site-header {
+  top:clamp(42px,3.3vw,64px); left:clamp(32px,5.3vw,102px); right:clamp(32px,4vw,77px);
+  background:transparent; border:0;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .site-header .nav-bar {
+  position:relative; width:100%; max-width:none; padding:0; min-height:48px;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .nav-logo img {
+  width:76px; height:36px; object-fit:contain; object-position:left center;
+}
+@media(min-width:861px) {
+ body.home-page.portfolio-redesign.hero-reference-layout .nav-links {
+  flex:1; justify-content:flex-end; background:transparent;
+ }
+ body.home-page.portfolio-redesign.hero-reference-layout .nav-links ul {
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); gap:28px;
+ }
+ body.home-page.portfolio-redesign.hero-reference-layout .nav-links a { font-size:13px; }
+ body.home-page.portfolio-redesign.hero-reference-layout .nav-resume-btn {
+  margin:0; min-height:46px; padding:12px 24px; border-radius:999px;
+ }
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero {
+  min-height:clamp(660px,47.5vw,920px); margin:clamp(24px,2.5vw,48px);
+  border-radius:clamp(32px,4vw,76px); background:#050605!important;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-background {
+  opacity:1!important; object-fit:cover; object-position:center center;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero::after {
+  background:linear-gradient(90deg,rgba(0,0,0,.64) 0%,rgba(0,0,0,.42) 39%,rgba(0,0,0,.12) 70%,rgba(0,0,0,.24)),linear-gradient(0deg,rgba(0,0,0,.58),transparent 45%);
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-inner {
+  width:100%; max-width:none; min-height:inherit; box-sizing:border-box;
+  padding:clamp(112px,8.7vw,168px) 4% 32px 9.5%;
+  display:grid; grid-template-columns:minmax(0,46%) minmax(0,1fr);
+  grid-template-rows:auto auto minmax(84px,1fr); gap:0;
+  align-items:start;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-intro {
+  grid-column:1; grid-row:1; align-self:start; width:100%; min-width:0;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-kicker {
+  margin:0 0 14px; font-size:clamp(18px,1.3vw,25px); line-height:1.3;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero #hero-title {
+  margin:0; font-size:clamp(84px,8.3vw,160px); line-height:.88;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero #hero-title .picked {
+  font-size:clamp(32px,3.3vw,63.24px); line-height:1.05; min-height:1.05em;
+  font-family:'JetBrains Mono',monospace; font-weight:500; letter-spacing:0; color:#fff;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero #hero-title .accent-italic {
+  font-size:1em; line-height:.88; margin-top:.06em; white-space:nowrap;
+  font-family:'Array',sans-serif; font-weight:400; color:#66d487;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-statement {
+  grid-column:1; grid-row:2; align-self:start; width:100%; max-width:600px;
+  padding:0; margin-top:clamp(32px,3.3vw,64px);
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-statement-title {
+  font-size:clamp(20px,1.52vw,29px); line-height:1.25; margin:0 0 18px;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-statement > p:last-of-type {
+  max-width:47ch; font-size:clamp(12px,.85vw,16px); line-height:1.65; margin:0; color:rgba(255,255,255,.86);
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-actions {
+  display:flex; gap:16px; margin-top:clamp(28px,2.5vw,48px); flex-wrap:wrap;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-actions .btn {
+  width:auto; min-height:48px; padding:12px 26px; border-radius:999px; font-size:14px;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-actions .btn-secondary {
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.82); color:#fff;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-services {
+  grid-column:1/-1; grid-row:3; align-self:end; width:auto; margin:0 0 0 26%;
+  display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px; padding-top:48px;
+}
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-services span { font-size:12px; color:#66d487; }
+body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-services strong { font-size:12px; line-height:1.5; color:#fff; }
+@media(max-width:1100px) and (min-width:861px) {
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-inner { padding-left:7%; grid-template-columns:minmax(0,52%) minmax(0,1fr); }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-services { margin-left:10%; gap:18px; }
+}
+@media(max-width:860px) {
+ body.home-page.portfolio-redesign.hero-reference-layout .site-header {
+  top:max(24px,env(safe-area-inset-top))!important; left:28px!important; right:28px!important;
+ }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero { margin:12px; min-height:780px; border-radius:32px; }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-inner {
+  padding:120px 7% 32px; grid-template-columns:1fr; grid-template-rows:auto auto minmax(140px,1fr);
+ }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-background { object-position:65% center; opacity:.65!important; }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero::after {
+  background:linear-gradient(90deg,rgba(0,0,0,.86),rgba(0,0,0,.24)),linear-gradient(0deg,rgba(0,0,0,.7),transparent 60%);
+ }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero #hero-title { font-size:clamp(64px,13vw,110px); }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero #hero-title .picked { font-size:clamp(26px,5.7vw,44px); }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-statement { max-width:480px; margin-top:32px; }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-services { margin-left:0; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+}
+@media(max-width:420px) {
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-inner { padding:110px 6% 28px; }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-actions { gap:10px; }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-actions .btn { padding:12px 17px; font-size:12px; }
+}
