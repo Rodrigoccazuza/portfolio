@@ -3,23 +3,6 @@
 (function () {
   'use strict';
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const themeButton = document.querySelector('.theme-toggle');
-  function syncTheme() {
-    const dark = document.documentElement.classList.contains('dark');
-    themeButton.textContent = dark ? '☀ Light mode' : '☾ Dark mode';
-    themeButton.setAttribute('aria-pressed', String(dark));
-    themeButton.setAttribute('aria-label', 'Dark mode');
-  }
-  if (themeButton) {
-    syncTheme();
-    themeButton.addEventListener('click', () => {
-      const dark = document.documentElement.classList.toggle('dark');
-      try { localStorage.setItem('portfolio-theme', dark ? 'dark' : 'light'); } catch (_) {}
-      document.dispatchEvent(new Event('portfolio-theme-select')); syncTheme();
-    });
-    document.addEventListener('portfolio-theme-change', syncTheme);
-  }
-
   const output = document.querySelector('.text-type__content');
   const pauseButton = document.querySelector('.typing-toggle');
   const words = ['Multimedia', 'Graphic', 'E-mail', 'Web', 'VibeCode', 'AI', 'Motion', 'Video', 'Creative'];

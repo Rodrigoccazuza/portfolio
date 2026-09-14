@@ -79,9 +79,9 @@
  --color-accent-hover: color-mix(in oklch, var(--primary) 85%, var(--foreground));
  --color-accent-light: var(--sidebar-primary);
  --color-accent-tint: color-mix(in oklch, var(--primary) 12%, var(--background));
- --color-green: var(--primary);
- --color-accent-secondary: var(--primary);
- --color-green-tint: var(--accent);
+ --color-green: #66d487;
+ --color-accent-secondary: #66d487;
+ --color-green-tint: rgba(102, 212, 135, .14);
  --color-violet: var(--primary);
  --color-panel-gray: var(--secondary);
  --color-ink: var(--foreground);
@@ -112,7 +112,7 @@ html:not(.dark) .nav-logo img{filter:invert(1)}
 body .portfolio-hero{background:var(--background);color:var(--foreground)}
 body .portfolio-hero::after{background:linear-gradient(90deg,var(--background),color-mix(in oklch,var(--background) 82%,transparent) 55%,color-mix(in oklch,var(--background) 48%,transparent)),linear-gradient(0deg,var(--background),transparent 60%)}
 body .portfolio-hero :is(.hero-kicker,#hero-title,.hero-statement-title,.hero-statement p,.hero-services strong){color:var(--foreground)}
-body #hero-title .accent-italic{font-family:'Array',sans-serif;font-style:normal;color:var(--primary)}
+body #hero-title .accent-italic{font-family:'Array',sans-serif;font-style:normal;color:var(--color-green)}
 
 .hero-theme-controls{position:relative;z-index:3;display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
 .theme-toggle,.typing-toggle{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:10px 16px;border:1px solid var(--border);border-radius:999px;background:var(--card);color:var(--foreground);font:500 13px var(--font-body);cursor:pointer}
@@ -129,3 +129,32 @@ body #hero-title .accent-italic{font-family:'Array',sans-serif;font-style:normal
 
 body .media-viewer{background:var(--popover);color:var(--popover-foreground)}
 body .youtube-play-button,body .media-rail-play{color:#fff}
+
+/* Hero corrections: original green, stable navigation and Playfair typing. */
+body.home-page.portfolio-redesign .site-header { background:transparent; border:0; box-shadow:none; }
+body.home-page.portfolio-redesign .nav-links a:not(.btn) { background:transparent; color:#fff; }
+body.home-page.portfolio-redesign .nav-links a:not(.btn):hover { color:var(--color-green); }
+@media(min-width:861px) {
+ body.home-page.portfolio-redesign .nav-links { background:transparent; }
+ body.home-page.portfolio-redesign .nav-toggle { display:none; }
+}
+@media(max-width:860px) {
+ body.home-page.portfolio-redesign .nav-links { background:var(--card); }
+}
+body.home-page.portfolio-redesign #hero-title .picked {
+ font-family:'Playfair',Georgia,serif;
+ font-size:63.24px;
+ font-weight:500;
+ letter-spacing:0em;
+ line-height:66.402px;
+ color:#fff;
+ min-height:66.402px;
+}
+body.home-page.portfolio-redesign #hero-title .picked .text-type__cursor { color:#fff; }
+@media(max-width:540px) {
+ body.home-page.portfolio-redesign #hero-title .picked {
+  font-size:clamp(28px,8vw,42px);
+  line-height:1.05;
+  min-height:1.05em;
+ }
+}

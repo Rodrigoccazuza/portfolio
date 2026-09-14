@@ -73,7 +73,7 @@
   if (document.querySelector('link[data-homepage-layout-fix]')) return;
   var link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = 'css/homepage-layout-fix.css?v=20260913-1';
+  link.href = 'css/homepage-layout-fix.css?v=20260914-4';
   link.setAttribute('data-homepage-layout-fix', 'true');
   document.head.appendChild(link);
 })();

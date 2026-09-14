@@ -1,6 +1,6 @@
 # Theme and motion update
 
-The supplied light/dark OKLCH values are preserved in css/theme.css and mapped to the existing portfolio tokens. Shared pages load the theme and early preference initialization. A hero toggle saves the selection in localStorage; system preference is used until an explicit choice is saved. Storage-denied browsing still permits toggling. The Array face remains on Designer and existing fonts are otherwise retained. Yellow folders retain their intentional asset color.
+The supplied light/dark OKLCH values are preserved in css/theme.css and mapped to the existing portfolio tokens. Shared pages load the theme and early preference initialization. The theme toggle was subsequently removed at user request; the site now uses the dark presentation consistently. Previous saved light preferences are ignored. The Array face remains on Designer and the rotating heading uses white Playfair, weight 500, 63.24px / 66.402px on desktop, with responsive sizing on small screens. Original #66d487 green accents are restored. Yellow folders retain their intentional asset color.
 
 The hero typing effect adapts the supplied TextType behavior to the existing static runtime: Multimedia, Graphic, E-mail, Web, VibeCode, AI, Motion, Video, Creative; 75ms typing, 30ms deleting, 1400ms pause, block cursor. It pauses offscreen or in a hidden tab, supports an explicit pause button and respects reduced motion. Assistive technology receives a static description.
 

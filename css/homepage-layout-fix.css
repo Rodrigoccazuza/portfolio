@@ -17,7 +17,7 @@ body.home-page.portfolio-redesign .portfolio-hero .hero-background {
 }
 
 /* Keep the desktop hero composition centered and balanced. */
-@media (min-width: 901px) {
+@media (min-width: 861px) {
   body.home-page.portfolio-redesign .portfolio-hero .hero-inner {
     align-items: center;
   }
@@ -33,7 +33,7 @@ body.home-page.portfolio-redesign .portfolio-hero .hero-background {
 }
 
 /* Mobile header: keep both controls fully inside the hero/safe area. */
-@media (max-width: 900px) {
+@media (max-width: 860px) {
   body.home-page.portfolio-redesign .site-header {
     top: max(.9rem, env(safe-area-inset-top)) !important;
     right: max(.9rem, env(safe-area-inset-right)) !important;
