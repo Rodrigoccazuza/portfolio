@@ -75,9 +75,11 @@ for sec,rows in sorted(sections.items()):
   if docs:chunks.extend(['<ul class="import-downloads">',*[card(r,sec) for r in docs],'</ul>'])
   chunks.append('</details>')
  chunks.extend([f'<p class="import-source-link"><a href="{release}">Download original project files</a></p>','</div></section>','<!-- imported-assets:end -->\n'])
+ html=html.replace('href="#asset-library"', 'href="'+route(sec)+'#asset-library"')
  html=html.replace('</main>','\n'.join(chunks)+'\n</main>')
  if 'css/imported-assets.css' not in html:html=html.replace('</head>','<link rel="stylesheet" href="css/imported-assets.css?v=20260914">\n</head>')
  if 'href="#asset-library"' not in html:html=re.sub(r'(</h1>)',r'\1\n <p><a href="#asset-library">Browse '+('certificates' if sec=='experience' else 'project assets')+r' &darr;</a></p>',html,count=1)
+ html=html.replace('href="#asset-library"', 'href="'+route(sec)+'#asset-library"')
  path.write_text(html)
  index.extend(['## '+sec.replace('-',' ').title(),'',f'[Portfolio section](https://rodrigoccazuza.github.io/portfolio/{route(sec)})','','| Source file | Web copy | Original archive |','| --- | --- | --- |'])
  for r in rows:
