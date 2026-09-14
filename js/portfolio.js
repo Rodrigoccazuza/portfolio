@@ -614,8 +614,22 @@
     if (section.layout === 'websites') return renderWebsitesSection(section);
     if (section.layout === 'systems') return renderDesignSystemsSection(section);
     if (section.layout === 'rail') return renderEmailSection(section);
-    if (section.id === 'ads' || section.id === 'multimedia') return window.PortfolioUI.folders(section, openViewer);
-    if (section.id === 'social') return renderMediaRailSection(section);
+    if (section.id === 'multimedia') return window.PortfolioUI.folders(section, openViewer);
+    if (section.id === 'ads') return renderMediaRailSection(Object.assign({}, section, {
+      label: 'Meta Video Ads', projects: section.projects.filter(function (p) { return p.format === 'Video'; })
+    }));
+    if (section.id === 'social') {
+      var paid = data.sections.find(function (s) { return s.id === 'ads'; });
+      var folderSection = window.PortfolioUI.folders(Object.assign({}, section, {
+        title: 'Social & paid creative',
+        projects: section.projects.filter(function (p) { return p.format === 'Static'; }).concat(paid.projects.filter(function (p) { return p.format === 'Static'; }))
+      }), openViewer);
+      var videos = renderMediaRailSection(Object.assign({}, section, {
+        id: 'social-video', label: 'Social Video', projects: section.projects.filter(function (p) { return p.format === 'Video'; })
+      }));
+      folderSection.appendChild(videos);
+      return folderSection;
+    }
     if (section.layout === 'asymmetric') return renderMultimediaSection(section);
     if (section.layout === 'video') return renderYouTubeSection(section);
     if (section.layout === 'campaigns') return renderCampaignsSection(section);

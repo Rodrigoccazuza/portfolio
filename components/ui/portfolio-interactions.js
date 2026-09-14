@@ -43,8 +43,9 @@
   }
   function folders(section, openViewer) {
     const root = el('section', 'section folder-section'); root.id = section.id;
-    const container = el('div', 'container'); heading(container, section.id === 'ads' ? 'Ads' : 'Other', section.title);
-    const groups = section.id === 'ads' ? section.projects.map(p => ({title:p.title, items:p.media.items})) : [{title:'Other creative work', items:section.projects.map(p => ({...p.media, title:p.title}))}];
+    const container = el('div', 'container'); heading(container, section.id === 'social' ? 'Social Media & Ads' : section.id === 'ads' ? 'Ads' : 'Other', section.title);
+    const groups = section.id === 'ads' || section.id === 'social' ? section.projects.map(p => ({title:p.title, items:p.media.items})) : [{title:'Other creative work', items:section.projects.map(p => ({...p.media, title:p.title}))}];
+    const collection = el('div', 'folder-collection'); container.append(collection);
     groups.forEach((group, groupIndex) => {
       const folder = el('div', 'interactive-folder'); const cover = el('button', 'folder-cover'); cover.type = 'button'; cover.setAttribute('aria-expanded', 'false');
       const previews = el('span', 'folder-previews'); previews.setAttribute('aria-hidden', 'true'); group.items.filter(m => !/\.(m4v|mp4|webm)$/i.test(m.src)).slice(0,5).forEach((m,i) => { const photo = img(m.src, ''); photo.style.setProperty('--offset', i - 2); previews.append(photo); });
@@ -55,13 +56,13 @@
       const hint = el('p', 'folder-hint', 'Open a piece for the full preview. Drag an image down to close.');
       const grid = el('div', 'folder-photos');
       const items = group.items.map(m => ({src:m.src, alt:m.alt || m.title || group.title, title:m.title || m.alt || group.title, type:m.type === 'video' || /\.(m4v|mp4|webm)$/i.test(m.src) ? 'video' : 'image'}));
-      function toggle(open) { folder.classList.toggle('is-open', open); panel.hidden = !open; cover.hidden = open; cover.setAttribute('aria-expanded', String(open)); if (open) close.focus({preventScroll:true}); else cover.focus({preventScroll:true}); }
+      function toggle(open) { folder.classList.toggle('is-open', open); collection.classList.toggle('has-open-folder', !!collection.querySelector('.is-open')); panel.hidden = !open; cover.hidden = open; cover.setAttribute('aria-expanded', String(open)); if (open) close.focus({preventScroll:true}); else cover.focus({preventScroll:true}); }
       items.forEach((m,i) => { const button = el('button', 'folder-photo'); button.type = 'button'; button.setAttribute('aria-label', 'Open ' + m.title); if (m.type === 'video') { const v = el('video'); v.src=m.src; v.preload='none'; v.muted=true; v.playsInline=true; button.append(v, el('span', 'folder-play', '▶ Play video')); } else button.append(img(m.src, m.alt)); button.append(el('span', 'folder-caption', m.title)); let start = null; let dragged = false;
         button.addEventListener('pointerdown', e => { if (e.pointerType === 'mouse') { start = e.clientY; dragged = false; button.setPointerCapture(e.pointerId); } });
         button.addEventListener('pointerup', e => { if (start !== null && e.clientY - start > 100) { dragged = true; toggle(false); } start = null; }); button.addEventListener('pointercancel', () => {start=null;});
         button.addEventListener('click', () => { if (dragged) {dragged=false;return;} openViewer(items,i,button); }); grid.append(button); });
       cover.addEventListener('click', () => toggle(true)); close.addEventListener('click', () => toggle(false)); panel.addEventListener('keydown', e => {if(e.key === 'Escape') {e.stopPropagation();toggle(false);}});
-      panel.append(close, hint, grid); folder.append(cover,panel); container.append(folder);
+      panel.append(close, hint, grid); folder.append(cover,panel); collection.append(folder);
     }); root.append(container); return root;
   }
   window.PortfolioUI = {websites, folders};

@@ -5,9 +5,9 @@ Based on `new_portfolio` (the existing redesign), not the older default branch.
 The uploaded reference's four interactions are adapted to the site's native HTML/CSS/JavaScript runtime in `components/ui/portfolio-interactions.js` and its companion stylesheet. `js/portfolio.js` supplies existing project data and the existing accessible media viewer. There are no new runtime dependencies or build requirements.
 
 - Websites: centered sticky cards, scroll-linked scaling, existing live links, full screenshot previews.
-- Tools: three rotating rings with existing tool identities, pause control, offscreen pause and reduced-motion support.
+- Tools: three rotating rings with existing tool identities, pause control, offscreen pause and reduced-motion support. Hover does not pause the orbits.
 - Process: centered six-step timeline using existing step names, progressive reveal and connected markers.
-- Ads / Other: folders containing all 12 static ads, 3 video ads and 5 additional pieces. Mouse drag-down, Escape and close-button dismissal; native touch scrolling; full media viewer.
+- Social / Ads / Other: yellow folders containing all 14 static social images, 12 static ads and 5 additional pieces. Social and paid-social folders sit side by side; social videos and all 3 Meta video ads retain the original scrolling rails. Mouse drag-down, Escape and close-button dismissal; native touch scrolling; full media viewer.
 - Small-height and reduced-motion layouts use ordinary document flow so cards remain readable. Keyboard focus lifts a covered card.
 
 ## Optional React setup
