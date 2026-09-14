@@ -160,8 +160,28 @@ body.home-page.portfolio-redesign #hero-title .picked .text-type__cursor { color
 .site-footer, .site-footer .footer-cta-copy > *, .site-footer .footer-panel-intro, .site-footer .footer-columns > *, .site-footer .footer-bottom > * { opacity:1 !important; visibility:visible !important; }
 .site-footer .footer-portrait { visibility:visible !important; pointer-events:none; }
 
-/* Override legacy black-on-green footer copy for the current dark cards. */
-body .site-footer .footer-identity, body .site-footer .footer-columns h3 { color:var(--foreground); }
-body .site-footer .footer-panel-intro > p:last-child, body .site-footer .footer-columns p, body .site-footer .footer-links a, body .site-footer .footer-email, body .site-footer .social-row a { color:var(--muted-foreground); }
-body .site-footer .footer-links a:hover, body .site-footer .footer-email:hover, body .site-footer .social-row a:hover { color:var(--color-green); }
-body .site-footer .footer-panel-intro, body .site-footer .social-row a { border-color:var(--border); }
+/* Preserve the original signature green footer panel in the dark theme. */
+body .site-footer .footer-panel {
+  background: #66d487;
+  color: #000;
+}
+body .site-footer .footer-panel :is(h2,h3,p,a,span,strong),
+body .site-footer .footer-panel .footer-identity {
+  color: #000;
+}
+body .site-footer .footer-panel .footer-panel-intro > p:last-child,
+body .site-footer .footer-panel .footer-columns p,
+body .site-footer .footer-panel .footer-links a,
+body .site-footer .footer-panel .footer-email,
+body .site-footer .footer-panel .social-row a {
+  color: rgba(0,0,0,.72);
+}
+body .site-footer .footer-panel a:hover { color: var(--color-violet); }
+body .site-footer .footer-panel .footer-panel-intro,
+body .site-footer .footer-panel .social-row a {
+  border-color: rgba(0,0,0,.22);
+}
+body .site-footer .footer-panel a:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 4px;
+}
