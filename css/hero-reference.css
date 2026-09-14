@@ -119,3 +119,19 @@ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-se
  body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-statement { margin-bottom:0; }
  body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-actions { margin-bottom:0; }
 }
+
+/* Mobile hero: full-width stacked actions and a larger Designer word. */
+@media(max-width:860px) {
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-statement {
+  width:100%; max-width:none;
+ }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-actions {
+  display:flex; flex-direction:column; align-items:stretch; width:100%; gap:12px;
+ }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero .hero-actions .btn {
+  display:flex; justify-content:center; width:100%; box-sizing:border-box; min-height:48px;
+ }
+ body.home-page.portfolio-redesign.hero-reference-layout .portfolio-hero #hero-title .accent-italic {
+  font-size:1.2em;
+ }
+}
