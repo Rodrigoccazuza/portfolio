@@ -1,0 +1,34 @@
+{
+  "BF_Brand_YouTube_FindingAPurposeToCreate-Vlog.mp4.part01": {
+    "size": 1000000000,
+    "sha256": "62cb71a136b1832620d71709f3c89e3be0631e44d0ee9cadea3bfb22f702d0ee"
+  },
+  "BF_Brand_YouTube_FindingAPurposeToCreate-Vlog.mp4.part02": {
+    "size": 1000000000,
+    "sha256": "60cd0d9507371c60a85cd071a70f237429767331391db76265196e2371e41520"
+  },
+  "BF_Brand_YouTube_FindingAPurposeToCreate-Vlog.mp4.part03": {
+    "size": 1000000000,
+    "sha256": "8230917b079348ef6a8efac202d5a1b45de6313794db3510740fc5a56f4d7918"
+  },
+  "BF_Brand_YouTube_FindingAPurposeToCreate-Vlog.mp4.part04": {
+    "size": 110132079,
+    "sha256": "3b0802c05a83f99d1f9fc2dc139bf55e0e05353f4c24f30fe233908e3c870e66"
+  },
+  "portfolio-originals-01.zip": {
+    "size": 1382652585,
+    "sha256": "e4c47600f43434d5e96c6b432e8dfde6e9eaf84d93d9d96491f9f0c24e44b526"
+  },
+  "portfolio-originals-02.zip": {
+    "size": 1399213592,
+    "sha256": "c68f9c6d37ffbac643cf3644e222742a8b84655519b6b636089c21b18a6a84eb"
+  },
+  "portfolio-originals-03.zip": {
+    "size": 1380884602,
+    "sha256": "ca9bde60de630ccc2e063a7b21500fad6d892b59ecffd2fe777309ee6cf753b0"
+  },
+  "portfolio-originals-04.zip": {
+    "size": 1426112042,
+    "sha256": "c205525b1abfaea671312057b8174f9a559b1c70c1fb102ccd6c52898a0ae010"
+  }
+}

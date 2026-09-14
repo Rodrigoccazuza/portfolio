@@ -1,0 +1,3437 @@
+[
+  {
+    "source": "Vidoes/07 Brand and General Content/YouTube/BF_Brand_YouTube_FindingAPurposeToCreate-Vlog.mp4",
+    "bytes": 3110132079,
+    "sha256": "a020700e05e73d86709ecd116d0971b2fede3841dd1b9386fedb9cfb160f1a3e",
+    "archives": [
+      "BF_Brand_YouTube_FindingAPurposeToCreate-Vlog.mp4.part01",
+      "BF_Brand_YouTube_FindingAPurposeToCreate-Vlog.mp4.part02",
+      "BF_Brand_YouTube_FindingAPurposeToCreate-Vlog.mp4.part03",
+      "BF_Brand_YouTube_FindingAPurposeToCreate-Vlog.mp4.part04"
+    ]
+  },
+  {
+    "source": "BRAND GUIDELINES/BODYFACTORY/BF_Brand_Guidelines-Document.pdf",
+    "bytes": 838485,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "185c98b41e1deea44865b2d828c6470ece3571975367147b72db6d509c353b8f"
+  },
+  {
+    "source": "BRAND GUIDELINES/PRISMA PROVIDERS/Website Project Proposal Presentation.pdf",
+    "bytes": 5455412,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "4c4e85fa07db8aac847f70a6634e79575ecd247e5b31cb6e4c5c50a38f7c831e"
+  },
+  {
+    "source": "BRAND GUIDELINES/SOCIAL PROJECT/Your Data, Your Money.pptx",
+    "bytes": 13366155,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "6704f66bb275800b02a0fe77533a11305c6da0adec7b737e76161884b92fafae"
+  },
+  {
+    "source": "BRAND GUIDELINES/SOCIAL PROJECT/YourDataYourMoney_finalPresentation.pdf",
+    "bytes": 4347660,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "ccb89f4ada0bac5c3519be606dfd43d8db4693e37fb42e7b785906f772dfac8c"
+  },
+  {
+    "source": "BRAND GUIDELINES/SOCIAL PROJECT/screencapture-htetaunglin1151-github-io-emailblasttesting-2025-07-17-00_00_08.png",
+    "bytes": 435076,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "5f0743855631e4433286f2088ab39c67c2e8fb61873bfa81f292e72436b34b55"
+  },
+  {
+    "source": "BRAND GUIDELINES/SOCIAL PROJECT/screencapture-htetaunglin1151-github-io-socialmediablackout-2025-07-17-00_00_25.png",
+    "bytes": 312049,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "b9ac827dbded52d95adcc318168bb21b931a3dbf4218c48c496f71411c40b4c1"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/Inter-Italic-VariableFont_opsz,wght.ttf",
+    "bytes": 904532,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "6136f73372fedc37b80fd1a8ec3e21734073ff17376f3672718f186779672e7a"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/Inter-VariableFont_opsz,wght.ttf",
+    "bytes": 874708,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "0be2399ea925f1f83ff974764761da9860ec50742ed29a5d4c1ffd0c5c7ac3a8"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/OFL.txt",
+    "bytes": 4470,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "3c8d13d97ea5eb62868833a377034c6be6a9833e768d32abec2a767a8101e4bc"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/README.txt",
+    "bytes": 3894,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "549ce33e8404f23252d765745b34bf76577291bfb8a743afc412898e27d6496d"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-Black.ttf",
+    "bytes": 344820,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "f04a43cde09da7a0ec01526347dac368980098410321ab8edc9e5c61b9d1c45f"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-BlackItalic.ttf",
+    "bytes": 348712,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "38f0614f651074578af431531c2f081c7a9386fc74d68c695f305ba47904220f"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-Bold.ttf",
+    "bytes": 344152,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "30a5c45ec23a594af2effe8d3b589ad22c2dede27441050a1604d00ff82fd0dc"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-BoldItalic.ttf",
+    "bytes": 348184,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "faef7d798934e94c9d6b0871c54900b270e3d1930c0b096ab690d974dfef806c"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-ExtraBold.ttf",
+    "bytes": 345008,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "99fa7026168b7cd8077c99a365eeb0a57d736296afc866d033039817aa787fbd"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-ExtraBoldItalic.ttf",
+    "bytes": 349064,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "b8e2b85755c8877bc6e4e540b22b24cc8b9892d69d122c674e4eab584f957f6a"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-ExtraLight.ttf",
+    "bytes": 343532,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "8410d5b8b691adc1df06fc946c11efc85963a7e4ac6a35acbb1e392a997cc730"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-ExtraLightItalic.ttf",
+    "bytes": 347452,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "3cd9e347924944acaf5aa8958b59c0ef22420ac973c94ef44d10b0d58fae3d55"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-Italic.ttf",
+    "bytes": 346480,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "1fe26d47c840ef8767635967acaa50ee43a57794fa00a03bf042ee4aab2792c4"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-Light.ttf",
+    "bytes": 343704,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "f0e82b52327efcb68e1b181019ad81d6773bc5ee2addb0b3588d5712740054cd"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-LightItalic.ttf",
+    "bytes": 347316,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "8fd3f38ea3d248fb65d99db13a88abd8feb2deca519ef454e5ef8db3e79e29e4"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-Medium.ttf",
+    "bytes": 343200,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "7c7206c451a89a8fa8f38f3c217f67e60b830db9e21645e36155cc62cd1f9903"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-MediumItalic.ttf",
+    "bytes": 346884,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "9b9858739c528923132c6cfdba8eb4836d44b4fae2bec190fac3736ba0957465"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-Regular.ttf",
+    "bytes": 342680,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "3e5f90a0138b38de4cf4d779ad78391974ea1df776b9164842bdcbb60ce383c5"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-SemiBold.ttf",
+    "bytes": 343828,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "a8b276e25bb13dfa39cface35cc92aff9a7d5f1b96143f0df8c66351ccfed2a4"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-SemiBoldItalic.ttf",
+    "bytes": 347760,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "634c101488742afc966033519a7159566624c64e7a27870f9631422b542cba92"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-Thin.ttf",
+    "bytes": 343088,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "49af22a61adc89b3cba20525fd0a99d8bb39d111e6ccc73b1ab612810b754828"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_18pt-ThinItalic.ttf",
+    "bytes": 346916,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "07a97acc1e71a3bf9da9440d5137d2f765d54fcf14f35f9fa26bcd9fe37b3a9f"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-Black.ttf",
+    "bytes": 344764,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "532bb29b05672483bd431caf23173dcdff15fb15460597aa344b6467d9b01721"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-BlackItalic.ttf",
+    "bytes": 348612,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "ea7c520b50dc554885abc5a7ecebc05d03dc8ae2abcbbad0822929cfcc74c3c9"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-Bold.ttf",
+    "bytes": 344032,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "9a2a0b55e203727936212904dedea502e678ba0d6c27851cab1f5eec3d23ef98"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-BoldItalic.ttf",
+    "bytes": 347948,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "69a404875f7b5b512ec4b28ae84d96d34c2d223060463a906c1334f8460d6482"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-ExtraBold.ttf",
+    "bytes": 344800,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "a39a597b8e9f869916603b935173e0b444298e012b08a5ed6ab9bbc4f4572212"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-ExtraBoldItalic.ttf",
+    "bytes": 348896,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "aeb6b8df30067fcd65af73504e3b24ef7c8871bdaa3d8eec15d8460ff7e16365"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-ExtraLight.ttf",
+    "bytes": 343516,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "777553c7d0af20b4efb9d765093738c598fabb57f01be8f10294a15864a528af"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-ExtraLightItalic.ttf",
+    "bytes": 347352,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "536d73f1bd2eb052dc5b8ce2fefc95c8b95654067a9f4e09dd21b910fa8f7503"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-Italic.ttf",
+    "bytes": 346580,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "ac395f7b58c68d2de44cd8e24ced00cf4ec6d4909230a2715751060f43537f06"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-Light.ttf",
+    "bytes": 343440,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "4af699ea5add0ac0bdefa3a43b0df698e2c0055a445a1c29267525d8eb7862b7"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-LightItalic.ttf",
+    "bytes": 347300,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "7b26e96fd693cac9aca570ca6b0ece9977f4ddc360fcf8f223872232f2659389"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-Medium.ttf",
+    "bytes": 342936,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "fa6b009d7b921ccd070b8d039da23b5663e1a87600a179c0512c347565998ac5"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-MediumItalic.ttf",
+    "bytes": 347000,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "13522fa9e5a7a213556a5443a95c9446898abe4acf1faf1f5a36e99cc0bd832a"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-Regular.ttf",
+    "bytes": 342732,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "d2a4911506ea4e124a47ca044e5e79f671ddf8f1a55f1ab9a56c58d088124b63"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-SemiBold.ttf",
+    "bytes": 343640,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "10238d4c2f85914e3899177426840bde80b078a612903066cf5c9afd17dbf023"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-SemiBoldItalic.ttf",
+    "bytes": 347616,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "f9feb54d251f4b7355713b76e1471ac0fcba955effb77600172920ff4645d4f8"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-Thin.ttf",
+    "bytes": 342944,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "5e95f88c9b42b19dee900a8baaba9e4cba90de7aaa4f5c31f6493d70754fd02f"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_24pt-ThinItalic.ttf",
+    "bytes": 346976,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "a474aed27868124ed81a4a6cf0212b36498457e6d0e3baee5b9b9467ed1e63f0"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-Black.ttf",
+    "bytes": 344676,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "6851375f42bc73da34cbeed07fc5f07dfcfbe7a47c1923c0f9d6d21d07cb3793"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-BlackItalic.ttf",
+    "bytes": 348608,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "61ac30c6d5760473d9f32aa87dc593393315214ffa985070dd2a547dd8f25c8d"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-Bold.ttf",
+    "bytes": 343972,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "ceec73bdfc78d352bcc222b9ac28e752a20b4a339daefc69bc67f49380425c0c"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-BoldItalic.ttf",
+    "bytes": 348088,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "4860316543350903cafa53b3ff6a3f7014d1d718c815602e5474b05b9c938ef1"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-ExtraBold.ttf",
+    "bytes": 344692,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "e6242112f3598ff79b69030890e796bd39e31e2d5c386ae5466dc0f81f21e22e"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-ExtraBoldItalic.ttf",
+    "bytes": 348944,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "0e496ce18ab30d1fd74104ea6bbb2ed5ca1e27293aa5d559620cbf6b6888ebb8"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-ExtraLight.ttf",
+    "bytes": 343184,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "ada5c3d41a048ade347dd074da81093943e4fc06e8430baf9c4ef41f3625db4a"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-ExtraLightItalic.ttf",
+    "bytes": 347268,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "125e44fb017691c676c75e4190685a6e1720fadf03604adf14621eaad4a7535d"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-Italic.ttf",
+    "bytes": 346528,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "d60df0083afeb9970b7d619e7c96831b73c22dd39bfaa14821cf921163306d0f"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-Light.ttf",
+    "bytes": 343092,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "4c260d198b8782036bc0a332dbb59cb878fae386fbb173562e44997cb9d3865c"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-LightItalic.ttf",
+    "bytes": 347092,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "90196c7bfb5f9668d195256bb008ac689d861d6bfdba2b0f820874ff619cc61b"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-Medium.ttf",
+    "bytes": 342808,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "4367e46e4e05e8bcd1b5a8f94e6e4899d1923219102fd99cf4094ae21fac5a25"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-MediumItalic.ttf",
+    "bytes": 346900,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "4f83cfe08ee1e7c572d399b9bfa8b1b6cf4cda299db315b5dc474a31451d64f8"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-Regular.ttf",
+    "bytes": 342484,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "3081ede8389f3516e8616d2b2fe60cac639b341640dff0250d253d3aac5e613f"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-SemiBold.ttf",
+    "bytes": 343244,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "cedce7a9bfdea18077a12cda546db5683e7763b7a3a876b75a52c7eef11cecb2"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-SemiBoldItalic.ttf",
+    "bytes": 347380,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "4d5b82d5da276c19a17c7f8eae13f9abb7e119756ef5d2768a6db1a1e1bc22d6"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-Thin.ttf",
+    "bytes": 342904,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "bf4c2cbfab6095a89bffe3d1496388f895864097d088c922afc613b458215e78"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter/static/Inter_28pt-ThinItalic.ttf",
+    "bytes": 346980,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "3de18d90a10c6bda8ce01f2779d74ff37f966024174a276b6df61d533ecb4030"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Inter.zip",
+    "bytes": 20458296,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "a6917b76d743ca3615b11cbac50272b9102a4891ef62ff3e3f07768f266a0544"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/New_Amsterdam/NewAmsterdam-Regular.ttf",
+    "bytes": 73764,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "ec52defa1bc0ad9d610fe17ca3c8181bfaf637666432c4bad4febb7bf78fee1c"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/New_Amsterdam/OFL.txt",
+    "bytes": 4497,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "3f04b721accda2281de36ff9716f5bb76a0c336cbcda3cc772c5638115bd5a01"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/New_Amsterdam.zip",
+    "bytes": 78521,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "a48a1e4be229976682ed80b8995441229963673aaedb75254cf9970d75acc04c"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/OFL.txt",
+    "bytes": 4479,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "118f07a2105ffe3d198879b716d6f91107415231777e2b35a6cca5ad1d4b22ca"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-Black.ttf",
+    "bytes": 151396,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "291e4388a436cf0c0d532ce4735a4ca36bd2286912b051ea423d5c383be06cd7"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-BlackItalic.ttf",
+    "bytes": 171604,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "a5e3e31e9dc6878269fdda8a968f8c0212beef9f7ef6028b6d1e02293316db7d"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-Bold.ttf",
+    "bytes": 153944,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "7219547ee25334cbac0fe4b3acf0bf631e48ebb622c71af038edaaa652c60875"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-BoldItalic.ttf",
+    "bytes": 176588,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "9d4d9f3c2c289eaec403660ec215bdc45e62b49f978807714bfc31ca7916c8fe"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-ExtraBold.ttf",
+    "bytes": 152764,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "94a215f88fbde9099cb3bd1431b8142aba26af36f8771effec56a94bc3aad1fd"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-ExtraBoldItalic.ttf",
+    "bytes": 173916,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "bba986e116690660f70d3ebb18a74d8d2c8eafcda6c28c8ffc4306aa1e2b91e4"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-ExtraLight.ttf",
+    "bytes": 161456,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "60c4bb1b8f272f0ac4702b962cc46e58e885a65624479be1c0646c9e37d9ce62"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-ExtraLightItalic.ttf",
+    "bytes": 186168,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "05418f4d333f25ddaf359adaf39b2777e64dad0f83c3fa4502d193d0ad19a9b7"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-Italic.ttf",
+    "bytes": 182012,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "3225cec6a018310497ea9ee116aa43b2a833464fed6156dceb9a3a4424bb8613"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-Light.ttf",
+    "bytes": 159892,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "647f014d36822ef7e0413ffbb65598ae0cb57fb798e635c63912c93d94eb356a"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-LightItalic.ttf",
+    "bytes": 184460,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "6d00aa5531c8b8ba0934de7925985c6636c99fbc89b4c9f79629fb4a9067654f"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-Medium.ttf",
+    "bytes": 156520,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "8d909883de81344e0fbcfef30e931872e92d9aeecdf85b6dcf6e0b28c078e98e"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-MediumItalic.ttf",
+    "bytes": 180444,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "449f6bd907fe29dbdfd5ef0990bdbb7fd800efa748a83f7b7529dcb94f79955b"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-Regular.ttf",
+    "bytes": 158240,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "707fdc5c8bab57a90061c6a8ed7b70d5ffb82fc810e994e79f90bace890c255a"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-SemiBold.ttf",
+    "bytes": 155232,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "248c0244b350ec68880996aa6be6d7796274b49992d5fcbbefe251906aa4ea36"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-SemiBoldItalic.ttf",
+    "bytes": 178584,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "74b31cbc29dc90c2d630e77673e7b6f714ff9bb01e5d424670bc61ca85b6093a"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-Thin.ttf",
+    "bytes": 161652,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "95875f9ef0d12d5cbdd64852933a578021c810cec247f7564207e046cf6c7289"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins/Poppins-ThinItalic.ttf",
+    "bytes": 187044,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "043226b0e187263ab54de3e971b663a77e52c3857cbb235c8410388db6d28de8"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Poppins.zip",
+    "bytes": 3038657,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "9dcc063730dfb1813688dc954eab2b215739703dd9157f47960d0bed1fbcdf84"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Sage/Other Font Files/generator_config.txt",
+    "bytes": 663,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "d9230f26b8aa5e4ef00e16d07a9fad275b74c60506c3905209957607e99fba3b"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Sage/Other Font Files/sage-demo.html",
+    "bytes": 36379,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "fd565f1a1424452512a05ef585902d83cc701f1dc66aaae896206aac3335ebfb"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Sage/Other Font Files/sage-webfont.svg",
+    "bytes": 81789,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "8e83881e989e5f838591f2cf279560f047f1cb30af998e9a9284e2e60dcb5e09"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Sage/Other Font Files/sage-webfont.ttf",
+    "bytes": 45304,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "32a5c8d9ace6d3a8ae63a0fc4be8aee33037736c886bbef447604a2b156b5f4f"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Sage/Other Font Files/sage-webfont.woff",
+    "bytes": 27264,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "643b27ab354876816b408765ca44fa9269fa92309326d29c3e1845514d794c2a"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Sage/Other Font Files/sage-webfont.woff2",
+    "bytes": 21556,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "8c5c9cc29abf4238f488ce7b618a230fc3496d7ee9c8f071c771e954ac152fc6"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Sage/Other Font Files/specimen_files/grid_12-825-55-15.css",
+    "bytes": 4597,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "5585eee74e0673cd87ad82b2e6503bf32e922d0d8b721fe082ee89f926dd7c73"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Sage/Other Font Files/specimen_files/specimen_stylesheet.css",
+    "bytes": 7310,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "d2f745bd0b23364275d3bf2a249924ffce94597c2a391cbd37bc5ca6974b27c5"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Sage/Other Font Files/stylesheet.css",
+    "bytes": 397,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "2901bea8f3f3ff677ca52479ef484273fd43932d11ef9bbd114c67f1ff9f93cc"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Sage/Sage.otf",
+    "bytes": 95256,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "0c205054d424eab2f104e6a377f65d853bdf1cb9f7c4b668ee2f9b2ed120dd25"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Sage-Font.zip",
+    "bytes": 155621,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "66f0d24d221bd9184cbef1c148c401fa1ffaac3e728f0d6a03671c2a9bc01d11"
+  },
+  {
+    "source": "BRAND GUIDELINES/TAINA PHOTOGRAPHY/Taina photography .pdf",
+    "bytes": 24394,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "c34c4adf0b48661bc612e90f9b0bf9cb1c96e097b58a11a4eb9aa9079f480d09"
+  },
+  {
+    "source": "CERTIFICADOS/24356995_2025-01-14.pdf",
+    "bytes": 42325,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "c5b160c290ad4bf230dba4362fede9268681bb860647824fae58e8941689daf1"
+  },
+  {
+    "source": "CERTIFICADOS/COURSERA/Coursera CREATIVE WRITTING THE CRAFT OF STYLE.pdf",
+    "bytes": 313598,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "fd9c336a204e5c1d2ddc831ce8e92b982e5b7cfc9ef08f9e3df851a8cf81f33c"
+  },
+  {
+    "source": "CERTIFICADOS/COURSERA/Coursera Fund of Desing.pdf",
+    "bytes": 320954,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "eb0d592cf395db2466a8525bb79488e462ddba0fea5ec431b2512c0ee9a8eda4"
+  },
+  {
+    "source": "CERTIFICADOS/COURSERA/Coursera Setting and description.pdf",
+    "bytes": 319069,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "c8d083b86c0c2b7349aa1a0b907cfea43ad64b2beca4933c412fc749ccf1fa22"
+  },
+  {
+    "source": "CERTIFICADOS/COURSERA/Coursera The craft of plot.pdf",
+    "bytes": 328688,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "c06c6f7e0bab4204a2acd5610f5d67e23cda45a102967cd8a0c26b4218b4a04d"
+  },
+  {
+    "source": "CERTIFICADOS/COURSERA/Coursera the craft of character.pdf",
+    "bytes": 301736,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "049e45b5483cc36cc3c91814afc7b6929da0ac7d599b54c239901f31b37e08bd"
+  },
+  {
+    "source": "CERTIFICADOS/Certificado Rodrigo CSVM.pdf",
+    "bytes": 298666,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "ea359335716c91263d66b0e4793ba0de3597a2a35012280b0e1cad47202c1ecc"
+  },
+  {
+    "source": "CERTIFICADOS/doc00286620250715132439.pdf",
+    "bytes": 313992,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "c81fe8fe0b19e660eb187fed5812c8808e1ced6202e9c02e5584982d4395aece"
+  },
+  {
+    "source": "CERTIFICADOS/doc00286820250715132900.pdf",
+    "bytes": 328603,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "b9586a623e458a156db668f6cf2394f1fe840a152fbe2b00560e344ce6e145da"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_BeforeAfter-0vs14Days.mp4",
+    "bytes": 37179559,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "6e3b227da0aebf5671e576fc8de499b5258d02451562a91edac30bd85a371c3d"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_BeforeAfter-Blond-FlatFee400-16x9.mp4",
+    "bytes": 33123826,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "75c86c7cde33e6b9762b4c9de78fc1b13a443adf786118d63d5d9f257b834a58"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_BeforeAfter-FrownLines-MaleClient.mov",
+    "bytes": 8777345,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "606479ca82d1185e1eac5121c5f23a3babd679a050d7d291e2a7072389290e00"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_BeforeAfter-MaleClient-14Days.mp4",
+    "bytes": 5098593,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "b8b01c3a61939f18c743384bf2e421b372cb56c8d5cbfacebd47539a8a2d7de0"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_BeforeAfter-Morena-FlatFee400-16x9.mp4",
+    "bytes": 17375712,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "6d38a8f3a1ed97f86cd4bb63ee3d279d63e43d4b64d08960d0f13e40a2900892"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_BeforeAfter-Morena-TwoFormats.mp4",
+    "bytes": 15032100,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "5ef0508fdfbe68f204371b1646ace3ea258b57e187c6d4d0b204814932f63dc7"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_BeforeAfter-PostTreatmentCare-CarouselSlide3.mp4",
+    "bytes": 799250,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "2a43899175a8e3f2582a8be410053930f7dc0174cfe115031c78bdef53ce45c3"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_BrandPhilosophy-NotAboutChangingYourFace.mp4",
+    "bytes": 20710230,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "76a78761ec67596176a65b2114ea5548b696235795d9a8464c1621e47a185ddc"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_FlatFee400-InjectionCloseUp-9x16.mp4",
+    "bytes": 84255507,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "cc4f71866c113eb610e505125c38ad8d0599371ab0a28bf5851d27ac1a8daa81"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_InjectionCloseUp-Simple-9x16.mp4",
+    "bytes": 31328850,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "31ae551a8b59ac5d2c0804c6340a1aa2a192f84c025acd7bbea2f42baab050f9"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_MetaAd-FlatFee400-3Areas.mp4",
+    "bytes": 92015778,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "e750c141f628ff0976bdc55eafe199cb92bc82ae3f70e22d37feadfe9859e17a"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_MirrorReveal-PostTreatment.mp4",
+    "bytes": 57832603,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "d6e803a6e99dfb36b5f5e938c1879a9a9af09d86ecbe9f21bfb178dabe4cd26e"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_POV-StaffGreeting-Blond-16x9.mp4",
+    "bytes": 97667165,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "897f6a0ca686fc90167c6cda72f7783381303aed8069de3abe9cc08ebf38fe1d"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_ProviderTestimonial-Results-StoryFormat.mp4",
+    "bytes": 12280903,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "8d0a54ce5f4d28ef96161b2e76a5df2fbe7acb3180bd83f563226c249820afed"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_SkinScanConsultation-Morena-16x9.mp4",
+    "bytes": 58813992,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "0748f87254b549106c58e773c96fe132f3bf7c38fc4b2dc3550424b04efb72b8"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_StoryAd-01-Hook-FlatFee400.mp4",
+    "bytes": 3032057,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "3ff28acf44e09285bc96b6a4c2e0b1de77018c32f7e917d0d7a0492c8fc9700c"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_StoryAd-02-Step1-FreeConsultation-A.mp4",
+    "bytes": 4550787,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "e2b03e96607392dbd9df8dfbbfab39cfac487249fe10d4e40dc969afe75a0931"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_StoryAd-03-Step1-FreeConsultation-B.mp4",
+    "bytes": 22299373,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "867944ae306584ee6e31df77502c5b89d573635d3f00d7ac5d71ae8a94a0f72d"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_StoryAd-04-Step2-BookSession.mp4",
+    "bytes": 4819524,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "72719bc900468ccae3b8ec1b1e5ef5f17fecc919ce9cd26c5ff31971c4814a34"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_StoryAd-05-Step3-EnjoyResults.mp4",
+    "bytes": 5209276,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "f0e5aa21239ffeff893b1b722e33bce48485b85a832943e499bd45b5940d626a"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_StoryAd-06-ClosingCTA-BookNow.mp4",
+    "bytes": 3507131,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "f52c840c4de89ef72eab6f07d52f2789786ffafbc80a6d5dc72b21509913aa3d"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_WhyFlatFee-LongTextOverlay-9x16.mp4",
+    "bytes": 50876940,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "7aa5037de4db9a285d05dd3db59c435e1f5fdde586016ad87367fc6def603014"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Ads/BF_Botox_Ad_WhyFlatFee-TextOverlay-9x16.mp4",
+    "bytes": 23790472,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "78e7aebd96962292fb0c86b8a396c9d367e93609e15680c17447ae6d59fb0a00"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Raw Footage/BF_Botox_Raw_SkinScanConsultation-Morena-Draft.mp4",
+    "bytes": 58815692,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "4c47119396598dd6cff694c274b99c685d7d88467a6e856fa6c9da645da8be47"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Social Feed/BF_Botox_Social_BeforeAfter-Jacque-FrownLines.mp4",
+    "bytes": 67688974,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "31e8283f5d69fdbd1721c130a20e6660fecdc2b9671848f1317d1f938947b8e4"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Social Feed/BF_Botox_Social_BeforeAfter-Victoria.mp4",
+    "bytes": 42572074,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "de6e55503e0ee06d9a479b63eee7a7aa9f935e410fa4fe44d53d187bfae59cb2"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Social Feed/BF_Botox_Social_InjectionAdmin-EverybodyWantsThis-A.mp4",
+    "bytes": 23531754,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "d68bb4bffa78c95d02897dbe1d269fcc79fec210fea332d1e8fe335e8586efdc"
+  },
+  {
+    "source": "Vidoes/01 Botox - Wrinkle Treatment/Social Feed/BF_Botox_Social_InjectionAdmin-EverybodyWantsThis-B.mp4",
+    "bytes": 22300623,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "745029c56ff55024ab4a00d726dbd48c0b4f47853fddaa660c1d99d049616db9"
+  },
+  {
+    "source": "Vidoes/02 HydraFacial - Facial Treatment/Ads/BF_HydraFacial_Ad_5SignsYourSkinNeeds-Promo50Off.mp4",
+    "bytes": 17016351,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "2b17936dfad611e7568bdb65cdef0acd34d16c45f68123dcdc532af1aa45d13e"
+  },
+  {
+    "source": "Vidoes/02 HydraFacial - Facial Treatment/Ads/BF_HydraFacial_Ad_DeviceTreatment-Promo50Off.mp4",
+    "bytes": 80738213,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "aace10a70ec22b6a2088a1c91d0fd9b2d079c6eeac487e567101048e108ad3fe"
+  },
+  {
+    "source": "Vidoes/02 HydraFacial - Facial Treatment/Ads/BF_HydraFacial_Ad_POV-PrepSkin-ExtendedCut.mp4",
+    "bytes": 101459585,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "5e3e4d80b2a3b7b8119860eef5565db52ca9e4a68836623535e0fdd8c9bc0331"
+  },
+  {
+    "source": "Vidoes/02 HydraFacial - Facial Treatment/Social Feed/BF_HydraFacial_Social_Cleansing-WithMySkin.mp4",
+    "bytes": 203157612,
+    "archives": [
+      "portfolio-originals-01.zip"
+    ],
+    "sha256": "a16aca81de3ad006be61388443d2fa7564c9afa3ac8040d5664f61d64a03ab2c"
+  },
+  {
+    "source": "Vidoes/02 HydraFacial - Facial Treatment/Social Feed/BF_HydraFacial_Social_CleansingTreatment.mp4",
+    "bytes": 220560319,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "1cd97c1aeb534f4606c8af7a888960d7a32410c071ee68a44c8dc9ff19d76641"
+  },
+  {
+    "source": "Vidoes/02 HydraFacial - Facial Treatment/Social Feed/BF_HydraFacial_Social_DeviceTreatment-ClassPass.mp4",
+    "bytes": 80655451,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "e77005f52df48b98d11d9b5fb273f065e3365588d96cc886fc43b8db6641d5d0"
+  },
+  {
+    "source": "Vidoes/02 HydraFacial - Facial Treatment/Social Feed/BF_HydraFacial_Social_FacialMask-PollutionMessage.mp4",
+    "bytes": 129411581,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "96b8be47ec157dcb40b6e8e46c8db9db7c7f309c6f9255da166af052584e550d"
+  },
+  {
+    "source": "Vidoes/02 HydraFacial - Facial Treatment/Social Feed/BF_HydraFacial_Social_POV-PrepSkin.mp4",
+    "bytes": 90892975,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "993bcff4faac9d6c5008e6e79cf9e360c3645f3869ed9e4c27fdfc56d2797681"
+  },
+  {
+    "source": "Vidoes/02 HydraFacial - Facial Treatment/Social Feed/BF_HydraFacial_Social_Treatment-InMyCaseIts.mp4",
+    "bytes": 140768608,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "94096326fbc05ef61bdba25324e2508eb9372ec44c3c0835c64072e690c4c870"
+  },
+  {
+    "source": "Vidoes/03 Microneedling - PRP - Dermatude/Ads/BF_Microneedling_Ad_PRP-ReasonsToBook-CoverImage.jpg",
+    "bytes": 1788572,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "d3b69c9bbc9e1f1e0ba354fdf08507da38afc55d4070c96b424b3b30e3bff51e"
+  },
+  {
+    "source": "Vidoes/03 Microneedling - PRP - Dermatude/Ads/BF_Microneedling_Ad_StoryCapture-BookNow.mov",
+    "bytes": 30998466,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "10533e01a5e9b83261b9c3e6326a87056cb596b64a2ca27cfdd94dd856e4a832"
+  },
+  {
+    "source": "Vidoes/03 Microneedling - PRP - Dermatude/Raw Footage/BF_Microneedling_Raw_PRPReel-Personalized.mov",
+    "bytes": 297472331,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "a7713c1c1db5ceaf8dca36f5a1df7a61196197aebe8820ee70a2af12cc30a565"
+  },
+  {
+    "source": "Vidoes/04 LED Light Therapy/Social Feed/BF_LED_Social_Carousel-01-Intro-DifferentOutcomes.mp4",
+    "bytes": 7115857,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "408605e25bb00753f7e96bf73c7b0680e43f08e691c18ca6de630dc0f71c3a83"
+  },
+  {
+    "source": "Vidoes/04 LED Light Therapy/Social Feed/BF_LED_Social_Carousel-02-RedLight-DeepRepair.mp4",
+    "bytes": 12733082,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "6d507cc2ace706c6f11cce36313fb1c3001f9e3e78039f8e44fe2e5691925afb"
+  },
+  {
+    "source": "Vidoes/04 LED Light Therapy/Social Feed/BF_LED_Social_Carousel-03-PurpleLight-ClearHeal-Draft.mp4",
+    "bytes": 21687927,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "8bea7ffc913a1e60162dde79825b56bfb1551af1bd6cb801217bd7a3442c2a63"
+  },
+  {
+    "source": "Vidoes/04 LED Light Therapy/Social Feed/BF_LED_Social_Carousel-03-PurpleLight-ClearHeal-Final.mp4",
+    "bytes": 36058964,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "cdc7656b35e61b20e60b425a971b772c8b056dc514d1bb5776aa5aee24b719b6"
+  },
+  {
+    "source": "Vidoes/04 LED Light Therapy/Social Feed/BF_LED_Social_Carousel-04-WhenToUseEach-Comparison.mp4",
+    "bytes": 22436331,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "988cc53fd23ef6801e033db6cf1481f1fa82b08d71ac2054f4edf1dcde77fda1"
+  },
+  {
+    "source": "Vidoes/04 LED Light Therapy/Social Feed/BF_LED_Social_Carousel-05-WeChooseIntentionally-Closing.mp4",
+    "bytes": 18619302,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "97bd7bcc6f8878d54a38e9fe2e5f53ae97f81969e666442ca2cb59dfd514a854"
+  },
+  {
+    "source": "Vidoes/05 Masseter (Jaw Slimming)/Ads/BF_Masseter_Ad_JawSlimming-StorefrontIntro.mp4",
+    "bytes": 133645803,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "cf11bfd92ca464166e7adb77729cda50c397159f6c708199be63532e375a0ed0"
+  },
+  {
+    "source": "Vidoes/06 Promotions/Black Friday/BF_Promo-BlackFriday_Ad_BusinessCard-GIF.mp4",
+    "bytes": 99411015,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "3faaeb06ddaae94eb6e0ec4ce06a10074cf0b1889e8a177ee63f1a0ecc9b0aa8"
+  },
+  {
+    "source": "Vidoes/06 Promotions/Black Friday/BF_Promo-BlackFriday_Ad_BuyGetFreeDeals-Injection.mp4",
+    "bytes": 54952488,
+    "archives": [
+      "portfolio-originals-02.zip"
+    ],
+    "sha256": "0a0b6f7b2ed84bd44d724413ba22729b0b35ebfcbb41253b246108eb1f969b09"
+  },
+  {
+    "source": "Vidoes/06 Promotions/Black Friday/BF_Promo-BlackFriday_Ad_StorefrontEntrance-BeforeAfter.mp4",
+    "bytes": 418725887,
+    "archives": [
+      "portfolio-originals-03.zip"
+    ],
+    "sha256": "a91cbf3a13222a8f18d06aede22dbb7c7e7d1755b64a57ababb5cf76a8d20b4b"
+  },
+  {
+    "source": "Vidoes/06 Promotions/Valentines Day/BF_Promo-Valentines_Ad_AIGiftBoxAnimation.mp4",
+    "bytes": 3692333,
+    "archives": [
+      "portfolio-originals-03.zip"
+    ],
+    "sha256": "f5c37b6b6cd6953c115290ed729e896e57ccaa3f0d2b33f6f08939e5170bc5aa"
+  },
+  {
+    "source": "Vidoes/06 Promotions/Valentines Day/BF_Promo-Valentines_Ad_GiftCard10Off-InstagramPost.mp4",
+    "bytes": 11198056,
+    "archives": [
+      "portfolio-originals-03.zip"
+    ],
+    "sha256": "ad817d7622bdfbac22840437fe84a176a94674265b09321204a0e85e3477fd0e"
+  },
+  {
+    "source": "Vidoes/06 Promotions/Valentines Day/BF_Promo-Valentines_Raw_BusinessCardReveal-Square.mov",
+    "bytes": 29487495,
+    "archives": [
+      "portfolio-originals-03.zip"
+    ],
+    "sha256": "1fa033b3d40f211ec98780456e805bc22936d673001a9fc5942421a45826e5c9"
+  },
+  {
+    "source": "Vidoes/06 Promotions/Valentines Day/BF_Promo-Valentines_Raw_BusinessCardReveal-Vertical.mov",
+    "bytes": 159080517,
+    "archives": [
+      "portfolio-originals-03.zip"
+    ],
+    "sha256": "ba999ee3afc8b3e1978e082e29c2feab3b68fc82b002b9c618bb0ed4a5f08932"
+  },
+  {
+    "source": "Vidoes/06 Promotions/Valentines Day/BF_Promo-Valentines_Raw_BusinessCardReveal-Wide.mov",
+    "bytes": 20024351,
+    "archives": [
+      "portfolio-originals-03.zip"
+    ],
+    "sha256": "ef78c631954ca6f891016ecf7ef03606429e11575cd0038f242a61004a71f8ff"
+  },
+  {
+    "source": "Vidoes/07 Brand and General Content/Ads/BF_Brand_Ad_ExpertsInFacialsLaserInjectables-9x16.mp4",
+    "bytes": 105249343,
+    "archives": [
+      "portfolio-originals-03.zip"
+    ],
+    "sha256": "0c72c085409ba2ba6ebd83617b57a04b9353fa7be872c478ee3f93e00ccf035d"
+  },
+  {
+    "source": "Vidoes/07 Brand and General Content/Social Feed/BF_Brand_Social_POV-BookingWalkthrough-iPad-9x16.mp4",
+    "bytes": 87838609,
+    "archives": [
+      "portfolio-originals-03.zip"
+    ],
+    "sha256": "e4d66a140e87b8d4afc5ae56c9d28cbcf123fb42efe5c0d97b3df24788251177"
+  },
+  {
+    "source": "Vidoes/07 Brand and General Content/Social Feed/BF_Brand_Social_ProviderTalk-ProductExplainer.mp4",
+    "bytes": 237726002,
+    "archives": [
+      "portfolio-originals-03.zip"
+    ],
+    "sha256": "c540ab980c7f8e9b42bd0ad1632c47504feedddb75e59d1c7b3e454a226889a6"
+  },
+  {
+    "source": "Vidoes/07 Brand and General Content/Social Feed/BF_Brand_Social_SnowDay-ClosedTodayAnnouncement.mp4",
+    "bytes": 37883280,
+    "archives": [
+      "portfolio-originals-03.zip"
+    ],
+    "sha256": "dbe046e533dbe743b68c78ffd87cbfd290d6a21de0fe2135f87a9eed57662760"
+  },
+  {
+    "source": "Vidoes/07 Brand and General Content/Social Feed/BF_Brand_Social_SnowDay-ComeWhile.mp4",
+    "bytes": 29108378,
+    "archives": [
+      "portfolio-originals-03.zip"
+    ],
+    "sha256": "161975848465b1ed2f019ed75a4bb681515c918c0b42ee5b51655f451a01ed14"
+  },
+  {
+    "source": "Vidoes/07 Brand and General Content/Social Feed/BF_Brand_Social_StreetInterview-OhMyGodReaction.mp4",
+    "bytes": 240867211,
+    "archives": [
+      "portfolio-originals-03.zip"
+    ],
+    "sha256": "97b509d79c5082195d48ef713f093cf57c47b15f7eb92fd8e903a5b62fdbe67c"
+  },
+  {
+    "source": "Vidoes/07 Brand and General Content/Social Feed/BF_Brand_Social_StreetInterview-PersonalDataTopic.mp4",
+    "bytes": 266309941,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "5abf6e296b2affd7570f3b81742eedf30474f6baedeae2bacc8f51d794d2d869"
+  },
+  {
+    "source": "Vidoes/07 Brand and General Content/Social Feed/BF_Brand_Social_SubwayMeme-ColdOutsideIsDeadly.mov",
+    "bytes": 18057431,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "4fdb8c397c186e424dbd0bcf65eb5322f6d3418cdd3b177d00ea9993dcde518c"
+  },
+  {
+    "source": "e-mail assets /4thofjuly/BF_Promo-4thOfJuly_Email_00-PreEmail-Jun24.png",
+    "bytes": 181450,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a61ca5445a153dbb97306cdfc685df7205903481970c469492742089bd6a6ed0"
+  },
+  {
+    "source": "e-mail assets /4thofjuly/BF_Promo-4thOfJuly_Email_01-EarlyAccessOpens-Jul1.png",
+    "bytes": 167839,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "fd7f94c3f6ac19ae85e985f93e13d4ac801d9280367928a798c58ef22792b7d9"
+  },
+  {
+    "source": "e-mail assets /4thofjuly/BF_Promo-4thOfJuly_Email_02-ValueProof-Jul3.png",
+    "bytes": 379085,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "955720ff1c7f5840996a8cea5827ae7a2fad4209074e2c0708de4575138a3fb7"
+  },
+  {
+    "source": "e-mail assets /4thofjuly/BF_Promo-4thOfJuly_Email_03-The4th-Jul4.png",
+    "bytes": 176778,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "8003da55cdf1dd2743fe14b05cf7749210663901bda9ca9e1b240b91a6265e4e"
+  },
+  {
+    "source": "e-mail assets /4thofjuly/BF_Promo-4thOfJuly_Email_04-EndsTomorrow-Jul6.png",
+    "bytes": 185220,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "794c69956c637eedbfd22a74b5add339ab052f1cf2ef3f30153cbee186548130"
+  },
+  {
+    "source": "e-mail assets /4thofjuly/BF_Promo-4thOfJuly_Email_05-AlternateNonOpeners-Jul7.png",
+    "bytes": 156179,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "e85f00544aec442e8075124867291edf8bb87fed0bed6f97a34d4f084b56264c"
+  },
+  {
+    "source": "e-mail assets /4thofjuly/BF_Promo-4thOfJuly_Email_05-LastChanceAnchor-Jul7.png",
+    "bytes": 181612,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "4bea9b2d0d2351833a321a17ff749fc845571ee596699ad7e1007f474c1c8901"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/CYBER CAMPAIGN/BF_Promo-BlackFriday_Email_CyberCampaign-01.png",
+    "bytes": 2103214,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a89e1e670c3f2de7f6a73b1883179d5e71d5b45e792048779572203e52fc307e"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/CYBER CAMPAIGN/BF_Promo-BlackFriday_Email_CyberCampaign-02.png",
+    "bytes": 2068853,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "53342c1828cc45dcafa78d8f56469df089946fa9690b5e168a1512785d860e34"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/CYBER CAMPAIGN/BF_Promo-BlackFriday_Email_CyberCampaign-03.png",
+    "bytes": 209544,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a0b29d81e76dabf0d7da5a395d85e914bc4e667930d5ee55dd2947afa1bf9857"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/CYBER CAMPAIGN/BF_Promo-BlackFriday_Email_CyberCampaign-04.png",
+    "bytes": 3101087,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "3f89ad888c97bd5fe0502b4e72d88e323f5aad646d780e5ef3a4ac00ce632087"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/CYBER CAMPAIGN/BF_Promo-BlackFriday_Email_CyberCampaign-05.png",
+    "bytes": 4055813,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "5da2d8c2b08c4cfc0443e40e5dbd44ead52fd30cd15ad756b8a26c10f8a83e57"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/CYBER CAMPAIGN/BF_Promo-BlackFriday_Email_CyberCampaign-06.png",
+    "bytes": 2062385,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "1efcb49b3ac2cb4a72609ba2980a73619704eb85ee419f221d7ec96004da372f"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/CYBER CAMPAIGN/BF_Promo-BlackFriday_Email_CyberCampaign-07.png",
+    "bytes": 2847823,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "409e7641a36b5ab9b13054bd05d8c241332c82bccf4a4b4b69e4e42c9e0d15d6"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/CYBER CAMPAIGN/BF_Promo-BlackFriday_Email_CyberCampaign-08.png",
+    "bytes": 334994,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "64cde74a10558e1fd9caa82d26024acb17c0e6a7bb3e92661daebebcbe523b8f"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/CYBER CAMPAIGN/BF_Promo-BlackFriday_Email_CyberCampaign-09.png",
+    "bytes": 1944101,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "192c8fb9780e716c600cbfb31db60d441a923f7aaacb9df64c7c1d1a77fe79ce"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/CYBER CAMPAIGN/BF_Promo-BlackFriday_Email_CyberCampaign-10.png",
+    "bytes": 2056792,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "cb9e827e0515f7eabc3f889cdc5a3b19a4b7a3237738992788f409821c73a115"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/CYBER CAMPAIGN/BF_Promo-BlackFriday_Email_CyberCampaign-11.png",
+    "bytes": 1217669,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "cb5aa55a49a3643089d1f6aeb5b6fae12dc653643557a0520d4240c08fd42b53"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/CYBER CAMPAIGN/BF_Promo-BlackFriday_Email_CyberCampaign-12.png",
+    "bytes": 1287020,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "acd163321779389ab741b66b370831f32f729a094c55fc0de37bdd5bc70f2bf9"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/EARLY ACCESS E-MAIL (1200 x 1123 px) (1)/BF_Promo-BlackFriday_Email_EarlyAccess-01.png",
+    "bytes": 968304,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "69b23a4fbe6d4ec10f9096e4ded83702a2f9fafc23f9b93a87dd192fe7d89fba"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/EARLY ACCESS E-MAIL (1200 x 1123 px) (1)/BF_Promo-BlackFriday_Email_EarlyAccess-02.png",
+    "bytes": 1944170,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "2e51d7e5949e40f16018a18e8760408d1d8ec927a451de3bc312866714092edf"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/EARLY ACCESS E-MAIL (1200 x 1123 px) (1)/BF_Promo-BlackFriday_Email_EarlyAccess-03.png",
+    "bytes": 2056745,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "77ff1ea524d62773ef1e47a90ddb57a3c41cb40e781eb55a2c25b9d83f9b3462"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/EARLY ACCESS E-MAIL (1200 x 1123 px) (1)/BF_Promo-BlackFriday_Email_EarlyAccess-04.png",
+    "bytes": 1217697,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "073694e491b771ceec020b7575a2aa5a61dc66e7617a5ea3ce4f05f31e23613e"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/EARLY ACCESS E-MAIL (1200 x 1123 px) (1)/BF_Promo-BlackFriday_Email_EarlyAccess-05.png",
+    "bytes": 1287708,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "83e463dc7bab398d0dcd4876177a26a3c03fb4af9452fcbcd0159bb278998da2"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/NOV 26 & 28 - REMINDER & URGENCY/BF_Promo-BlackFriday_Email_ReminderUrgency-01.png",
+    "bytes": 976478,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "b4ada23d7f64eff148e00d66729871ddfbe4e7238efefa16ae676d795fe9a7dc"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/NOV 26 & 28 - REMINDER & URGENCY/BF_Promo-BlackFriday_Email_ReminderUrgency-02.png",
+    "bytes": 1026167,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "64f4ae2ee38a5f382cf9e02ce4fcba2aecc6e2cbde2a0ad9f7a665c41b9fef35"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/NOV 26 & 28 - REMINDER & URGENCY/BF_Promo-BlackFriday_Email_ReminderUrgency-03.png",
+    "bytes": 1944113,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "52f2e712ffc2c60b4400937287f28341e8741f14c2cfba7993a9f52c51c78c40"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/NOV 26 & 28 - REMINDER & URGENCY/BF_Promo-BlackFriday_Email_ReminderUrgency-04.png",
+    "bytes": 2056824,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "69a35e2ea09c1c2627880381a650cbec35810e99ef3012e4728cfecbccdefbb5"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/NOV 26 & 28 - REMINDER & URGENCY/BF_Promo-BlackFriday_Email_ReminderUrgency-05.png",
+    "bytes": 2490356,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "9aa1c7e97c1264d36911b6fc48c1ae89db1f2eaaa7915c8fb0b3bd175532b6d7"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/blacl friday/BF_Promo-BlackFriday_Email_EarlyAccessAlt-01.png",
+    "bytes": 235130,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a5e3a84893a98363495d70ad7cd2e58261f6d36ed956b29e9c534cdbaef8a580"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/blacl friday/BF_Promo-BlackFriday_Email_EarlyAccessAlt-02.png",
+    "bytes": 234926,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "b09e31272541bf20450de5e5929a1290d3bb58d4ba25fde8db942e9f2e64836a"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/blacl friday/BF_Promo-BlackFriday_Email_EarlyAccessAlt-03.png",
+    "bytes": 252737,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "72837a538bab8468941dd38812b01ee9a3805aa05fa97e11693a6accde375e61"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/blacl friday/BF_Promo-BlackFriday_Email_EarlyAccessAlt-04.png",
+    "bytes": 252005,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "f905becb5a84392c3480321b45f0ef67358a84f9688389b3ad18510c5afc0d90"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/blacl friday/BF_Promo-BlackFriday_Email_EarlyAccessAlt-05.png",
+    "bytes": 264522,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "5336b0147149d21a7c48b41a2a4318ca50bb0a2b017bbc7d65dd337170165b4e"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/blacl friday/BF_Promo-BlackFriday_Email_EarlyAccessAlt-Cover.png",
+    "bytes": 84829,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a4b9244e054ae867a6051ea3a2bf5b40ab17578024920c3972a039eabf21d69c"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/universal1_EA_BFCM/BF_Promo-BlackFriday_Email_Universal-01.jpg",
+    "bytes": 372091,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "0e76c0f71dbe7c19a1dcfd6d30933a14def8640db5ea897f641515870f33da5b"
+  },
+  {
+    "source": "e-mail assets /BLACK-FRIDAY - CYBER MONDAY - EARLY HOLIDAYS/universal1_EA_BFCM/BF_Promo-BlackFriday_Email_Universal-02.jpg",
+    "bytes": 193512,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "8b5afc9bed611de758497538fa76e13561b1b402d82d109343fce05a1c580b41"
+  },
+  {
+    "source": "e-mail assets /Fall skin - sept campaign/BF_Promo-FallSkinRefresh_Email_01-Sept15Launch-Turquoise.png",
+    "bytes": 4779067,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "6d361f2ea1a4e0976c9aa03b0285149402cb368ba01a513c8678388ddb7bc3d1"
+  },
+  {
+    "source": "e-mail assets /Fall skin - sept campaign/BF_Promo-FallSkinRefresh_Email_02-Sept17.png",
+    "bytes": 5387978,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "e2c3a7e3a97f21bc35c402c46acdb1d307d8df04ff56ecf2b47e53ab965d586e"
+  },
+  {
+    "source": "e-mail assets /Fall skin - sept campaign/BF_Promo-FallSkinRefresh_Email_03-Sept22.png",
+    "bytes": 3137867,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "869f7cb50e5c31227c0f0ba4aade957a9faafb3b14ba5b4afb9e6300297af27a"
+  },
+  {
+    "source": "e-mail assets /Fall skin - sept campaign/BF_Promo-FallSkinRefresh_Email_04-Sept29.png",
+    "bytes": 6726316,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "c6e0cac74d5ddc175e4402ab9a3a825da987cf7df74c3cc3433115da17e28283"
+  },
+  {
+    "source": "e-mail assets /Welcome flow/WELCOME flows emails/flat flee flow/BF_WelcomeFlow_Email_FlatFeeFlow-01.gif",
+    "bytes": 8162111,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "f738e36a313965cfcf4fad8137d1d4b1adc0b41d24169343ad3e4d6a3b66703c"
+  },
+  {
+    "source": "e-mail assets /Welcome flow/WELCOME flows emails/flat flee flow/BF_WelcomeFlow_Email_FlatFeeFlow-02.gif",
+    "bytes": 4727132,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "50a4437d5327e9626c4fcaeefc3725efe76fc5b12787d5e7cf6bfaf9de9ce7ed"
+  },
+  {
+    "source": "e-mail assets /Welcome flow/WELCOME flows emails/flat flee flow/BF_WelcomeFlow_Email_FlatFeeFlow-03.gif",
+    "bytes": 8019017,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "c34e26244cff46bc6936a528c38e3617884e87798ae05fc01351c9f9f07ede04"
+  },
+  {
+    "source": "e-mail assets /Welcome flow/WELCOME flows emails/flat flee flow/BF_WelcomeFlow_Email_FlatFeeFlow-04-Cover.png",
+    "bytes": 2279392,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "5438eba85e957cace9a4ae6439ea0a57e412fd3c5bfcbb4cb500d73ed22b165e"
+  },
+  {
+    "source": "e-mail assets /Welcome flow/WELCOME flows emails/flat flee flow/BF_WelcomeFlow_Email_FlatFeeFlow-04.gif",
+    "bytes": 4718210,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "2dafdb4f0c05f02d1c7df1c38b72159175bdc79778750ea6970e0c3cb950b98d"
+  },
+  {
+    "source": "e-mail assets /Welcome flow/WELCOME flows emails/locations/BF_WelcomeFlow_Email_Locations-01.png",
+    "bytes": 1592057,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "641f3e7de3b0439fd9e8c3dd20052e3bf58e63480da434c94770fdd401c1a3c9"
+  },
+  {
+    "source": "e-mail assets /Welcome flow/WELCOME flows emails/locations/BF_WelcomeFlow_Email_Locations-02.png",
+    "bytes": 3293799,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "fb934d6678a93456da225d9f979d7a22fa7aff5d7dd9995edd079b9bfe082802"
+  },
+  {
+    "source": "e-mail assets /Welcome flow/WELCOME flows emails/welcome /BF_WelcomeFlow_Email_WelcomeEmail-01.gif",
+    "bytes": 4606556,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "9626079d564d82a1f1d25eafc23d9adba07555c1462a2852a7a3a350c6abfa23"
+  },
+  {
+    "source": "e-mail assets /Welcome flow/WELCOME flows emails/welcome /BF_WelcomeFlow_Email_WelcomeEmail-02.png",
+    "bytes": 4597749,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "9d31fe34f67eace9812d77e5d3bcd5950111ce239236e92b9385f46f887e3803"
+  },
+  {
+    "source": "e-mail assets /Welcome flow/welcome_flow/BF_WelcomeFlow_Email_Alt-01.jpg",
+    "bytes": 184138,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "f6d0477b5200e1db427ed3093e87d3400aff0a5a91f2fb2829b9d4bcc4f81463"
+  },
+  {
+    "source": "e-mail assets /Welcome flow/welcome_flow/BF_WelcomeFlow_Email_Alt-02.jpg",
+    "bytes": 230388,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "8e1d316d4b995591da41623641e90d81897fbb046c9b7406dc4f5faeb7d7d7b7"
+  },
+  {
+    "source": "e-mail assets /aqua gold/BF_AquaGold_Email_01.png",
+    "bytes": 196047,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "6dc702d0b615a1fac1f956ccd8028e45170390ce09647686deb55b17ebb083f6"
+  },
+  {
+    "source": "e-mail assets /choose your botox/BF_Botox_Email_ChooseYourBotox-01.png",
+    "bytes": 275253,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "8085976e60c00b18e133c5549bc07c4d27b71915607d10a89787e3d8ac4b3135"
+  },
+  {
+    "source": "e-mail assets /choose your botox/BF_Botox_Email_ChooseYourBotox-02.png",
+    "bytes": 154648,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "c36fa420d8598c007c314584e8ffdd74239e8609b5d1cd31b82f9ff24bb2f79c"
+  },
+  {
+    "source": "e-mail assets /coolsculpting/BF_CoolSculpting_Email_01.png",
+    "bytes": 400300,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "80786d47a7e23e12a9d8e431c0f8eff266664b4e3b1b5e4c37daaa130f51e16b"
+  },
+  {
+    "source": "e-mail assets /coolsculpting/BF_CoolSculpting_Email_02.png",
+    "bytes": 127320,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "c96e9710f35cd610ac9f02f21e871e52a5879e673789dcf0c295ba8c328d3c27"
+  },
+  {
+    "source": "e-mail assets /coolsculpting/BF_CoolSculpting_Email_03.png",
+    "bytes": 171202,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "5a53cdda3b334f01719866d0adaa75598e33af7dbbc2f0a9ce64f3476ff122ba"
+  },
+  {
+    "source": "e-mail assets /coolsculpting/BF_CoolSculpting_Email_04.png",
+    "bytes": 223800,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "ffaa22707bba4d12d0549269fac79c9908b3141fd06281c4b2fb7847bbb30599"
+  },
+  {
+    "source": "e-mail assets /cyber_holidays/BF_Promo-CyberMonday_Email_01.png",
+    "bytes": 118970,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "eec414b336d96bb2c2c4e1d29f6c55f1e0fa35bf1e47b0d828e4125f5988567f"
+  },
+  {
+    "source": "e-mail assets /cyber_holidays/BF_Promo-CyberMonday_Email_02-Anticipation.png",
+    "bytes": 93314,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "10a3420114ea3484a4ac38d1af028b8fa82440b5349b9a2aedf4d0d3cceb3d68"
+  },
+  {
+    "source": "e-mail assets /cyber_holidays/BF_Promo-CyberMonday_Email_03.png",
+    "bytes": 186230,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "8e2217eb729c09d80985eaf4c7efd4dc356ec08ec0a34a65541ccf1409c63416"
+  },
+  {
+    "source": "e-mail assets /cyber_holidays/BF_Promo-CyberMonday_Email_04.png",
+    "bytes": 170853,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "93e3a5f5d1a00d7b2162fc1d72223748c1235cc240c2bffc54028a64509ae88f"
+  },
+  {
+    "source": "e-mail assets /flat-fee wrinkle_treatment/BF_Botox_Email_FlatFee-01.png",
+    "bytes": 134937,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "c4ac9292dc28448d02aaade8fa0860c4ab9852446e016eb8078f154de8936890"
+  },
+  {
+    "source": "e-mail assets /flat-fee wrinkle_treatment/BF_Botox_Email_FlatFee-02-A.png",
+    "bytes": 38595,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "d6f5095bb7386acb3464c1d617ad31dc307676b63a7c578ded4964b5560d51ac"
+  },
+  {
+    "source": "e-mail assets /flat-fee wrinkle_treatment/BF_Botox_Email_FlatFee-02-B.png",
+    "bytes": 88166,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "924f7fc19c1f76259e7a22988fa810af93b1ffc4bb4cc7ca3f64e547dd2bb2f3"
+  },
+  {
+    "source": "e-mail assets /flat-fee wrinkle_treatment/BF_Botox_Email_FlatFee-03.png",
+    "bytes": 72593,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "fcb98aa7f772021a785f439b129273675ba3dc4db3b83547a9cb275fb32226aa"
+  },
+  {
+    "source": "e-mail assets /masseter minimizing/BF_Masseter_Email_01.png",
+    "bytes": 139281,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "e85bc7660e18913fa5ea1d025bcf82e3c1264c3f22230e0544c32d5cbf9c1a77"
+  },
+  {
+    "source": "e-mail assets /masseter minimizing/BF_Masseter_Email_02.png",
+    "bytes": 78597,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "4de764c77c3abd434184c4b0fa6c7194cfd3fe468f9995dafae5fd7723238cbf"
+  },
+  {
+    "source": "e-mail assets /masseter minimizing/BF_Masseter_Email_03.png",
+    "bytes": 75429,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "482e8040ccccd8bdc41fee9638387ec8eb35360d59858e4726f6b9f3bf936f20"
+  },
+  {
+    "source": "e-mail assets /spring sale campaign/BF_Promo-SpringSale_Email_01.png",
+    "bytes": 197652,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "83c3717a0d7983a303916375cae5873658187dba86a6f4d8e49e8fab96c9e83d"
+  },
+  {
+    "source": "e-mail assets /spring sale campaign/BF_Promo-SpringSale_Email_02.png",
+    "bytes": 119670,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "1916fff15398f8d1be71b89688c0d11d6463490a9d73591c44b6e7a02fc6236c"
+  },
+  {
+    "source": "e-mail assets /spring sale campaign/BF_Promo-SpringSale_Email_03.png",
+    "bytes": 121171,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "d25455008f2c7b474611ba1bf9e018c22116abfff671c47378a0b5ec92b835cc"
+  },
+  {
+    "source": "e-mail assets /valentines campaign/BF_Promo-Valentines_Email_01.png",
+    "bytes": 4712318,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "c6afab837b57c3d86c50ae9e2da25432e3d4bf5b179c8842fdb05e809f8e7a49"
+  },
+  {
+    "source": "e-mail assets /valentines campaign/BF_Promo-Valentines_Email_02.png",
+    "bytes": 4706988,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "182bffad58b539cb9b10965d51e41d5471222dbe99a7f87a079c863d57a7c058"
+  },
+  {
+    "source": "e-mail assets /winter campaign/BF_Promo-Winter_Email_01.png",
+    "bytes": 643588,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "f3b776a551deca1730ad318cfa056a402782eea1ef16bd914990b8e7ef449b0e"
+  },
+  {
+    "source": "e-mail assets /winter campaign/BF_Promo-Winter_Email_02.png",
+    "bytes": 662876,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "c7d26bc2325e92e3faa47b7ebdd752a5de1a8d9084c9d38fa4b2496acd76852c"
+  },
+  {
+    "source": "e-mail assets /winter campaign/BF_Promo-Winter_Email_03.png",
+    "bytes": 571271,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "3460bee2c1bad144703b16978d82d93609aeeb4f33bc8cf3c31ac7ae468c7ee2"
+  },
+  {
+    "source": "image assets/ADS CONTENT/ads STATIC CARROUSEEL/BF_Botox_Ad_StaticCarousel-BoyTox-Grid.jpg",
+    "bytes": 1374530,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "bf35c1fd5f03f694e32d390ddbb76035e2b52d84c9187720545ab273ced1cbb1"
+  },
+  {
+    "source": "image assets/ADS CONTENT/ads STATIC CARROUSEEL/BF_Botox_Ad_StaticCarousel-FlatFeeFacts-Grid.png",
+    "bytes": 16435238,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "464595d9d107938d4bc14e9b6ab389f2bc836399dc58a9fd42b6f88f77feabc7"
+  },
+  {
+    "source": "image assets/ADS CONTENT/ads STATIC CARROUSEEL/BF_Botox_Ad_StaticCarousel-GirlTox-Grid.jpg",
+    "bytes": 1526623,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "80ce5773f65f8c69c154a1fcc6ecfbbc8c321f1b667662cfdac1f8c04aacf8f8"
+  },
+  {
+    "source": "image assets/ADS CONTENT/other/BF_Brand_Ad_SummerToDoListMeme.png",
+    "bytes": 840453,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "5e1648de893ba3e67513abdf85bbaaafe45a18441eb6bd8f8a917d6cdf41c0ee"
+  },
+  {
+    "source": "image assets/ADS CONTENT/other/BF_Brand_Ad_WhoAreYou-FoodEngagement-Story.png",
+    "bytes": 753579,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "65b9f1bd66c4fe632ea479fbbf3e73bd67be24969aa4c02b7f77277a2f5e7330"
+  },
+  {
+    "source": "image assets/ADS CONTENT/other/BF_Promo-MothersDay_Ad_TreatAndGift.png",
+    "bytes": 61601,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "84e794fd129e5a6dc1c8a2835bfb2cff5abf6e9fd7831ca76b7588365178c010"
+  },
+  {
+    "source": "image assets/ADS CONTENT/other/BF_Promo-SpringSale_Ad_40Off-Square.png",
+    "bytes": 940656,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "60af313fee7c46691d59f1ec532b7bcdd502248e72382d4fdb25a1ee84697948"
+  },
+  {
+    "source": "image assets/ADS CONTENT/other/BF_Promo-SpringSale_Ad_40OffTextAd.jpg",
+    "bytes": 93549,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "0edf2560c2a588d889571c8816e2c59cfbcc3cad69b82e30c20debec9605005a"
+  },
+  {
+    "source": "image assets/ADS CONTENT/other/VALENTINE'S DAY CREATIVES/BF_Promo-Valentines_Ad_EmailHeader-200x200-A.png",
+    "bytes": 151322,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "cc51e934fe28fb340c08e6251005287170bd980aae8a91e618701515367b325c"
+  },
+  {
+    "source": "image assets/ADS CONTENT/other/VALENTINE'S DAY CREATIVES/BF_Promo-Valentines_Ad_EmailHeader-200x200-B.png",
+    "bytes": 1595426,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "21200e1ea6e66b823d0fd6ddbf131bb6fd5545905b72a0390a262792d0a22185"
+  },
+  {
+    "source": "image assets/ADS CONTENT/other/VALENTINE'S DAY CREATIVES/BF_Promo-Valentines_Ad_EmailHeader-FullSize.png",
+    "bytes": 428254,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "f8eb27dae7b70adcea8aa2750c6960f05077459ca7ab7a9cdde1495678128ac8"
+  },
+  {
+    "source": "image assets/ADS CONTENT/wrinkle treatmemt campaign 3x4/BF_Botox_Ad_Campaign3x4-01.png",
+    "bytes": 1834366,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "040c9006fc4044bc97673385998fdd3726f9f33a69a702844cb47031f7072426"
+  },
+  {
+    "source": "image assets/ADS CONTENT/wrinkle treatmemt campaign 3x4/BF_Botox_Ad_Campaign3x4-02.png",
+    "bytes": 2605503,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "55faaff1fbfb1e3eac2ae665c1f9fe2b1f45c6184f7b9fb2978a124669f22db8"
+  },
+  {
+    "source": "image assets/ADS CONTENT/wrinkle treatmemt campaign 3x4/BF_Botox_Ad_Campaign3x4-03.png",
+    "bytes": 2943698,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "3b76586cba5f65d902b700f93c7361389669c0f81cf3f1b59b499b5d5ed139e7"
+  },
+  {
+    "source": "image assets/ADS CONTENT/wrinkle treatmemt campaign 3x4/BF_Botox_Ad_Campaign3x4-04.png",
+    "bytes": 2117907,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "450405b4b0cd6136abc167d477aec4abf2a7a41191b1dd3e9483d10a89c30b25"
+  },
+  {
+    "source": "image assets/ADS CONTENT/wrinkle treatmemt campaign 3x4/BF_Botox_Ad_Campaign3x4-05.png",
+    "bytes": 2891036,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "c0ea921a2f4120d2bd1ee7be535933997985ea0e721e46b9f20ecce76219135c"
+  },
+  {
+    "source": "image assets/ADS CONTENT/wrinkle treatmemt campaign 3x4/BF_Botox_Ad_Campaign3x4-06.png",
+    "bytes": 1788934,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "fcb4c7d90c383922000171f6716902443b7808c3daeb561634919de37e59d289"
+  },
+  {
+    "source": "image assets/ADS CONTENT/wrinkle treatmemt campaign 3x4/BF_Botox_Ad_Campaign3x4-07.png",
+    "bytes": 1500710,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "98a3c8f6ea81437e1afda8e8c074f11900dced29bfe13615790233ba6ad56ebd"
+  },
+  {
+    "source": "image assets/ADS CONTENT/wrinkle treatmemt campaign 3x4/BF_Botox_Ad_Campaign3x4-08.png",
+    "bytes": 1299014,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "3574d0a98d45bc61b464e12f4a954d55a1fb74d6c2b9adc5a951216696172ab2"
+  },
+  {
+    "source": "image assets/ADS CONTENT/wrinkle treatmemt campaign 3x4/BF_Botox_Ad_Campaign3x4-09.png",
+    "bytes": 1471952,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "e306564b674c08d8628783fe3324b2105a7634f753d03331af89eb44a7eddb6c"
+  },
+  {
+    "source": "image assets/ADS CONTENT/wrinkle treatmemt campaign 3x4/BF_Botox_Ad_Campaign3x4-CoverAd.png",
+    "bytes": 1992303,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a0ae241ca80faf18e90ac8dd52f76cc180c2a7fa8a0a244e3602b484bace66f7"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/BF_Brand_Social_GiftCardPhoto-01.heic",
+    "bytes": 1073924,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "c81240351be445bc666592267c19598b28f92b5dccebf988463f7d1a84335001"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/BF_Brand_Social_GiftCardPhoto-02.heic",
+    "bytes": 844351,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "0b9f53396617c4cd446267eeeab060773639c3a902914944514a81a6165c2571"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/BF_Brand_Social_GiftCardPhoto-03.heic",
+    "bytes": 831968,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "c9f7700733e5f0a81e1014dcccd9cd9d5d07ee4df3796204e1af6c1d16f71218"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/BF_Brand_Social_GiftCardPhoto-04.heic",
+    "bytes": 854870,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "321394439275d9bfdc062446eff55142f72eb1d4e949ad4361186c19614923f1"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Copy of 5 SIGNS YOUR SKIN NEED CARROUSEL/BF_HydraFacial_Social_5SignsCarousel-01.png",
+    "bytes": 2397628,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "653a81f4a3ebf6c5b3f38616407f2dcbc69939fd1205ce2aad1bef033b67e9de"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Copy of 5 SIGNS YOUR SKIN NEED CARROUSEL/BF_HydraFacial_Social_5SignsCarousel-02.png",
+    "bytes": 2399477,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "12e0b455f3e0ba0496faeab2f7ae9de500a2e03e817b0f63d50302dcf845093c"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Copy of 5 SIGNS YOUR SKIN NEED CARROUSEL/BF_HydraFacial_Social_5SignsCarousel-03.png",
+    "bytes": 1331544,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "9ee3ca145f2c527a44ae553f8a4f8f9c71aa813fcf6cc71522064bd9f4b058a2"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Copy of 5 SIGNS YOUR SKIN NEED CARROUSEL/BF_HydraFacial_Social_5SignsCarousel-04.png",
+    "bytes": 1914518,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "d5c4dc04655f0dc94fbc15d1e784f4d4ab15b8704402181ad8fd139ba22e4ead"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Copy of 5 SIGNS YOUR SKIN NEED CARROUSEL/BF_HydraFacial_Social_5SignsCarousel-05.png",
+    "bytes": 1372535,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "3da860067d31cf0af5630107caa1d4f867272baad06c3e11b039d8cd5f62e437"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Copy of 5 SIGNS YOUR SKIN NEED CARROUSEL/BF_HydraFacial_Social_5SignsCarousel-06.png",
+    "bytes": 1933419,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "109cadfe49b8e3cb6ad0d1f3fd783474a1817ab53fc5797e2a2c60ed84c8a0bb"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Copy of 5 SIGNS YOUR SKIN NEED CARROUSEL/BF_HydraFacial_Social_5SignsCarousel-07.png",
+    "bytes": 1493227,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "38e6f8b43fbbe5a3bf4e389b2ad8fdc0b1547a4fc44d04ee1c07f348a8255300"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Copy of 5 SIGNS YOUR SKIN NEED CARROUSEL/BF_HydraFacial_Social_5SignsCarousel-08.png",
+    "bytes": 1832250,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "3aba437a563b8a4c545963c62286c94cadbcad4793ad82c1522dc2cdfed1b009"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Copy of 5 SIGNS YOUR SKIN NEED CARROUSEL/BF_HydraFacial_Social_5SignsCarousel-09.png",
+    "bytes": 1484148,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "8e027269568f23dcd82cc22fd3f0faa967c566ad7df502922df9acf6dab6c5e0"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Copy of 5 SIGNS YOUR SKIN NEED CARROUSEL/BF_HydraFacial_Social_5SignsCarousel-10.png",
+    "bytes": 1568729,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "de565425fccb8996e9b86b8042718f44b36c1e1967652ce221f7a6179093ef6e"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Copy of 5 SIGNS YOUR SKIN NEED CARROUSEL/BF_HydraFacial_Social_5SignsCarousel-11.png",
+    "bytes": 1400209,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "cc830a5fe20cf8810b132e3462853ffd5cc04ec4b15333e71fe0428b408f51cb"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/FLAT FEE CARROUSEL/BF_Botox_Social_FlatFeeCarousel-01.jpg",
+    "bytes": 2711497,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "7ab9efe8d048f20a41703e72b98ee9fc3f28c72683676dc04a8823cad1c71731"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/FLAT FEE CARROUSEL/BF_Botox_Social_FlatFeeCarousel-02.jpg",
+    "bytes": 3977458,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "265da2423e86fe8826a654f21dcd75c33b030bcbc1b58be340cb8ddf68e27e58"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/FLAT FEE CARROUSEL/BF_Botox_Social_FlatFeeCarousel-03.jpg",
+    "bytes": 4864013,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "14386837565937977e3b13018cc63feae46035126c2da5d2728e842ac08ec206"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/MASSETER MINIMIZING CARROUSEL/BF_Masseter_Social_BeforeAfter.jpg",
+    "bytes": 996472,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "d5b7d47008385554956b1cf551797d82863f9121fb601583bf72c10f0f2f31f0"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/MASSETER MINIMIZING CARROUSEL/BF_Masseter_Social_Carousel-01.png",
+    "bytes": 1451716,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "3fe3699fca4a9bb1781e53288a5c482c105ee4f51faa02020c4aad2b902435b9"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/MASSETER MINIMIZING CARROUSEL/BF_Masseter_Social_Carousel-02.png",
+    "bytes": 1443707,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "bf2575dd59df6913dc738e318c99f257dbb26f47cbc30ace90fae0fa16f71c82"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/MASSETER MINIMIZING CARROUSEL/BF_Masseter_Social_Carousel-03.png",
+    "bytes": 3034779,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "399dd7434425e3d416c396751017f80f83bcc971c2bb51908e642bf66ab5d48c"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/MASSETER MINIMIZING CARROUSEL/BF_Masseter_Social_Carousel-04.jpg",
+    "bytes": 1982353,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a5fbdae2b638221ef1f5a6e0b83fdc55c2af6b9006a33e3eb06f0b075f59c87d"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/MASSETER MINIMIZING CARROUSEL/BF_Masseter_Social_Carousel-05.jpg",
+    "bytes": 1545965,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "bdbf2ed42a418fcaaccaf882bb7b94e2f3476ceb1e637ba64b5682e92d846c8b"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/MASSETER MINIMIZING CARROUSEL/BF_Masseter_Social_Carousel-06.jpg",
+    "bytes": 2393796,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "5a65555c1085c52acf7bf402a1ad2035096ec38d7f63d6a883bc00af707a4e98"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Microneedling Carrousel/BF_Microneedling_Social_Carousel-01.jpg",
+    "bytes": 3761341,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "e4079da4181bb30bfef8544a1f5b176d516d762bdf4134e0c82f5a88a785adfe"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Microneedling Carrousel/BF_Microneedling_Social_Carousel-02.png",
+    "bytes": 41474,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "cb6bfee5484d727be0517f9799578efa9c6eabb328ae29e32cc318971fcbea69"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Microneedling Carrousel/BF_Microneedling_Social_Carousel-03.png",
+    "bytes": 42954,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "5a518cd9db6496591e1a512b21bf49b7ec9bb1ac304290aae581406ddec09bf7"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Microneedling Carrousel/BF_Microneedling_Social_Carousel-04.png",
+    "bytes": 78096,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "cd8eaf608ddd36df074733b4a439fd16d847eb212c25f14abd0b1123158286c8"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Microneedling Carrousel/BF_Microneedling_Social_Carousel-05.png",
+    "bytes": 78983,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "19141bcf7350998f9eaa0329471877934317aaafafd42aea16eb633fc8eb5b6c"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Microneedling Carrousel/BF_Microneedling_Social_Carousel-06.png",
+    "bytes": 69366,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "6d492e2598efb37765313c44f0480859c361412b1b7bc7b29f6bea01fe66a45f"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Microneedling Carrousel/BF_Microneedling_Social_Carousel-07.png",
+    "bytes": 77590,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "b6c56a89cba8fe07b83dc780c24daf4345d06d74b1d6eeeba1f255ecfb818405"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Microneedling Carrousel/BF_Microneedling_Social_Carousel-08.png",
+    "bytes": 64571,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "422f3481482bd70ee55cbd835b61b63bb209e42cc4343d9b3a0465b07cc0390d"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Microneedling Carrousel/BF_Microneedling_Social_Carousel-09.png",
+    "bytes": 86920,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a5f55ee8ec44aa3928dcc1c7536e26e47950b649d4dfe6549efd08b26f83b82a"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Microneedling Carrousel/BF_Microneedling_Social_Carousel-10.png",
+    "bytes": 77836,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "71de3cad4129072f87e04be7fc0de95cad86c9b10b8559abfc7b87008d1d4631"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Microneedling Carrousel/BF_Microneedling_Social_Carousel-11.png",
+    "bytes": 50838,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "050c13eb5309c40838c6462c2dae6fd97799c24b34798cc36c5b97c491328af2"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Microneedling Carrousel/BF_Microneedling_Social_Carousel-12.png",
+    "bytes": 68578,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "0999c67347a671c72d8a56794959e3f8df9ac66f6fd4c456fc8c1f6a74c70ebc"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/Microneedling dermatude /BF_Microneedling_Ad_StoryCapture-BookNow.mov",
+    "bytes": 30998466,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "10533e01a5e9b83261b9c3e6326a87056cb596b64a2ca27cfdd94dd856e4a832"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/The Facial/BF_HydraFacial_Social_TheFacialCarousel-01.png",
+    "bytes": 3258046,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "7822672fc690f1859fc9ea2f3dd0225fb3d00cf347c69817d496a6bdc8387af2"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/The Facial/BF_HydraFacial_Social_TheFacialCarousel-02.png",
+    "bytes": 2957957,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a8a881974f424178e014d31ea9a31e47da3d72e0cf6713fd9dd2f6e0c7b40966"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/The Facial/BF_HydraFacial_Social_TheFacialCarousel-03.png",
+    "bytes": 2687045,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "7fd436445cfe7b1f5c8fa3983558c43ee437df1e9c2036a52485f5f448bcc433"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/The Facial/BF_HydraFacial_Social_TheFacialCarousel-04.png",
+    "bytes": 3077067,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "0ef2b13906ee9a70b6d23029f346ad592f68ce0dc735c59ac52bc767c60dd805"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/The Facial/BF_HydraFacial_Social_TheFacialCarousel-Cover.png",
+    "bytes": 2686017,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "e4cfeff626096b50ee69a2a2e18d02d91292111442608163874d075df7fb2d8f"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/boy-tox/BF_Botox_Social_BoyTox-01.png",
+    "bytes": 2243190,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "ba951cb3cd31142128be840126e52d19ab17051b8c86680bf4e66fcb64c6b0a4"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/boy-tox/BF_Botox_Social_BoyTox-02.png",
+    "bytes": 1963914,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "6c88ecfb8589b6ef46b78515437a210c2a95e781b7a5800482c4cf2ac6772723"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/boy-tox/BF_Botox_Social_BoyTox-03.png",
+    "bytes": 1740767,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "14496c3a17909b8f639a1ed1119ef44075d174023529c4d95c519bfa1377e403"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/boy-tox/BF_Botox_Social_BoyTox-04.png",
+    "bytes": 1723572,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "fa55bd6fb5d5dad2da3e602d29790b96755c871b7997442055ab5886a5342fa1"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-01.jpg",
+    "bytes": 3938083,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "71f0939a2d8131ba405fdf96e943683578b6a297eff1b77f8210206e9afb1959"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-02.jpg",
+    "bytes": 4394993,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "d2506041e0c682ca74b228d2aea2d22bdf83895db8821eefacd6e846532c5e7b"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-03.jpg",
+    "bytes": 3787611,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "1e77701ce12f7c7775ff9452a87383f99e70009e0fb025d8b2fb6bdac9ddec0f"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-04.jpg",
+    "bytes": 3268801,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "37a15817af80f76a4e336c546e212cb0792c62d27024ffb7ba0b68cac5b52d8e"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-05.jpg",
+    "bytes": 3070511,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "efec721747d311aa5be8d61c05e5a4bd9a79bdd3d7ecd8ec5e816f17393d3c9c"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-06.jpg",
+    "bytes": 5104128,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "f260da59e0735989553060b389d7f87512b243a553d16fc3992f3ecdbcd4e19e"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-07.jpg",
+    "bytes": 2752155,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "6b07e377ebdc2add60a3f141f2da0f49cbf3c2e784bf438ca2f35cd022decdf8"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-08.jpg",
+    "bytes": 2925109,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "110503337c81c954f404e6397ad3175001e96027b9b7f73fb6f83e75d497c437"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-09.jpg",
+    "bytes": 2892125,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "00415d2d2de3c6372305dea4cfe63b9191a2f7d6e0b740d97aa00c0ce7a13431"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-10.jpg",
+    "bytes": 1302536,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "85ccbade0c1a5fa6bd5cbc8a111c70e038807c4e7fda4eee25b58d89d5e77a03"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-11.jpg",
+    "bytes": 1555587,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "7d9e59e572dc8063d9d731716d60880310f839d6869c7a785c51e2b6ffbf8667"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-Video-01.mp4",
+    "bytes": 965008,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "b23e6c5589236319270acd1fda6ed37a6fd93c8c2b703256d0fb69048aacefad"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-Video-02.mp4",
+    "bytes": 923902,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "c68cc384b3ec0b6eafa60151deec41f0814b6d595b67c17b18fe2a1b2ff833b3"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousel - $400/BF_Botox_Social_FlatFee400Carousel-Video-03.mp4",
+    "bytes": 799250,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "2a43899175a8e3f2582a8be410053930f7dc0174cfe115031c78bdef53ce45c3"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousell microneedling/BF_Microneedling_Social_Carousel-01.jpg",
+    "bytes": 3761341,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "e4079da4181bb30bfef8544a1f5b176d516d762bdf4134e0c82f5a88a785adfe"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousell microneedling/BF_Microneedling_Social_Carousel-02.png",
+    "bytes": 41474,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "cb6bfee5484d727be0517f9799578efa9c6eabb328ae29e32cc318971fcbea69"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousell microneedling/BF_Microneedling_Social_Carousel-03.png",
+    "bytes": 42954,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "5a518cd9db6496591e1a512b21bf49b7ec9bb1ac304290aae581406ddec09bf7"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousell microneedling/BF_Microneedling_Social_Carousel-04.png",
+    "bytes": 78096,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "cd8eaf608ddd36df074733b4a439fd16d847eb212c25f14abd0b1123158286c8"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousell microneedling/BF_Microneedling_Social_Carousel-05.png",
+    "bytes": 78983,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "19141bcf7350998f9eaa0329471877934317aaafafd42aea16eb633fc8eb5b6c"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousell microneedling/BF_Microneedling_Social_Carousel-06.png",
+    "bytes": 69366,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "6d492e2598efb37765313c44f0480859c361412b1b7bc7b29f6bea01fe66a45f"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousell microneedling/BF_Microneedling_Social_Carousel-07.png",
+    "bytes": 77590,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "b6c56a89cba8fe07b83dc780c24daf4345d06d74b1d6eeeba1f255ecfb818405"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousell microneedling/BF_Microneedling_Social_Carousel-08.png",
+    "bytes": 64571,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "422f3481482bd70ee55cbd835b61b63bb209e42cc4343d9b3a0465b07cc0390d"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousell microneedling/BF_Microneedling_Social_Carousel-09.png",
+    "bytes": 86920,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a5f55ee8ec44aa3928dcc1c7536e26e47950b649d4dfe6549efd08b26f83b82a"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousell microneedling/BF_Microneedling_Social_Carousel-10.png",
+    "bytes": 77836,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "71de3cad4129072f87e04be7fc0de95cad86c9b10b8559abfc7b87008d1d4631"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousell microneedling/BF_Microneedling_Social_Carousel-11.png",
+    "bytes": 50838,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "050c13eb5309c40838c6462c2dae6fd97799c24b34798cc36c5b97c491328af2"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/carrousell microneedling/BF_Microneedling_Social_Carousel-12.png",
+    "bytes": 68578,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "0999c67347a671c72d8a56794959e3f8df9ac66f6fd4c456fc8c1f6a74c70ebc"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/coolSculpting/BF_CoolSculpting_Social_Carousel-01-A.png",
+    "bytes": 2802803,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a15fcb6da248c70e860cc14b198d2a3cbf57a8efa82ed7041b6ddd4737d2992a"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/coolSculpting/BF_CoolSculpting_Social_Carousel-01-B.png",
+    "bytes": 1369839,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "8591d378ccead9f5fb7884915a74029cfbd80fe8b02f25286fddd2ec02d6006c"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/coolSculpting/BF_CoolSculpting_Social_Carousel-02.png",
+    "bytes": 1342370,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "fe90c287b4c9dd9d246366a86d7e0addc698a5b6c581ab48e94a85b54de6f9ae"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/coolSculpting/BF_CoolSculpting_Social_Carousel-03.png",
+    "bytes": 402803,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "1e22944a29dc179a4d8a7f5615b9772d270b19b152735c08d1276c2cc9e3f225"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/coolSculpting/BF_CoolSculpting_Social_Carousel-04.png",
+    "bytes": 756178,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "18c7bf3ef634dc14fe42969be255c8e6540f83c1297bab4c2167e9692dd126fd"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/coolSculpting/BF_CoolSculpting_Social_Carousel-05.png",
+    "bytes": 975605,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "bb8616b17885672f5ad65ef4f021d9b3d4c08938aece7e8a6266084bc30ea2cd"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/coolSculpting/BF_CoolSculpting_Social_GLP1WeightLoss-FullSpread.png",
+    "bytes": 5926690,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "f85363e611643c10c849b23828ba4c134aec74ab6db7f1dfcbba5e5c457a63f5"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/coolSculpting/BF_CoolSculpting_Social_GLP1WeightLoss-Panel-01.png",
+    "bytes": 778479,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "ff889d46e0742bf8e582b08338579c796d1a060f6083c847f106a3087f0b913d"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/coolSculpting/BF_CoolSculpting_Social_GLP1WeightLoss-Panel-02.png",
+    "bytes": 619128,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "e1159d8fd990a61585af401d855dd6cc088a45a39f9effc17aad524b6a00ee43"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/coolSculpting/BF_CoolSculpting_Social_GLP1WeightLoss-Panel-03.png",
+    "bytes": 1021184,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "810eedd8e38878785a5892d2051c9a74ca52a1a0d0a32359d7289be72a4c12da"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/coolSculpting/BF_CoolSculpting_Social_GLP1WeightLoss-Panel-04.png",
+    "bytes": 383234,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "be9e5fc6b29c7e01eb278deec17e307ab2eff27b6dc31c6739275a04658aebdd"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Brand_Social_SubwayMeme-ColdOutsideIsDeadly.mov",
+    "bytes": 18057431,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "4fdb8c397c186e424dbd0bcf65eb5322f6d3418cdd3b177d00ea9993dcde518c"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-BlackFriday_Ad_BusinessCard-GIF.mp4",
+    "bytes": 99411015,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "3faaeb06ddaae94eb6e0ec4ce06a10074cf0b1889e8a177ee63f1a0ecc9b0aa8"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Ad_AIGiftBox-Variant-01.png",
+    "bytes": 7022485,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "9f12bbc66f1015e36cdb80d347ebf322aa808e390c7f0f78d3c43247df1104dd"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Ad_AIGiftBox-Variant-02.png",
+    "bytes": 6919989,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "7a50f3538b43e1a8dcb84c30529542e8fdcde25371a6bfc1f5c22ff1e8706af1"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Ad_AIGiftBox-Variant-03.png",
+    "bytes": 8741110,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "7f37056aa240cfbb575ee0913cd050fc8e921dc1b7ef829767f133110b52f2ed"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Ad_AIGiftBox-Variant-04.png",
+    "bytes": 7482957,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "c41aefafe7a3463d208f195dd93b3c677f03bb4c100f2bb4f0e8b96df7561f13"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Ad_AIGiftBoxAnimation.mp4",
+    "bytes": 3692333,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "f5c37b6b6cd6953c115290ed729e896e57ccaa3f0d2b33f6f08939e5170bc5aa"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Ad_EmailHeader-200x200-C.png",
+    "bytes": 85400,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "19c364c59049214b101b5185f43b858c6e30e586f0413ec508f1ccb61d0ee555"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Ad_EmailHeader-200x200-D.png",
+    "bytes": 1595426,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "21200e1ea6e66b823d0fd6ddbf131bb6fd5545905b72a0390a262792d0a22185"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Ad_EmailHeader-FullSize-B.png",
+    "bytes": 818234,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "8780c01ca3b4a9e3efb151c0638564aefb480aa6e06cc63f4da52af1e491be29"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Ad_GiftCard10Off-AltCut.mov",
+    "bytes": 11609815,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "ca07824189192791f0f09b1cc815895a0906696ac6611b4bdc4eabd5ef0cad4e"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Ad_GiftCard10Off-InstagramPost.mp4",
+    "bytes": 11198056,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "ad817d7622bdfbac22840437fe84a176a94674265b09321204a0e85e3477fd0e"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Social_GiftGuide-01.jpg",
+    "bytes": 1102793,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "938a5aaee34958e0eb98935bcdd9209a13495f73bb3476a7b005abde3903a212"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Social_GiftGuide-02.jpg",
+    "bytes": 1030894,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "f84602f1c39a799f2f186f3b58a023308e855fbcb93d053f72dc606199d09dd6"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Social_GiftGuide-03.jpg",
+    "bytes": 872391,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "e11ca4301ef5e4ef76492151f085829ef9b205b5dc980953eeb46608bb5fc922"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Social_GiftGuide-04.jpg",
+    "bytes": 991953,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "6e2ce0489ea4cb507c1739c5efc5f76e5b90ed12b194124a6aa20ec3f9377086"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Social_GiftGuide-05.jpg",
+    "bytes": 887133,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "738ba2a8c00b33a87a85c8020a1f73f11438b84bab9972b7ca35d2303ebadab5"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /BF_Promo-Valentines_Social_GiftGuide-Cover-BrandCard.jpg",
+    "bytes": 182347,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "2c73a22793040dfcc97e48549d4114615343db264e3e866992149ee9f9b13590"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /video /BF_Promo-Valentines_Raw_BusinessCardReveal-Square.mov",
+    "bytes": 29487495,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "1fa033b3d40f211ec98780456e805bc22936d673001a9fc5942421a45826e5c9"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /video /BF_Promo-Valentines_Raw_BusinessCardReveal-Vertical.mov",
+    "bytes": 159080517,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "ba999ee3afc8b3e1978e082e29c2feab3b68fc82b002b9c618bb0ed4a5f08932"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/criativos valentines /video /BF_Promo-Valentines_Raw_BusinessCardReveal-Wide.mov",
+    "bytes": 20024351,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "ef78c631954ca6f891016ecf7ef03606429e11575cd0038f242a61004a71f8ff"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/hydrafacial/BF_HydraFacial_Social_Carousel-01-A.png",
+    "bytes": 2763138,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "13fdbaff8b22d3b57f8c10d44fc3ec710a94557495ada2b751b1de2d36a325f0"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/hydrafacial/BF_HydraFacial_Social_Carousel-01-B.png",
+    "bytes": 2073731,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "56b14fd550f4718ac06ff1be4fc0947b124a552c9b8214fc37e0bb1d3d44947f"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/hydrafacial/BF_HydraFacial_Social_Carousel-02-A.png",
+    "bytes": 2609495,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "f2dfd680a437014d0a26feb6d326c23ff0d5c3ddfb54b5b521d3495e73cfc062"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/hydrafacial/BF_HydraFacial_Social_Carousel-02-B.png",
+    "bytes": 1999233,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "4cd94521df5ee754592c9b8b1dff1556a40a0a26ca3a24e8f318898d80e5a248"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/hydrafacial/BF_HydraFacial_Social_Carousel-03-A.png",
+    "bytes": 2718484,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "d75e9b95b58709b5768d7a7b75c8c88e726cae4bf222f2a06c9efb4f6cb8f314"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/hydrafacial/BF_HydraFacial_Social_Carousel-03-B.png",
+    "bytes": 1975416,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "d842890d76f51210cd564ab4535e4f3fdd34f27d305c9f9cd0df0385a44f35d9"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/hydrafacial/BF_HydraFacial_Social_Carousel-04-A.png",
+    "bytes": 3028182,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "6d39b8e7ff4b0d57d00ce1cd3e5e64ea03f82602ffc8697e02b5f369f05f3e97"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/hydrafacial/BF_HydraFacial_Social_Carousel-04-B.png",
+    "bytes": 2261533,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "cf6a97e3fea2467fbd82d14356454b84d78b79fce9bdfbb1106b09aa29e81390"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline/BF_Masseter_Social_AIBeforeAfter-01.png",
+    "bytes": 6902758,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a30b10e770018bc9f7d5ff248e0292cbbfdb7e3ed66ab11f737bd26d1a9e042a"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline/BF_Masseter_Social_AIBeforeAfter-02.png",
+    "bytes": 8003302,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "1f6f6c798424206001f80f175b55eead2a9e93b3601c8f5562c353955aacd43b"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline/BF_Masseter_Social_AIBeforeAfter-03.png",
+    "bytes": 7834269,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "5f90e0385fc6f875fba9f8a2bd5c3705855a35f05652c267ce947c6e015229b5"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline/BF_Masseter_Social_AIBeforeAfter-04.png",
+    "bytes": 7182483,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "60f6c2fc71aff6a4e1e3c62c87d5bd9cb2845f78afda8e6338ccd9428bd01961"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline/BF_Masseter_Social_AIBeforeAfter-05.png",
+    "bytes": 7529286,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "4924ffe32a96d206a4ff0b278e2372187cec14f6868f722de3110a6a875dc717"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline/BF_Masseter_Social_Carousel-01.png",
+    "bytes": 1451716,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "3fe3699fca4a9bb1781e53288a5c482c105ee4f51faa02020c4aad2b902435b9"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline/BF_Masseter_Social_Carousel-02.png",
+    "bytes": 1443707,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "bf2575dd59df6913dc738e318c99f257dbb26f47cbc30ace90fae0fa16f71c82"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline/BF_Masseter_Social_Carousel-03.png",
+    "bytes": 3034779,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "399dd7434425e3d416c396751017f80f83bcc971c2bb51908e642bf66ab5d48c"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline/BF_Masseter_Social_Carousel-04.jpg",
+    "bytes": 1982353,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a5fbdae2b638221ef1f5a6e0b83fdc55c2af6b9006a33e3eb06f0b075f59c87d"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline/BF_Masseter_Social_Carousel-05.jpg",
+    "bytes": 1545965,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "bdbf2ed42a418fcaaccaf882bb7b94e2f3476ceb1e637ba64b5682e92d846c8b"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline/BF_Masseter_Social_Carousel-06.jpg",
+    "bytes": 2393796,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "5a65555c1085c52acf7bf402a1ad2035096ec38d7f63d6a883bc00af707a4e98"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline treatment/BF_Masseter_Social_JawlineTreatment-01.png",
+    "bytes": 2474105,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "fa3b370952dece0a0da8521a39e8271c587d3128cabcaf4c9c75ab6cf2cc425d"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline treatment/BF_Masseter_Social_JawlineTreatment-02.png",
+    "bytes": 3181080,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "014922d6dc36df278c1028774e0a67aa6990e3f1afb583207de71f26d1df2c32"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/jawline treatment/BF_Masseter_Social_JawlineTreatment-03.png",
+    "bytes": 992781,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "c15e0c7442435bf210c6fb3777583383af3a4f01f715bba6a27eca15c9ca571d"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/linktree/BF_Brand_Social_Linktree-Gradient.png",
+    "bytes": 220209,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "bbd2c25086ba616220d55618f0b8728a99a8b4b3194fc2248a275addb3b071a2"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/linktree/BF_Brand_Social_Linktree-Solid.png",
+    "bytes": 181990,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "beeb36d45117707caca85096a8ed1324f43a4e42448db3e00da9293c124929f8"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/microneedling PRP reel/BF_Microneedling_Ad_PRP-ReasonsToBook-CoverImage.jpg",
+    "bytes": 1788572,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "d3b69c9bbc9e1f1e0ba354fdf08507da38afc55d4070c96b424b3b30e3bff51e"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/microneedling PRP reel/BF_Microneedling_Raw_PRPReel-Personalized.mov",
+    "bytes": 297472331,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "a7713c1c1db5ceaf8dca36f5a1df7a61196197aebe8820ee70a2af12cc30a565"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/skin_types_post/BF_Brand_Social_SkinTypesCarousel-01.png",
+    "bytes": 1510543,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "99c88fdb2abbab879f7287070b5396b5512f48725eb49e99bc5f8054686a9a1f"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/skin_types_post/BF_Brand_Social_SkinTypesCarousel-02.png",
+    "bytes": 1511322,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "7af53b80c214d55fbc4b5728a4b2c2e23ef7680fed5e8872292b04488df7ed9a"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/skin_types_post/BF_Brand_Social_SkinTypesCarousel-03.png",
+    "bytes": 1537935,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "58c25e990ca8058a6321d4bb831088ab42eb06310310b187944b4282366b8861"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/skin_types_post/BF_Brand_Social_SkinTypesCarousel-04.png",
+    "bytes": 2135561,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "b4357d5496850cd733a34a866bbbd7251ef9967daf3a67907768f89ff110667d"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/skin_types_post/BF_Brand_Social_SkinTypesCarousel-05.png",
+    "bytes": 1610366,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "997880d08d2e709b1da8f5715f5abbeddd3f6456e167515252c7b3b5b03afb2e"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/skin_types_post/BF_Brand_Social_SkinTypesCarousel-06.png",
+    "bytes": 2150624,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "ae4eccc8d604e2a7ae3507ce737650e2def300d536ca4d7c5aad30ce6bbb1394"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/skin_types_post/BF_Brand_Social_SkinTypesCarousel-07.png",
+    "bytes": 1746167,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "3523cdf6bcefff4ef7005da1668b7aafabd81c4e27cf6647961a9b9aedeeb8f0"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/skin_types_post/BF_Brand_Social_SkinTypesCarousel-08.png",
+    "bytes": 2115340,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "84b4ff6cbd46540f23087eadf97431fc1331f74429de77f5cd1d38f04937da0f"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/skin_types_post/BF_Brand_Social_SkinTypesCarousel-09.png",
+    "bytes": 1713423,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "67fac2935663dfcb31298f5e4062d7188ea55b5b2931590dcd78c1d1cc2da08b"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/skin_types_post/BF_Brand_Social_SkinTypesCarousel-10.png",
+    "bytes": 1821201,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "5ed85fab5f5e5c0b22be0ab60eff8e020ff8b243641e7489f29b9f2ef72a9dc9"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/skin_types_post/BF_Brand_Social_SkinTypesCarousel-11.png",
+    "bytes": 1629271,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "9f08b90989f76ca512b30c455a9d9015816fa95e846967b6242d9492d92aeaa2"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/skin_types_post/BF_Brand_Social_SkinTypesCarousel-12.png",
+    "bytes": 1027875,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "b562bcfd1b54fcbb0c69cb1c628f06445923516f1940b982889bf51c77b33255"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/treatment_covers/BF_Brand_Social_TreatmentCover-CoolSculpting.png",
+    "bytes": 2569927,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "33689f64e71c488af3a837659318db6e064bc85172101d620fdd8b50ad765508"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/treatment_covers/BF_Brand_Social_TreatmentCover-Laser.png",
+    "bytes": 2333676,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "b80c27139bc39526020105f8b76bc89390799e61f6b36eeee48bd30b6eebcea8"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/treatment_covers/BF_Brand_Social_TreatmentCover-WrinkleTreatment.png",
+    "bytes": 2531733,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "d082153860f8c6276d663516654d30103391bdf4afb0195defd3967dc59d3f12"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/wrinkle_before_after/BF_Botox_Social_BeforeAfterCarousel-01.png",
+    "bytes": 1701981,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "e6c372f6d76882b3a6664272b18a1c2ae28ad74aa2b17a10a0b25d33c0dbd48f"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/wrinkle_before_after/BF_Botox_Social_BeforeAfterCarousel-02.png",
+    "bytes": 1939203,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "8ff428168a6855a23938ce45621c1b8b5ad04f79799e60d1f57fb4393cb1969c"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/wrinkle_before_after/BF_Botox_Social_BeforeAfterCarousel-03.png",
+    "bytes": 2005726,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "68d678b09648daeda58e7520a27b71a048ae3203d7b64438a862e7449063274a"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/wrinkle_before_after/BF_Botox_Social_BeforeAfterCarousel-04.png",
+    "bytes": 2015972,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "ea99d6868681abbd50389b2eef7fa137e4294e20156511181b2ba9a3c3ff002b"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/wrinkle_before_after/BF_Botox_Social_BeforeAfterCarousel-05.png",
+    "bytes": 2010159,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "53eb59d59f632a2cb605eefd26824aba8f7de863ab7ddf5627b238bc9c4102a1"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/wrinkle_before_after/BF_Botox_Social_BeforeAfterCarousel-06.png",
+    "bytes": 1919261,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "3f88ae4d160a265f46f6dda00b8a95d501cea02a31d868a501d34395b778656f"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/BODYFACTORY/wrinkle_before_after/BF_Botox_Social_BeforeAfterCarousel-07.png",
+    "bytes": 1899071,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "af5c7aff1a05a6a199cbca7cd0de56a0d6cfb5b5282d67d7609ab53cd0263c22"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/MYDATAMYMONEY - INSTAGRAM/gridphoto.png",
+    "bytes": 6263209,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "b5728a4765673323ba13d26e373fc9420e5d77519a3ae47ee7badd2c2c9f1bcd"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/MYDATAMYMONEY - INSTAGRAM/linktree.png",
+    "bytes": 217884,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "e97e5eeace53b8000ba395ac69bdf1c32713df29b564bac47b64db2ef22583dd"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/MYDATAMYMONEY - INSTAGRAM/screencapture-htetaunglin1151-github-io-emailblasttesting-2025-07-17-00_00_08.png",
+    "bytes": 435076,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "5f0743855631e4433286f2088ab39c67c2e8fb61873bfa81f292e72436b34b55"
+  },
+  {
+    "source": "image assets/SOCIAL CONTENT/MYDATAMYMONEY - INSTAGRAM/screencapture-htetaunglin1151-github-io-socialmediablackout-2025-07-17-00_00_25.png",
+    "bytes": 312049,
+    "archives": [
+      "portfolio-originals-04.zip"
+    ],
+    "sha256": "b9ac827dbded52d95adcc318168bb21b931a3dbf4218c48c496f71411c40b4c1"
+  }
+]
