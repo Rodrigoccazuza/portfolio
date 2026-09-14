@@ -78,7 +78,7 @@ for sec,rows in sorted(sections.items()):
  html=html.replace('href="#asset-library"', 'href="'+route(sec)+'#asset-library"')
  html=html.replace('</main>','\n'.join(chunks)+'\n</main>')
  if 'css/imported-assets.css' not in html:html=html.replace('</head>','<link rel="stylesheet" href="css/imported-assets.css?v=20260914">\n</head>')
- if 'href="#asset-library"' not in html:html=re.sub(r'(</h1>)',r'\1\n <p><a href="#asset-library">Browse '+('certificates' if sec=='experience' else 'project assets')+r' &darr;</a></p>',html,count=1)
+ if ('href="'+route(sec)+'#asset-library"') not in html:html=re.sub(r'(</h1>)',r'\1\n <p><a href="#asset-library">Browse '+('certificates' if sec=='experience' else 'project assets')+r' &darr;</a></p>',html,count=1)
  html=html.replace('href="#asset-library"', 'href="'+route(sec)+'#asset-library"')
  path.write_text(html)
  index.extend(['## '+sec.replace('-',' ').title(),'',f'[Portfolio section](https://rodrigoccazuza.github.io/portfolio/{route(sec)})','','| Source file | Web copy | Original archive |','| --- | --- | --- |'])
