@@ -21,11 +21,11 @@ await check('Website buttons and dots use brand green',async()=>{
  assert(found.dots==='rgb(102, 212, 135)',JSON.stringify(found));
  assert(found.button==='rgb(102, 212, 135)',JSON.stringify(found));
 });
-await check('Workflow gradient is two percent and video is not darkened by filters',async()=>{
- await desktop.locator('.concept-timeline.workflow-stage').waitFor({timeout:15000});
- const style=await desktop.evaluate(()=>({light:getComputedStyle(document.querySelector('.workflow-stage-light')).backgroundImage,shade:getComputedStyle(document.querySelector('.workflow-stage-shade')).backgroundImage,filter:getComputedStyle(document.querySelector('.workflow-stage-video')).filter}));
- assert(style.light.includes('0.02')&&style.shade.includes('0.02'),JSON.stringify(style));
- assert(style.filter==='none',JSON.stringify(style));
+await check('Workflow displays only the full uncropped video with no text or gradient',async()=>{
+ await desktop.locator('.concept-timeline.workflow-video-only video').waitFor({timeout:15000});
+ await desktop.waitForFunction(()=>[...document.styleSheets].some(s=>s.href?.includes('composition-workflow-stage.css')),{timeout:15000});
+ const data=await desktop.evaluate(()=>{const section=document.querySelector('.workflow-video-only'),video=section.querySelector('video');return {fit:getComputedStyle(video).objectFit,filter:getComputedStyle(video).filter,children:section.querySelector('.workflow-stage-sticky').children.length,overlays:section.querySelectorAll('.workflow-stage-light,.workflow-stage-shade,.workflow-stage-heading,.workflow-stage-rail,.workflow-stage-footer,h1,h2,h3,p,ol,li').length};});
+ assert.equal(data.fit,'contain',JSON.stringify(data));assert.equal(data.filter,'none',JSON.stringify(data));assert.equal(data.children,1,JSON.stringify(data));assert.equal(data.overlays,0,JSON.stringify(data));
 });
 const footerSamples=[];
 await check('Home, Work, Experience and Contact have the same footer',async()=>{
