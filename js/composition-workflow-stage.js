@@ -20,6 +20,12 @@
 
   const duration = () => Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 0;
 
+  function publishTarget() {
+    const total = duration();
+    section.dataset.scrollProgress = targetProgress.toFixed(4);
+    video.dataset.scrubTarget = total ? (targetProgress * total).toFixed(3) : '';
+  }
+
   function clearRetry() {
     if (retryTimer) {
       clearTimeout(retryTimer);
@@ -31,6 +37,7 @@
     clearRetry();
     if (reduceMotion.matches) return;
     const total = duration();
+    publishTarget();
     if (!total || video.readyState < 1) {
       retryTimer = window.setTimeout(applyTarget, 80);
       return;
@@ -38,7 +45,6 @@
     const next = Math.max(0, Math.min(total - .035, targetProgress * total));
     if (Math.abs(video.currentTime - next) < .025) return;
     if (video.seeking) {
-      // Let the decoder finish its current seek, then apply the newest scroll target.
       retryTimer = window.setTimeout(applyTarget, 65);
       return;
     }
@@ -55,6 +61,7 @@
     const stickyHeight = sticky.getBoundingClientRect().height || window.innerHeight;
     const available = Math.max(1, section.offsetHeight - stickyHeight);
     targetProgress = clamp(-section.getBoundingClientRect().top / available);
+    publishTarget();
     applyTarget();
   }
 
@@ -89,7 +96,7 @@
   if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', updateMotion);
 
   updateMotion();
-  // Preload immediately: scroll-scrubbing needs random access to the short film.
   video.load();
+  publishTarget();
   queue();
 }());
