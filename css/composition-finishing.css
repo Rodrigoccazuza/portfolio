@@ -21,6 +21,13 @@
 .composition-experience.composition-v2 .comp-float-icons i{backdrop-filter:blur(8px)}
 @media(max-width:860px){
   .composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic{font-size:clamp(110px,22vw,185px)!important;transform:scaleX(1.10)!important}
+  /* The shared fixed drawer is 320px beyond the sticky header when closed.
+     visibility:hidden alone does not remove its scrollable width in Chromium.
+     Remove only the closed panel from layout; retain the existing menu controls. */
+  .composition-experience.composition-v2 #primary-nav:not([data-open="true"]){display:none!important}
+  .composition-experience.composition-v2 #primary-nav[data-open="true"]{display:flex!important;right:0!important;max-width:min(320px,85vw)!important;visibility:visible!important;pointer-events:auto!important}
+  .composition-experience.composition-v2 .site-footer{overflow:hidden!important}
+  .composition-experience.composition-v2 .footer-portrait{max-width:100%;object-fit:contain}
 }
 @media(max-width:560px){
   .composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic{font-size:clamp(86px,25vw,116px)!important;letter-spacing:-.07em!important;transform:scaleX(1.09)!important}
