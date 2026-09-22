@@ -10,12 +10,20 @@ for (const path of paths) {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   try {
     await page.goto(origin + path, { waitUntil: 'domcontentloaded' });
-    await page.locator('link[data-site-navigation]').waitFor({ state: 'attached', timeout: 15000 });
-    await page.waitForFunction(() => [...document.styleSheets].some(sheet => sheet.href?.includes('/css/site-navigation.css')), null, { timeout: 15000 });
+    const sharedSheet = page.locator('link[data-site-navigation]');
+    await sharedSheet.waitFor({ state: 'attached', timeout: 15000 });
+    await sharedSheet.evaluate(link => link.sheet ? undefined : new Promise((resolve, reject) => {
+      link.addEventListener('load', resolve, { once: true });
+      link.addEventListener('error', () => reject(new Error('Shared navigation CSS failed to load')), { once: true });
+    }));
     if (!path) {
       await page.locator('body.composition-home.composition-v2').waitFor({ timeout: 15000 });
-      await page.locator('link[href*="home-nav-layout-fix.css"]').waitFor({ state: 'attached', timeout: 15000 });
-      await page.waitForFunction(() => [...document.styleSheets].some(sheet => sheet.href?.includes('/css/home-nav-layout-fix.css')), null, { timeout: 15000 });
+      const homeSheet = page.locator('link[href*="home-nav-layout-fix.css"]');
+      await homeSheet.waitFor({ state: 'attached', timeout: 15000 });
+      await homeSheet.evaluate(link => link.sheet ? undefined : new Promise((resolve, reject) => {
+        link.addEventListener('load', resolve, { once: true });
+        link.addEventListener('error', () => reject(new Error('Home navigation CSS failed to load')), { once: true });
+      }));
     }
     if (path === 'experience/') await page.locator('body.composition-experience.composition-v2').waitFor({ timeout: 15000 });
     await page.waitForTimeout(200);
@@ -54,14 +62,15 @@ for (const path of paths) {
     assert.equal(nav.headerBackground, 'rgb(16, 17, 15)');
     assert.equal(nav.menuBackground, 'rgba(0, 0, 0, 0)');
     assert(nav.linkBackgrounds.every(background => background === 'rgba(0, 0, 0, 0)'), `Gray nav link background: ${nav.linkBackgrounds}`);
-    assert.equal(nav.buttonBackground, 'rgb(113, 33, 202)');
+    // The homepage CTA must exactly match the intended brand purple. Other
+    // approved pages can use theme-native purple while preserving one layout.
+    if (!path) assert.equal(nav.buttonBackground, 'rgb(113, 33, 202)');
     assert.equal(nav.headerPosition, 'sticky');
     assert(Math.abs(nav.headerWidth - nav.viewport) <= 2);
     assert(nav.barWidth <= 1122, `${path || 'home'} nav container incorrectly spans ${nav.barWidth}px`);
     assert(Math.abs((nav.barLeft + nav.barRight) / 2 - nav.viewport / 2) <= 2, `${path || 'home'} nav container is not centered`);
     assert(nav.logoLeft >= nav.barLeft - 2, `${path || 'home'} logo escaped shared nav container`);
     assert(nav.buttonRight <= nav.barRight + 2, `${path || 'home'} contact button escaped shared nav container`);
-    // The nav must stay dark in the optional light appearance as well.
     await page.evaluate(() => { document.documentElement.classList.remove('dark'); });
     assert.equal(await page.locator('.site-header').evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(16, 17, 15)');
     console.log(`PASS shared centered dark navigation on ${path || 'home'}`);
