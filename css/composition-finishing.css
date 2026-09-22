@@ -1,0 +1,30 @@
+/* Final screenshot fidelity adjustments, scoped to the new composition only. */
+.composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic{
+  font-size:clamp(130px,24vw,350px)!important;
+  letter-spacing:-.075em!important;
+  transform:scaleX(1.12)!important;
+  transform-origin:center;
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+  background-image:radial-gradient(circle,#60d18a 46%,transparent 51%)!important;
+  background-size:6px 6px!important;
+  background-position:center!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+}
+.composition-home.composition-v2 .portfolio-hero .hero-kicker{letter-spacing:-.045em!important}
+.composition-experience.composition-v2 .experience-composition-hero>img{
+  mix-blend-mode:screen;
+  filter:grayscale(1) contrast(1.12)!important;
+}
+.composition-experience.composition-v2 .experience-wireframe{opacity:.65}
+.composition-experience.composition-v2 .comp-float-icons i{backdrop-filter:blur(8px)}
+@media(max-width:860px){
+  .composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic{font-size:clamp(110px,22vw,185px)!important;transform:scaleX(1.10)!important}
+}
+@media(max-width:560px){
+  .composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic{font-size:clamp(86px,25vw,116px)!important;letter-spacing:-.07em!important;transform:scaleX(1.09)!important}
+}
+@media(prefers-contrast:more){
+  .composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic{color:#60d18a!important;-webkit-text-fill-color:#60d18a!important;background-image:none!important}
+}
