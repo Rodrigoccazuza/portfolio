@@ -1,5 +1,18 @@
-/* Home-only correction: legacy hero CSS expands the bar to the full viewport.
-   Restore the exact container geometry of the shared Experience/Work header. */
+/* Home-only correction: legacy hero styles set a sticky top offset and
+   stretch the nav contents to the viewport edges. The header itself must
+   start at the top of the page; only its inner bar is width-constrained. */
+html body.home-page.portfolio-redesign.hero-reference-layout.composition-home.composition-v2 .site-header {
+  position: sticky !important;
+  inset: auto !important;
+  top: 0 !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  background: #10110f !important;
+}
 html body.home-page.portfolio-redesign.hero-reference-layout.composition-home.composition-v2 .site-header .nav-bar {
   width: 100% !important;
   max-width: 1120px !important;
@@ -35,6 +48,11 @@ html body.home-page.portfolio-redesign.hero-reference-layout.composition-home.co
   font-weight: 700 !important;
 }
 @media (max-width: 860px) {
+  html body.home-page.portfolio-redesign.hero-reference-layout.composition-home.composition-v2 .site-header {
+    top: 0 !important;
+    left: auto !important;
+    right: auto !important;
+  }
   html body.home-page.portfolio-redesign.hero-reference-layout.composition-home.composition-v2 .site-header .nav-bar {
     min-height: 64px !important;
     padding: 8px 20px !important;
