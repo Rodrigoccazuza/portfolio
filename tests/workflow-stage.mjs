@@ -8,7 +8,7 @@ for(const width of [1440,768,390]){
     await page.goto('http://127.0.0.1:8000/',{waitUntil:'domcontentloaded'});
     const stage=page.locator('.concept-timeline.workflow-stage');
     await stage.waitFor({timeout:25000});
-    await page.waitForFunction(()=>[...document.styleSheets].some(s=>s.href?.includes('composition-workflow-stage.css')),{timeout:12000});
+    await page.waitForFunction(()=>[...document.styleSheets].some(s=>s.href?.includes('workflow-card-cascade-fix.css')),{timeout:15000});
     await page.addStyleTag({content:'html,body{scroll-behavior:auto!important}'});
     assert.equal(await stage.locator('.workflow-stage-step').count(),6);
     assert.equal(await stage.locator('.workflow-stage-card').count(),6);
@@ -20,14 +20,14 @@ for(const width of [1440,768,390]){
       const shade=getComputedStyle(s.querySelector('.workflow-stage-shade')).backgroundImage;
       const rgba=[...light.matchAll(/rgba?\([^)]*\)/g),...shade.matchAll(/rgba?\([^)]*\)/g)].map(m=>m[0]).filter(c=>c.startsWith('rgba'));
       const opacities=rgba.map(c=>Number(c.split(',').at(-1).replace(')','').trim()));
-      return {height:s.offsetHeight,viewport:innerHeight,sticky:getComputedStyle(sticky).position,videoFit:getComputedStyle(video).objectFit,film:{w:film.width,h:film.height},view:{w:view.width,h:view.height},light,shade,maxOpacity:Math.max(...opacities),cardBackground:getComputedStyle(card).backgroundColor,cardText:getComputedStyle(card.querySelector('h3')).color,rail:getComputedStyle(s.querySelector('.workflow-stage-rail')).position,activeHidden:getComputedStyle(s.querySelector('.workflow-stage-active')).clip};
+      return {height:s.offsetHeight,viewport:innerHeight,sticky:getComputedStyle(sticky).position,videoFit:getComputedStyle(video).objectFit,film:{w:film.width,h:film.height},view:{w:view.width,h:view.height},light,shade,maxOpacity:Math.max(...opacities),cardBackground:getComputedStyle(card).backgroundColor,cardText:getComputedStyle(card.querySelector('h3')).color,rail:getComputedStyle(s.querySelector('.workflow-stage-rail')).position};
     });
     assert.equal(initial.sticky,'sticky');assert.equal(initial.videoFit,'cover');
     assert(initial.height>=initial.viewport*5,'Six stages require generous scroll length');
     assert(initial.film.w>=initial.view.w*.99&&initial.film.h>=initial.view.h*.99,'Film must fill sticky viewport edge to edge');
     assert(initial.light.includes('gradient')&&initial.shade.includes('gradient'),'Subtle gradients retained');
     assert(initial.maxOpacity<=.021,`Film gradient exceeds 2%: ${initial.maxOpacity}`);
-    assert.equal(initial.rail,'absolute');
+    assert.equal(initial.rail,'absolute',`Rail must be pinned over film, not in page flow: ${initial.rail}`);
     assert(initial.cardBackground.includes('0.94')||initial.cardBackground.includes('0.96'),'Localized card must be opaque enough for readable text');
     assert.equal(initial.cardText,'rgb(255, 255, 255)','Card titles need high-contrast white');
     await stage.evaluate(s=>scrollTo({top:s.getBoundingClientRect().top+scrollY,behavior:'instant'}));
@@ -51,15 +51,14 @@ for(const width of [1440,768,390]){
     console.log(`PASS full-bleed film, 2% overlay, readable passing cards and six-stage scroll at ${width}px`);
   }catch(error){failed=true;console.error(`FAIL workflow ${width}px: ${error.stack}`);}finally{await page.close();}
 }
-// Reduced-motion visitors see all six readable cards in document flow without scroll transforms.
 const page=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
 try{
   await page.goto('http://127.0.0.1:8000/',{waitUntil:'domcontentloaded'});
   const stage=page.locator('.concept-timeline.workflow-stage');await stage.waitFor({timeout:25000});
-  await page.waitForFunction(()=>[...document.styleSheets].some(s=>s.href?.includes('composition-workflow-stage.css')),{timeout:12000});
+  await page.waitForFunction(()=>[...document.styleSheets].some(s=>s.href?.includes('workflow-card-cascade-fix.css')),{timeout:15000});
   const state=await stage.evaluate(s=>({position:getComputedStyle(s.querySelector('.workflow-stage-sticky')).position,cards:[...s.querySelectorAll('.workflow-stage-step')].map(c=>({position:getComputedStyle(c).position,opacity:getComputedStyle(c).opacity,transform:getComputedStyle(c).transform}))}));
   assert.equal(state.position,'relative');assert.equal(state.cards.length,6);
-  assert(state.cards.every(c=>c.position==='relative'&&c.opacity==='1'&&c.transform==='none'));
+  assert(state.cards.every(c=>c.position==='relative'&&c.opacity==='1'&&c.transform==='none'),`Reduced-motion cards must stay in flow: ${JSON.stringify(state)}`);
   console.log('PASS reduced-motion six-card accessible reading layout');
 }catch(error){failed=true;console.error(`FAIL reduced-motion workflow: ${error.stack}`);}finally{await page.close();}
 await browser.close();if(failed)process.exitCode=1;
