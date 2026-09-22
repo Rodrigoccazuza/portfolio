@@ -1,0 +1,37 @@
+name: Composition integrity
+on:
+  push:
+    branches:
+      - final_version_oficial
+  workflow_dispatch:
+jobs:
+  composition-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out composition branch
+        uses: actions/checkout@v4
+      - name: Check page script syntax
+        run: |
+          node --check js/reveal.js
+          node --check js/composition-v2.js
+          node --input-type=module --check < js/composition-portrait-v2.js
+      - name: Confirm referenced composition assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s assets/video/concept-to-implementation.mp4
+          test -s css/composition.css
+          test -s css/composition-v2.css
+          test -s css/composition-work.css
+          test -s js/theme-motion.js
+          test -s images/site/about-new.jpg
+          test -s images/site/hero.jpg
+          test -s contact/index.html
+          grep -q 'composition-v2.js' js/reveal.js
+          if grep -q "extra.src.*composition-workflow-sync" js/reveal.js; then
+            echo 'Legacy workflow controller must not be loaded concurrently.' >&2
+            exit 1
+          fi
+          echo 'Composition source checks passed.'
