@@ -1,0 +1,25 @@
+/* Standalone Work archive retains the original filter logic and project links. */
+body.composition-work{background:#090a09;color:#fff}
+.composition-work .site-header{background:#090a09ed;border-bottom:1px solid #263329;backdrop-filter:blur(16px)}
+.composition-work .nav-resume-btn{background:#8d29ef!important;color:#fff!important;border-radius:100px}
+.composition-work .project-header{position:relative;overflow:hidden;isolation:isolate;padding:clamp(140px,17vw,245px) 24px clamp(90px,11vw,160px);background:radial-gradient(ellipse at 50% 0%,#30173b 0%,transparent 61%),radial-gradient(ellipse at 90% 94%,#123b24 0%,transparent 48%),#090b0a}
+.composition-work .project-header:before{content:'WORK';position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);font:800 clamp(140px,27vw,480px)/.9 'Poppins',sans-serif;letter-spacing:-.1em;color:#60d18a;opacity:.055;z-index:-1;white-space:nowrap}
+.composition-work .project-header .container{max-width:1100px;position:relative}
+.composition-work .project-header h1{font:800 clamp(72px,12vw,175px)/.9 'Poppins',sans-serif;letter-spacing:-.09em;color:#60d18a;margin-bottom:30px}
+.composition-work .project-header p{max-width:58ch;color:#b7beb7;line-height:1.8;font-size:clamp(13px,1.3vw,16px)}
+.composition-work .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-top:37px}
+.composition-work .filter-chip{border:1px solid #465047;border-radius:100px;padding:10px 18px;background:#141814;color:#d3d9d2;font-size:12px;transition:background .2s,color .2s,border-color .2s}
+.composition-work .filter-chip:hover,.composition-work .filter-chip[aria-pressed="true"]{background:#60d18a;color:#0a150d;border-color:#60d18a}
+.composition-work main>.section{background:#0a0b0a;padding:55px 24px 140px}
+.composition-work main>.section .container{max-width:1160px}
+.composition-work .card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px}
+.composition-work .card{overflow:hidden;background:#131514;border:1px solid #303530;border-radius:12px;box-shadow:0 18px 45px #0004;transition:transform .28s,border-color .28s}
+.composition-work .card:hover{transform:translateY(-7px);border-color:#60d18a}
+.composition-work .card-media{display:block;overflow:hidden;aspect-ratio:4/3;background:#161c17}
+.composition-work .card-media img,.composition-work .card-media video{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.composition-work .card:hover .card-media img{transform:scale(1.04)}
+.composition-work .card-body{padding:22px}.composition-work .card-body h3{font-size:clamp(16px,1.5vw,21px);line-height:1.25;margin-bottom:10px}.composition-work .card-body h3 a{color:#fff;text-decoration:none}.composition-work .card-body h3 a:hover{color:#60d18a}.composition-work .card-body p{font-size:12px;line-height:1.7;color:#aeb6ae}
+.composition-work .site-footer{background:#0b0c0b}
+@media(max-width:850px){.composition-work .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.composition-work .project-header{padding-top:160px}}
+@media(max-width:550px){.composition-work .card-grid{grid-template-columns:1fr}.composition-work .project-header h1{font-size:82px}.composition-work .filter-chip{font-size:11px;padding:9px 13px}}
+@media(prefers-reduced-motion:reduce){.composition-work .card,.composition-work .card-media img{transition:none}}
