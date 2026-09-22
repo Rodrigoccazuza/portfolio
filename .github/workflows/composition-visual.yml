@@ -1,0 +1,32 @@
+name: Composition visual QA
+on:
+  push:
+    branches:
+      - final_version_oficial
+  workflow_dispatch:
+jobs:
+  browser-qa:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install headless browser
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Run site smoke tests and capture both breakpoints
+        run: |
+          python3 -m http.server 8000 --bind 127.0.0.1 >/tmp/composition-server.log 2>&1 &
+          sleep 2
+          node tests/composition-visual.mjs
+      - name: Upload browser screenshots and QA report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: composition-screenshots
+          path: qa-artifacts/
+          if-no-files-found: warn
