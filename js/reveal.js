@@ -18,18 +18,22 @@
    style('css/composition-finishing.css?v=20260922-8');
    script('js/composition-runtime-fixes.js?v=20260922-8',()=>{
     if(!home){style('css/site-final-polish.css?v=20260922-14',release);return;}
-    style('css/composition-workflow-stage.css?v=20260922-cards-1');
+    style('css/composition-workflow-stage.css?v=20260922-cards-2');
     style('css/composition-visibility-polish.css?v=20260922-10');
     style('css/hero-alignment-20260922.css?v=20260922-11');
     style('css/hero-reference-fidelity.css?v=20260922-12');
     style('css/composition-hero-alignment.css?v=20260922-13');
     script('js/composition-hero-alignment.js?v=20260922-18');
-    script('js/composition-workflow-stage.js?v=20260922-cards-1');
+    script('js/composition-workflow-stage.js?v=20260922-cards-2');
     style('css/site-final-polish.css?v=20260922-14');
     style('css/hero-final-specificity.css?v=20260922-18');
     style('css/website-card-color-lock.css?v=20260922-16');
-    // Recalculate heading geometry after last stylesheet before unveiling.
-    style('css/hero-mobile-spacing.css?v=20260922-20',()=>{window.dispatchEvent(new Event('resize'));release();});
+    // The rail must remain positioned after older .concept-steps styles load.
+    style('css/hero-mobile-spacing.css?v=20260922-20',()=>{
+     style('css/workflow-card-cascade-fix.css?v=20260922-cards-2',()=>{
+      window.dispatchEvent(new Event('resize'));release();
+     });
+    });
    });
   });
  }else if(work){
