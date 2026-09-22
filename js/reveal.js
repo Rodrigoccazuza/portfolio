@@ -16,13 +16,15 @@
   var work=/\/work\/?$/.test(location.pathname);
   if(home||experience){
     var script=document.createElement('script');
-    script.src=new URL('js/composition-v2.js?v=20260922-6',document.baseURI).href;
+    script.src=new URL('js/composition-v2.js?v=20260922-7',document.baseURI).href;
+    script.onload=function(){
+      var fixes=document.createElement('script');fixes.src=new URL('js/composition-runtime-fixes.js?v=20260922-7',document.baseURI).href;document.body.append(fixes);
+    };
     document.body.append(script);
-    // composition-v2 owns video seeking AND timeline state; intentionally do NOT
-    // load composition-workflow-sync.js or composition-icons.js a second time.
+    // ONE workflow controller inside composition-v2; never load legacy handlers.
   }else if(work){
     document.body.classList.add('composition-work');
-    var stylesheet=document.createElement('link');stylesheet.rel='stylesheet';stylesheet.href=new URL('css/composition-work.css?v=20260922-6',document.baseURI).href;document.head.append(stylesheet);
-    var refinement=document.createElement('link');refinement.rel='stylesheet';refinement.href=new URL('css/composition-v2.css?v=20260922-6',document.baseURI).href;document.head.append(refinement);
+    var stylesheet=document.createElement('link');stylesheet.rel='stylesheet';stylesheet.href=new URL('css/composition-work.css?v=20260922-7',document.baseURI).href;document.head.append(stylesheet);
+    var refinement=document.createElement('link');refinement.rel='stylesheet';refinement.href=new URL('css/composition-v2.css?v=20260922-7',document.baseURI).href;document.head.append(refinement);
   }
 }());
