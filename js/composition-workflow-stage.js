@@ -14,7 +14,6 @@
   const clamp = value => Math.max(0, Math.min(1, value));
   let duration = 0;
   let target = 0;
-  let seeking = false;
   let frame = 0;
   let loaded = false;
   function loadVideo() {
@@ -32,11 +31,13 @@
     observer.observe(section);
   } else loadVideo();
   function seek() {
-    if (reduceMotion.matches || !duration || video.readyState < 1 || seeking) return;
+    if (reduceMotion.matches || !duration || video.readyState < 1) return;
     const next = Math.max(0, Math.min(duration - .035, target));
-    if (Math.abs(video.currentTime - next) < .035) return;
-    seeking = true;
-    try { video.currentTime = next; } catch (_) { seeking = false; }
+    if (Math.abs(video.currentTime - next) < .025) return;
+    // Do not hold a seek-lock here. Some mobile/WebKit-style media decoders can
+    // delay or omit a seeked event while paused; assigning the newest scroll
+    // target directly keeps the scrub responsive and lets the decoder coalesce.
+    try { video.currentTime = next; } catch (_) {}
   }
   function update() {
     frame = 0;
@@ -58,7 +59,8 @@
     duration = Number.isFinite(video.duration) ? video.duration : 0;
     if (!reduceMotion.matches) { video.pause(); queue(); }
   });
-  video.addEventListener('seeked', () => { seeking = false; seek(); });
+  video.addEventListener('loadeddata', queue);
+  video.addEventListener('canplay', queue);
   video.addEventListener('play', () => { if (!reduceMotion.matches) video.pause(); });
   video.addEventListener('error', () => section.classList.add('workflow-stage-no-video'));
   window.addEventListener('scroll', queue, { passive: true });
