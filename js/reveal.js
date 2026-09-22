@@ -26,10 +26,9 @@
         var visibility=document.createElement('link');visibility.rel='stylesheet';visibility.href=new URL('css/composition-visibility-polish.css?v=20260922-10',document.baseURI).href;document.head.append(visibility);
         var heroAlignment=document.createElement('link');heroAlignment.rel='stylesheet';heroAlignment.href=new URL('css/hero-alignment-20260922.css?v=20260922-11',document.baseURI).href;document.head.append(heroAlignment);
         var fidelity=document.createElement('link');fidelity.rel='stylesheet';fidelity.href=new URL('css/hero-reference-fidelity.css?v=20260922-12',document.baseURI).href;document.head.append(fidelity);
-        // Keep the typewriter, 3D portrait and workflow video; adjust only static copy and links.
-        var kicker=document.querySelector('.portfolio-hero .hero-kicker');if(kicker)kicker.textContent="Hey, I'm a";
-        var statement=document.querySelector('.portfolio-hero .hero-statement-title');if(statement)statement.textContent='Design, marketing, and front-end development in one creative practice.';
-        var links=document.querySelector('.nav-links ul');if(links)links.innerHTML='<li><a href="">Home</a></li><li><a href="#websites">Work</a></li><li><a href="experience/">Experience</a></li>';
+        // Only reposition existing elements; the final sheet wins over earlier overrides.
+        var exactHero=document.createElement('link');exactHero.rel='stylesheet';exactHero.href=new URL('css/composition-hero-alignment.css?v=20260922-13',document.baseURI).href;document.head.append(exactHero);
+        var heroCopy=document.createElement('script');heroCopy.src=new URL('js/composition-hero-alignment.js?v=20260922-13',document.baseURI).href;document.body.append(heroCopy);
         var stage=document.createElement('script');stage.src=new URL('js/composition-workflow-stage.js?v=20260922-9',document.baseURI).href;document.body.append(stage);
       };
       document.body.append(fixes);
