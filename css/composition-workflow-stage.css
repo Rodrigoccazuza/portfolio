@@ -1,93 +1,157 @@
-/* Scoped full-screen concept-to-build experience. Loaded last. */
+/* Full-bleed workflow film: only the localized TEXT CARDS have dark backgrounds.
+   Both gradients across the video have a strict maximum alpha of .02. */
 .composition-home.composition-v2 .concept-timeline.workflow-stage {
   display:block!important;position:relative!important;isolation:isolate!important;
   width:100%!important;max-width:none!important;margin:0!important;padding:0!important;
-  height:650vh;min-height:3900px;background:#101715;overflow:clip;
+  height:650vh!important;min-height:3900px!important;background:#101715!important;overflow:clip!important;
 }
 .composition-home.composition-v2 .workflow-stage .workflow-stage-sticky {
-  display:block;position:sticky;inset:0 auto auto;top:0;width:100%;height:100vh;height:100dvh;
-  min-height:600px;overflow:hidden;isolation:isolate;background:#202c27;
+  display:block!important;position:sticky!important;top:0!important;inset-block-start:0!important;
+  width:100%!important;height:100vh!important;height:100dvh!important;
+  min-height:0!important;overflow:hidden!important;isolation:isolate!important;background:#18251d!important;
 }
 .composition-home.composition-v2 .workflow-stage-media,
 .composition-home.composition-v2 .workflow-stage-light,
-.composition-home.composition-v2 .workflow-stage-shade {position:absolute;inset:0;pointer-events:none}
-.composition-home.composition-v2 .workflow-stage-media {z-index:0;background:radial-gradient(ellipse at 65% 55%,#667c6d,#1a2721 70%)}
-.composition-home.composition-v2 .workflow-stage .workflow-stage-video {
-  display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
-  max-width:none!important;object-fit:cover!important;object-position:center!important;opacity:1!important;
-  background:transparent!important;pointer-events:none!important;filter:brightness(.86) saturate(.88);
-}
-.composition-home.composition-v2 .workflow-stage-light {
-  background:linear-gradient(180deg,rgba(237,248,230,.42) 0%,rgba(225,242,221,.21) 22%,rgba(227,249,223,.1) 51%,transparent 78%),
-  radial-gradient(ellipse at 52% 19%,rgba(241,255,231,.25),transparent 60%);z-index:1;
-}
 .composition-home.composition-v2 .workflow-stage-shade {
-  background:linear-gradient(90deg,rgba(8,17,14,.81) 0%,rgba(10,20,16,.63) 36%,rgba(12,23,18,.24) 76%,rgba(8,16,14,.23) 100%),
-  linear-gradient(0deg,rgba(6,14,11,.59),transparent 25%,transparent 77%,rgba(6,14,11,.22));z-index:2;
+  position:absolute!important;inset:0!important;pointer-events:none!important;
+}
+.composition-home.composition-v2 .workflow-stage-media {z-index:0!important;background:#16231b!important}
+.composition-home.composition-v2 .workflow-stage .workflow-stage-video {
+  position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;
+  max-width:none!important;object-fit:cover!important;object-position:center!important;
+  opacity:1!important;filter:none!important;background:transparent!important;pointer-events:none!important;
+}
+.composition-home.composition-v2 .workflow-stage .workflow-stage-light {
+  z-index:1!important;background:linear-gradient(180deg,rgba(245,255,247,.02),rgba(245,255,247,.01) 55%,transparent)!important;
+}
+.composition-home.composition-v2 .workflow-stage .workflow-stage-shade {
+  z-index:2!important;background:linear-gradient(0deg,rgba(5,12,8,.02),transparent 25%,transparent 80%,rgba(5,12,8,.02))!important;
 }
 .composition-home.composition-v2 .workflow-stage-content {
-  position:relative;z-index:3;width:min(100%,1500px);height:100%;min-height:inherit;margin:0 auto;
-  display:grid;grid-template-rows:minmax(0,1fr) auto minmax(0,1fr);align-items:center;
-  padding:clamp(30px,5vh,65px) clamp(26px,7vw,110px);color:#fff;
+  position:relative!important;z-index:3!important;width:100%!important;max-width:none!important;
+  height:100%!important;min-height:0!important;margin:0!important;padding:0!important;
+  display:block!important;color:#fff!important;pointer-events:none!important;
 }
-.composition-home.composition-v2 .workflow-stage-heading {align-self:start;grid-row:1;padding-top:clamp(10px,3vh,32px)}
-.composition-home.composition-v2 .workflow-stage-eyebrow {display:block;font:700 clamp(11px,.9vw,14px)/1.5 var(--font-display,sans-serif);letter-spacing:.18em;color:#c6f4d1;margin-bottom:12px}
-.composition-home.composition-v2 .workflow-stage-heading h2 {color:#fff!important;font-size:clamp(33px,4.2vw,68px)!important;line-height:1.02!important;letter-spacing:-.055em!important;margin:0!important;max-width:850px}
-.composition-home.composition-v2 .workflow-stage-heading h2 em {font-family:var(--font-serif,serif);font-weight:500;color:#9de5b5}
-.composition-home.composition-v2 .workflow-stage-center {grid-row:2;display:grid;grid-template-columns:minmax(290px,560px) 1fr;gap:clamp(30px,9vw,150px);width:100%;align-items:center;min-height:0}
-.composition-home.composition-v2 .workflow-stage .workflow-stage-rail {display:grid!important;grid-column:1!important;grid-row:auto!important;gap:0!important;list-style:none!important;margin:0!important;padding:0!important;width:100%;position:relative}
-.composition-home.composition-v2 .workflow-stage-rail:before {content:'';position:absolute;left:22px;top:25px;bottom:25px;width:1px;background:rgba(225,246,229,.35)}
+/* Heading uses its own opaque readable plaque, never a film-wide scrim. */
+.composition-home.composition-v2 .workflow-stage-heading {
+  position:absolute!important;z-index:3!important;top:clamp(28px,7vh,76px)!important;
+  left:clamp(20px,5vw,90px)!important;right:auto!important;
+  display:block!important;width:min(440px,calc(100% - 40px))!important;max-width:440px!important;
+  padding:clamp(16px,2vw,26px)!important;border-radius:18px!important;
+  background:rgba(6,17,12,.94)!important;border:1px solid rgba(178,239,192,.32)!important;
+  box-shadow:0 12px 36px rgba(0,0,0,.16)!important;
+}
+.composition-home.composition-v2 .workflow-stage-eyebrow {
+  display:block!important;color:#bdf3cf!important;font:700 clamp(10px,.85vw,13px)/1.45 var(--font-display,sans-serif)!important;
+  letter-spacing:.15em!important;margin:0 0 8px!important;
+}
+.composition-home.composition-v2 .workflow-stage-heading h2 {
+  color:#fff!important;font-size:clamp(28px,3.1vw,47px)!important;line-height:1.07!important;
+  letter-spacing:-.045em!important;margin:0!important;max-width:100%!important;
+}
+.composition-home.composition-v2 .workflow-stage-heading h2 em {font-family:var(--font-serif,serif)!important;font-weight:500!important;color:#a8e9bf!important}
+/* The rail is a viewing WINDOW; each real list item moves past its center. */
+.composition-home.composition-v2 .workflow-stage .workflow-stage-rail {
+  display:block!important;position:absolute!important;z-index:4!important;
+  top:24%!important;bottom:13%!important;right:clamp(22px,6vw,110px)!important;left:auto!important;
+  width:min(360px,36vw)!important;height:auto!important;margin:0!important;padding:0!important;
+  list-style:none!important;overflow:hidden!important;pointer-events:none!important;
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);
+  mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);
+}
+.composition-home.composition-v2 .workflow-stage-rail::before {display:none!important}
 .composition-home.composition-v2 .workflow-stage .workflow-stage-step {
-  display:grid!important;grid-template-columns:45px minmax(0,1fr);align-items:center;gap:17px;
-  min-height:clamp(56px,8vh,79px)!important;padding:4px 10px 4px 0!important;margin:0!important;
-  opacity:.47!important;transform:translateX(0) scale(.97);transition:opacity .35s ease,transform .35s ease;
-  color:#fff!important;position:relative;
+  position:absolute!important;top:50%!important;left:0!important;right:0!important;
+  display:block!important;width:100%!important;height:auto!important;min-height:0!important;
+  padding:0!important;margin:0!important;color:#fff!important;
+  transform:translate3d(0,calc(-50% + var(--card-offset,0px)),0)!important;
+  transition:opacity .15s linear!important;will-change:transform!important;
 }
-.composition-home.composition-v2 .workflow-stage .workflow-stage-step.is-current {opacity:1!important;transform:translateX(8px) scale(1)}
-.composition-home.composition-v2 .workflow-stage-marker {display:flex;align-items:center;justify-content:center;width:45px;height:45px;border:1px solid rgba(233,255,237,.45);border-radius:50%;background:rgba(12,24,17,.45);color:#eef9ef;font:700 12px var(--font-display,sans-serif);backdrop-filter:blur(8px)}
-.composition-home.composition-v2 .workflow-stage-step.is-current .workflow-stage-marker {background:#b6f0c7;border-color:#b6f0c7;color:#102016;box-shadow:0 0 24px rgba(181,244,197,.26)}
-.composition-home.composition-v2 .workflow-stage .workflow-stage-step h3 {color:#fff!important;font-size:clamp(16px,1.5vw,23px)!important;line-height:1.12!important;margin:0 0 3px!important}
-.composition-home.composition-v2 .workflow-stage .workflow-stage-step p {color:#e3efe4!important;font-size:clamp(11px,.86vw,13px)!important;line-height:1.35!important;margin:0!important;max-width:43ch}
-.composition-home.composition-v2 .workflow-stage-active {justify-self:end;width:min(100%,380px);border-left:1px solid rgba(228,249,231,.5);padding:10px 0 12px clamp(20px,3vw,44px);background:linear-gradient(90deg,rgba(7,17,12,.3),transparent)}
-.composition-home.composition-v2 .workflow-stage-count {display:block;font:700 12px var(--font-display,sans-serif);letter-spacing:.17em;color:#b8f1c6;margin-bottom:18px}
-.composition-home.composition-v2 .workflow-stage-current-title {display:block;color:#fff;font:700 clamp(29px,3.3vw,51px)/1 var(--font-display,sans-serif);letter-spacing:-.045em;margin-bottom:15px}
-.composition-home.composition-v2 .workflow-stage-current-description {color:#e6f0e9;font-size:clamp(13px,1.1vw,17px);line-height:1.6;max-width:33ch}
-.composition-home.composition-v2 .workflow-stage-footer {grid-row:3;align-self:end;display:flex;align-items:center;gap:22px;font:700 11px var(--font-display,sans-serif);letter-spacing:.12em;color:#e3f4e6}
-.composition-home.composition-v2 .workflow-stage-progress {display:block;flex:1;height:2px;background:rgba(220,245,228,.35);overflow:hidden}
-.composition-home.composition-v2 .workflow-stage-progress>span {display:block;width:100%;height:100%;background:#b6f0c7;transform-origin:left;transform:scaleX(0);will-change:transform}
-.composition-home.composition-v2 .workflow-stage-progress-label {min-width:48px;text-align:right}
-.composition-home.composition-v2 .workflow-stage-no-video .workflow-stage-media {background:radial-gradient(ellipse at 70% 60%,#4d775d,#17271d 70%)}
+.composition-home.composition-v2 .workflow-stage-card {
+  display:grid!important;grid-template-columns:1fr!important;gap:12px!important;
+  width:100%!important;min-height:145px!important;
+  padding:clamp(18px,2vw,27px)!important;border-radius:18px!important;
+  background:rgba(5,16,11,.94)!important;border:1px solid rgba(176,245,196,.38)!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.20)!important;
+}
+.composition-home.composition-v2 .workflow-stage-step.is-current .workflow-stage-card {
+  border-color:#b6f0c7!important;background:rgba(5,16,11,.96)!important;
+}
+.composition-home.composition-v2 .workflow-stage-marker {
+  display:block!important;width:auto!important;height:auto!important;border:0!important;border-radius:0!important;
+  padding:0!important;background:none!important;backdrop-filter:none!important;box-shadow:none!important;
+  font:800 12px/1.4 var(--font-display,sans-serif)!important;letter-spacing:.13em!important;color:#baf5cc!important;
+}
+.composition-home.composition-v2 .workflow-stage-total {color:#c8d9cc!important;letter-spacing:.05em!important;font-size:10px!important}
+.composition-home.composition-v2 .workflow-stage .workflow-stage-step h3 {
+  color:#fff!important;font:800 clamp(23px,2.1vw,33px)/1.13 var(--font-display,sans-serif)!important;
+  margin:0 0 8px!important;letter-spacing:-.03em!important;
+}
+.composition-home.composition-v2 .workflow-stage .workflow-stage-step p {
+  display:block!important;color:#f0f8f0!important;font-size:clamp(13px,1vw,15px)!important;
+  line-height:1.5!important;max-width:40ch!important;margin:0!important;
+}
+/* Announce stage changes accessibly without duplicating text over the video. */
+.composition-home.composition-v2 .workflow-stage-active.visually-hidden {
+  position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;
+  overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;
+}
+.composition-home.composition-v2 .workflow-stage-footer {
+  position:absolute!important;z-index:5!important;left:clamp(20px,5vw,90px)!important;
+  right:clamp(20px,5vw,90px)!important;bottom:clamp(16px,3vh,28px)!important;
+  display:flex!important;align-items:center!important;gap:15px!important;
+  padding:11px 16px!important;border-radius:999px!important;
+  background:rgba(5,16,11,.95)!important;color:#fff!important;
+  font:700 10px/1.3 var(--font-display,sans-serif)!important;letter-spacing:.09em!important;
+}
+.composition-home.composition-v2 .workflow-stage-progress {display:block!important;flex:1!important;height:3px!important;background:#718978!important;overflow:hidden!important}
+.composition-home.composition-v2 .workflow-stage-progress>span {
+  display:block!important;width:100%!important;height:100%!important;background:#b6f0c7!important;
+  transform-origin:left!important;transform:scaleX(0);will-change:transform;
+}
+.composition-home.composition-v2 .workflow-stage-progress-label {min-width:48px!important;text-align:right!important}
+.composition-home.composition-v2 .workflow-stage-no-video .workflow-stage-media {background:radial-gradient(ellipse at 65% 40%,#477557,#15261c 70%)!important}
 @media(max-width:900px){
-  .composition-home.composition-v2 .workflow-stage-content {padding:30px 6vw}
-  .composition-home.composition-v2 .workflow-stage-center {grid-template-columns:minmax(0,1fr) minmax(180px,.7fr);gap:20px}
-  .composition-home.composition-v2 .workflow-stage-active {padding-left:18px}
+  .composition-home.composition-v2 .workflow-stage-heading {top:5%!important;left:4%!important;width:min(380px,48vw)!important;padding:18px!important}
+  .composition-home.composition-v2 .workflow-stage-heading h2 {font-size:clamp(26px,3.5vw,36px)!important}
+  .composition-home.composition-v2 .workflow-stage .workflow-stage-rail {right:4%!important;width:min(330px,42vw)!important;top:24%!important;bottom:12%!important}
+  .composition-home.composition-v2 .workflow-stage-card {padding:18px!important}
+  .composition-home.composition-v2 .workflow-stage-footer {left:4%!important;right:4%!important}
 }
 @media(max-width:600px){
-  .composition-home.composition-v2 .concept-timeline.workflow-stage {height:620vh;min-height:0;margin:0!important;padding:0!important}
-  .composition-home.composition-v2 .workflow-stage .workflow-stage-sticky {height:100vh;height:100dvh;min-height:0}
-  .composition-home.composition-v2 .workflow-stage-content {padding:clamp(25px,5vh,48px) 23px;grid-template-rows:auto 1fr auto;gap:12px}
-  .composition-home.composition-v2 .workflow-stage-heading {grid-row:1;padding:0}
-  .composition-home.composition-v2 .workflow-stage-heading h2 {font-size:clamp(29px,8vw,43px)!important}
-  .composition-home.composition-v2 .workflow-stage-eyebrow {font-size:10px;margin-bottom:7px}
-  .composition-home.composition-v2 .workflow-stage-center {grid-row:2;grid-template-columns:1fr;align-content:center;gap:18px}
-  .composition-home.composition-v2 .workflow-stage .workflow-stage-rail {gap:0!important}
-  .composition-home.composition-v2 .workflow-stage .workflow-stage-step {min-height:clamp(43px,7.5vh,61px)!important;gap:11px;grid-template-columns:34px 1fr;padding:2px 0!important}
-  .composition-home.composition-v2 .workflow-stage-rail:before {left:16px;top:17px;bottom:17px}
-  .composition-home.composition-v2 .workflow-stage-marker {height:34px;width:34px;font-size:10px}
-  .composition-home.composition-v2 .workflow-stage .workflow-stage-step h3 {font-size:clamp(14px,4vw,17px)!important;margin:0!important}
-  .composition-home.composition-v2 .workflow-stage .workflow-stage-step p {display:none!important}
-  .composition-home.composition-v2 .workflow-stage-active {justify-self:start;width:100%;border-left:0;border-top:1px solid rgba(228,249,231,.45);padding:12px 0 0;background:linear-gradient(180deg,rgba(7,17,12,.24),transparent)}
-  .composition-home.composition-v2 .workflow-stage-count {font-size:10px;margin:0 0 6px}
-  .composition-home.composition-v2 .workflow-stage-current-title {font-size:clamp(22px,6vw,31px);margin:0 0 6px}
-  .composition-home.composition-v2 .workflow-stage-current-description {font-size:12px;line-height:1.4;margin:0}
-  .composition-home.composition-v2 .workflow-stage-footer {grid-row:3;gap:9px;font-size:9px;letter-spacing:.045em}
-  .composition-home.composition-v2 .workflow-stage-footer>span:first-child {max-width:90px}
-  .composition-home.composition-v2 .workflow-stage-light {background:linear-gradient(180deg,rgba(236,250,227,.39),rgba(236,250,227,.12) 43%,transparent 80%)}
-  .composition-home.composition-v2 .workflow-stage-shade {background:linear-gradient(90deg,rgba(8,17,14,.79),rgba(8,17,14,.52)),linear-gradient(0deg,rgba(8,17,14,.65),transparent 30%)}
+  .composition-home.composition-v2 .concept-timeline.workflow-stage {height:620vh!important;min-height:0!important}
+  .composition-home.composition-v2 .workflow-stage .workflow-stage-sticky {height:100vh!important;height:100dvh!important;min-height:0!important}
+  .composition-home.composition-v2 .workflow-stage-heading {
+    left:18px!important;right:18px!important;top:clamp(18px,4vh,38px)!important;
+    width:auto!important;max-width:none!important;padding:14px 17px!important;border-radius:14px!important;
+  }
+  .composition-home.composition-v2 .workflow-stage-eyebrow {font-size:10px!important;margin-bottom:5px!important}
+  .composition-home.composition-v2 .workflow-stage-heading h2 {font-size:clamp(24px,6.3vw,34px)!important;line-height:1.12!important}
+  .composition-home.composition-v2 .workflow-stage .workflow-stage-rail {
+    top:43%!important;bottom:10%!important;left:18px!important;right:18px!important;
+    width:auto!important;max-width:none!important;
+  }
+  .composition-home.composition-v2 .workflow-stage-card {min-height:125px!important;padding:15px 18px!important;gap:8px!important;border-radius:15px!important}
+  .composition-home.composition-v2 .workflow-stage .workflow-stage-step h3 {font-size:clamp(21px,5.5vw,27px)!important;margin-bottom:4px!important}
+  .composition-home.composition-v2 .workflow-stage .workflow-stage-step p {font-size:13px!important;line-height:1.45!important}
+  .composition-home.composition-v2 .workflow-stage-footer {left:14px!important;right:14px!important;bottom:12px!important;gap:9px!important;padding:10px 12px!important;font-size:9px!important;letter-spacing:0!important}
+  .composition-home.composition-v2 .workflow-stage-footer>span:first-child {max-width:100px!important}
+  .composition-home.composition-v2 .workflow-stage-progress-label {min-width:39px!important}
 }
-@media(max-height:680px) and (min-width:601px){
-  .composition-home.composition-v2 .workflow-stage-content{padding-top:17px;padding-bottom:17px}
-  .composition-home.composition-v2 .workflow-stage-heading h2{font-size:clamp(28px,3vw,42px)!important}
-  .composition-home.composition-v2 .workflow-stage .workflow-stage-step{min-height:46px!important}
+@media(max-height:560px) and (min-width:601px){
+  .composition-home.composition-v2 .workflow-stage-heading {top:15px!important;padding:12px 18px!important}
+  .composition-home.composition-v2 .workflow-stage-heading h2 {font-size:29px!important}
+  .composition-home.composition-v2 .workflow-stage .workflow-stage-rail {top:29%!important;bottom:14%!important}
+  .composition-home.composition-v2 .workflow-stage-card {min-height:100px!important;padding:12px 17px!important}
+  .composition-home.composition-v2 .workflow-stage .workflow-stage-step h3 {font-size:23px!important}
 }
-@media(prefers-reduced-motion:reduce){.composition-home.composition-v2 .workflow-stage-step,.composition-home.composition-v2 .workflow-stage-progress>span{transition:none!important}}
+@media(prefers-reduced-motion:reduce){
+  .composition-home.composition-v2 .concept-timeline.workflow-stage {height:auto!important;min-height:0!important;overflow:visible!important}
+  .composition-home.composition-v2 .workflow-stage .workflow-stage-sticky {position:relative!important;height:auto!important;min-height:100vh!important;overflow:visible!important}
+  .composition-home.composition-v2 .workflow-stage-content {padding:24px 18px 75px!important;height:auto!important;min-height:100vh!important}
+  .composition-home.composition-v2 .workflow-stage-heading {position:relative!important;top:auto!important;left:auto!important;right:auto!important;width:100%!important;max-width:440px!important;margin:0 0 24px!important}
+  .composition-home.composition-v2 .workflow-stage .workflow-stage-rail {position:relative!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;width:100%!important;max-width:600px!important;margin:0 auto!important;overflow:visible!important;mask-image:none!important;-webkit-mask-image:none!important}
+  .composition-home.composition-v2 .workflow-stage .workflow-stage-step {position:relative!important;top:auto!important;transform:none!important;opacity:1!important;margin:0 0 14px!important;will-change:auto!important}
+  .composition-home.composition-v2 .workflow-stage-footer {bottom:14px!important}
+  .composition-home.composition-v2 .workflow-stage-step,.composition-home.composition-v2 .workflow-stage-progress>span {transition:none!important}
+}
