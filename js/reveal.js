@@ -26,8 +26,8 @@
     script('js/composition-hero-alignment.js?v=20260922-13');
     script('js/composition-workflow-stage.js?v=20260922-9');
     style('css/site-final-polish.css?v=20260922-14');
-    // This compact file wins over the old, highly specific reference selectors.
-    style('css/hero-final-specificity.css?v=20260922-15',release);
+    style('css/hero-final-specificity.css?v=20260922-15');
+    style('css/website-card-color-lock.css?v=20260922-16',release);
    });
   });
  }else if(work){
