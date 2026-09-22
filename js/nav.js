@@ -4,6 +4,15 @@
   'use strict';
   var nav = document.querySelector('#primary-nav');
   if (!nav) return;
+  // One stylesheet owns the entire header, including the light-theme override.
+  // Load it after the page's existing CSS; the file is versioned for cache refresh.
+  if (!document.querySelector('link[data-site-navigation]')) {
+    var stylesheet = document.createElement('link');
+    stylesheet.rel = 'stylesheet';
+    stylesheet.href = new URL('css/site-navigation.css?v=20260922-1', document.baseURI).href;
+    stylesheet.setAttribute('data-site-navigation', 'true');
+    document.head.appendChild(stylesheet);
+  }
   var list = nav.querySelector('ul');
   var button = nav.querySelector('.nav-resume-btn');
   var logo = document.querySelector('.site-header .nav-logo');
