@@ -23,7 +23,7 @@ await check('Home renders composition and removes old hero artwork',async()=>{
   await revealFullPage(desktop);
   await desktop.screenshot({path:'qa-artifacts/home-desktop.png',fullPage:true});report.pages.push('home-desktop.png');
 });
-await check('Workflow video loads, seeks and contains no overlay content',async()=>{
+await check('Workflow video loads and scroll mapping has no overlay content',async()=>{
   await desktop.addStyleTag({content:'html,body{scroll-behavior:auto!important}'});
   const section=desktop.locator('.concept-timeline.workflow-video-only');
   await section.scrollIntoViewIfNeeded();
@@ -36,9 +36,10 @@ await check('Workflow video loads, seeks and contains no overlay content',async(
   assert.equal(metrics.fit,'contain');
   assert.equal(await section.locator('h1,h2,h3,p,ol,li,.workflow-stage-card,.workflow-stage-footer').count(),0);
   await section.evaluate(s=>{const top=s.getBoundingClientRect().top+scrollY;scrollTo(0,top+(s.offsetHeight-innerHeight)*.55);});
-  await desktop.waitForTimeout(700);
-  const time=await video.evaluate(v=>v.currentTime);
-  assert(time>1,`Expected scroll-scrubbed progress, got ${time}`);
+  await desktop.waitForFunction(()=>{const s=document.querySelector('.workflow-video-only'),v=s?.querySelector('video');return Number(s?.dataset.scrollProgress)>.45&&Number(v?.dataset.scrubTarget)>4;},null,{timeout:5000});
+  const target=await section.evaluate(s=>({progress:Number(s.dataset.scrollProgress),target:Number(s.querySelector('video').dataset.scrubTarget)}));
+  assert(target.progress>.45&&target.progress<.65,JSON.stringify(target));
+  assert(target.target>4&&target.target<7,JSON.stringify(target));
 });
 await check('Work archive renders and filters',async()=>{
   await desktop.goto(base+'work/',{waitUntil:'domcontentloaded'});
