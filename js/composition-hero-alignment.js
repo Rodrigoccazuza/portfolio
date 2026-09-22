@@ -1,5 +1,4 @@
-/* Final reference hero copy and navigation. Keep original nodes, animated
-   typography controller, 3D canvas and existing click behavior in place. */
+/* Final reference hero copy and navigation. Preserve existing typography, 3D portrait and actions. */
 (function () {
   'use strict';
   if (!document.body.matches('.composition-home.composition-v2')) return;
@@ -21,9 +20,31 @@
     else links[i].removeAttribute('aria-current');
   });
   links.slice(routes.length).forEach(link => link.closest('li')?.remove());
-  // Hero CTAs retain their existing actions; only fix the visual reference labels.
   const primary = hero.querySelector('.hero-actions .btn-primary');
   if (primary) primary.textContent = 'View my work';
   const secondary = hero.querySelector('.hero-actions .btn-secondary');
   if (secondary) secondary.textContent = 'Get in touch';
+
+  // Pin the copy/CTA column to the actual D's left edge, not the viewport gutter.
+  const designer = hero.querySelector('#hero-title .accent-italic');
+  if (designer) {
+    let scheduled = false;
+    const positionCopy = () => {
+      scheduled = false;
+      if (window.innerWidth <= 860) return; // Preserve mobile's centered stack.
+      const word = designer.getBoundingClientRect();
+      const section = hero.getBoundingClientRect();
+      const left = Math.max(24, Math.min(section.width - 24, word.left - section.left));
+      hero.style.setProperty('--designer-copy-left', `${left.toFixed(2)}px`);
+    };
+    const schedule = () => {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(positionCopy);
+    };
+    positionCopy();
+    window.addEventListener('resize', schedule, { passive: true });
+    if ('ResizeObserver' in window) new ResizeObserver(schedule).observe(designer);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
+  }
 }());
