@@ -25,6 +25,7 @@ jobs:
           node tests/overflow-diagnostics.mjs
           node tests/composition-visual.mjs
           node tests/composition-mobile-nav.mjs
+          node tests/workflow-stage.mjs
       - name: Upload browser screenshots and QA report
         if: always()
         uses: actions/upload-artifact@v4
