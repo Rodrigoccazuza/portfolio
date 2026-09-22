@@ -1,0 +1,35 @@
+/* Loaded LAST: legacy .concept-steps / .concept-step rules must not override
+   the full-bleed scroll-passing cards, especially the reduced-motion layout. */
+html body.composition-home.composition-v2 section.concept-timeline.workflow-stage .workflow-stage-content ol.concept-steps.workflow-stage-rail {
+  display:block!important;position:absolute!important;top:24%!important;bottom:13%!important;
+  right:clamp(22px,6vw,110px)!important;left:auto!important;
+  width:min(360px,36vw)!important;height:auto!important;overflow:hidden!important;
+}
+html body.composition-home.composition-v2 section.concept-timeline.workflow-stage ol.workflow-stage-rail > li.concept-step.workflow-stage-step {
+  display:block!important;position:absolute!important;top:50%!important;left:0!important;right:0!important;
+  width:100%!important;height:auto!important;min-height:0!important;padding:0!important;margin:0!important;
+  transform:translate3d(0,calc(-50% + var(--card-offset,0px)),0)!important;
+}
+@media(max-width:900px){
+  html body.composition-home.composition-v2 section.concept-timeline.workflow-stage .workflow-stage-content ol.concept-steps.workflow-stage-rail {
+    right:4%!important;width:min(330px,42vw)!important;top:24%!important;bottom:12%!important;
+  }
+}
+@media(max-width:600px){
+  html body.composition-home.composition-v2 section.concept-timeline.workflow-stage .workflow-stage-content ol.concept-steps.workflow-stage-rail {
+    left:18px!important;right:18px!important;top:43%!important;bottom:10%!important;
+    width:auto!important;max-width:none!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html body.composition-home.composition-v2 section.concept-timeline.workflow-stage .workflow-stage-content ol.concept-steps.workflow-stage-rail {
+    position:relative!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;
+    width:100%!important;max-width:600px!important;overflow:visible!important;
+    -webkit-mask-image:none!important;mask-image:none!important;
+  }
+  html body.composition-home.composition-v2 section.concept-timeline.workflow-stage ol.workflow-stage-rail > li.concept-step.workflow-stage-step,
+  html body.composition-home.composition-v2 section.concept-timeline.workflow-stage ol.workflow-stage-rail > li.concept-step.workflow-stage-step.is-current {
+    position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+    transform:none!important;opacity:1!important;margin:0 0 14px!important;
+  }
+}
