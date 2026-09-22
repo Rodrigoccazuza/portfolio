@@ -24,12 +24,17 @@
       items.forEach(function (item) { observer.observe(item); });
     }
   }
-  // This existing shared entrypoint is already referenced by home and experience.
-  // Opt in only these two pages; Contact, main and new_portfolio are unchanged.
+  // Opt in only the composition home, experience and standalone work archive.
+  // All project detail pages and Contact retain their existing presentation.
   if (document.querySelector('.portfolio-hero') || /\/experience\/?$/.test(location.pathname)) {
     var script = document.createElement('script');
     script.src = new URL('js/composition.js?v=20260922-2', document.baseURI).href;
-    script.defer = true;
     document.body.appendChild(script);
+  } else if (/\/work\/?$/.test(location.pathname)) {
+    document.body.classList.add('composition-work');
+    var stylesheet = document.createElement('link');
+    stylesheet.rel = 'stylesheet';
+    stylesheet.href = new URL('css/composition-work.css?v=20260922-2',document.baseURI).href;
+    document.head.appendChild(stylesheet);
   }
 })();
