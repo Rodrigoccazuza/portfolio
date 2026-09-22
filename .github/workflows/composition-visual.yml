@@ -26,6 +26,7 @@ jobs:
           node tests/composition-visual.mjs
           node tests/composition-mobile-nav.mjs
           node tests/workflow-stage.mjs
+          node tests/hero-reference-alignment.mjs
       - name: Upload browser screenshots and QA report
         if: always()
         uses: actions/upload-artifact@v4
