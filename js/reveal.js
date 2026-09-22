@@ -25,8 +25,9 @@
     style('css/composition-hero-alignment.css?v=20260922-13');
     script('js/composition-hero-alignment.js?v=20260922-13');
     script('js/composition-workflow-stage.js?v=20260922-9');
-    // Loaded last on purpose: overrides old conflicting hero layout rules.
-    style('css/site-final-polish.css?v=20260922-14',release);
+    style('css/site-final-polish.css?v=20260922-14');
+    // This compact file wins over the old, highly specific reference selectors.
+    style('css/hero-final-specificity.css?v=20260922-15',release);
    });
   });
  }else if(work){
