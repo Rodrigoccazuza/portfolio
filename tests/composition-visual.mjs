@@ -23,22 +23,21 @@ await check('Home renders composition and removes old hero artwork',async()=>{
   await revealFullPage(desktop);
   await desktop.screenshot({path:'qa-artifacts/home-desktop.png',fullPage:true});report.pages.push('home-desktop.png');
 });
-await check('Workflow video loads on approach, seeks, and highlights one stage',async()=>{
-  // Intentional lazy loading: the player should not fetch until its section approaches.
-  const section=desktop.locator('.concept-timeline');
+await check('Workflow video loads, seeks and contains no overlay content',async()=>{
+  const section=desktop.locator('.concept-timeline.workflow-video-only');
   await section.scrollIntoViewIfNeeded();
-  await desktop.waitForTimeout(800);
-  const video=desktop.locator('.comp-process-video');
-  report.videoBefore=await video.evaluate(v=>({html:v.outerHTML,readyState:v.readyState,networkState:v.networkState,source:v.currentSrc}));
-  console.log('VIDEO AT VIEWPORT',JSON.stringify(report.videoBefore));
-  try{
-    await desktop.waitForFunction(()=>{const v=document.querySelector('.comp-process-video');return !!v && ((v.readyState>=1 && v.duration>0)||!!v.error);},null,{timeout:16000});
-  }catch(error){console.error('VIDEO REQUESTS',JSON.stringify(report.videoResponses));console.error('VIDEO STATE',JSON.stringify(await video.evaluate(v=>({html:v.outerHTML,currentSrc:v.currentSrc,readyState:v.readyState,networkState:v.networkState,error:v.error?.code||null}))));throw error;}
-  const metrics=await video.evaluate(v=>({src:v.currentSrc,readyState:v.readyState,networkState:v.networkState,error:v.error?.code||null,duration:v.duration}));report.videoMetrics=metrics;console.log('VIDEO METRICS',JSON.stringify(metrics));
+  await desktop.waitForFunction(()=>{const v=document.querySelector('.workflow-video-only video');return !!v&&((v.readyState>=1&&v.duration>0)||!!v.error);},null,{timeout:20000});
+  const video=section.locator('video');
+  const metrics=await video.evaluate(v=>({src:v.currentSrc,error:v.error?.code||null,duration:v.duration,fit:getComputedStyle(v).objectFit}));
+  report.videoMetrics=metrics;
   assert(!metrics.error,`Video error ${metrics.error} (${metrics.src})`);
   assert(metrics.duration>9&&metrics.duration<11,`Unexpected duration ${metrics.duration}`);
-  await desktop.evaluate(()=>window.scrollBy(0,180));await desktop.waitForTimeout(400);
-  assert.equal(await desktop.locator('.concept-step.is-current').count(),1);
+  assert.equal(metrics.fit,'contain');
+  assert.equal(await section.locator('h1,h2,h3,p,ol,li,.workflow-stage-card,.workflow-stage-footer').count(),0);
+  await section.evaluate(s=>{scrollTo({top:s.getBoundingClientRect().top+scrollY+(s.offsetHeight-innerHeight)*.55,behavior:'instant'});});
+  await desktop.waitForTimeout(450);
+  const time=await video.evaluate(v=>v.currentTime);
+  assert(time>1,`Expected scroll-scrubbed progress, got ${time}`);
 });
 await check('Work archive renders and filters',async()=>{
   await desktop.goto(base+'work/',{waitUntil:'domcontentloaded'});
