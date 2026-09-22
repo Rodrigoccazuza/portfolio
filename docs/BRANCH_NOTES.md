@@ -1,0 +1,1 @@
+Composition is committed, but the supplied binary video must still be uploaded for the scrub sequence.
