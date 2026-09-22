@@ -24,22 +24,21 @@
       items.forEach(function (item) { observer.observe(item); });
     }
   }
-  // Opt in only composition home, experience and standalone work archive.
-  // All project detail pages and Contact retain their existing presentation.
-  if (document.querySelector('.portfolio-hero') || /\/experience\/?$/.test(location.pathname)) {
+  var isHome = !!document.querySelector('.portfolio-hero');
+  if (isHome || /\/experience\/?$/.test(location.pathname)) {
     var script = document.createElement('script');
-    script.src = new URL('js/composition.js?v=20260922-2', document.baseURI).href;
+    script.src = new URL('js/composition.js?v=20260922-3', document.baseURI).href;
+    if (isHome) script.onload = function () {
+      ['js/composition-icons.js','js/composition-workflow-sync.js'].forEach(function(path) {
+        var extra=document.createElement('script');extra.src=new URL(path+'?v=20260922-3',document.baseURI).href;document.body.appendChild(extra);
+      });
+    };
     document.body.appendChild(script);
-    if (document.querySelector('.portfolio-hero')) {
-      var symbols = document.createElement('script');
-      symbols.src = new URL('js/composition-icons.js?v=20260922-2', document.baseURI).href;
-      document.body.appendChild(symbols);
-    }
   } else if (/\/work\/?$/.test(location.pathname)) {
     document.body.classList.add('composition-work');
     var stylesheet = document.createElement('link');
     stylesheet.rel = 'stylesheet';
-    stylesheet.href = new URL('css/composition-work.css?v=20260922-2',document.baseURI).href;
+    stylesheet.href = new URL('css/composition-work.css?v=20260922-3',document.baseURI).href;
     document.head.appendChild(stylesheet);
   }
 })();
