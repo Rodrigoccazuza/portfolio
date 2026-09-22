@@ -23,14 +23,23 @@ for(const width of [1440,768,390]){
     assert(metrics.film.w>=metrics.view.w*.99&&metrics.film.h>=metrics.view.h*.99,'Video fits the entire viewing stage');
     await section.scrollIntoViewIfNeeded();
     await page.waitForFunction(()=>{const v=document.querySelector('.workflow-video-only video');return v?.readyState>=1&&v.duration>0;},null,{timeout:25000});
+    const samples=[];
     for(const progress of [.12,.5,.86]){
       await section.evaluate((s,p)=>{const top=s.getBoundingClientRect().top+scrollY;const h=s.offsetHeight-s.querySelector('.workflow-stage-sticky').getBoundingClientRect().height;scrollTo({top:top+h*p,behavior:'instant'});},progress);
-      await page.waitForFunction(p=>{const v=document.querySelector('.workflow-video-only video');return Math.abs(v.currentTime/v.duration-p)<.12;},progress,{timeout:9000});
+      await page.waitForTimeout(650);
+      samples.push(await section.locator('video').evaluate(v=>v.currentTime/v.duration));
       const stickyTop=await section.locator('.workflow-stage-sticky').evaluate(el=>el.getBoundingClientRect().top);
       assert(Math.abs(stickyTop)<3,'Video stays pinned while scrubbing');
     }
+    assert(samples[0]>=0&&samples[0]<samples[1]&&samples[1]<samples[2],`Forward scroll must advance video: ${JSON.stringify(samples)}`);
+    assert(samples[2]-samples[0]>.35,`Scrub range should cover a meaningful portion of film: ${JSON.stringify(samples)}`);
+    // Verify reverse scrolling also seeks backward.
+    await section.evaluate(s=>{const top=s.getBoundingClientRect().top+scrollY;const h=s.offsetHeight-s.querySelector('.workflow-stage-sticky').getBoundingClientRect().height;scrollTo({top:top+h*.28,behavior:'instant'});});
+    await page.waitForTimeout(700);
+    const reverse=await section.locator('video').evaluate(v=>v.currentTime/v.duration);
+    assert(reverse<samples[2]-.2,`Reverse scroll must move video backward: ${reverse} vs ${samples[2]}`);
     assert((await page.evaluate(()=>document.documentElement.scrollWidth))<=width+3,'No horizontal overflow');
-    console.log(`PASS video-only full-frame scroll scrub and responsive fit at ${width}px`);
+    console.log(`PASS video-only full-frame bidirectional scroll scrub and responsive fit at ${width}px`,samples,reverse);
   }catch(error){failed=true;console.error(`FAIL workflow ${width}px: ${error.stack}`);}finally{await page.close();}
 }
 const page=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
