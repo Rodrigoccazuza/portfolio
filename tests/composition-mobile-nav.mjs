@@ -19,6 +19,11 @@ for (const route of ['', 'experience/', 'work/']) {
     const sizes=await page.evaluate(()=>({viewport:innerWidth,root:document.documentElement.scrollWidth,body:document.body.scrollWidth}));
     assert(sizes.root<=sizes.viewport+2,`${route||'home'} root overflow ${JSON.stringify(sizes)}`);
     assert(sizes.body<=sizes.viewport+2,`${route||'home'} body overflow ${JSON.stringify(sizes)}`);
+    if(route==='experience/'){
+      const preserved=await page.locator('.composition-preserved-projects,.composition-preserved-education,#asset-library').evaluateAll(nodes=>nodes.map(node=>({className:node.className,opacity:getComputedStyle(node).opacity,visibility:getComputedStyle(node).visibility,hasContent:!!node.textContent.trim()})));
+      assert.equal(preserved.length,3,'Expected preserved projects, education, and certificates');
+      assert(preserved.every(item=>Number(item.opacity)>.95&&item.visibility==='visible'&&item.hasContent),`Experience preserved content invisible: ${JSON.stringify(preserved)}`);
+    }
     const menu=page.locator('#primary-nav');
     const toggle=page.locator('.nav-toggle');
     await toggle.click();
@@ -28,7 +33,7 @@ for (const route of ['', 'experience/', 'work/']) {
     assert.equal(await toggle.getAttribute('aria-expanded'),'false');
     const after=await page.evaluate(()=>({viewport:innerWidth,root:document.documentElement.scrollWidth,body:document.body.scrollWidth}));
     assert(after.root<=after.viewport+2&&after.body<=after.viewport+2,`${route||'home'} closed menu overflow ${JSON.stringify(after)}`);
-    console.log(`PASS mobile overflow and navigation: ${route||'home'} ${JSON.stringify(after)}`);
+    console.log(`PASS mobile overflow, visible content and navigation: ${route||'home'} ${JSON.stringify(after)}`);
   } catch(error){failed=true;console.error(`FAIL mobile navigation: ${route||'home'} ${error.message}`);}
   finally{await page.close();}
 }
