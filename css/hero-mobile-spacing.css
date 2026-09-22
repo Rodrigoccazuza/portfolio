@@ -1,0 +1,7 @@
+/* Last-loaded optical spacing adjustment. The Array and Shrikhand glyphs have
+   internal font metrics, so a 12px box gap reads as about 20px visually. */
+html body.composition-home.composition-v2.hero-reference-layout .portfolio-hero #hero-title .picked{line-height:1!important;min-height:1em!important}
+html body.composition-home.composition-v2.hero-reference-layout .portfolio-hero #hero-title .accent-italic{margin-top:12px!important}
+@media(max-width:860px){
+ html body.composition-home.composition-v2.hero-reference-layout .portfolio-hero .hero-statement-title,html body.composition-home.composition-v2.hero-reference-layout .portfolio-hero .hero-statement>p:last-of-type{max-width:min(64vw,620px)!important;width:100%!important;margin-left:auto!important;margin-right:auto!important;text-align:center!important}
+}
