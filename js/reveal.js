@@ -24,12 +24,17 @@
       items.forEach(function (item) { observer.observe(item); });
     }
   }
-  // Opt in only the composition home, experience and standalone work archive.
+  // Opt in only composition home, experience and standalone work archive.
   // All project detail pages and Contact retain their existing presentation.
   if (document.querySelector('.portfolio-hero') || /\/experience\/?$/.test(location.pathname)) {
     var script = document.createElement('script');
     script.src = new URL('js/composition.js?v=20260922-2', document.baseURI).href;
     document.body.appendChild(script);
+    if (document.querySelector('.portfolio-hero')) {
+      var symbols = document.createElement('script');
+      symbols.src = new URL('js/composition-icons.js?v=20260922-2', document.baseURI).href;
+      document.body.appendChild(symbols);
+    }
   } else if (/\/work\/?$/.test(location.pathname)) {
     document.body.classList.add('composition-work');
     var stylesheet = document.createElement('link');
