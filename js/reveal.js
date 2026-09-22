@@ -29,7 +29,9 @@
     style('css/hero-final-specificity.css?v=20260922-18');
     style('css/website-card-color-lock.css?v=20260922-16');
     // The video-only section has no card rail and needs no card-cascade override.
-    style('css/hero-mobile-spacing.css?v=20260922-20',()=>{window.dispatchEvent(new Event('resize'));release();});
+    style('css/hero-mobile-spacing.css?v=20260922-20');
+    // The shared nav is centered on every page; this must load after hero CSS.
+    style('css/home-nav-layout-fix.css?v=20260922-1',()=>{window.dispatchEvent(new Event('resize'));release();});
    });
   });
  }else if(work){
