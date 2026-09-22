@@ -1,1 +1,0 @@
-Contact must match main branch. Restore main's blob 33f842e9b236bc1057b9eaaf7e3e983e4e875d87 at contact/index.html.
