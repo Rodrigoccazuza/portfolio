@@ -65,7 +65,7 @@ for (const path of ['', 'work/', 'experience/', 'contact/']) {
     await toggle.click();
     await page.locator('#primary-nav[data-open="true"]').waitFor({ timeout: 5000 });
     assert.equal(await page.locator('#primary-nav').evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(16, 17, 15)');
-    assert.equal(await page.locator('#primary-nav .nav-resume-btn').getAttribute('href'), 'http://127.0.0.1:8000/contact/');
+    assert.equal(await page.locator('#primary-nav .nav-resume-btn').evaluate(el => new URL(el.href).pathname), '/contact/');
     assert((await page.evaluate(() => document.documentElement.scrollWidth)) <= 393, 'Horizontal overflow');
     await page.keyboard.press('Escape');
     assert.equal(await toggle.getAttribute('aria-expanded'), 'false');
