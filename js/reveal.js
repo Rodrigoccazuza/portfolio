@@ -23,10 +23,10 @@
     style('css/hero-alignment-20260922.css?v=20260922-11');
     style('css/hero-reference-fidelity.css?v=20260922-12');
     style('css/composition-hero-alignment.css?v=20260922-13');
-    script('js/composition-hero-alignment.js?v=20260922-17');
+    script('js/composition-hero-alignment.js?v=20260922-18');
     script('js/composition-workflow-stage.js?v=20260922-9');
     style('css/site-final-polish.css?v=20260922-14');
-    style('css/hero-final-specificity.css?v=20260922-17');
+    style('css/hero-final-specificity.css?v=20260922-18');
     style('css/website-card-color-lock.css?v=20260922-16',release);
    });
   });
