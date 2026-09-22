@@ -25,12 +25,16 @@
     }
   }
   var isHome = !!document.querySelector('.portfolio-hero');
-  if (isHome || /\/experience\/?$/.test(location.pathname)) {
+  var isExperience = /\/experience\/?$/.test(location.pathname);
+  if (isHome || isExperience) {
+    if (isExperience && !document.querySelector('link[href*="bootstrap-icons"]')) {
+      var icons=document.createElement('link');icons.rel='stylesheet';icons.href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css';document.head.appendChild(icons);
+    }
     var script = document.createElement('script');
-    script.src = new URL('js/composition.js?v=20260922-3', document.baseURI).href;
+    script.src = new URL('js/composition.js?v=20260922-4', document.baseURI).href;
     if (isHome) script.onload = function () {
       ['js/composition-icons.js','js/composition-workflow-sync.js'].forEach(function(path) {
-        var extra=document.createElement('script');extra.src=new URL(path+'?v=20260922-3',document.baseURI).href;document.body.appendChild(extra);
+        var extra=document.createElement('script');extra.src=new URL(path+'?v=20260922-4',document.baseURI).href;document.body.appendChild(extra);
       });
     };
     document.body.appendChild(script);
@@ -38,7 +42,7 @@
     document.body.classList.add('composition-work');
     var stylesheet = document.createElement('link');
     stylesheet.rel = 'stylesheet';
-    stylesheet.href = new URL('css/composition-work.css?v=20260922-3',document.baseURI).href;
+    stylesheet.href = new URL('css/composition-work.css?v=20260922-4',document.baseURI).href;
     document.head.appendChild(stylesheet);
   }
 })();
