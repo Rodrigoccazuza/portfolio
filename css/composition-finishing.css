@@ -19,11 +19,20 @@
 }
 .composition-experience.composition-v2 .experience-wireframe{opacity:.65}
 .composition-experience.composition-v2 .comp-float-icons i{backdrop-filter:blur(8px)}
+/* Original sections were observed before being moved into the new composition.
+   Their old reveal-item class can keep all content transparent after reparenting.
+   Preserve real academic/project/certificate content instead of leaving blank space. */
+.composition-experience.composition-v2 .composition-preserved-projects,
+.composition-experience.composition-v2 .composition-preserved-education,
+.composition-experience.composition-v2 #asset-library{
+  opacity:1!important;visibility:visible!important;transform:none!important;
+}
+.composition-experience.composition-v2 .composition-preserved-projects *,
+.composition-experience.composition-v2 .composition-preserved-education *,
+.composition-experience.composition-v2 #asset-library *{visibility:visible}
 @media(max-width:860px){
   .composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic{font-size:clamp(110px,22vw,185px)!important;transform:scaleX(1.10)!important}
-  /* The shared fixed drawer is 320px beyond the sticky header when closed.
-     visibility:hidden alone does not remove its scrollable width in Chromium.
-     Remove only the closed panel from layout; retain the existing menu controls. */
+  /* Keep the closed mobile drawer out of screenshot/document width. */
   .composition-experience.composition-v2 #primary-nav:not([data-open="true"]){display:none!important}
   .composition-experience.composition-v2 #primary-nav[data-open="true"]{display:flex!important;right:0!important;max-width:min(320px,85vw)!important;visibility:visible!important;pointer-events:auto!important}
   .composition-experience.composition-v2 .site-footer{overflow:hidden!important}
