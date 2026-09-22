@@ -1,9 +1,9 @@
 /* Final screenshot-review corrections, after the main hero alignment sheet.
-   At 1440px the copy had three unnecessary lines and touched DESIGNER.
-   At 390px Array DESIGNER exceeded the viewport. No JS or interaction changes. */
+   Keep the supplied Array typography and existing interactive portrait. */
 @media(min-width:861px){
  body.composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic {
-   transform:scaleX(.94)!important;transform-origin:center!important;
+   /* Preserve the Array glyph height but fit all letters between page margins. */
+   transform:scaleX(.88)!important;transform-origin:center!important;
  }
  body.composition-home.composition-v2 .portfolio-hero .hero-statement {
    width:min(44vw,565px)!important;max-width:565px!important;
@@ -16,11 +16,12 @@
    max-width:525px!important;
  }
  body.composition-home.composition-v2 .portrait-stage {
-   width:min(55vw,690px)!important;height:min(58vw,680px)!important;
+   left:48%!important;width:min(55vw,690px)!important;height:min(58vw,680px)!important;
    bottom:clamp(35px,5vh,60px)!important;
  }
  body.composition-home.composition-v2 .hero-3d-fallback {
-   width:min(50vw,610px)!important;bottom:clamp(35px,5vh,60px)!important;
+   left:48%!important;width:min(50vw,610px)!important;
+   bottom:clamp(35px,5vh,60px)!important;
  }
 }
 @media(min-width:861px) and (max-width:1100px){
