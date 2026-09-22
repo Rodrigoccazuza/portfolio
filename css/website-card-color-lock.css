@@ -1,0 +1,18 @@
+/* Exact brand-color controls, including first paint and post-hover states. */
+html body.composition-home.composition-v2 .centered-websites .stack-copy a.btn,
+html body.composition-home.composition-v2 .centered-websites .stack-copy a.btn.btn-primary {
+  background:#66d487!important;
+  background-color:#66d487!important;
+  background-image:none!important;
+  border-color:#66d487!important;
+  color:#09170e!important;
+  transition:none!important;
+  animation:none!important;
+}
+html body.composition-home.composition-v2 .centered-websites .stack-copy a.btn:hover,
+html body.composition-home.composition-v2 .centered-websites .stack-copy a.btn:focus-visible {
+  background:#8de6a7!important;
+  background-color:#8de6a7!important;
+  border-color:#8de6a7!important;
+}
+html body.composition-home.composition-v2 .centered-websites .stack-dots{color:#66d487!important;transition:none!important}
