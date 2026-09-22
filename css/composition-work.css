@@ -21,5 +21,11 @@ body.composition-work{background:#090a09;color:#fff}
 .composition-work .card-body{padding:22px}.composition-work .card-body h3{font-size:clamp(16px,1.5vw,21px);line-height:1.25;margin-bottom:10px}.composition-work .card-body h3 a{color:#fff;text-decoration:none}.composition-work .card-body h3 a:hover{color:#60d18a}.composition-work .card-body p{font-size:12px;line-height:1.7;color:#aeb6ae}
 .composition-work .site-footer{background:#0b0c0b}
 @media(max-width:850px){.composition-work .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.composition-work .project-header{padding-top:160px}}
+@media(max-width:860px){
+  /* Unlike the root document, an offscreen fixed nav contributes to body's scrollWidth. */
+  .composition-work #primary-nav:not([data-open="true"]){display:none!important}
+  .composition-work #primary-nav[data-open="true"]{display:flex!important;visibility:visible!important;pointer-events:auto!important;right:0!important;max-width:min(320px,85vw)!important}
+  .composition-work .site-footer{overflow:hidden!important}
+}
 @media(max-width:550px){.composition-work .card-grid{grid-template-columns:1fr}.composition-work .project-header h1{font-size:82px}.composition-work .filter-chip{font-size:11px;padding:9px 13px}}
 @media(prefers-reduced-motion:reduce){.composition-work .card,.composition-work .card-media img{transition:none}}
