@@ -1,0 +1,1 @@
+Use the exact main-branch contact/index.html blob rather than changing contact design.
