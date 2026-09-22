@@ -1,0 +1,1 @@
+The Contact page is intended to match the main branch. The next composition commit restores the exact main-branch blob for contact/index.html.
