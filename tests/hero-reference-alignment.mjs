@@ -22,11 +22,14 @@ for(const [width,height] of [[1100,782],[1440,1024],[390,844]]){
    assert(Math.abs(rects.intro.x+rects.intro.width/2-width/2)<4,'Intro not centered');
    assert(Math.abs(rects.portrait.x+rects.portrait.width/2-width/2)<4,'Portrait not centered');
    assert(rects.word.x>=-20&&rects.word.right<=width+20,`Designer clipped: ${JSON.stringify(rects.word)}`);
-   assert(rects.copy.x<width*.10&&rects.copy.y>rects.hero.height*.49&&rects.copy.bottom<rects.hero.height*.98,`Copy is not lower left: ${JSON.stringify(rects.copy)}`);
+   assert(Math.abs(rects.copy.x-rects.word.x)<4,`Copy must align exactly below the D: ${JSON.stringify(rects)}`);
+   assert(rects.copy.width<=365,`Copy column must stay constrained: ${rects.copy.width}`);
+   assert(rects.copy.y>rects.hero.height*.49&&rects.copy.bottom<rects.hero.height*.98,`Copy not in lower hero: ${JSON.stringify(rects.copy)}`);
   }else{
    assert(rects.word.x>=-15&&rects.word.right<=width+15,`Mobile Designer clipped: ${JSON.stringify(rects.word)}`);
+   assert(Math.abs(rects.copy.x+rects.copy.width/2-width/2)<4,'Mobile copy is not centered');
   }
-  output.push({viewport:`${width}x${height}`,status:'pass',rects});await page.screenshot({path:`qa-artifacts/hero-reference-${width}.png`});console.log('PASS revised hero geometry',`${width}x${height}`);
- }catch(error){errors++;output.push({viewport:`${width}x${height}`,status:'fail',error:error.message});console.error('FAIL revised hero geometry',`${width}x${height}`,error.stack);await page.screenshot({path:`qa-artifacts/hero-reference-${width}-failure.png`}).catch(()=>{});}finally{await page.close();}
+  output.push({viewport:`${width}x${height}`,status:'pass',rects});await page.screenshot({path:`qa-artifacts/hero-reference-${width}.png`});console.log('PASS Designer-aligned hero geometry',`${width}x${height}`);
+ }catch(error){errors++;output.push({viewport:`${width}x${height}`,status:'fail',error:error.message});console.error('FAIL Designer-aligned hero geometry',`${width}x${height}`,error.stack);await page.screenshot({path:`qa-artifacts/hero-reference-${width}-failure.png`}).catch(()=>{});}finally{await page.close();}
 }
 await browser.close();await writeFile('qa-artifacts/hero-alignment-report.json',JSON.stringify(output,null,2));if(errors)process.exitCode=1;
