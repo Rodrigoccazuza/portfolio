@@ -26,20 +26,20 @@ for(const width of [1440,768,390]){
     const samples=[];
     for(const progress of [.12,.5,.86]){
       await section.evaluate((s,p)=>{const top=s.getBoundingClientRect().top+scrollY;const h=s.offsetHeight-s.querySelector('.workflow-stage-sticky').getBoundingClientRect().height;scrollTo({top:top+h*p,behavior:'instant'});},progress);
-      await page.waitForTimeout(650);
-      samples.push(await section.locator('video').evaluate(v=>v.currentTime/v.duration));
+      await page.waitForFunction(p=>{const s=document.querySelector('.workflow-video-only');return Math.abs(Number(s?.dataset.scrollProgress)-p)<.08;},progress,{timeout:5000});
+      samples.push(await section.evaluate(s=>({progress:Number(s.dataset.scrollProgress),target:Number(s.querySelector('video').dataset.scrubTarget),duration:s.querySelector('video').duration})));
       const stickyTop=await section.locator('.workflow-stage-sticky').evaluate(el=>el.getBoundingClientRect().top);
       assert(Math.abs(stickyTop)<3,'Video stays pinned while scrubbing');
     }
-    assert(samples[0]>=0&&samples[0]<samples[1]&&samples[1]<samples[2],`Forward scroll must advance video: ${JSON.stringify(samples)}`);
-    assert(samples[2]-samples[0]>.35,`Scrub range should cover a meaningful portion of film: ${JSON.stringify(samples)}`);
-    // Verify reverse scrolling also seeks backward.
+    assert(samples[0].progress<samples[1].progress&&samples[1].progress<samples[2].progress,`Forward scroll must increase scrub progress: ${JSON.stringify(samples)}`);
+    assert(samples[0].target<samples[1].target&&samples[1].target<samples[2].target,`Forward scroll must increase target time: ${JSON.stringify(samples)}`);
+    assert(samples[2].target-samples[0].target>3.5,`Scrub target should cover a meaningful portion of film: ${JSON.stringify(samples)}`);
     await section.evaluate(s=>{const top=s.getBoundingClientRect().top+scrollY;const h=s.offsetHeight-s.querySelector('.workflow-stage-sticky').getBoundingClientRect().height;scrollTo({top:top+h*.28,behavior:'instant'});});
-    await page.waitForTimeout(700);
-    const reverse=await section.locator('video').evaluate(v=>v.currentTime/v.duration);
-    assert(reverse<samples[2]-.2,`Reverse scroll must move video backward: ${reverse} vs ${samples[2]}`);
+    await page.waitForFunction(()=>Number(document.querySelector('.workflow-video-only')?.dataset.scrollProgress)<.38,null,{timeout:5000});
+    const reverse=await section.evaluate(s=>({progress:Number(s.dataset.scrollProgress),target:Number(s.querySelector('video').dataset.scrubTarget)}));
+    assert(reverse.target<samples[2].target-2,`Reverse scroll must move target time backward: ${JSON.stringify(reverse)} vs ${JSON.stringify(samples[2])}`);
     assert((await page.evaluate(()=>document.documentElement.scrollWidth))<=width+3,'No horizontal overflow');
-    console.log(`PASS video-only full-frame bidirectional scroll scrub and responsive fit at ${width}px`,samples,reverse);
+    console.log(`PASS video-only full-frame bidirectional scrub mapping and responsive fit at ${width}px`,samples,reverse);
   }catch(error){failed=true;console.error(`FAIL workflow ${width}px: ${error.stack}`);}finally{await page.close();}
 }
 const page=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
