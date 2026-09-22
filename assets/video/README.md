@@ -1,7 +1,7 @@
 # Workflow video — installed
 
-The original video uploaded to `main/work/video/Create_a_premium_dark_mode_mot.mp4` was copied without re-encoding to `final_version_oficial/assets/video/concept-to-implementation.mp4`. Both entries use Git blob SHA `9048f89299ebb79256e608be1ff7f0ca3d170aab` (2,694,363 bytes).
+The original video from `main/work/video/Create_a_premium_dark_mode_mot.mp4` has been copied without re-encoding to `final_version_oficial/assets/video/concept-to-implementation.mp4`. Both paths contain the same Git blob `9048f89299ebb79256e608be1ff7f0ca3d170aab` (2,694,363 bytes).
 
-The Home page's six-stage process uses `js/composition.js` to load `assets/video/concept-to-implementation.mp4` and scrub playback according to scroll; `js/composition-workflow-sync.js` updates labels to the timing of the supplied ten-second film. No additional upload is required. Browser testing for smooth seeks, stage timing and responsive rendering remains advisable before merge.
+The active Home page controller is **`js/composition-v2.js`**. It owns video seeking, active-step labels and highlighted steps in one scroll handler using the six source-film time ranges. The former `js/composition-workflow-sync.js` and `js/composition.js` are legacy files and are no longer loaded by `js/reveal.js`.
 
-The portrait GLB currently loads from the source repository's `hero-v2` branch and depends on that asset staying accessible.
+No extra upload is required. Browser testing of scroll seeking, response on reverse/fast scroll, and responsive playback is still required for final QA. The 3D GLB is served from the source repository's `hero-v2` branch and depends on that file remaining available.
