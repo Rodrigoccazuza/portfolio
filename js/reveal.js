@@ -19,10 +19,16 @@
     script.src=new URL('js/composition-v2.js?v=20260922-8',document.baseURI).href;
     script.onload=function(){
       var finishing=document.createElement('link');finishing.rel='stylesheet';finishing.href=new URL('css/composition-finishing.css?v=20260922-8',document.baseURI).href;document.head.append(finishing);
-      var fixes=document.createElement('script');fixes.src=new URL('js/composition-runtime-fixes.js?v=20260922-8',document.baseURI).href;document.body.append(fixes);
+      var fixes=document.createElement('script');fixes.src=new URL('js/composition-runtime-fixes.js?v=20260922-8',document.baseURI).href;
+      fixes.onload=function(){
+        if(!home)return;
+        var stageStyles=document.createElement('link');stageStyles.rel='stylesheet';stageStyles.href=new URL('css/composition-workflow-stage.css?v=20260922-9',document.baseURI).href;document.head.append(stageStyles);
+        var stage=document.createElement('script');stage.src=new URL('js/composition-workflow-stage.js?v=20260922-9',document.baseURI).href;document.body.append(stage);
+      };
+      document.body.append(fixes);
     };
     document.body.append(script);
-    // ONE workflow controller inside composition-v2; never load legacy handlers.
+    // Composition v2 mounts first. Stage rebuild then supersedes only the workflow section.
   }else if(work){
     document.body.classList.add('composition-work');
     var stylesheet=document.createElement('link');stylesheet.rel='stylesheet';stylesheet.href=new URL('css/composition-work.css?v=20260922-8',document.baseURI).href;document.head.append(stylesheet);
