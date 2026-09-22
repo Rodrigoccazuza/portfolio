@@ -1,3 +1,66 @@
+// Keep the primary navigation consistent across the homepage, archives and nested pages.
+// URLs resolve against <base>, so both /portfolio/ on GitHub Pages and a root deployment work.
+(function () {
+  'use strict';
+  var nav = document.querySelector('#primary-nav');
+  if (!nav) return;
+  var list = nav.querySelector('ul');
+  var button = nav.querySelector('.nav-resume-btn');
+  var logo = document.querySelector('.site-header .nav-logo');
+  var root = document.baseURI;
+  var destination = function (path) { return new URL(path, root).href; };
+  var relative = window.location.pathname.slice(new URL(root).pathname.length).replace(/^\/+/, '');
+  var active = relative === '' || relative === 'index.html' ? 'Home' : relative.indexOf('work/') === 0 || relative === 'work' ? 'Work' : relative.indexOf('experience/') === 0 || relative === 'experience' ? 'Experience' : '';
+  var items = [ ['Home', ''], ['Work', 'work/'], ['Experience', 'experience/'] ];
+
+  function syncNavigation() {
+    if (logo && logo.href !== destination('')) logo.href = destination('');
+    if (list) {
+      var links = Array.prototype.slice.call(list.querySelectorAll('a'));
+      var correct = links.length === items.length && links.every(function (link, index) {
+        var item = items[index];
+        return link.textContent.trim() === item[0] && link.href === destination(item[1]) &&
+          (link.getAttribute('aria-current') === 'page') === (item[0] === active);
+      });
+      if (!correct) {
+        var fragment = document.createDocumentFragment();
+        items.forEach(function (item) {
+          var li = document.createElement('li');
+          var anchor = document.createElement('a');
+          anchor.href = destination(item[1]);
+          anchor.textContent = item[0];
+          if (item[0] === active) anchor.setAttribute('aria-current', 'page');
+          li.appendChild(anchor);
+          fragment.appendChild(li);
+        });
+        list.replaceChildren(fragment);
+      }
+    }
+    if (button) {
+      if (button.href !== destination('contact/')) button.href = destination('contact/');
+      if (button.textContent.trim() !== 'Get in contact →') {
+        button.replaceChildren(document.createTextNode('Get in contact '));
+        var arrow = document.createElement('span');
+        arrow.setAttribute('aria-hidden', 'true');
+        arrow.textContent = '→';
+        button.appendChild(arrow);
+      }
+      if (relative === 'contact/' || relative === 'contact' || relative === 'contact/index.html') {
+        button.setAttribute('aria-current', 'page');
+      } else {
+        button.removeAttribute('aria-current');
+      }
+    }
+  }
+
+  syncNavigation();
+  // Other homepage scripts render a new menu after nav.js; restore the shared menu.
+  if (list) {
+    var observer = new MutationObserver(syncNavigation);
+    observer.observe(list, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['href', 'aria-current'] });
+  }
+})();
+
 // Mobile navigation: accessible open/close, focus trap, Escape to close.
 (function () {
   var toggle = document.querySelector('.nav-toggle');
@@ -55,10 +118,9 @@
 
   if (scrim) scrim.addEventListener('click', closeMenu);
 
-  links.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      if (window.matchMedia('(max-width: 860px)').matches) closeMenu();
-    });
+  // Delegate clicks: composition scripts can replace the anchor elements later.
+  links.addEventListener('click', function (event) {
+    if (event.target.closest('a[href]') && window.matchMedia('(max-width: 860px)').matches && links.getAttribute('data-open') === 'true') closeMenu();
   });
 
   window.addEventListener('resize', function () {
