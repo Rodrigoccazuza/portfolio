@@ -10,7 +10,7 @@ for (const path of paths) {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   try {
     await page.goto(origin + path, { waitUntil: 'domcontentloaded' });
-    await page.locator('link[data-site-navigation]').waitFor({ timeout: 15000 });
+    await page.locator('link[data-site-navigation]').waitFor({ state: 'attached', timeout: 15000 });
     await page.waitForFunction(() => [...document.styleSheets].some(sheet => sheet.href?.includes('/css/site-navigation.css')), null, { timeout: 15000 });
     if (!path) await page.locator('body.composition-home.composition-v2').waitFor({ timeout: 15000 });
     if (path === 'experience/') await page.locator('body.composition-experience.composition-v2').waitFor({ timeout: 15000 });
@@ -26,7 +26,6 @@ for (const path of paths) {
         labels: anchors.map(link => link.textContent.trim()),
         hrefs: anchors.map(link => new URL(link.href).pathname),
         linkBackgrounds: anchors.map(link => getComputedStyle(link).backgroundColor),
-        linkColors: anchors.map(link => getComputedStyle(link).color),
         buttonBackground: getComputedStyle(button).backgroundColor,
         buttonHref: new URL(button.href).pathname,
         logoHref: new URL(document.querySelector('.site-header .nav-logo').href).pathname,
@@ -61,7 +60,7 @@ for (const path of ['', 'work/', 'experience/', 'contact/']) {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
   try {
     await page.goto(origin + path, { waitUntil: 'domcontentloaded' });
-    await page.locator('link[data-site-navigation]').waitFor({ timeout: 15000 });
+    await page.locator('link[data-site-navigation]').waitFor({ state: 'attached', timeout: 15000 });
     const toggle = page.locator('.nav-toggle');
     await toggle.click();
     await page.locator('#primary-nav[data-open="true"]').waitFor({ timeout: 5000 });
