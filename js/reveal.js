@@ -23,15 +23,19 @@
       fixes.onload=function(){
         if(!home)return;
         var stageStyles=document.createElement('link');stageStyles.rel='stylesheet';stageStyles.href=new URL('css/composition-workflow-stage.css?v=20260922-9',document.baseURI).href;document.head.append(stageStyles);
-        // Overrides must follow both the base workflow style and the hero finishing
-        // rules, so the bottom dock and true Array Bold weight are authoritative.
+        // The workflow dock takes precedence over the legacy process styles.
         var visibility=document.createElement('link');visibility.rel='stylesheet';visibility.href=new URL('css/composition-visibility-polish.css?v=20260922-10',document.baseURI).href;document.head.append(visibility);
+        // Reference hero geometry must be last so legacy !important positioning cannot override it.
+        var heroAlignment=document.createElement('link');heroAlignment.rel='stylesheet';heroAlignment.href=new URL('css/hero-alignment-20260922.css?v=20260922-11',document.baseURI).href;document.head.append(heroAlignment);
+        // Preserve the animated word and 3D model; adjust only existing copy and nav labels.
+        var kicker=document.querySelector('.portfolio-hero .hero-kicker');if(kicker)kicker.textContent="Hey, I'm a";
+        var statement=document.querySelector('.portfolio-hero .hero-statement-title');if(statement)statement.textContent='Design, marketing, and front-end development in one creative practice.';
+        var links=document.querySelector('.nav-links ul');if(links)links.innerHTML='<li><a href="">Home</a></li><li><a href="#websites">Work</a></li><li><a href="experience/">Experience</a></li>';
         var stage=document.createElement('script');stage.src=new URL('js/composition-workflow-stage.js?v=20260922-9',document.baseURI).href;document.body.append(stage);
       };
       document.body.append(fixes);
     };
     document.body.append(script);
-    // Composition v2 mounts first. Stage rebuild then supersedes only the workflow section.
   }else if(work){
     document.body.classList.add('composition-work');
     var stylesheet=document.createElement('link');stylesheet.rel='stylesheet';stylesheet.href=new URL('css/composition-work.css?v=20260922-8',document.baseURI).href;document.head.append(stylesheet);
