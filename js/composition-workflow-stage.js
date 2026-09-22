@@ -18,6 +18,12 @@
   let loaded = false;
   let seeking = false;
   let seekFallback = 0;
+  const mediaDuration = () => {
+    if (duration > 0) return duration;
+    const live = Number.isFinite(video.duration) ? video.duration : 0;
+    if (live > 0) duration = live;
+    return duration;
+  };
   function loadVideo() {
     if (loaded) return;
     loaded = true;
@@ -38,14 +44,15 @@
     seek();
   }
   function seek() {
-    if (reduceMotion.matches || !duration || video.readyState < 1 || seeking) return;
-    const next = Math.max(0, Math.min(duration - .035, target));
+    const total = mediaDuration();
+    if (reduceMotion.matches || !total || video.readyState < 1 || seeking) return;
+    const next = Math.max(0, Math.min(total - .035, target));
     if (Math.abs(video.currentTime - next) < .025) return;
     seeking = true;
     try {
       video.currentTime = next;
-      // Desktop Chromium reliably emits seeked. Some mobile/paused decoders can
-      // delay it, so this fallback releases the lock and applies the newest target.
+      // Desktop browsers normally emit seeked immediately. The timeout keeps
+      // paused mobile decoders from permanently holding the seek lock.
       seekFallback = window.setTimeout(releaseSeek, 180);
     } catch (_) {
       seeking = false;
@@ -56,7 +63,8 @@
     if (reduceMotion.matches) return;
     const available = Math.max(1, section.offsetHeight - sticky.getBoundingClientRect().height);
     const progress = clamp(-section.getBoundingClientRect().top / available);
-    target = progress * (duration || 10);
+    const total = mediaDuration();
+    target = progress * (total || 10);
     seek();
   }
   function queue() { if (!frame) frame = requestAnimationFrame(update); }
@@ -71,10 +79,13 @@
       queue();
     }
   }
-  video.addEventListener('loadedmetadata', () => {
-    duration = Number.isFinite(video.duration) ? video.duration : 0;
+  function syncDuration() {
+    const live = Number.isFinite(video.duration) ? video.duration : 0;
+    if (live > 0) duration = live;
     if (!reduceMotion.matches) { video.pause(); queue(); }
-  });
+  }
+  video.addEventListener('loadedmetadata', syncDuration);
+  video.addEventListener('durationchange', syncDuration);
   video.addEventListener('seeked', releaseSeek);
   video.addEventListener('loadeddata', queue);
   video.addEventListener('canplay', queue);
@@ -84,5 +95,7 @@
   window.addEventListener('resize', queue, { passive: true });
   if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', updateMotion);
   updateMotion();
-  queue();
+  // In case metadata was resolved synchronously from browser cache before the
+  // listeners above were attached, pick up the live duration on the next task.
+  setTimeout(() => { syncDuration(); queue(); }, 0);
 }());
