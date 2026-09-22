@@ -28,7 +28,9 @@
     style('css/site-final-polish.css?v=20260922-14');
     style('css/hero-final-specificity.css?v=20260922-18');
     style('css/website-card-color-lock.css?v=20260922-16');
-    style('css/hero-mobile-spacing.css?v=20260922-19',release);
+    // Final stylesheet changes the actual word bounding box: schedule geometry
+    // one more time before releasing the fade-in so copy stays 50px beneath it.
+    style('css/hero-mobile-spacing.css?v=20260922-20',()=>{window.dispatchEvent(new Event('resize'));release();});
    });
   });
  }else if(work){
