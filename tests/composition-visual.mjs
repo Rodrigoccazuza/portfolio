@@ -24,6 +24,7 @@ await check('Home renders composition and removes old hero artwork',async()=>{
   await desktop.screenshot({path:'qa-artifacts/home-desktop.png',fullPage:true});report.pages.push('home-desktop.png');
 });
 await check('Workflow video loads, seeks and contains no overlay content',async()=>{
+  await desktop.addStyleTag({content:'html,body{scroll-behavior:auto!important}'});
   const section=desktop.locator('.concept-timeline.workflow-video-only');
   await section.scrollIntoViewIfNeeded();
   await desktop.waitForFunction(()=>{const v=document.querySelector('.workflow-video-only video');return !!v&&((v.readyState>=1&&v.duration>0)||!!v.error);},null,{timeout:20000});
@@ -34,8 +35,8 @@ await check('Workflow video loads, seeks and contains no overlay content',async(
   assert(metrics.duration>9&&metrics.duration<11,`Unexpected duration ${metrics.duration}`);
   assert.equal(metrics.fit,'contain');
   assert.equal(await section.locator('h1,h2,h3,p,ol,li,.workflow-stage-card,.workflow-stage-footer').count(),0);
-  await section.evaluate(s=>{scrollTo({top:s.getBoundingClientRect().top+scrollY+(s.offsetHeight-innerHeight)*.55,behavior:'instant'});});
-  await desktop.waitForTimeout(450);
+  await section.evaluate(s=>{const top=s.getBoundingClientRect().top+scrollY;scrollTo(0,top+(s.offsetHeight-innerHeight)*.55);});
+  await desktop.waitForTimeout(700);
   const time=await video.evaluate(v=>v.currentTime);
   assert(time>1,`Expected scroll-scrubbed progress, got ${time}`);
 });
