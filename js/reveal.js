@@ -27,7 +27,8 @@
     script('js/composition-workflow-stage.js?v=20260922-9');
     style('css/site-final-polish.css?v=20260922-14');
     style('css/hero-final-specificity.css?v=20260922-18');
-    style('css/website-card-color-lock.css?v=20260922-16',release);
+    style('css/website-card-color-lock.css?v=20260922-16');
+    style('css/hero-mobile-spacing.css?v=20260922-19',release);
    });
   });
  }else if(work){
