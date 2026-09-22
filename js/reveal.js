@@ -23,6 +23,9 @@
       fixes.onload=function(){
         if(!home)return;
         var stageStyles=document.createElement('link');stageStyles.rel='stylesheet';stageStyles.href=new URL('css/composition-workflow-stage.css?v=20260922-9',document.baseURI).href;document.head.append(stageStyles);
+        // Overrides must follow both the base workflow style and the hero finishing
+        // rules, so the bottom dock and true Array Bold weight are authoritative.
+        var visibility=document.createElement('link');visibility.rel='stylesheet';visibility.href=new URL('css/composition-visibility-polish.css?v=20260922-10',document.baseURI).href;document.head.append(visibility);
         var stage=document.createElement('script');stage.src=new URL('js/composition-workflow-stage.js?v=20260922-9',document.baseURI).href;document.body.append(stage);
       };
       document.body.append(fixes);
