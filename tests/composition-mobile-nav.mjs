@@ -23,6 +23,9 @@ for (const route of ['', 'experience/', 'work/']) {
       const preserved=await page.locator('.composition-preserved-projects,.composition-preserved-education,#asset-library').evaluateAll(nodes=>nodes.map(node=>({className:node.className,opacity:getComputedStyle(node).opacity,visibility:getComputedStyle(node).visibility,hasContent:!!node.textContent.trim()})));
       assert.equal(preserved.length,3,'Expected preserved projects, education, and certificates');
       assert(preserved.every(item=>Number(item.opacity)>.95&&item.visibility==='visible'&&item.hasContent),`Experience preserved content invisible: ${JSON.stringify(preserved)}`);
+      const projectCards=await page.locator('.composition-preserved-projects .experience-project-grid article').evaluateAll(nodes=>nodes.map(node=>({text:node.textContent.trim(),opacity:getComputedStyle(node).opacity,visibility:getComputedStyle(node).visibility})));
+      assert(projectCards.length>=2,'Expected original independent-project cards');
+      assert(projectCards.every(item=>item.text.length>15&&Number(item.opacity)>.95&&item.visibility==='visible'),`Original project cards transparent: ${JSON.stringify(projectCards)}`);
     }
     const menu=page.locator('#primary-nav');
     const toggle=page.locator('.nav-toggle');
