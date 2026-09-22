@@ -1,0 +1,49 @@
+/* Home-only correction: legacy hero CSS expands the bar to the full viewport.
+   Restore the exact container geometry of the shared Experience/Work header. */
+html body.home-page.portfolio-redesign.hero-reference-layout.composition-home.composition-v2 .site-header .nav-bar {
+  width: 100% !important;
+  max-width: 1120px !important;
+  min-height: 68px !important;
+  margin: 0 auto !important;
+  padding: 10px clamp(20px, 3vw, 36px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 22px !important;
+}
+html body.home-page.portfolio-redesign.hero-reference-layout.composition-home.composition-v2 .site-header .nav-logo img {
+  width: 90px !important;
+  height: 43px !important;
+  max-height: 43px !important;
+}
+html body.home-page.portfolio-redesign.hero-reference-layout.composition-home.composition-v2 .site-header #primary-nav {
+  flex: 0 1 auto !important;
+  gap: 23px !important;
+}
+html body.home-page.portfolio-redesign.hero-reference-layout.composition-home.composition-v2 .site-header #primary-nav ul {
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+  gap: clamp(13px, 1.5vw, 22px) !important;
+}
+html body.home-page.portfolio-redesign.hero-reference-layout.composition-home.composition-v2 .site-header #primary-nav .nav-resume-btn {
+  background: #7121ca !important;
+  border-color: #7121ca !important;
+  min-height: 40px !important;
+  padding: 10px 20px !important;
+  font-weight: 700 !important;
+}
+@media (max-width: 860px) {
+  html body.home-page.portfolio-redesign.hero-reference-layout.composition-home.composition-v2 .site-header .nav-bar {
+    min-height: 64px !important;
+    padding: 8px 20px !important;
+  }
+  html body.home-page.portfolio-redesign.hero-reference-layout.composition-home.composition-v2 .site-header #primary-nav {
+    flex: none !important;
+  }
+  html body.home-page.portfolio-redesign.hero-reference-layout.composition-home.composition-v2 .site-header #primary-nav ul {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
