@@ -1,0 +1,146 @@
+/* Shared site navigation. Always use the Experience reference's unified dark bar,
+   independent of the page theme; only the contact CTA has a filled background. */
+html body .site-header,
+html body.home-page .site-header,
+html body.composition-home .site-header {
+  position: sticky !important;
+  inset: auto !important;
+  top: 0 !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  margin: 0 !important;
+  background: #10110f !important;
+  color: #f7f7f5 !important;
+  border: 0 !important;
+  border-bottom: 1px solid #282c27 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  z-index: 1000 !important;
+}
+html body .site-header .nav-bar,
+html body.home-page .site-header .nav-bar {
+  max-width: 1120px !important;
+  width: 100% !important;
+  min-height: 68px !important;
+  margin: 0 auto !important;
+  padding: 10px clamp(20px, 3vw, 36px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 22px !important;
+}
+html body .site-header .nav-logo { flex: 0 0 auto !important; }
+html body .site-header .nav-logo img,
+html body.composition-home .site-header .nav-logo img {
+  width: 90px !important;
+  height: 43px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  filter: none !important;
+}
+html body .site-header #primary-nav {
+  align-items: center !important;
+  gap: 23px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html body .site-header #primary-nav ul {
+  display: flex !important;
+  align-items: center !important;
+  gap: clamp(13px, 1.5vw, 22px) !important;
+  background: transparent !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+html body .site-header #primary-nav li,
+html body .site-header #primary-nav li a,
+html body .site-header #primary-nav a:not(.btn) {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+html body .site-header #primary-nav a:not(.btn) {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 40px !important;
+  padding: 4px 0 !important;
+  color: #f7f7f5 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+}
+html body .site-header #primary-nav a:not(.btn):hover,
+html body .site-header #primary-nav a:not(.btn)[aria-current="page"] { color: #80e4a1 !important; }
+html body .site-header #primary-nav .nav-resume-btn,
+html body.home-page .site-header #primary-nav .nav-resume-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  flex: 0 0 auto !important;
+  min-height: 40px !important;
+  margin: 0 !important;
+  padding: 10px 20px !important;
+  color: #fff !important;
+  background: #7121ca !important;
+  border: 1px solid #7121ca !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+html body .site-header #primary-nav .nav-resume-btn:hover { background: #8b39e0 !important; border-color: #8b39e0 !important; }
+html body .site-header #primary-nav a:focus-visible,
+html body .site-header .nav-toggle:focus-visible,
+html body .site-header .nav-logo:focus-visible { outline: 3px solid #80e4a1 !important; outline-offset: 4px !important; }
+html body .site-header .nav-toggle { background: transparent !important; border-color: #777d77 !important; }
+html body .site-header .nav-toggle .bar { background: #fff !important; }
+@media (max-width: 860px) {
+  html body .site-header .nav-bar,
+  html body.home-page .site-header .nav-bar { min-height: 64px !important; padding: 8px 20px !important; }
+  html body .site-header #primary-nav,
+  html body.home-page .site-header #primary-nav {
+    position: fixed !important;
+    inset: 0 0 0 auto !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: min(320px, 85vw) !important;
+    max-width: 85vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    padding: 90px 24px 28px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 20px !important;
+    background: #10110f !important;
+    border-left: 1px solid #282c27 !important;
+    box-shadow: -15px 0 45px #0008 !important;
+    overflow-y: auto !important;
+    transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
+  }
+  html body .site-header #primary-nav[data-open="true"] {
+    transform: translateX(0) !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+  html body .site-header #primary-nav ul { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; width: 100% !important; }
+  html body .site-header #primary-nav a:not(.btn) { font-size: 17px !important; min-height: 44px !important; }
+  html body .site-header #primary-nav .nav-resume-btn { width: 100% !important; min-height: 44px !important; margin-top: 12px !important; }
+  html body .site-header .nav-toggle { display: inline-flex !important; position: relative !important; z-index: 112 !important; }
+}
+@media (min-width: 861px) {
+  html body .site-header #primary-nav { position: static !important; display: flex !important; transform: none !important; visibility: visible !important; pointer-events: auto !important; }
+  html body .site-header .nav-toggle { display: none !important; }
+}
