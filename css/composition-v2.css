@@ -1,0 +1,76 @@
+/* Loaded AFTER the original styles and composition.css. This file is intentionally scoped. */
+.composition-home.composition-v2 .portfolio-hero{min-height:clamp(690px,63vw,870px)!important;margin:0!important;border:0!important;border-radius:0!important;background:radial-gradient(ellipse at 60% 105%,#113c28,transparent 57%),radial-gradient(ellipse at 27% 2%,#281333,transparent 58%),#090b0a!important}
+.composition-home.composition-v2 .portfolio-hero .hero-background{display:none!important}
+.composition-home.composition-v2 .portfolio-hero::after{display:none!important}
+.composition-home.composition-v2 .portfolio-hero .hero-inner{display:block!important;min-height:clamp(690px,63vw,870px)!important;max-width:1500px!important;width:100%!important;margin:0 auto!important;padding:clamp(135px,11vw,175px) clamp(24px,5vw,78px) 45px!important;position:relative!important;z-index:4;pointer-events:none}
+.composition-home.composition-v2 .portfolio-hero .hero-intro{width:100%!important;position:relative!important;display:block!important;z-index:3;align-self:auto!important;text-align:center!important;pointer-events:none}
+.composition-home.composition-v2 .portfolio-hero .hero-kicker{color:#fff!important;margin:0!important;font-size:clamp(24px,2.7vw,42px)!important;line-height:1.1!important}
+.composition-home.composition-v2 .portfolio-hero #hero-title{display:flex!important;flex-direction:column!important;align-items:center!important;gap:0!important;line-height:1!important;margin:0!important;white-space:normal!important}
+.composition-home.composition-v2 .portfolio-hero #hero-title .picked{font-family:'Playfair Display',serif!important;font-style:italic!important;font-weight:600!important;color:#ac56f2!important;font-size:clamp(31px,3.6vw,57px)!important;line-height:1.2!important;min-height:1.2em!important;letter-spacing:-.04em!important}
+.composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic{font-family:'Anton','Khand',Impact,sans-serif!important;font-style:normal!important;font-weight:400!important;font-size:clamp(100px,17.7vw,308px)!important;letter-spacing:-.065em!important;line-height:.88!important;white-space:nowrap!important;margin:.04em 0 0!important;transform:none!important;color:#60d18a!important;text-transform:uppercase!important}
+.composition-home.composition-v2 .portfolio-hero .hero-statement{position:absolute!important;left:clamp(24px,5vw,78px)!important;top:auto!important;bottom:clamp(60px,9vw,135px)!important;max-width:330px!important;width:35%!important;z-index:8!important;padding:0!important;margin:0!important;pointer-events:auto!important}
+.composition-home.composition-v2 .portfolio-hero .hero-statement-title{font-size:clamp(16px,1.45vw,22px)!important;line-height:1.3!important;font-weight:700!important;margin:0 0 11px!important}
+.composition-home.composition-v2 .portfolio-hero .hero-statement>p:last-of-type{font-size:clamp(12px,.9vw,14px)!important;color:#e3e5e0!important;line-height:1.6!important}
+.composition-home.composition-v2 .portfolio-hero .hero-actions{display:flex!important;gap:10px!important;flex-wrap:wrap!important;margin-top:21px!important}
+.composition-home.composition-v2 .portfolio-hero .hero-actions .btn{width:auto!important;min-height:38px!important;border-radius:999px!important;padding:10px 16px!important;font-size:12px!important;white-space:nowrap}
+.composition-home.composition-v2 .portfolio-hero .hero-actions .btn-primary{background:#8f2eea!important;color:#fff!important;border-color:#8f2eea!important}
+.composition-home.composition-v2 .portfolio-hero .hero-services{display:none!important}
+.composition-home.composition-v2 .portrait-stage{z-index:6!important;left:56%!important;bottom:0!important;width:min(45vw,645px)!important;height:min(49vw,625px)!important;overflow:hidden!important;pointer-events:auto!important}
+.composition-home.composition-v2 .hero-3d-fallback{z-index:5!important;left:56%!important;bottom:0!important;width:min(40vw,540px)!important;height:56%!important;object-fit:contain!important;object-position:center bottom!important}
+.composition-home.composition-v2 .portrait-stage.model-ready~.hero-3d-fallback{visibility:hidden!important}
+.composition-home.composition-v2 .toolkit-marquee{background:#0d110f!important}
+.composition-home.composition-v2 .toolkit-marquee-group img{filter:none!important;opacity:1!important}
+.composition-home.composition-v2 .toolkit-marquee-track,.composition-home.composition-v2 .toolkit-marquee-viewport:hover .toolkit-marquee-track,.composition-home.composition-v2 .toolkit-marquee-viewport:focus-within .toolkit-marquee-track{animation-play-state:running!important}
+.composition-home.composition-v2 .comp-about{max-width:none;padding:clamp(70px,9vw,125px) max(24px,calc((100vw - 1120px)/2));grid-template-columns:minmax(200px,.78fr) 1.22fr;gap:clamp(30px,7vw,100px)}
+.composition-home.composition-v2 .comp-about>img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;max-height:465px}
+.composition-home.composition-v2 .comp-about .comp-links a{display:inline-flex;gap:7px;align-items:center}
+.composition-home.composition-v2 .centered-websites{padding-top:clamp(65px,8vw,110px)}
+.composition-home.composition-v2 .concept-timeline{scroll-margin-top:45px;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:start}
+.composition-home.composition-v2 .concept-steps{grid-column:1;grid-row:2}
+.composition-home.composition-v2 .concept-step{display:flex;gap:17px;transition:opacity .24s,transform .24s;min-height:67px}
+.composition-home.composition-v2 .concept-step.is-current{opacity:1}
+.composition-home.composition-v2 .comp-process-visual{grid-column:2;grid-row:2;position:sticky;top:14vh;min-width:0;width:100%;min-height:325px}
+.composition-home.composition-v2 .comp-process-window{aspect-ratio:16/9;min-height:0;padding:0;overflow:hidden;background:#101211}
+.composition-home.composition-v2 .comp-process-video{object-fit:contain;background:#080b09;width:100%;height:100%}
+.composition-home.composition-v2 .comp-process-art{height:100%;padding:18px}
+.composition-home.composition-v2 .comp-process-status{align-items:center}
+.composition-home.composition-v2 .folder-section .folder-front{background:#f2ab39!important}
+.composition-experience.composition-v2 .experience-composition-hero{min-height:520px;padding-top:125px;isolation:isolate;position:relative;background:radial-gradient(ellipse at 49% 25%,#251436 0%,#090a0a 62%)}
+.composition-experience.composition-v2 .experience-composition-hero>img{position:relative;z-index:2;object-fit:contain;object-position:center bottom;filter:grayscale(1) contrast(1.06);height:390px;width:min(685px,73vw);mask-image:linear-gradient(to bottom,#000 68%,transparent 100%)}
+.composition-experience.composition-v2 .experience-hero-art{position:absolute;z-index:0;inset:70px 12% 10px;pointer-events:none}
+.composition-experience.composition-v2 .experience-wireframe{position:absolute;display:block;border:2px solid #40314d;border-radius:23px;box-shadow:0 0 50px #5d25841f}
+.composition-experience.composition-v2 .experience-wireframe--one{height:210px;width:340px;left:13%;top:26%}
+.composition-experience.composition-v2 .experience-wireframe--two{height:185px;width:250px;right:6%;top:33%}
+.composition-experience.composition-v2 .comp-float-icons{z-index:3;inset:18% 12% 12%}
+.composition-experience.composition-v2 .comp-float-icons i{box-shadow:0 16px 45px #0008;font-size:37px}
+.composition-experience.composition-v2 .comp-float-icons i:nth-child(4){top:69%;right:20%;color:#61d18a}
+.composition-experience.composition-v2 .comp-stats{margin-top:-20px;margin-bottom:65px}
+.composition-experience.composition-v2 .comp-exp-timeline{padding-bottom:110px}
+.composition-experience.composition-v2 .comp-exp-list li{grid-template-columns:180px minmax(0,1fr)}
+.composition-experience.composition-v2 .comp-exp-list li time{font-size:11px;line-height:1.65}
+.composition-experience.composition-v2 .comp-green-panel{margin:0;max-width:none}
+.composition-experience.composition-v2 .comp-service-row{grid-template-columns:32px minmax(0,1fr) minmax(0,.7fr) 25px}
+.composition-experience.composition-v2 .comp-tools .comp-tool-grid img{filter:none!important;opacity:1!important}
+.composition-experience.composition-v2 .comp-testimonials{padding-bottom:110px}
+.composition-experience.composition-v2 .comp-collab-intro{max-width:56ch;color:#abb4ac;font-size:14px;line-height:1.7;margin-bottom:32px}
+.composition-experience.composition-v2 .comp-collab-grid article{background:#141715;padding:32px;border:1px solid #30392f;min-height:230px}
+.composition-experience.composition-v2 .comp-collab-grid article:first-child{background:#60d18a;color:#0b180e;border-color:#60d18a}
+.composition-experience.composition-v2 .comp-collab-grid article:first-child .comp-eyebrow{color:#235b35}
+.composition-experience.composition-v2 .comp-collab-grid h3{font-size:23px;margin:18px 0 10px}
+.composition-experience.composition-v2 .comp-collab-grid p{font-size:13px;line-height:1.7;max-width:37ch}
+.composition-experience.composition-v2 .comp-collab-grid a{display:inline-flex;align-items:center;gap:8px;color:inherit;font-weight:700;font-size:12px;margin-top:20px}
+.composition-experience.composition-v2 .composition-preserved-projects,.composition-experience.composition-v2 .composition-preserved-education{background:#101310;color:#f5f5f5;padding:80px max(24px,calc((100vw - 1100px)/2))}
+.composition-experience.composition-v2 .composition-preserved-projects .container,.composition-experience.composition-v2 .composition-preserved-education .container{max-width:1100px;padding:0}
+.composition-experience.composition-v2 .composition-preserved-education{background:#0b0c0b}
+.composition-experience.composition-v2 .composition-preserved-projects a{color:#70df9b}
+.composition-experience.composition-v2 #asset-library{max-width:1100px;margin:0 auto;padding:75px 24px}
+.composition-experience.composition-v2 .site-footer{background:#080a09}
+.composition-work .card-media .brand-card-cover{width:100%;height:100%;min-height:210px}
+.composition-work .card-body{min-height:115px}
+.composition-work .card-grid{align-items:stretch}
+.composition-work .card{display:flex;flex-direction:column}
+.composition-work .card-body{flex:1}
+.composition-work [data-project-card][hidden]{display:none!important}
+@media(max-width:860px){.composition-home.composition-v2 .portfolio-hero,.composition-home.composition-v2 .portfolio-hero .hero-inner{min-height:730px!important}.composition-home.composition-v2 .portfolio-hero .hero-inner{padding-top:145px!important}.composition-home.composition-v2 .portrait-stage{left:60%!important;width:74vw!important;height:420px!important;bottom:30px!important}.composition-home.composition-v2 .hero-3d-fallback{left:60%!important;width:60vw!important;height:52%!important}.composition-home.composition-v2 .portfolio-hero .hero-statement{bottom:48px!important;width:35%!important}.composition-home.composition-v2 .concept-timeline{grid-template-columns:1fr;gap:22px}.composition-home.composition-v2 .concept-timeline .interaction-heading,.composition-home.composition-v2 .concept-steps,.composition-home.composition-v2 .comp-process-visual{grid-column:1;grid-row:auto}.composition-home.composition-v2 .comp-process-visual{position:relative;top:auto}.composition-experience.composition-v2 .comp-exp-list li{grid-template-columns:145px minmax(0,1fr)}.composition-experience.composition-v2 .comp-float-icons i{font-size:28px;width:52px;height:52px}}
+@media(max-width:560px){.composition-home.composition-v2 .portfolio-hero,.composition-home.composition-v2 .portfolio-hero .hero-inner{min-height:755px!important}.composition-home.composition-v2 .portfolio-hero .hero-inner{padding:145px 19px 26px!important}.composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic{font-size:clamp(62px,17vw,96px)!important;letter-spacing:-.065em!important;line-height:.97!important}.composition-home.composition-v2 .portfolio-hero #hero-title .picked{font-size:37px!important}.composition-home.composition-v2 .portrait-stage{left:50%!important;bottom:176px!important;width:98vw!important;height:330px!important}.composition-home.composition-v2 .hero-3d-fallback{left:50%!important;bottom:185px!important;width:90vw!important;height:340px!important}.composition-home.composition-v2 .portfolio-hero .hero-statement{left:23px!important;right:23px!important;bottom:22px!important;max-width:none!important;width:auto!important}.composition-home.composition-v2 .portfolio-hero .hero-statement-title{font-size:15px!important;max-width:34ch}.composition-home.composition-v2 .portfolio-hero .hero-statement>p:last-of-type{font-size:11px!important;max-width:48ch}.composition-home.composition-v2 .portfolio-hero .hero-actions{margin-top:12px!important;gap:8px!important}.composition-home.composition-v2 .portfolio-hero .hero-actions .btn{font-size:11px!important;padding:9px 13px!important;min-height:35px!important}.composition-home.composition-v2 .comp-about{grid-template-columns:1fr;padding:65px 24px;gap:30px}.composition-home.composition-v2 .comp-about>img{max-width:460px;max-height:360px;aspect-ratio:4/3}.composition-home.composition-v2 .concept-timeline{margin-top:70px!important;padding:35px 15px 65px}.composition-home.composition-v2 .concept-timeline .interaction-heading h2{font-size:31px!important}.composition-home.composition-v2 .comp-process-visual{padding:13px;min-height:0}.composition-home.composition-v2 .comp-process-status{font-size:10px}.composition-experience.composition-v2 .experience-composition-hero{min-height:390px;padding-top:95px}.composition-experience.composition-v2 .experience-composition-hero>img{height:280px;width:96vw}.composition-experience.composition-v2 .experience-wireframe--one{width:180px;height:125px;left:0}.composition-experience.composition-v2 .experience-wireframe--two{width:110px;height:145px;right:0}.composition-experience.composition-v2 .comp-exp-list li{grid-template-columns:1fr;gap:9px}.composition-experience.composition-v2 .comp-exp-list li time{font-size:11px}.composition-experience.composition-v2 .comp-collab-grid{grid-template-columns:1fr}.composition-experience.composition-v2 .comp-collab-grid article{min-height:0}.composition-experience.composition-v2 .comp-service-row{grid-template-columns:24px 1fr 20px}.composition-experience.composition-v2 .comp-service-row p{grid-column:2}.composition-experience.composition-v2 .comp-service-row i{grid-column:3;grid-row:1}.composition-experience.composition-v2 .composition-preserved-projects,.composition-experience.composition-v2 .composition-preserved-education{padding:60px 24px}}
+@media(prefers-reduced-motion:reduce){.composition-home.composition-v2 .concept-step,.composition-work .card{transition:none!important}}
