@@ -9,14 +9,16 @@ for(const width of [1440,390]){
     const stage=page.locator('.concept-timeline.workflow-stage');
     await stage.waitFor({timeout:25000});
     await page.waitForFunction(()=>[...document.styleSheets].some(s=>s.href?.includes('composition-workflow-stage.css')),{timeout:12000});
+    // Browser test must sample exact scroll offsets; the site intentionally uses smooth anchor scrolling.
+    await page.addStyleTag({content:'html,body{scroll-behavior:auto!important}'});
     assert.equal(await stage.locator('.workflow-stage-step').count(),6);
     const initial=await stage.evaluate(s=>({height:s.offsetHeight,viewport:innerHeight,sticky:getComputedStyle(s.querySelector('.workflow-stage-sticky')).position,videoFit:getComputedStyle(s.querySelector('video')).objectFit,videoRect:s.querySelector('video').getBoundingClientRect().width,stageRect:s.getBoundingClientRect().width,overlay:getComputedStyle(s.querySelector('.workflow-stage-light')).backgroundImage}));
     assert.equal(initial.sticky,'sticky');assert.equal(initial.videoFit,'cover');assert(initial.height>=initial.viewport*5);assert(initial.videoRect>=initial.stageRect*.95);assert(initial.overlay.includes('gradient'));
-    await stage.evaluate(s=>scrollTo(0,s.getBoundingClientRect().top+scrollY));
-    await page.waitForTimeout(350);
+    await stage.evaluate(s=>scrollTo({top:s.getBoundingClientRect().top+scrollY,behavior:'instant'}));
+    await page.waitForTimeout(200);
     for(const index of [0,2,4,5]){
-      await stage.evaluate((s,i)=>scrollTo(0,s.getBoundingClientRect().top+scrollY+(s.offsetHeight-innerHeight)*((i+.25)/6)),index);
-      await page.waitForTimeout(140);
+      await stage.evaluate((s,i)=>scrollTo({top:s.getBoundingClientRect().top+scrollY+(s.offsetHeight-innerHeight)*((i+.25)/6),behavior:'instant'}),index);
+      await page.waitForTimeout(220);
       const current=await stage.locator('.workflow-stage-step.is-current').count();
       assert.equal(current,1,`Stage ${index}: expected one active step`);
       assert.equal(await stage.locator('.workflow-stage-step.is-current').getAttribute('data-workflow-index'),String(index));
