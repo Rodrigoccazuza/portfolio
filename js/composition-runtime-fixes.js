@@ -1,8 +1,7 @@
 /* Branch-specific media/layout interoperability fixes after the composition mounts. */
 (function(){
   'use strict';
-  if(!document.body.classList.contains('composition-v2'))return;
-  if(!document.body.classList.contains('composition-home'))return;
+  if(!document.body.classList.contains('composition-v2')||!document.body.classList.contains('composition-home'))return;
   const oldArt=document.querySelector('.portfolio-hero .hero-background');
   if(oldArt){oldArt.hidden=true;oldArt.setAttribute('aria-hidden','true');oldArt.style.setProperty('display','none','important');}
   const hero=document.querySelector('.portfolio-hero');
@@ -17,17 +16,19 @@
   video.addEventListener('error',()=>{video.hidden=true;video.style.opacity='0';});
   let activated=false;
   const activate=()=>{
-    if(activated)return;
-    activated=true;
-    // The base site's lazy-media manager moves offscreen video.src into
-    // data-deferred-src. Restore it once the workflow approaches the viewport.
+    if(activated)return;activated=true;
+    // The inherited lazy-media script strips video[src] and stores it in
+    // data-deferred-src, even if video.load() is called. A <source> child is
+    // required for this custom scroll-scrub player to load independently.
     const src=video.dataset.deferredSrc||video.getAttribute('src')||new URL('assets/video/concept-to-implementation.mp4',document.baseURI).href;
+    video.removeAttribute('src');
     delete video.dataset.deferredManaged;delete video.dataset.deferredSrc;
-    video.setAttribute('src',src);video.preload='auto';video.load();
+    const source=document.createElement('source');source.src=src;source.type='video/mp4';
+    video.replaceChildren(source);video.preload='auto';video.load();
     if(video.readyState>=1&&Number.isFinite(video.duration)&&video.duration>0){video.style.opacity='1';video.style.pointerEvents='auto';}
   };
   if('IntersectionObserver' in window){
-    const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();activate();}},{rootMargin:'950px 0px'});
+    const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();activate();}},{rootMargin:'700px 0px'});
     observer.observe(process);
   }else activate();
 }());
