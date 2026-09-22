@@ -1,0 +1,108 @@
+/* Exact-layout pass for the September 22 1100 × 778 hero reference.
+   Loaded after the composition, finishing and visibility sheets. Only the
+   homepage hero and its navigation are affected; all other sections remain as-is. */
+@media (min-width:861px) {
+  body.composition-home.composition-v2 .portfolio-hero {
+    height:100svh!important;min-height:700px!important;max-height:960px!important;
+    overflow:hidden!important;
+  }
+  body.composition-home.composition-v2 .portfolio-hero .hero-inner {
+    height:100%!important;min-height:0!important;max-width:none!important;
+    padding:clamp(115px,16vh,160px) 0 0!important;
+  }
+  body.composition-home.composition-v2 .portfolio-hero .hero-intro {
+    position:relative!important;z-index:4!important;width:100%!important;
+    margin:0 auto!important;text-align:center!important;
+  }
+  body.composition-home.composition-v2 .portfolio-hero .hero-kicker {
+    font-size:clamp(36px,4.35vw,60px)!important;line-height:1.08!important;
+    font-weight:900!important;margin:0!important;letter-spacing:-.045em!important;
+  }
+  body.composition-home.composition-v2 .portfolio-hero #hero-title {
+    margin:0!important;padding:0!important;gap:0!important;
+    align-items:center!important;overflow:visible!important;
+  }
+  body.composition-home.composition-v2 .portfolio-hero #hero-title .picked {
+    font-size:clamp(51px,5.6vw,83px)!important;line-height:1.03!important;
+    min-height:1.03em!important;letter-spacing:-.038em!important;
+    color:#8e58f5!important;
+  }
+  body.composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic {
+    font-family:'Array','Arial Black',sans-serif!important;font-weight:700!important;
+    font-size:clamp(170px,23.7vw,360px)!important;line-height:.77!important;
+    letter-spacing:-.022em!important;margin:.025em 0 0!important;
+    max-width:100%!important;white-space:nowrap!important;
+    color:#66d487!important;-webkit-text-fill-color:#66d487!important;
+    background:none!important;background-image:none!important;transform:none!important;
+  }
+  body.composition-home.composition-v2 .portrait-stage {
+    left:50%!important;bottom:clamp(48px,7.6vh,75px)!important;
+    width:min(52vw,650px)!important;height:min(55vw,650px)!important;
+    transform:translateX(-50%)!important;
+    z-index:6!important;
+  }
+  body.composition-home.composition-v2 .hero-3d-fallback {
+    left:50%!important;bottom:clamp(48px,7.6vh,75px)!important;
+    width:min(48vw,580px)!important;height:62%!important;
+    transform:translateX(-50%)!important;z-index:5!important;
+  }
+  body.composition-home.composition-v2 .portfolio-hero .hero-statement {
+    position:absolute!important;left:clamp(33px,3.1vw,52px)!important;
+    top:auto!important;bottom:clamp(67px,9vh,103px)!important;
+    width:min(42vw,475px)!important;max-width:475px!important;
+    margin:0!important;padding:0!important;z-index:8!important;
+  }
+  body.composition-home.composition-v2 .portfolio-hero .hero-statement-title {
+    font-size:clamp(19px,1.8vw,26px)!important;line-height:1.35!important;
+    max-width:440px!important;margin:0 0 16px!important;
+    font-weight:750!important;
+  }
+  body.composition-home.composition-v2 .portfolio-hero .hero-statement > p:last-of-type {
+    font-size:clamp(13px,1.2vw,17px)!important;line-height:1.58!important;
+    max-width:435px!important;margin:0!important;
+  }
+  body.composition-home.composition-v2 .portfolio-hero .hero-actions {
+    gap:13px!important;margin-top:clamp(24px,3.2vh,34px)!important;
+  }
+  body.composition-home.composition-v2 .portfolio-hero .hero-actions .btn {
+    min-height:43px!important;padding:12px 24px!important;
+    font-size:13px!important;font-weight:700!important;
+  }
+  /* Reference header: compact wordmark at the left, menu at the right. */
+  body.composition-home.composition-v2 .site-header {
+    top:clamp(36px,5.8vh,54px)!important;left:clamp(33px,3.6vw,53px)!important;
+    right:clamp(50px,6.9vw,105px)!important;
+  }
+  body.composition-home.composition-v2 .site-header .nav-logo img {
+    width:67px!important;height:auto!important;max-height:43px!important;
+  }
+  body.composition-home.composition-v2 .nav-links ul {
+    left:auto!important;right:clamp(135px,15vw,205px)!important;
+    top:50%!important;transform:translateY(-50%)!important;gap:24px!important;
+  }
+  body.composition-home.composition-v2 .nav-links ul a {font-size:12px!important;}
+  body.composition-home.composition-v2 .nav-resume-btn {
+    min-height:38px!important;padding:9px 21px!important;font-size:12px!important;
+  }
+}
+/* Narrow desktop/laptop: keep the portrait clear of text and avoid clipping. */
+@media(min-width:861px) and (max-width:1100px) {
+  body.composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic {font-size:23vw!important;}
+  body.composition-home.composition-v2 .portfolio-hero .hero-statement {width:39%!important;}
+  body.composition-home.composition-v2 .portrait-stage {width:50vw!important;}
+}
+@media(max-width:860px) {
+  body.composition-home.composition-v2 .portfolio-hero .hero-kicker {font-size:clamp(28px,6vw,43px)!important;}
+  body.composition-home.composition-v2 .portfolio-hero #hero-title .picked {color:#8e58f5!important;}
+  body.composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic {
+    font-family:'Array','Arial Black',sans-serif!important;font-weight:700!important;
+    color:#66d487!important;-webkit-text-fill-color:#66d487!important;
+    background:none!important;background-image:none!important;
+  }
+}
+@media(max-width:560px) {
+  body.composition-home.composition-v2 .portfolio-hero #hero-title .accent-italic {
+    font-size:clamp(64px,22vw,112px)!important;letter-spacing:-.025em!important;
+  }
+  body.composition-home.composition-v2 .portfolio-hero .hero-statement {z-index:8!important;}
+}
