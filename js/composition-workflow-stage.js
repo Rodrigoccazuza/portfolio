@@ -16,6 +16,8 @@
   let target = 0;
   let frame = 0;
   let loaded = false;
+  let seeking = false;
+  let seekFallback = 0;
   function loadVideo() {
     if (loaded) return;
     loaded = true;
@@ -30,14 +32,24 @@
     }, { rootMargin: '900px 0px' });
     observer.observe(section);
   } else loadVideo();
+  function releaseSeek() {
+    seeking = false;
+    if (seekFallback) { clearTimeout(seekFallback); seekFallback = 0; }
+    seek();
+  }
   function seek() {
-    if (reduceMotion.matches || !duration || video.readyState < 1) return;
+    if (reduceMotion.matches || !duration || video.readyState < 1 || seeking) return;
     const next = Math.max(0, Math.min(duration - .035, target));
     if (Math.abs(video.currentTime - next) < .025) return;
-    // Do not hold a seek-lock here. Some mobile/WebKit-style media decoders can
-    // delay or omit a seeked event while paused; assigning the newest scroll
-    // target directly keeps the scrub responsive and lets the decoder coalesce.
-    try { video.currentTime = next; } catch (_) {}
+    seeking = true;
+    try {
+      video.currentTime = next;
+      // Desktop Chromium reliably emits seeked. Some mobile/paused decoders can
+      // delay it, so this fallback releases the lock and applies the newest target.
+      seekFallback = window.setTimeout(releaseSeek, 180);
+    } catch (_) {
+      seeking = false;
+    }
   }
   function update() {
     frame = 0;
@@ -49,16 +61,21 @@
   }
   function queue() { if (!frame) frame = requestAnimationFrame(update); }
   function updateMotion() {
-    // Reduced-motion visitors get the complete film with native playback controls,
-    // rather than a forced scroll animation they cannot pause.
     video.controls = reduceMotion.matches;
-    if (reduceMotion.matches) { if (!loaded) loadVideo(); }
-    else { video.pause(); queue(); }
+    if (reduceMotion.matches) {
+      if (!loaded) loadVideo();
+      if (seekFallback) { clearTimeout(seekFallback); seekFallback = 0; }
+      seeking = false;
+    } else {
+      video.pause();
+      queue();
+    }
   }
   video.addEventListener('loadedmetadata', () => {
     duration = Number.isFinite(video.duration) ? video.duration : 0;
     if (!reduceMotion.matches) { video.pause(); queue(); }
   });
+  video.addEventListener('seeked', releaseSeek);
   video.addEventListener('loadeddata', queue);
   video.addEventListener('canplay', queue);
   video.addEventListener('play', () => { if (!reduceMotion.matches) video.pause(); });
