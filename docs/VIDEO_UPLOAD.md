@@ -1,1 +1,5 @@
-The supplied 10.005-second H.264 workflow video is prepared as `concept-to-implementation.mp4`. Upload the MP4 to `assets/video/` on the `final_version_oficial` branch through GitHub's Add file → Upload files control. Its expected path is `assets/video/concept-to-implementation.mp4`, already referenced by the scroll-sync JS. The connected GitHub write API supports UTF-8 text and cannot transfer this binary attachment. Do not upload the image reference or a renamed screenshot in place of the video.
+# Workflow video — installed
+
+The original `Create_a_premium_dark_mode_mot.mp4` uploaded to `main` has been copied on `final_version_oficial` as `assets/video/concept-to-implementation.mp4`. The original and copy share Git blob SHA `9048f89299ebb79256e608be1ff7f0ca3d170aab`.
+
+No further upload is required. The active six-stage scroll and video seek controller is `js/composition-v2.js`. Validate visual frame timing and scrolling in desktop and mobile browsers before merging.
