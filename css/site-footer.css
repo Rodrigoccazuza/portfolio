@@ -1,0 +1,121 @@
+/* Canonical sitewide footer — mirrors the Contact page across every route. */
+#sitewide-footer.site-footer{
+  padding-top:var(--space-xl);
+  background:#000!important;
+  color:#fff;
+  overflow:hidden;
+}
+#sitewide-footer .footer-cta-wrap{position:relative}
+#sitewide-footer .footer-cta{
+  position:relative;
+  min-height:clamp(30rem,48vw,43rem);
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  border-radius:var(--radius-large) var(--radius-large) 0 0;
+  background:radial-gradient(circle at 75% 45%,rgba(96,38,236,.32),transparent 32%),#080808!important;
+}
+#sitewide-footer .footer-cta-copy{
+  position:relative;
+  z-index:2;
+  width:58%;
+  padding:clamp(2rem,6vw,6rem);
+}
+#sitewide-footer .footer-cta-copy h2{
+  color:#fff!important;
+  font-size:clamp(1.96rem,4.2vw,4.2rem);
+  line-height:.92;
+}
+#sitewide-footer .footer-cta-copy>p:not(.eyebrow){
+  max-width:44rem;
+  color:rgba(255,255,255,.72)!important;
+  font-size:var(--text-lg);
+}
+#sitewide-footer .footer-cta-copy .btn{margin-top:var(--space-md)}
+#sitewide-footer .footer-portrait{
+  position:absolute;
+  z-index:1;
+  right:-7%;
+  bottom:-1px;
+  width:min(72%,61rem);
+  height:112%;
+  max-width:none;
+  object-fit:contain;
+  object-position:right bottom;
+  transform:scale(1.18);
+  transform-origin:right bottom;
+}
+#sitewide-footer .footer-panel{
+  position:relative;
+  z-index:3;
+  margin-top:0;
+  padding:clamp(2rem,5vw,5rem);
+  border-radius:clamp(2rem,6vw,6rem) clamp(2rem,6vw,6rem) 0 0;
+  background:var(--color-green)!important;
+  color:#000!important;
+}
+#sitewide-footer .footer-panel-intro{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:var(--space-xl);
+  align-items:end;
+  padding-bottom:var(--space-xl);
+  border-bottom:1px solid rgba(0,0,0,.22);
+}
+#sitewide-footer .footer-identity{
+  margin:0;
+  color:#000!important;
+  font-family:var(--font-display);
+  font-size:clamp(2.5rem,5vw,5.5rem);
+  font-weight:800;
+  line-height:.76;
+  letter-spacing:-.06em;
+  text-transform:lowercase;
+}
+#sitewide-footer .footer-panel-intro>p:last-child{
+  max-width:36rem;
+  color:rgba(0,0,0,.72)!important;
+  font-size:var(--text-md);
+}
+#sitewide-footer .footer-columns{
+  display:grid;
+  grid-template-columns:1fr .8fr 1.35fr 1fr;
+  gap:var(--space-xl);
+  padding-top:var(--space-xl);
+}
+#sitewide-footer .footer-columns h3{margin-bottom:var(--space-sm);color:#000!important;font-size:var(--text-base);letter-spacing:0}
+#sitewide-footer .footer-columns p,
+#sitewide-footer .footer-links a,
+#sitewide-footer .footer-email{color:rgba(0,0,0,.72)!important}
+#sitewide-footer .footer-links a:hover,
+#sitewide-footer .footer-email:hover{color:var(--color-violet)!important}
+#sitewide-footer .social-row a{
+  color:#000!important;
+  border-color:rgba(0,0,0,.28)!important;
+}
+#sitewide-footer .social-row a:hover{color:var(--color-violet)!important;border-color:var(--color-violet)!important}
+#sitewide-footer .footer-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--space-md);
+  min-height:6rem;
+  color:rgba(255,255,255,.58);
+}
+#sitewide-footer .footer-bottom p{margin:0}
+#sitewide-footer .footer-bottom a{color:var(--color-green)!important}
+
+@media(max-width:900px){
+  #sitewide-footer .footer-columns{grid-template-columns:repeat(2,1fr)}
+  #sitewide-footer .footer-cta-copy{width:66%}
+  #sitewide-footer .footer-portrait{right:-18%;width:82%;height:108%;transform:scale(1.12);opacity:.82}
+}
+@media(max-width:640px){
+  #sitewide-footer .footer-cta{min-height:42rem;align-items:flex-start}
+  #sitewide-footer .footer-cta-copy{width:100%;padding:var(--space-lg) var(--space-md)}
+  #sitewide-footer .footer-cta-copy>p:not(.eyebrow){max-width:27rem}
+  #sitewide-footer .footer-portrait{right:-34%;width:135%;height:69%;transform:scale(1.08);opacity:.68}
+  #sitewide-footer .footer-panel-intro,
+  #sitewide-footer .footer-columns{grid-template-columns:1fr}
+  #sitewide-footer .footer-bottom{flex-direction:column;align-items:flex-start;padding-block:var(--space-md)}
+}
