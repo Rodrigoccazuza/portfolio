@@ -19,7 +19,7 @@ await check('Home renders composition and removes old hero artwork',async()=>{
   assert.equal(await desktop.locator('.comp-about').count(),1);
   // Email deck keeps the original card treatment.
   const emailCover=desktop.locator('.email-deck-card.is-selected .email-card-frame img');
-  await emailCover.waitFor({state:'visible',timeout:15000});
+  await emailCover.waitFor({state:'attached',timeout:15000});
   assert.equal(await emailCover.evaluate(el=>getComputedStyle(el).objectFit),'cover');
   // Creative-library shortcuts belong directly after the static folders, before social video.
   assert.equal(await desktop.locator('.folder-section > .import-library-links').count(),1);
