@@ -17,14 +17,25 @@ await check('Home renders composition and removes old hero artwork',async()=>{
   assert.equal(await desktop.locator('.portrait-stage canvas').count(),1);
   assert.equal(await desktop.locator('#hero-title .accent-italic').textContent(),'Designer');
   assert.equal(await desktop.locator('.comp-about').count(),1);
-  // Email cards keep a cropped cover in the deck; the full artwork is reserved for the viewer.
+  // Email deck keeps the original card treatment.
   const emailCover=desktop.locator('.email-deck-card.is-selected .email-card-frame img');
   await emailCover.waitFor({state:'visible',timeout:15000});
   assert.equal(await emailCover.evaluate(el=>getComputedStyle(el).objectFit),'cover');
-  assert.equal(await emailCover.evaluate(el=>getComputedStyle(el).objectPosition),'50% 0%');
-  // Creative-library shortcuts belong directly after the folder collection, before social video.
+  // Creative-library shortcuts belong directly after the static folders, before social video.
   assert.equal(await desktop.locator('.folder-section > .import-library-links').count(),1);
   assert.equal(await desktop.locator('.folder-section > .import-library-links + .media-rails--social-video').count(),1);
+  const libraryLayout=await desktop.locator('.folder-section > .import-library-links').evaluate(el=>({
+    justify:getComputedStyle(el).justifyContent,
+    borderTop:getComputedStyle(el).borderTopWidth
+  }));
+  assert.equal(libraryLayout.justify,'center');
+  assert.equal(libraryLayout.borderTop,'0px');
+  const socialSection=desktop.locator('#social.folder-section');
+  assert.equal(await socialSection.evaluate(el=>getComputedStyle(el).paddingBottom),'0px');
+  const socialLabel=desktop.locator('#social .media-rails--social-video .portfolio-category-label');
+  await socialLabel.waitFor({state:'visible',timeout:10000});
+  assert.notEqual(await socialLabel.evaluate(el=>getComputedStyle(el).color),'rgb(16, 22, 16)');
+  assert.equal(await desktop.locator('video[src*="videotwofinal.m4v"]').count(),0);
   await desktop.waitForTimeout(1300);
   report.homeMetrics=await desktop.evaluate(()=>({heroBackgroundDisplay:getComputedStyle(document.querySelector('.hero-background')).display,portraitState:document.querySelector('.portrait-stage')?.dataset.modelState}));
   assert.equal(report.homeMetrics.heroBackgroundDisplay,'none');
