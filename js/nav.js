@@ -207,6 +207,14 @@
   var root = document.baseURI;
   var url = function (path) { return new URL(path, root).href; };
 
+  if (!document.querySelector('link[data-site-footer]')) {
+    var footerStyles = document.createElement('link');
+    footerStyles.rel = 'stylesheet';
+    footerStyles.href = url('css/site-footer.css?v=20260923-1');
+    footerStyles.setAttribute('data-site-footer', 'true');
+    document.head.appendChild(footerStyles);
+  }
+
   function footerMarkup() {
     return '' +
       '<footer class="site-footer" id="sitewide-footer">' +
