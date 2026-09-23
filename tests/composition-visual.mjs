@@ -17,6 +17,14 @@ await check('Home renders composition and removes old hero artwork',async()=>{
   assert.equal(await desktop.locator('.portrait-stage canvas').count(),1);
   assert.equal(await desktop.locator('#hero-title .accent-italic').textContent(),'Designer');
   assert.equal(await desktop.locator('.comp-about').count(),1);
+  // Email cards keep a cropped cover in the deck; the full artwork is reserved for the viewer.
+  const emailCover=desktop.locator('.email-deck-card.is-selected .email-card-frame img');
+  await emailCover.waitFor({state:'visible',timeout:15000});
+  assert.equal(await emailCover.evaluate(el=>getComputedStyle(el).objectFit),'cover');
+  assert.equal(await emailCover.evaluate(el=>getComputedStyle(el).objectPosition),'50% 0%');
+  // Creative-library shortcuts belong directly after the folder collection, before social video.
+  assert.equal(await desktop.locator('.folder-section .folder-collection + .import-library-links').count(),1);
+  assert.equal(await desktop.locator('.folder-section .import-library-links + .media-rails--social-video').count(),1);
   await desktop.waitForTimeout(1300);
   report.homeMetrics=await desktop.evaluate(()=>({heroBackgroundDisplay:getComputedStyle(document.querySelector('.hero-background')).display,portraitState:document.querySelector('.portrait-stage')?.dataset.modelState}));
   assert.equal(report.homeMetrics.heroBackgroundDisplay,'none');
@@ -57,6 +65,15 @@ await check('Experience retains original career projects education and library',
   assert.equal(await desktop.locator('.composition-preserved-projects').count(),1);
   assert.equal(await desktop.locator('.composition-preserved-education').count(),1);
   assert.equal(await desktop.locator('#asset-library').count(),1);
+  assert((await desktop.locator('.comp-collab-grid').textContent()).includes('Tainá Borges Photography'));
+  assert(!(await desktop.locator('.comp-collab-grid').textContent()).includes('Prisma Providers'));
+  const contrast=await desktop.locator('.comp-green-top p').evaluate(el=>{
+    const rgb=s=>{const m=s.match(/[\d.]+/g).slice(0,3).map(Number);return m.map(v=>{v/=255;return v<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4)});};
+    const lum=s=>{const a=rgb(s);return .2126*a[0]+.7152*a[1]+.0722*a[2];};
+    const fg=lum(getComputedStyle(el).color),bg=lum(getComputedStyle(el.closest('.comp-green-panel')).backgroundColor);
+    return (Math.max(fg,bg)+.05)/(Math.min(fg,bg)+.05);
+  });
+  assert(contrast>=4.5,'Experience green-panel body contrast '+contrast);
   await revealFullPage(desktop);await desktop.screenshot({path:'qa-artifacts/experience-desktop.png',fullPage:true});report.pages.push('experience-desktop.png');
 });
 const mobile=await newPage(390,844);
