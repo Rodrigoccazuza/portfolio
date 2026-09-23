@@ -60,7 +60,7 @@
       { id: 'social', index: '04', label: 'Social Media', layout: 'rows', title: 'Social media systems', description: 'Static and motion-led content organized as repeatable campaign families.', projects: [
         { id: 'social-static', title: 'BodyFactory Feed Content', description: 'Educational, promotional, and treatment-focused feed content.', category: 'Organic Social', format: 'Static', media: { type: 'gallery', alt: 'BodyFactory social creative', items: imageItems('social', socialNames) } },
         { id: 'social-video', title: 'Social Video Content', description: 'Short-form edits for Instagram feeds and creator-led social storytelling.', category: 'Organic Social', format: 'Video', media: { type: 'gallery', alt: 'Social video', items: [
-          { src: 'assets/portfolio-media-web/SOCIAL MEDIA/MYDATAMYMONEY - INSTAGRAM/better audio final version.m4v', alt: 'Your Data Your Money social video' }, { src: 'assets/portfolio-media-web/SOCIAL MEDIA/MYDATAMYMONEY - INSTAGRAM/videotwofinal.m4v', alt: 'Your Data Your Money video edit' },
+          { src: 'assets/portfolio-media-web/SOCIAL MEDIA/MYDATAMYMONEY - INSTAGRAM/better audio final version.m4v', alt: 'Your Data Your Money social video' }, 
           { src: 'assets/portfolio-media-web/VIDEO EDITING/INSTAGRAM FEED/2 FORMATOS.m4v', alt: 'Instagram format edit' }, { src: 'assets/portfolio-media-web/VIDEO EDITING/INSTAGRAM FEED/HYDRAFACIAL PRO IG .m4v', alt: 'Hydrafacial Pro Instagram video' }, { src: 'assets/portfolio-media-web/VIDEO EDITING/INSTAGRAM FEED/POV FACIAL.m4v', alt: 'POV facial Instagram video' }
         ] } }
       ] },
