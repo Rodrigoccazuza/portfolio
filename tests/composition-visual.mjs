@@ -23,8 +23,8 @@ await check('Home renders composition and removes old hero artwork',async()=>{
   assert.equal(await emailCover.evaluate(el=>getComputedStyle(el).objectFit),'cover');
   assert.equal(await emailCover.evaluate(el=>getComputedStyle(el).objectPosition),'50% 0%');
   // Creative-library shortcuts belong directly after the folder collection, before social video.
-  assert.equal(await desktop.locator('.folder-section .folder-collection + .import-library-links').count(),1);
-  assert.equal(await desktop.locator('.folder-section .import-library-links + .media-rails--social-video').count(),1);
+  assert.equal(await desktop.locator('.folder-section > .import-library-links').count(),1);
+  assert.equal(await desktop.locator('.folder-section > .import-library-links + .media-rails--social-video').count(),1);
   await desktop.waitForTimeout(1300);
   report.homeMetrics=await desktop.evaluate(()=>({heroBackgroundDisplay:getComputedStyle(document.querySelector('.hero-background')).display,portraitState:document.querySelector('.portrait-stage')?.dataset.modelState}));
   assert.equal(report.homeMetrics.heroBackgroundDisplay,'none');
