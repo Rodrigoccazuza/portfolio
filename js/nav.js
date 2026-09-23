@@ -199,3 +199,86 @@
   });
   mountObserver.observe(document.getElementById('work') || document.body, { childList: true, subtree: true });
 }());
+
+// Sitewide footer: use the Contact-page CTA + green footer as the single footer system.
+(function () {
+  'use strict';
+
+  var root = document.baseURI;
+  var url = function (path) { return new URL(path, root).href; };
+
+  function footerMarkup() {
+    return '' +
+      '<footer class="site-footer" id="sitewide-footer">' +
+        '<div class="container footer-cta-wrap">' +
+          '<div class="footer-cta">' +
+            '<div class="footer-cta-copy">' +
+              '<p class="eyebrow">Have a project in mind?</p>' +
+              '<h2>Ready to bring<br>your vision to <span class="accent-italic">life?</span></h2>' +
+              '<p>Let\'s turn your next campaign, brand system, video, or website into something clear, useful, and memorable.</p>' +
+              '<a class="btn btn-primary" href="' + url('contact/') + '">Start a project <span aria-hidden="true">→</span></a>' +
+            '</div>' +
+            '<img class="footer-portrait" src="' + url('images/site/footer-portrait.png') + '" alt="Rodrigo Cazuza wearing sunglasses and a purple shirt" width="1536" height="1024" loading="lazy" decoding="async">' +
+          '</div>' +
+        '</div>' +
+        '<div class="container footer-panel">' +
+          '<div class="footer-panel-intro">' +
+            '<p class="footer-identity">Rodrigo<br>Cazuza.</p>' +
+            '<p>Multimedia design and front-end development shaped around strategy, story, and real-world production.</p>' +
+          '</div>' +
+          '<div class="footer-columns">' +
+            '<div><h3>Services</h3><ul class="footer-links">' +
+              '<li><a href="' + url('work/brand-systems/') + '">Brand systems</a></li>' +
+              '<li><a href="' + url('work/email-design/') + '">Email design</a></li>' +
+              '<li><a href="' + url('work/meta-ad-creatives/') + '">Meta ad creative</a></li>' +
+              '<li><a href="' + url('work/video/') + '">Video production</a></li>' +
+              '<li><a href="' + url('work/web-design/') + '">Web design</a></li>' +
+            '</ul></div>' +
+            '<nav aria-label="Footer"><h3>Explore</h3><ul class="footer-links">' +
+              '<li><a href="' + url('work/') + '">Work</a></li>' +
+              '<li><a href="' + url('experience/') + '">Experience</a></li>' +
+              '<li><a href="' + url('resume/') + '">Résumé</a></li>' +
+              '<li><a href="' + url('contact/') + '">Contact</a></li>' +
+            '</ul></nav>' +
+            '<div><h3>Let\'s connect</h3>' +
+              '<a class="footer-email" href="mailto:visualdesigner@rodrigocazuza.com">visualdesigner@rodrigocazuza.com</a>' +
+              '<ul class="social-row">' +
+                '<li><a href="https://github.com/Rodrigoccazuza" target="_blank" rel="noopener noreferrer">GitHub</a></li>' +
+                '<li><a href="https://www.linkedin.com/in/rodrigocazuza/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>' +
+                '<li><a href="https://www.youtube.com/@Drigoverse" target="_blank" rel="noopener noreferrer">YouTube</a></li>' +
+              '</ul>' +
+            '</div>' +
+            '<div><h3>Location</h3><p>New York City</p><p>Available for freelance and collaborative projects.</p></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="container footer-bottom">' +
+          '<p>&copy; 2026 Rodrigo Cazuza. All rights reserved.</p>' +
+          '<a href="#main-content">Back to top <span aria-hidden="true">↑</span></a>' +
+        '</div>' +
+      '</footer>';
+  }
+
+  function installFooter() {
+    if (document.getElementById('sitewide-footer')) return;
+
+    var existing = document.querySelector('.site-footer');
+    var campaignMount = document.getElementById('campaign-footer');
+    var wrapper = document.createElement('div');
+    wrapper.innerHTML = footerMarkup();
+    var footer = wrapper.firstElementChild;
+
+    if (existing) {
+      existing.replaceWith(footer);
+    } else if (campaignMount) {
+      campaignMount.replaceChildren(footer);
+    } else {
+      document.body.appendChild(footer);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', installFooter, { once: true });
+  } else {
+    installFooter();
+  }
+}());
