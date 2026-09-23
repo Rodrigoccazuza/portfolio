@@ -29,9 +29,23 @@ await check('Workflow displays only the full uncropped video with no text or gra
  assert.equal(data.fit,'contain',JSON.stringify(data));assert.equal(data.filter,'none',JSON.stringify(data));assert.equal(data.children,1,JSON.stringify(data));assert.equal(data.overlays,0,JSON.stringify(data));
 });
 const footerSamples=[];
-await check('Home, Work, Experience and Contact have the same footer',async()=>{
- for(const path of ['','work/','experience/','contact/']){await desktop.goto(base+path,{waitUntil:'domcontentloaded'});await desktop.waitForFunction(()=>document.querySelector('.site-footer .footer-panel-intro')!==null,{timeout:15000});if(path!=='contact/')await desktop.waitForTimeout(200);footerSamples.push(await desktop.locator('.site-footer').evaluate(node=>[...node.querySelectorAll('.footer-columns h3')].map(x=>x.textContent.trim()).join('|')));}
- assert.equal(new Set(footerSamples).size,1,JSON.stringify(footerSamples));
+await check('Sitewide pages share the full Contact CTA and green footer',async()=>{
+ for(const path of ['','work/','experience/','contact/','resume/','projects/web-design-taina-website/','campaigns/black-friday/']){
+  await desktop.goto(base+path,{waitUntil:'domcontentloaded'});
+  await desktop.waitForFunction(()=>document.querySelector('#sitewide-footer .footer-panel-intro')!==null,{timeout:15000});
+  const sample=await desktop.locator('#sitewide-footer').evaluate(node=>({
+   cta:node.querySelector('.footer-cta-copy h2')?.textContent.trim(),
+   button:node.querySelector('.footer-cta-copy .btn')?.textContent.trim(),
+   columns:[...node.querySelectorAll('.footer-columns h3')].map(x=>x.textContent.trim()).join('|'),
+   identity:node.querySelector('.footer-identity')?.textContent.replace(/\s+/g,' ').trim(),
+   portrait:!!node.querySelector('.footer-portrait')
+  }));
+  footerSamples.push(sample);
+ }
+ assert.equal(new Set(footerSamples.map(x=>JSON.stringify(x))).size,1,JSON.stringify(footerSamples));
+ assert.equal(footerSamples[0].button,'Start a project →');
+ assert.equal(footerSamples[0].identity,'Rodrigo Cazuza.');
+ assert.equal(footerSamples[0].portrait,true);
 });
 const mobile=await browser.newPage({viewport:{width:390,height:844}});
 await check('Mobile portrait is centered, copy follows it, and CTAs stack',async()=>{
