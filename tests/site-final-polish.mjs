@@ -8,6 +8,7 @@ const desktop=await browser.newPage({viewport:{width:1440,height:900}});
 await check('Finished desktop hero appears, is tall, centered and unclipped',async()=>{
  await desktop.goto(base,{waitUntil:'domcontentloaded'});
  await desktop.waitForFunction(()=>document.documentElement.classList.contains('composition-ready'),null,{timeout:15000});
+ await desktop.waitForFunction(()=>parseFloat(getComputedStyle(document.body).opacity)>=.95,null,{timeout:15000});
  const data=await desktop.evaluate(()=>{const hero=document.querySelector('.portfolio-hero'),designer=document.querySelector('#hero-title .accent-italic'),portrait=document.querySelector('.portrait-stage'),intro=document.querySelector('.hero-intro'),statement=document.querySelector('.hero-statement');const h=hero.getBoundingClientRect(),d=designer.getBoundingClientRect(),p=portrait.getBoundingClientRect(),i=intro.getBoundingClientRect(),s=statement.getBoundingClientRect();return {heroHeight:h.height,designerFont:parseFloat(getComputedStyle(designer).fontSize),designerCenter:d.x+d.width/2,portraitCenter:p.x+p.width/2,viewport:innerWidth,statementX:s.left,statementBottom:h.bottom-s.bottom,introBottom:i.bottom,portraitTop:p.top,designerLeft:d.left,designerRight:d.right,opacity:getComputedStyle(document.body).opacity};});
  assert(data.heroHeight>=900,JSON.stringify(data));
  assert(data.designerFont<=270,JSON.stringify(data));
