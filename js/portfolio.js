@@ -639,7 +639,6 @@
       var videos = renderMediaRailSection(Object.assign({}, section, {
         id: 'social-video', label: 'Social Video', projects: section.projects.filter(function (p) { return p.format === 'Video'; })
       }));
-      folderSection.appendChild(videos);
       var libraryLinks = element('nav', 'container import-library-links');
       libraryLinks.setAttribute('aria-label', 'Complete creative libraries');
       [['Social library', 'social-media-bodyfactory-instagram'], ['Video & raw footage', 'video-instagram-feed'], ['Paid creative', 'meta-ad-creatives-video-ad']].forEach(function (entry) {
@@ -647,7 +646,9 @@
         link.href = 'projects/' + entry[1] + '/#asset-library';
         libraryLinks.appendChild(link);
       });
+      // Keep shortcuts directly beneath the last static paid/social folder.
       folderSection.appendChild(libraryLinks);
+      folderSection.appendChild(videos);
       return folderSection;
     }
     if (section.layout === 'asymmetric') return renderMultimediaSection(section);
