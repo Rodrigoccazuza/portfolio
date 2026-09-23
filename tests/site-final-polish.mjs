@@ -34,18 +34,25 @@ await check('Sitewide pages share the full Contact CTA and green footer',async()
   await desktop.goto(base+path,{waitUntil:'domcontentloaded'});
   await desktop.waitForFunction(()=>document.querySelector('#sitewide-footer .footer-panel-intro')!==null,{timeout:15000});
   const sample=await desktop.locator('#sitewide-footer').evaluate(node=>({
-   cta:node.querySelector('.footer-cta-copy h2')?.textContent.trim(),
-   button:node.querySelector('.footer-cta-copy .btn')?.textContent.trim(),
-   columns:[...node.querySelectorAll('.footer-columns h3')].map(x=>x.textContent.trim()).join('|'),
-   identity:node.querySelector('.footer-identity')?.textContent.replace(/\s+/g,' ').trim(),
-   portrait:!!node.querySelector('.footer-portrait')
+   hasCta:/Ready to bring/.test(node.querySelector('.footer-cta-copy h2')?.textContent||''),
+   startHref:node.querySelector('.footer-cta-copy .btn')?.href,
+   columns:[...node.querySelectorAll('.footer-columns h3')].map(x=>x.textContent.replace(/[’']/g,'').trim().toLowerCase()).join('|'),
+   identity:(node.querySelector('.footer-identity')?.textContent||'').replace(/\s+/g,'').toLowerCase(),
+   portrait:!!node.querySelector('.footer-portrait'),
+   serviceLinks:node.querySelectorAll('.footer-columns .footer-links a').length,
+   socialLinks:node.querySelectorAll('.social-row a').length
   }));
   footerSamples.push(sample);
  }
- assert.equal(new Set(footerSamples.map(x=>JSON.stringify(x))).size,1,JSON.stringify(footerSamples));
- assert.equal(footerSamples[0].button,'Start a project →');
- assert.equal(footerSamples[0].identity,'Rodrigo Cazuza.');
- assert.equal(footerSamples[0].portrait,true);
+ const structural=footerSamples.map(x=>JSON.stringify({hasCta:x.hasCta,columns:x.columns,identity:x.identity,portrait:x.portrait,serviceLinks:x.serviceLinks,socialLinks:x.socialLinks}));
+ assert.equal(new Set(structural).size,1,JSON.stringify(footerSamples));
+ footerSamples.forEach(sample=>{
+  assert.equal(sample.hasCta,true,JSON.stringify(sample));
+  assert(sample.startHref.endsWith('/contact/'),JSON.stringify(sample));
+  assert.equal(sample.identity,'rodrigocazuza.',JSON.stringify(sample));
+  assert.equal(sample.portrait,true,JSON.stringify(sample));
+  assert.equal(sample.socialLinks,3,JSON.stringify(sample));
+ });
 });
 const mobile=await browser.newPage({viewport:{width:390,height:844}});
 await check('Mobile portrait is centered, copy follows it, and CTAs stack',async()=>{
