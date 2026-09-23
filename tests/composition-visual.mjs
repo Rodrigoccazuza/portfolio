@@ -33,6 +33,7 @@ await check('Home renders composition and removes old hero artwork',async()=>{
   const socialSection=desktop.locator('#social.folder-section');
   assert.equal(await socialSection.evaluate(el=>getComputedStyle(el).paddingBottom),'0px');
   const socialLabel=desktop.locator('#social .media-rails--social-video .portfolio-category-label');
+  await socialLabel.scrollIntoViewIfNeeded();
   await socialLabel.waitFor({state:'visible',timeout:10000});
   assert.notEqual(await socialLabel.evaluate(el=>getComputedStyle(el).color),'rgb(16, 22, 16)');
   assert.equal(await desktop.locator('video[src*="videotwofinal.m4v"]').count(),0);
