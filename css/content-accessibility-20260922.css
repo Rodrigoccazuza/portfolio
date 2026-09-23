@@ -32,49 +32,26 @@
   color:#174d2d!important;
 }
 
-/* Email cards show only the top/cover crop. Full-length artwork stays in the viewer. */
-.email-showcase{background:#090b0a!important;color:#f7f8f5!important}
-.email-showcase .portfolio-category-label,
-.email-showcase .email-showcase-intro h3,
-.email-showcase .email-selected-details h3{color:#f7f8f5!important}
-.email-showcase .email-showcase-intro p,
-.email-showcase .email-selected-details p,
-.email-showcase .email-disciplines li{color:#d6ddd7!important}
-.email-showcase .email-disciplines li{border-color:#465047!important}
-.email-card-frame{
-  padding:0!important;
-  min-height:27rem!important;
-  height:27rem!important;
-  background:#fff!important;
-  border-color:#404640!important;
-}
-.email-card-frame img{
-  display:block!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-  object-position:top center!important;
-  background:#fff!important;
-}
-.email-deck-card::after{background:rgba(9,11,10,.88)!important;border-color:rgba(255,255,255,.68)!important}
-.email-deck-control{background:#151815!important;color:#f7f8f5!important;border-color:#707a71!important}
-.email-deck-control:hover,.email-deck-control:focus-visible{background:var(--portfolio-green)!important;color:var(--portfolio-ink)!important;border-color:var(--portfolio-green)!important}
-
-/* Place library shortcuts immediately after the paid/social folders and make them readable. */
+/* Keep library shortcuts directly below the static folders, centered and without dividers. */
+.composition-home.composition-v2 #social.folder-section{padding-bottom:0!important}
 .folder-section .import-library-links{
   box-sizing:border-box!important;
-  width:100%!important;
-  max-width:none!important;
-  margin:0!important;
-  padding:28px max(24px,calc((100vw - 1120px)/2)) 34px!important;
-  background:var(--portfolio-green)!important;
-  border-top:1px solid rgba(7,24,13,.3)!important;
+  width:min(100%,1120px)!important;
+  max-width:1120px!important;
+  margin:0 auto!important;
+  padding:18px 24px 34px!important;
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+  flex-wrap:wrap!important;
+  background:transparent!important;
+  border:0!important;
   gap:14px!important;
 }
 .folder-section .import-library-links .btn{
   background:#202024!important;
   color:#fff!important;
-  border:1px solid #34343a!important;
+  border:1px solid #3e4140!important;
   font-weight:700!important;
 }
 .folder-section .import-library-links .btn:hover,
@@ -86,16 +63,31 @@
 }
 .folder-section .folder-count,
 .folder-section .folder-hint{color:#264b35!important;opacity:1!important}
+
+/* Nested video rail returns to black; category pill must remain legible on it. */
+.composition-home.composition-v2 #social .media-rails--social-video{
+  background:#090b0a!important;
+  color:#f7f8f5!important;
+  margin-inline:calc(50% - 50vw)!important;
+  width:100vw!important;
+}
+.composition-home.composition-v2 #social .media-rails--social-video .portfolio-category-label{
+  color:#f7f8f5!important;
+  background:#151715!important;
+  border-color:#505651!important;
+  opacity:1!important;
+}
+.composition-home.composition-v2 #social .media-rails--social-video .portfolio-category-label::before{
+  background:#681ab9!important;
+}
 .media-rails-showcase .portfolio-category-label,
 .media-rails-showcase .media-row-format{color:#f2f5f1!important;opacity:1!important}
 
 @media(max-width:600px){
   .composition-experience.composition-v2 .comp-green-panel .comp-green-top p{font-size:16px!important;line-height:1.65!important}
-  .email-card-frame{min-height:22rem!important;height:22rem!important}
-  .folder-section .import-library-links{padding:24px 30px 30px!important;display:grid!important;grid-template-columns:1fr 1fr!important}
-  .folder-section .import-library-links .btn{width:100%!important;min-height:54px!important;white-space:normal!important}
-  .folder-section .import-library-links .btn:last-child{grid-column:1/-1!important}
+  .folder-section .import-library-links{padding:18px 24px 28px!important;justify-content:center!important}
+  .folder-section .import-library-links .btn{min-height:50px!important;white-space:normal!important}
 }
 @media(prefers-reduced-motion:reduce){
-  .email-deck-card,.folder-section .import-library-links .btn{transition:none!important}
+  .folder-section .import-library-links .btn{transition:none!important}
 }
