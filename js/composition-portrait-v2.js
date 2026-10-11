@@ -39,8 +39,8 @@ if(stage&&canvas&&hero){
       renderer.render(scene,camera);verified=true;stage.classList.add('model-ready');stage.dataset.modelState='interactive';
     },undefined,error=>{stage.dataset.modelState='load-error';loading.textContent='The 3D portrait could not load';console.error(error);});
     function pointer(x,y){const r=hero.getBoundingClientRect();mx=clamp(((x-r.left)/r.width-.5)*2.4,-1,1);my=clamp(((y-r.top)/r.height-.5)*2.2,-1,1);}
-    addEventListener('pointermove',event=>{if(event.pointerType!=='touch')pointer(event.clientX,event.clientY);},{passive:true});
-    stage.addEventListener('pointerenter',event=>{hover=true;pointer(event.clientX,event.clientY);});stage.addEventListener('pointerleave',()=>{hover=false;});
+    // The stage is click-through (it overlaps the hero CTAs), so hover is a bounds test rather than pointerenter.
+    addEventListener('pointermove',event=>{if(event.pointerType==='touch')return;pointer(event.clientX,event.clientY);const s=stage.getBoundingClientRect();hover=event.clientX>=s.left&&event.clientX<=s.right&&event.clientY>=s.top&&event.clientY<=s.bottom;},{passive:true});
     hero.addEventListener('touchstart',event=>{if(event.touches[0]){hover=true;pointer(event.touches[0].clientX,event.touches[0].clientY);}},{passive:true});
     hero.addEventListener('touchmove',event=>{if(event.touches[0])pointer(event.touches[0].clientX,event.touches[0].clientY);},{passive:true});
     hero.addEventListener('touchend',()=>{mx=0;my=0;hover=false;},{passive:true});

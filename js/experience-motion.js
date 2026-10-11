@@ -2,6 +2,20 @@
 (function(){
   'use strict';
   if(!document.body.classList.contains('composition-experience')) return;
+
+  // Timeline: the accent rail fills as the list scrolls past, and the entry at mid-screen is marked
+  // current. Measured live (not with ScrollTrigger) so late layout shifts never desync it.
+  var list=document.querySelector('.comp-exp-list');
+  if(list){
+    var queued=false;
+    var update=function(){queued=false;var r=list.getBoundingClientRect();var mid=innerHeight*.55;list.style.setProperty('--timeline-progress',Math.max(0,Math.min(1,(mid-r.top)/Math.max(1,r.height))).toFixed(3));};
+    addEventListener('scroll',function(){if(!queued){queued=true;requestAnimationFrame(update);}},{passive:true});
+    addEventListener('resize',update);update();
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(entries){entries.forEach(function(e){e.target.classList.toggle('is-current',e.isIntersecting);});},{rootMargin:'-45% 0px -45% 0px'});
+      [].forEach.call(list.children,function(li){io.observe(li);});
+    }
+  }
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   function load(src){

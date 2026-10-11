@@ -38,7 +38,7 @@
     const collection = el('div', 'folder-collection'); container.append(collection);
     groups.forEach((group, groupIndex) => {
       const folder = el('div', 'interactive-folder'); const cover = el('button', 'folder-cover'); cover.type = 'button'; cover.setAttribute('aria-expanded', 'false');
-      const previews = el('span', 'folder-previews'); previews.setAttribute('aria-hidden', 'true'); group.items.filter(m => !/\.(m4v|mp4|webm)$/i.test(m.src)).slice(0,5).forEach((m,i) => { const photo = img(m.thumbnail || m.src, ''); photo.style.setProperty('--offset', i - 2); previews.append(photo); });
+      const previews = el('span', 'folder-previews'); previews.setAttribute('aria-hidden', 'true'); group.items.filter(m => !/\.(m4v|mp4|webm)$/i.test(m.src)).slice(0,5).forEach((m,i) => { const photo = img(m.thumbnail || m.src, m.alt || m.title || group.title); photo.style.setProperty('--offset', i - 2); previews.append(photo); });
       if (!previews.children.length) previews.append(el('span', 'folder-video', '▶'));
       cover.append(previews, el('span', 'folder-front', group.title), el('span', 'folder-count', group.items.length + ' pieces · Open folder'));
       const panel = el('div', 'folder-panel'); panel.id = section.id + '-folder-' + groupIndex; panel.hidden = true; cover.setAttribute('aria-controls', panel.id);

@@ -22,9 +22,12 @@
   });
   links.slice(routes.length).forEach(link => link.closest('li')?.remove());
   const primary = hero.querySelector('.hero-actions .btn-primary');
-  if (primary) primary.textContent = 'View my work';
+  if (primary) primary.innerHTML = 'View my work <i class="bi bi-arrow-down" aria-hidden="true"></i>';
   const secondary = hero.querySelector('.hero-actions .btn-secondary');
-  if (secondary) secondary.textContent = 'Get in touch';
+  if (secondary) {
+    secondary.innerHTML = 'Get in touch <i class="bi bi-arrow-up-right" aria-hidden="true"></i>';
+    secondary.href = new URL('contact/', document.baseURI).href;
+  }
 
   const designer = hero.querySelector('#hero-title .accent-italic');
   const portrait = hero.querySelector('.portrait-stage');

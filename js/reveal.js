@@ -27,11 +27,11 @@
   // fires after the remaining deferred composition scripts have run.
   if(document.readyState==='complete')release();else document.addEventListener('DOMContentLoaded',release,{once:true});
  }else if(experience){
-  script('js/composition-v2.js?v=20261011-1',()=>{
+  script('js/composition-v2.js?v=20261011-3',()=>{
    style('css/composition-finishing.css?v=20260922-8');
    script('js/composition-runtime-fixes.js?v=20261011-1',()=>{
     style('css/content-accessibility-20260922.css?v=20260922-1');
-    script('js/experience-motion.js?v=20260922-1');
+    script('js/experience-motion.js?v=20261011-2');
     style('css/site-final-polish.css?v=20260922-14',release);
    });
   });

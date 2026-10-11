@@ -369,7 +369,7 @@
 .system-canvas-visual > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .system-canvas-visual:has(img)::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgba(0,0,0,.55)); pointer-events: none; }
 .email-deck-card { touch-action: manipulation; }
-.email-deck-card::after { content: '\\F62C'; position: absolute; z-index: 3; right: var(--space-xs); bottom: var(--space-xs); display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; background: rgba(0,0,0,.7); color: #fff; font-family: bootstrap-icons; }
+.email-deck-card::after { content: '\F62C'; position: absolute; z-index: 3; right: var(--space-xs); bottom: var(--space-xs); display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; background: rgba(0,0,0,.7); color: #fff; font-family: bootstrap-icons; }
 .media-row { grid-template-columns: var(--space-lg) minmax(0, 1fr) var(--space-lg); }
 .media-row-format { display: none; }
 .media-rail-open { display: block; width: 100%; padding: 0; border: 0; border-radius: var(--radius-small); background: transparent; color: inherit; cursor: zoom-in; }

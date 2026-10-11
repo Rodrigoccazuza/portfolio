@@ -1,0 +1,354 @@
+/* Site refinements — loaded after neu-system.css on every page.
+   One spacing scale (4px base), one radius scale (25% tighter than the first neu pass),
+   and the card/section fixes that depend on them. Reuses the neu tokens; adds no new colors
+   except the official platform colors in the Social Platforms section. */
+
+/* 1. Tokens ---------------------------------------------------------------- */
+html.neu {
+  /* Spacing: 4px base. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --gutter: clamp(20px, 4vw, 48px);
+  --section-y: clamp(56px, 6vw + 20px, 104px);
+  --card-gap: clamp(16px, 2vw, 24px);
+  --card-pad: clamp(20px, 2.4vw, 32px);
+
+  /* Radius: previous 36 / 28 / 20 / 14 / 8 scaled by 0.75. Pills stay for buttons and chips. */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 15px;
+  --radius-lg: 21px;
+  --radius-xl: 27px;
+  --neu-radius-xl: var(--radius-xl);
+  --neu-radius-lg: var(--radius-lg);
+  --neu-radius-md: var(--radius-md);
+  --neu-radius-sm: var(--radius-sm);
+  --radius-small: var(--radius-xs);
+  --radius-medium: 12px;
+  --radius-large: 18px;
+  --page-padding: var(--gutter);
+  --space-section: var(--section-y);
+}
+
+/* 2. Layout rhythm ---------------------------------------------------------- */
+html.neu main .container:not(#neu),
+html.neu .site-footer > .container:not(.footer-panel):not(.footer-bottom):not(#neu) {
+  padding-inline: var(--gutter) !important;
+}
+html.neu #work > section:not(#neu),
+html.neu main > .social-platforms:not(#neu) {
+  padding-block: var(--section-y) !important;
+}
+/* Social media keeps its nested video rail flush to the folders above it. */
+html.neu #work > #social:not(#neu) { padding-bottom: 0 !important; }
+html.neu #work .portfolio-category-label:not(#neu) { margin-bottom: clamp(24px, 3vw, 40px) !important; }
+
+/* 3. Radius: values that were hard-coded outside the token set --------------- */
+html.neu .toolkit-marquee-group li:not(#neu) { border-radius: var(--radius-md) !important; }
+html.neu .youtube-player-screen .youtube-embed:not(#neu) { border-radius: inherit !important; }
+html.neu :is(.folder-previews img, .media-rail-open, .media-rail-open .project-media):not(#neu) { border-radius: var(--radius-sm) !important; }
+html.neu .comp-about > img:not(#neu) { border-radius: var(--radius-xl) !important; }
+html.neu .nav-links:not(#neu) { border-radius: var(--radius-lg); }
+/* Design-system and email stacks set their own radii in JS-injected styles; align them to the scale. */
+html.neu #design-systems .system-canvas:not(#neu) { border-radius: var(--radius-xl) !important; }
+html.neu #email :is(.email-deck-card, .email-card-frame):not(#neu) { border-radius: var(--radius-sm) !important; }
+@media (max-width: 620px) {
+  html.neu #design-systems .system-canvas:not(#neu) { border-radius: var(--radius-lg) !important; }
+}
+
+/* 4. Section labels: no leading dash ----------------------------------------- */
+/* Plain eyebrows drew a 2px rule before the text, which read as an em dash.
+   Pill labels (.portfolio-category-label) keep their status dot. */
+html.neu .eyebrow:not(.portfolio-category-label):not(#neu)::before { content: none !important; display: none !important; }
+html.neu .eyebrow:not(.portfolio-category-label):not(#neu) { gap: 0 !important; }
+
+/* 5. Cards ------------------------------------------------------------------ */
+/* Websites: consistent inner padding at every size. */
+html.neu .stack-copy:not(#neu) { padding: var(--space-5) var(--card-pad) var(--card-pad) !important; gap: var(--space-4) !important; }
+@media (max-width: 620px) {
+  html.neu .stack-copy:not(#neu) { padding: var(--space-4) var(--space-5) var(--space-5) !important; }
+  html.neu .stack-browser:not(#neu) { padding-inline: var(--space-5) !important; }
+}
+
+/* Campaigns: title and arrow share one baseline; even grid gaps. */
+html.neu .compact-campaigns-grid:not(#neu) { gap: var(--card-gap) !important; }
+html.neu .compact-campaign-card:not(#neu) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: var(--space-4);
+  min-height: 0 !important;
+  padding: var(--space-5) var(--space-6) !important;
+}
+html.neu .compact-campaign-card h3:not(#neu) { margin: 0 !important; }
+html.neu .compact-campaign-card > i:not(#neu) { position: static !important; flex: none; }
+
+/* YouTube: the player keeps a true 16:9 frame once it stacks above the playlist. */
+@media (max-width: 1024px) {
+  html.neu .youtube-player-screen:not(#neu) { height: auto !important; min-height: 0 !important; aspect-ratio: 16 / 9; }
+}
+html.neu .youtube-playlist-list:not(#neu) { gap: var(--space-3) !important; }
+html.neu .youtube-playlist-item:not(#neu) { padding: var(--space-2) !important; gap: var(--space-4) !important; }
+
+/* Design systems: the stage sizes to its card instead of reserving a fixed empty block. */
+@media (max-width: 1024px) {
+  html.neu #design-systems .system-canvas-stage:not(#neu) { min-height: 0 !important; }
+  html.neu #design-systems .design-systems-composition:not(#neu) { gap: var(--space-10) !important; }
+}
+
+/* Email: the deck's reserved height tracks the card height on small screens. */
+@media (max-width: 620px) {
+  html.neu #email .email-deck:not(#neu) { min-height: calc(min(112vw, 28rem) + 72px) !important; }
+}
+
+/* 6. Social platforms ------------------------------------------------------- */
+html.neu .social-platforms-header:not(#neu) {
+  display: grid;
+  justify-items: center;
+  max-width: 40rem;
+  margin: 0 auto clamp(32px, 4vw, 56px);
+  text-align: center;
+}
+html.neu .social-platforms-header .portfolio-category-label:not(#neu) { margin: 0 0 var(--space-5) !important; }
+html.neu .social-platforms-header h2:not(#neu) {
+  margin: 0;
+  font: 700 clamp(2rem, 4.2vw, 3.5rem) / 1.05 var(--font-display);
+  letter-spacing: -.03em;
+  text-wrap: balance;
+}
+html.neu .social-platforms-header > p:not(.eyebrow):not(#neu) {
+  max-width: 34rem;
+  margin: var(--space-4) 0 0;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.6;
+}
+html.neu .social-platform-grid:not(#neu) {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--card-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+html.neu .social-platform-card:not(#neu) {
+  --platform: var(--neu-violet);
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--space-6);
+  height: 100%;
+  min-height: clamp(220px, 22vw, 280px);
+  padding: var(--card-pad);
+  border-radius: var(--radius-xl);
+  background: var(--neu-bg);
+  box-shadow: var(--neu-raised);
+  color: var(--neu-text) !important;
+  text-decoration: none !important;
+  transition: transform .45s var(--neu-ease), box-shadow .45s var(--neu-ease);
+}
+html.neu .social-platform-card[data-platform="behance"]:not(#neu) { --platform: #1769ff; }
+html.neu .social-platform-card[data-platform="youtube"]:not(#neu) { --platform: #ff0033; }
+html.neu .social-platform-card[data-platform="github"]:not(#neu) { --platform: #181717; }
+html.neu .social-platform-card[data-platform="linkedin"]:not(#neu) { --platform: #0a66c2; }
+html.neu.neu-dark .social-platform-card[data-platform="github"]:not(#neu) { --platform: #f0f2f5; }
+html.neu .social-platform-icon:not(#neu) {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  background: var(--neu-bg);
+  box-shadow: var(--neu-raised-sm);
+  color: var(--platform) !important;
+  font-size: 30px;
+  transition: background-color .35s ease, color .35s ease, box-shadow .45s var(--neu-ease), transform .45s var(--neu-ease);
+}
+html.neu .social-platform-icon i:not(#neu) { color: inherit !important; line-height: 1; }
+html.neu .social-platform-copy:not(#neu) { display: grid; align-content: end; gap: var(--space-2); }
+html.neu .social-platform-name:not(#neu) {
+  color: var(--neu-text) !important;
+  font: 700 clamp(1.375rem, 1.9vw, 1.75rem) / 1.1 var(--font-display);
+  letter-spacing: -.02em;
+}
+html.neu .social-platform-desc:not(#neu) { color: var(--neu-text-2) !important; font-size: .9375rem; line-height: 1.5; }
+html.neu .social-platform-meta:not(#neu) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+html.neu .social-platform-handle:not(#neu) {
+  overflow: hidden;
+  color: var(--neu-text-3) !important;
+  font: 500 .8125rem / 1.2 "JetBrains Mono", ui-monospace, monospace;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+html.neu .social-platform-arrow:not(#neu) {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: var(--neu-raised-xs);
+  color: var(--neu-text) !important;
+  transition: transform .45s var(--neu-ease), color .3s ease, box-shadow .45s var(--neu-ease);
+}
+@media (hover: hover) {
+  html.neu .social-platform-card:not(#neu):hover {
+    transform: translateY(-4px);
+    box-shadow: var(--neu-raised-hover), 0 0 0 2px color-mix(in srgb, var(--platform) 55%, transparent);
+  }
+  html.neu .social-platform-card:not(#neu):hover .social-platform-icon {
+    background: var(--platform);
+    color: #fff !important;
+    box-shadow: 0 14px 28px -12px var(--platform);
+    transform: rotate(-6deg) scale(1.04);
+  }
+  html.neu.neu-dark .social-platform-card[data-platform="github"]:not(#neu):hover .social-platform-icon { color: #181717 !important; }
+  html.neu .social-platform-card:not(#neu):hover .social-platform-arrow { transform: translate(2px, -2px); color: var(--platform) !important; box-shadow: var(--neu-inset-sm); }
+}
+html.neu .social-platform-card:not(#neu):active { transform: none; box-shadow: var(--neu-inset); }
+html.neu .social-platform-card:not(#neu):focus-visible { outline-offset: 4px !important; }
+
+@media (max-width: 1100px) {
+  html.neu .social-platform-grid:not(#neu) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* Phones: compact horizontal rows so four platforms fit without a long scroll. */
+@media (max-width: 560px) {
+  html.neu .social-platform-grid:not(#neu) { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+  html.neu .social-platform-card:not(#neu) {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto;
+    align-items: center;
+    gap: var(--space-4);
+    min-height: 0;
+    padding: var(--space-4) var(--space-5) var(--space-4) var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+  html.neu .social-platform-icon:not(#neu) { width: 52px; height: 52px; border-radius: var(--radius-md); font-size: 24px; }
+  html.neu .social-platform-copy:not(#neu) { gap: 2px; }
+  html.neu .social-platform-name:not(#neu) { font-size: 1.125rem; }
+  html.neu .social-platform-desc:not(#neu) { font-size: .8125rem; }
+  html.neu .social-platform-meta:not(#neu) { padding: 0; border: 0; }
+  html.neu .social-platform-handle:not(#neu) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.neu .social-platform-card:not(#neu):hover,
+  html.neu .social-platform-card:not(#neu):hover :is(.social-platform-icon, .social-platform-arrow) { transform: none !important; }
+}
+@media (forced-colors: active) {
+  html.neu .social-platform-card { border: 1px solid CanvasText; }
+}
+
+/* 7. Hero actions: clear, matched hover feedback ------------------------------- */
+html.neu .portfolio-hero .hero-actions .btn:not(#neu) { gap: .45em; }
+html.neu .portfolio-hero .hero-actions .btn i:not(#neu) { transition: transform .35s var(--neu-ease); }
+@media (hover: hover) {
+  html.neu .portfolio-hero .hero-actions .btn.btn-primary:not(#neu):hover {
+    transform: translateY(-2px);
+    background: linear-gradient(145deg, #8455ff, #6026ec) !important;
+    box-shadow: 0 14px 26px -12px rgba(96, 38, 236, .7), inset 1px 1px 0 rgba(255, 255, 255, .25) !important;
+  }
+  html.neu .portfolio-hero .hero-actions .btn.btn-secondary:not(#neu):hover { transform: translateY(-2px); }
+  html.neu .portfolio-hero .hero-actions .btn.btn-primary:not(#neu):hover i { transform: translateY(2px); }
+  html.neu .portfolio-hero .hero-actions .btn.btn-secondary:not(#neu):hover i { transform: translate(2px, -2px); }
+}
+
+/* 8. Video rails and playlist: room for the hover lift so edges are never cropped. */
+html.neu .media-row-viewport:not(#neu) {
+  padding: 20px 12px !important;
+  margin: -20px -12px !important;
+  scroll-padding-inline: 12px;
+}
+html.neu .youtube-playlist-list:not(#neu) { padding-block: 8px; margin-block: -8px; }
+html.neu :is(.youtube-playlist-item, .media-rail-card):not(#neu) { position: relative; }
+html.neu :is(.youtube-playlist-item, .media-rail-card):not(#neu):is(:hover, :focus-within) { z-index: 3; }
+
+/* 9. Footer CTA button: soft glow directly beneath the button. ----------------- */
+html.neu .site-footer .footer-cta .btn.btn-primary:not(#neu) {
+  box-shadow: 0 12px 22px -12px rgba(96, 38, 236, .65), inset 1px 1px 0 rgba(255, 255, 255, .22) !important;
+}
+html.neu .site-footer .footer-cta .btn.btn-primary:not(#neu):hover {
+  box-shadow: 0 16px 26px -12px rgba(122, 69, 255, .75), inset 1px 1px 0 rgba(255, 255, 255, .22) !important;
+}
+html.neu .site-footer .footer-cta .btn.btn-primary:not(#neu):active {
+  box-shadow: 0 6px 12px -8px rgba(96, 38, 236, .6), inset 3px 3px 8px rgba(40, 10, 120, .4) !important;
+}
+
+/* 10. Contact: "Let's talk." in Signal Green in both themes. --------------------- */
+html.neu body .contact-form-column h1 > span:not(#neu):not(#neu-ink) { color: var(--neu-green) !important; }
+
+/* 11. Experience timeline: accent rail that fills on scroll, raised entry on hover/focus. */
+html.neu .composition-experience .comp-exp-list:not(#neu) { position: relative; padding-left: 32px !important; }
+html.neu .composition-experience .comp-exp-list:not(#neu)::before,
+html.neu .composition-experience .comp-exp-list:not(#neu)::after {
+  content: ""; position: absolute; left: 9px; top: 12px; bottom: 12px; width: 2px; border-radius: 2px;
+}
+html.neu .composition-experience .comp-exp-list:not(#neu)::before { background: var(--border); }
+html.neu .composition-experience .comp-exp-list:not(#neu)::after {
+  background: linear-gradient(180deg, var(--neu-violet), var(--neu-green));
+  transform: scaleY(var(--timeline-progress, 0)); transform-origin: top;
+}
+html.neu .composition-experience .comp-exp-list > li:not(#neu) {
+  position: relative;
+  padding: var(--space-6) var(--space-6) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-radius: 0;
+  outline-offset: 4px;
+  transition: transform .5s var(--neu-ease), box-shadow .5s var(--neu-ease), background-color .4s ease, border-color .4s ease, border-radius .4s ease !important;
+}
+html.neu .composition-experience .comp-exp-list > li:not(#neu)::before {
+  content: ""; position: absolute; left: -29px; top: 31px; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--neu-bg); box-shadow: var(--neu-raised-xs), inset 0 0 0 2px var(--border);
+  transition: background-color .35s ease, box-shadow .35s ease, transform .45s var(--neu-ease);
+}
+html.neu .composition-experience .comp-exp-list > li:not(#neu) :is(h3, time, p) { transition: color .35s ease, transform .5s var(--neu-ease); }
+html.neu .composition-experience .comp-exp-list > li:not(#neu) h3 { transform-origin: left center; }
+html.neu .composition-experience .comp-exp-list > li.is-current:not(#neu)::before { background: var(--neu-violet); box-shadow: 0 0 0 4px rgba(96, 38, 236, .16); }
+html.neu .composition-experience .comp-exp-list > li:not(#neu):is(:hover, :focus-visible) {
+  transform: translateX(8px) scale(1.02);
+  border-bottom-color: transparent !important;
+  border-radius: var(--radius-lg);
+  background: var(--neu-bg);
+  box-shadow: var(--neu-raised), var(--green-rim), var(--green-glow);
+  z-index: 1;
+}
+html.neu .composition-experience .comp-exp-list > li:not(#neu):is(:hover, :focus-visible)::before {
+  background: var(--neu-green); transform: scale(1.35); box-shadow: 0 0 0 5px rgba(102, 212, 135, .25), 0 0 14px rgba(102, 212, 135, .8);
+}
+html.neu .composition-experience .comp-exp-list > li:not(#neu):is(:hover, :focus-visible) h3 { color: var(--neu-violet) !important; transform: scale(1.06); }
+html.neu .composition-experience .comp-exp-list > li:not(#neu):is(:hover, :focus-visible) time { color: var(--neu-green-text) !important; }
+html.neu .composition-experience .comp-exp-list > li:not(#neu):is(:hover, :focus-visible) p { color: var(--neu-text) !important; }
+@media (max-width: 640px) {
+  html.neu .composition-experience .comp-exp-list:not(#neu) { padding-left: 24px !important; }
+  html.neu .composition-experience .comp-exp-list:not(#neu)::before,
+  html.neu .composition-experience .comp-exp-list:not(#neu)::after { left: 5px; }
+  html.neu .composition-experience .comp-exp-list > li:not(#neu) { padding: var(--space-5) var(--space-4) !important; }
+  html.neu .composition-experience .comp-exp-list > li:not(#neu)::before { left: -24px; top: 26px; }
+  html.neu .composition-experience .comp-exp-list > li:not(#neu):is(:hover, :focus-visible) { transform: scale(1.015); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.neu .composition-experience .comp-exp-list > li:not(#neu):is(:hover, :focus-visible),
+  html.neu .composition-experience .comp-exp-list > li:not(#neu):is(:hover, :focus-visible) h3 { transform: none; }
+  html.neu .composition-experience .comp-exp-list:not(#neu)::after { transform: none; }
+}
+
+/* 12. The interactive 3D portrait (z-index 6) overlaps the hero CTAs on laptop/desktop widths and swallowed
+   clicks on "Get in touch". It tracks the pointer at window level, so its stage can be click-through. */
+html.neu body .portfolio-hero .portrait-stage:not(#neu),
+html.neu body .portfolio-hero .portrait-stage canvas:not(#neu) { pointer-events: none !important; }

@@ -13,6 +13,8 @@
     var style = document.createElement('style');
     style.id = STYLE_ID;
     style.textContent = `
+      ${ROOT_SELECTOR}.is-stack-init * { transition: none !important; }
+
       ${ROOT_SELECTOR} .design-systems-composition {
         grid-template-columns: minmax(0, 1.1fr) minmax(22rem, .9fr);
         gap: clamp(2rem, 5vw, 5rem);
@@ -263,7 +265,11 @@
     if (!cards.length) return;
 
     root.dataset.scrollStackEnhanced = 'true';
-    root.classList.add('design-system-scroll-stack');
+    // The first stack placement must not animate from the base fan layout.
+    root.classList.add('design-system-scroll-stack', 'is-stack-init');
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () { root.classList.remove('is-stack-init'); });
+    });
 
     var viewport = document.createElement('div');
     viewport.className = 'system-card-stack-viewport';

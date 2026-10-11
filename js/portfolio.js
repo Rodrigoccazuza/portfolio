@@ -72,7 +72,7 @@
         if (item.src) {
           var image = element('img');
           image.src = item.src;
-          image.alt = '';
+          image.alt = item.alt || item.label;
           image.loading = 'lazy';
           media.appendChild(image);
         } else {
@@ -191,7 +191,7 @@
     if (project.media && project.media.src) {
       var preview = element('img');
       preview.src = project.media.src;
-      preview.alt = '';
+      preview.alt = project.media.alt || project.title;
       preview.loading = 'lazy';
       visual.appendChild(preview);
     } else {
@@ -286,7 +286,7 @@
     if (project.media.src) {
       var image = element('img');
       image.src = project.media.thumbnail || project.media.src;
-      image.alt = '';
+      image.alt = project.media.alt || project.title + ' email design';
       image.loading = 'lazy';
       frame.appendChild(image);
     } else {
@@ -554,7 +554,7 @@
       var thumb = element('span', 'youtube-playlist-thumb');
       var thumbImage = element('img');
       thumbImage.src = project.media.src;
-      thumbImage.alt = '';
+      thumbImage.alt = project.media.alt || project.title + ' video thumbnail';
       thumbImage.loading = 'lazy';
       thumb.appendChild(thumbImage);
       button.appendChild(thumb);

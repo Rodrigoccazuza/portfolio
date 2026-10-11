@@ -167,10 +167,9 @@
   // This section is directly below the hero/toolkit, so keep its effect ready.
   loadScript('js/behind-designs-corridor.js?v=20260912');
 
-  var enhancements = [
-    { selector: '#design-systems', src: 'js/design-system-scroll-stack.js?v=20260912' },
-    { selector: '#email', src: 'js/email-fan-carousel.js?v=20260912-stack2' }
-  ];
+  // Design Systems and Email enhancers are deferred scripts in index.html, so those sections
+  // are restructured before their first paint instead of swapping layouts on scroll.
+  var enhancements = [];
 
   function watchEnhancement(item) {
     var target = document.querySelector(item.selector);

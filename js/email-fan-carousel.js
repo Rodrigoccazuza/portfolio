@@ -15,6 +15,7 @@
     style.id = STYLE_ID;
     style.textContent = `
       ${ROOT_SELECTOR} .email-showcase-intro { margin-bottom: 0; }
+      ${ROOT_SELECTOR}.is-stack-init * { transition: none !important; }
 
       ${ROOT_SELECTOR} .email-deck-shell {
         position: relative;
@@ -265,7 +266,11 @@
     if (!cards.length) return;
 
     root.dataset.stackCarouselEnhanced = 'true';
-    root.classList.add('email-stack-carousel');
+    // The first stack placement must not animate from the base fan layout.
+    root.classList.add('email-stack-carousel', 'is-stack-init');
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () { root.classList.remove('is-stack-init'); });
+    });
 
     var suppressPreview = false;
     var suppressNextClick = false;
