@@ -26,7 +26,7 @@
  }
  const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL('css/site-final-polish.css?v=20260922-13',document.baseURI).href;document.head.append(sheet);
  // Sitewide design system and dynamic navigation load on every page.
- ['css/neu-system.css?v=20261011-3','css/nav-dynamic.css?v=20261011-3','css/site-refinements.css?v=20261011-5'].forEach(path=>{const link=document.createElement('link');link.rel='stylesheet';link.href=new URL(path,document.baseURI).href;document.head.append(link);});
+ ['css/neu-system.css?v=20261011-3','css/nav-dynamic.css?v=20261011-3','css/site-refinements.css?v=20261011-9'].forEach(path=>{const link=document.createElement('link');link.rel='stylesheet';link.href=new URL(path,document.baseURI).href;document.head.append(link);});
  const nav=document.createElement('script');nav.src=new URL('js/nav-dynamic.js?v=20261011-3',document.baseURI).href;nav.defer=true;document.head.append(nav);
  const script=document.createElement('script');script.src=new URL('js/site-final-polish.js?v=20260922-13',document.baseURI).href;script.defer=true;document.head.append(script);
 })();

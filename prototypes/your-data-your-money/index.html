@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Data Your Money · Instagram Prototype</title>
+<meta name="description" content="Interactive Instagram prototype for the Your Data Your Money campaign: swipe the feed, watch the street-interview reels, and browse the profile grid.">
+<meta name="theme-color" content="#182a4d">
+<link rel="icon" href="assets/logo-mark.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Marcellus&display=swap" rel="stylesheet">
+<style>
+/* Your Data Your Money brand: Space Cadet #182A4D, Tomato #FF5737, Green Yellow #BBFF38.
+   Primary type Archivo, secondary Marcellus. Tone: bold, fun, empowering, relatable, provocative. */
+:root{
+  --navy:#182a4d; --navy-2:#1f3460; --navy-3:#0f1c35; --tomato:#ff5737; --lime:#bbff38; --lime-2:#9ed930;
+  --paper:#f4f7ee; --muted:#a9b6cf; --line:rgba(187,255,56,.16);
+  --fa:"Archivo",system-ui,sans-serif; --fm:"Marcellus",Georgia,serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--navy);color:var(--paper);font-family:var(--fa);-webkit-font-smoothing:antialiased}
+body{min-height:100vh;overflow-x:hidden;
+  background:
+    radial-gradient(760px 480px at 88% -8%,rgba(187,255,56,.16),transparent 70%),
+    radial-gradient(620px 460px at -6% 104%,rgba(255,87,55,.18),transparent 70%),
+    linear-gradient(rgba(187,255,56,.035) 1px,transparent 1px) 0 0/44px 44px,
+    linear-gradient(90deg,rgba(187,255,56,.035) 1px,transparent 1px) 0 0/44px 44px,
+    var(--navy)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img,video{display:block;-webkit-user-drag:none;user-select:none}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* page chrome */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px clamp(20px,4vw,56px) 0}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--lime)}
+.brand img{width:36px;height:36px;border-radius:10px;background:#000}
+.lbl{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.stage{display:grid;grid-template-columns:minmax(300px,540px) auto;justify-content:center;align-items:start;gap:clamp(32px,6vw,96px);padding:clamp(20px,3vw,40px) clamp(20px,4vw,56px) 40px}
+
+/* copy column */
+.tabs{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:rgba(15,28,53,.6)}
+.tabs button{padding:9px 18px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:background .25s,color .25s}
+.tabs button[aria-selected="true"]{background:var(--lime);color:var(--navy)}
+.eyebrow{margin-top:28px;font-size:12px;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:var(--tomato)}
+h1{margin:14px 0 18px;font-weight:900;font-size:clamp(46px,6vw,92px);line-height:.92;letter-spacing:-.035em;text-transform:uppercase}
+h1 .hl{display:inline-block;margin-top:8px;padding:2px 14px 6px;background:var(--lime);color:var(--navy);transform:rotate(-1.5deg)}
+.lede{font-family:var(--fm);font-size:18px;line-height:1.6;color:#d7deec;max-width:460px}
+.hints{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 26px}
+.chip{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:7px 12px;border-radius:999px}
+.chip.on{color:var(--navy);background:var(--lime);border-color:var(--lime)}
+.series{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.series button{display:grid;grid-template-columns:36px 1fr auto;align-items:baseline;gap:10px;text-align:left;padding:12px 4px;border-bottom:1px solid var(--line);color:var(--muted);transition:color .2s,padding .3s var(--ease),background .2s}
+.series .n{font-weight:900;font-size:13px;color:rgba(187,255,56,.45)}
+.series .g{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-right:10px;color:rgba(169,182,207,.7)}
+.series .t{font-weight:700;font-size:16px}
+.series .c{font-size:12px;font-weight:700}
+.series button:hover{color:var(--paper);padding-left:10px}
+.series button[aria-current="true"]{color:var(--paper);background:linear-gradient(90deg,rgba(187,255,56,.12),transparent 70%)}
+.series button[aria-current="true"] .n{color:var(--lime)}
+.credits{margin-top:26px;font-size:13px;color:var(--muted);line-height:1.6}
+.credits a{color:var(--lime);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(187,255,56,.4)}
+
+/* phone */
+.phone{position:relative;width:390px;height:812px;border-radius:58px;padding:12px;background:#05070c;box-shadow:0 0 0 2px #2b3a5c,0 40px 90px rgba(0,0,0,.55),0 0 120px rgba(187,255,56,.12)}
+.phone-wrap{transform-origin:top center}
+.screen{position:relative;width:100%;height:100%;border-radius:46px;overflow:hidden;background:#fff;color:#111;display:flex;flex-direction:column}
+.island{position:absolute;top:10px;left:50%;width:118px;height:34px;margin-left:-59px;border-radius:20px;background:#000;z-index:30}
+.status{display:flex;justify-content:space-between;align-items:center;height:50px;padding:14px 30px 0;font-weight:700;font-size:15px;flex:none}
+.status svg{height:12px}
+.ig-head{display:flex;align-items:center;gap:12px;height:46px;padding:0 14px;border-bottom:1px solid #efefef;flex:none}
+.ig-head .ttl{flex:1;text-align:center;line-height:1.1}
+.ig-head .ttl small{display:block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8e8e8e}
+.ig-head .ttl b{font-size:15px}
+.ig-head svg{width:22px;height:22px}
+.view{display:none;flex:1;min-height:0;flex-direction:column;overflow:hidden}
+.view.on{display:flex}
+
+/* feed post */
+.post-top{display:flex;align-items:center;gap:10px;padding:10px 12px;flex:none}
+.avatar{width:34px;height:34px;border-radius:50%;background:#000;padding:2px;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--lime)}
+.avatar img{width:100%;height:100%;border-radius:50%}
+.post-top b{font-size:13px;display:block}
+.post-top small{font-size:11px;color:#737373}
+.post-top .more{margin-left:auto;font-weight:900;letter-spacing:1px}
+.media{position:relative;flex:none;aspect-ratio:4/5;overflow:hidden;background:#0f1c35;touch-action:pan-y;cursor:grab}
+.media:active{cursor:grabbing}
+.track{display:flex;height:100%;transition:transform .45s var(--ease);will-change:transform}
+.track.drag{transition:none}
+.slide{position:relative;flex:0 0 100%;height:100%;overflow:hidden}
+/* Posts come in 1:1, 3:4 and 4:5; show the whole artwork and fill the rest with a soft blur of itself. */
+.slide .fill{position:absolute;inset:-12%;width:124%;height:124%;object-fit:cover;filter:blur(22px) saturate(1.15) brightness(.8)}
+.slide .art{position:relative;width:100%;height:100%;object-fit:contain}
+.count{position:absolute;top:12px;right:12px;padding:4px 9px;border-radius:12px;background:rgba(17,17,17,.7);color:#fff;font-size:12px;font-weight:700}
+.burst{position:absolute;left:50%;top:50%;width:96px;height:96px;margin:-48px;opacity:0;pointer-events:none;transform:scale(.4)}
+.burst.go{animation:burst .9s var(--ease) forwards}
+@keyframes burst{20%{opacity:1;transform:scale(1.15)}45%{transform:scale(.95)}70%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.1) translateY(-20px)}}
+.actions{position:relative;display:flex;align-items:center;gap:14px;padding:10px 12px 4px;flex:none}
+.actions svg{width:25px;height:25px}
+.actions .save{margin-left:auto}
+.like.on svg{fill:var(--tomato);stroke:var(--tomato);animation:pop .35s var(--ease)}
+@keyframes pop{50%{transform:scale(1.25)}}
+.dots{position:absolute;left:50%;top:50%;transform:translate(-50%,-25%);display:flex;gap:4px}
+.dots i{width:6px;height:6px;border-radius:50%;background:#c7c7c7;transition:background .25s}
+.dots i.on{background:#3897f0}
+.meta{padding:2px 12px 0;font-size:13px;line-height:1.45;flex:1;min-height:0;overflow:hidden}
+.meta .likes{font-weight:700;margin-bottom:3px}
+.meta .tag{margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8e8e8e}
+.progress{height:3px;background:#efefef;flex:none}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--tomato),var(--lime))}
+.tabbar{display:flex;justify-content:space-around;align-items:center;height:56px;padding-bottom:6px;border-top:1px solid #efefef;flex:none;background:#fff}
+.tabbar svg{width:25px;height:25px}
+.tabbar .me{width:26px;height:26px;border-radius:50%;background:#000;padding:1px}
+.tabbar .me img{width:100%;height:100%;border-radius:50%}
+.homebar{position:absolute;bottom:8px;left:50%;width:134px;height:5px;margin-left:-67px;border-radius:3px;background:#111;z-index:30}
+
+/* reels */
+#reels{background:#000;color:#fff;position:relative}
+#reels video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.reel-ui{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px 14px 18px;background:linear-gradient(transparent 55%,rgba(0,0,0,.65));pointer-events:none}
+.reel-ui b{font-size:13px}
+.reel-ui p{margin-top:6px;font-size:13px;line-height:1.4;max-width:78%}
+.reel-side{position:absolute;right:10px;bottom:90px;display:grid;gap:18px;justify-items:center;font-size:11px;font-weight:700;pointer-events:auto}
+.reel-side svg{width:27px;height:27px;stroke:#fff}
+.reel-side .like.on svg{fill:var(--tomato);stroke:var(--tomato)}
+.reel-play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:auto}
+.reel-play span{display:grid;place-items:center;width:74px;height:74px;border-radius:50%;background:rgba(24,42,77,.72);border:2px solid var(--lime);transition:transform .3s var(--ease),opacity .3s}
+.reel-play span svg{width:28px;height:28px;fill:var(--lime);margin-left:4px}
+.reel-play.hide span{opacity:0;transform:scale(.8)}
+.reel-mute{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.55);display:grid;place-items:center;pointer-events:auto}
+.reel-mute svg{width:17px;height:17px;stroke:#fff}
+.reel-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.25)}
+.reel-bar i{display:block;height:100%;width:0;background:var(--lime)}
+.reel-tag{position:absolute;top:16px;left:14px;padding:5px 10px;border-radius:999px;background:var(--lime);color:var(--navy);font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+
+/* profile */
+#profile{overflow-y:auto}
+.pro-head{display:grid;grid-template-columns:86px 1fr;gap:16px;align-items:center;padding:14px 14px 8px}
+.pro-head .avatar{width:86px;height:86px;padding:3px}
+.stats{display:flex;justify-content:space-around;text-align:center;font-size:12px;color:#444}
+.stats b{display:block;font-size:16px;color:#111}
+.bio{padding:0 14px;font-size:13px;line-height:1.45}
+.bio a{color:#00376b;font-weight:600;text-decoration:none}
+.pro-btns{display:grid;grid-template-columns:1fr 1fr 34px;gap:6px;padding:10px 14px}
+.pro-btns span{display:grid;place-items:center;height:32px;border-radius:8px;background:#efefef;font-size:13px;font-weight:700}
+.pro-btns span.follow{background:var(--navy);color:var(--lime)}
+.highlight{display:flex;gap:14px;padding:4px 14px 10px}
+.highlight figure{display:grid;justify-items:center;gap:4px;font-size:11px;font-weight:600}
+.highlight img{width:62px;height:62px;border-radius:50%;background:#000;padding:3px;box-shadow:0 0 0 1px #dbdbdb}
+.gtabs{display:flex;justify-content:space-around;border-top:1px solid #efefef}
+.gtabs span{padding:10px 0;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8e8e8e}
+.gtabs span.on{color:#111;box-shadow:inset 0 1px 0 #111}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.grid button{position:relative;aspect-ratio:3/4;overflow:hidden;background:#0f1c35}
+.grid img{width:100%;height:100%;object-fit:cover;transition:transform .45s var(--ease),filter .3s}
+.grid button:hover img{transform:scale(1.05);filter:brightness(1.08)}
+.grid .ic{position:absolute;top:6px;right:6px;width:16px;height:16px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
+
+/* below phone */
+.under{display:flex;justify-content:center;gap:16px;margin-top:18px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.under button{display:flex;align-items:center;gap:8px}
+.under button:hover{color:var(--lime)}
+.under svg{width:14px;height:14px}
+
+@media (max-width:980px){
+  .stage{grid-template-columns:1fr;justify-items:center}
+  .copy{order:2;width:100%;max-width:560px}
+  .phone-col{order:1}
+  .top .lbl{display:none}
+}
+@media (max-width:440px){
+  .phone{width:340px;height:708px;border-radius:50px;padding:10px}
+  .screen{border-radius:40px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><img src="assets/logo-mark.webp" alt="" width="36" height="36">Your Data Your Money</div>
+  <p class="lbl">Instagram prototype · @yourdatayourmoney</p>
+</header>
+
+<main class="stage">
+  <section class="copy" aria-labelledby="title">
+    <div class="tabs" role="tablist" aria-label="Prototype view">
+      <button role="tab" aria-selected="false" data-view="profile">Profile</button>
+      <button role="tab" aria-selected="false" data-view="reels">Reels</button>
+      <button role="tab" aria-selected="true" data-view="feed">Feed</button>
+    </div>
+    <p class="eyebrow">Interactive prototype</p>
+    <h1 id="title">Own it.<br><span class="hl">Earn it.</span></h1>
+    <p class="lede">The Your Data Your Money campaign, live inside an Instagram mockup. Browse the profile grid, play the New York street interviews, or swipe through the feed.</p>
+    <div class="hints" id="hints"><span class="chip on">Drag to swipe</span><span class="chip">Double-tap to like</span><span class="chip">← → ↑ ↓ keys</span></div>
+    <nav class="series" id="series" aria-label="Posts"></nav>
+    <p class="credits">Campaign by Rodrigo Cazuza, Isabelle Torab and Htet Aung Lin. <a href="https://yourdatayourmoney.framer.website/" target="_blank" rel="noopener noreferrer">Visit the microsite ↗</a></p>
+  </section>
+
+  <div class="phone-col">
+    <div class="phone-wrap" id="wrap">
+      <div class="phone">
+        <div class="screen" id="screen">
+          <div class="island"></div>
+          <div class="status"><span>9:41</span><svg viewBox="0 0 60 12" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="1" width="3" height="11" rx="1"/><rect x="30" y="1" width="24" height="11" rx="3" fill="none" stroke="#111" stroke-width="1.4"/><rect x="32.5" y="3.5" width="17" height="6" rx="1.5"/><rect x="55.5" y="4.5" width="2" height="4" rx="1"/></svg></div>
+          <div class="ig-head"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><div class="ttl"><small>yourdatayourmoney</small><b id="headTitle">Posts</b></div><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"></svg></div>
+
+          <!-- FEED -->
+          <section class="view on" id="feed" aria-label="Feed">
+            <div class="post-top"><span class="avatar"><img src="assets/logo-mark.webp" alt=""></span><div><b>yourdatayourmoney</b><small id="postLoc">New York, NY</small></div><span class="more" aria-hidden="true">···</span></div>
+            <div class="media" id="media" tabindex="0" aria-roledescription="carousel" aria-label="Post media. Drag or use arrow keys.">
+              <div class="track" id="track"></div>
+              <span class="count" id="count">1/1</span>
+              <svg class="burst" id="burst" viewBox="0 0 24 24" aria-hidden="true"><path fill="#bbff38" stroke="#182a4d" stroke-width="1" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.3 3 4.5 6.6 4.5c2.1 0 3.6 1.2 4.4 2.6.8-1.4 2.3-2.6 4.4-2.6 3.6 0 5.7 3.8 4.2 7.3C19.5 16.4 12 21 12 21z"/></svg>
+            </div>
+            <div class="actions">
+              <button class="like" id="like" aria-pressed="false" aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.3 3 4.5 6.6 4.5c2.1 0 3.6 1.2 4.4 2.6.8-1.4 2.3-2.6 4.4-2.6 3.6 0 5.7 3.8 4.2 7.3C19.5 16.4 12 21 12 21z"/></svg></button>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-3.4-6.8L21 4l-1 4.2A8.4 8.4 0 0 1 20.5 12z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" aria-hidden="true"><path d="M22 3L9.2 10.5M22 3l-6.5 18-3.3-8.3L3.7 9.5z"/></svg>
+              <div class="dots" id="dots" aria-hidden="true"></div>
+              <button class="save" id="save" aria-pressed="false" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M19 21l-7-5-7 5V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1z"/></svg></button>
+            </div>
+            <div class="meta"><p class="likes" id="likes">Double-tap to like</p><p><b>yourdatayourmoney</b> <span id="cap"></span></p><p class="tag" id="tag"></p></div>
+            <div class="progress" aria-hidden="true"><i id="prog"></i></div>
+          </section>
+
+          <!-- REELS -->
+          <section class="view" id="reels" aria-label="Reels">
+            <video id="reel" playsinline loop preload="none" aria-label=""></video>
+            <span class="reel-tag" id="reelTag">Street interview</span>
+            <button class="reel-mute" id="mute" aria-label="Unmute"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M11 5L6 9H3v6h3l5 4z"/><path id="muteX" d="M22 9l-6 6M16 9l6 6"/></svg></button>
+            <button class="reel-play" id="play" aria-label="Play reel"><span><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span></button>
+            <div class="reel-ui"><b>yourdatayourmoney · Follow</b><p id="reelCap"></p></div>
+            <div class="reel-side"><button class="like" id="rlike" aria-pressed="false" aria-label="Like reel"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.3 3 4.5 6.6 4.5c2.1 0 3.6 1.2 4.4 2.6.8-1.4 2.3-2.6 4.4-2.6 3.6 0 5.7 3.8 4.2 7.3C19.5 16.4 12 21 12 21z"/></svg></button><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-3.4-6.8L21 4l-1 4.2A8.4 8.4 0 0 1 20.5 12z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M22 3L9.2 10.5M22 3l-6.5 18-3.3-8.3L3.7 9.5z"/></svg></div>
+            <div class="reel-bar" aria-hidden="true"><i id="rbar"></i></div>
+          </section>
+
+          <!-- PROFILE -->
+          <section class="view" id="profile" aria-label="Profile">
+            <div class="pro-head"><span class="avatar"><img src="assets/logo-mark.webp" alt="Your Data Your Money logo"></span><div class="stats"><span><b>12</b>posts</span><span><b>6</b>followers</span><span><b>2</b>following</span></div></div>
+            <p class="bio"><b>Your Data Your Money</b><br>Empowering people to demand fair compensation &amp; bring awareness to the value of their personal data 💸<br><a href="https://linktr.ee/YourDataYourMoney" target="_blank" rel="noopener noreferrer">linktr.ee/YourDataYourMoney</a></p>
+            <div class="pro-btns" aria-hidden="true"><span class="follow">Follow</span><span>Message</span><span>+</span></div>
+            <div class="highlight"><figure><img src="assets/logo-bubble.webp" alt=""><figcaption>Blackout</figcaption></figure></div>
+            <div class="gtabs" aria-hidden="true"><span class="on">Posts</span><span>Reels</span><span>Tagged</span></div>
+            <div class="grid" id="grid"></div>
+          </section>
+
+          <nav class="tabbar" aria-label="Instagram navigation (decorative)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 8v8M8 12h8"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M10 9l5 3-5 3z"/></svg>
+            <span class="me" aria-hidden="true"><img src="assets/logo-mark.webp" alt=""></span>
+          </nav>
+          <div class="homebar"></div>
+        </div>
+      </div>
+      <div class="under"><button id="pause" aria-pressed="false"><svg viewBox="0 0 24 24" fill="currentColor"><path id="pauseIcon" d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg><span id="pauseLbl">Pause loop</span></button></div>
+    </div>
+  </div>
+</main>
+
+<script>
+const POSTS = [
+  {group:"Launch", title:"Own It, Earn It", tag:"Pinned · campaign launch", loc:"New York, NY", slides:["post-launch-2","post-launch-1","post-launch-3"], alt:["Your Data Your Money, own it, earn it: launch post with 3D characters on a Green Yellow background","Launch artwork: a 3D marketer with a megaphone beside a giant phone and computer on Green Yellow and Tomato","Launch artwork: a 3D character juggling social icons beside a paper plane on Green Yellow"], cap:"Your data. Your money. Big tech profits from every click. It's time you got paid too. Own it, earn it! 💸"},
+  {group:"Call to action", title:"Blast: Email Flood", tag:"Movement · email flood", loc:"Inbox of Big Tech", slides:["post-email-flood-full"], alt:["Blast Email Flood poster: a determined cartoon creature on an orange gradient, “My time has come” to blast"], cap:"\"My time has come\" to BLAST. Flood Big Tech inboxes and demand fair pay for your data. Template in bio. 📨"},
+  {group:"Microsite", title:"Visit Our Website", tag:"Link in bio", loc:"yourdatayourmoney", slides:["post-website"], alt:["Visit our website: a laptop showing the Your Data Your Money microsite, earn what you are owed"], cap:"The microsite is live. Learn what your data is worth and how to claim it. Earn what you are owed. 🔗"},
+  {group:"Movement", title:"Social Media Blackout", tag:"Movement · blackout", loc:"Everywhere", slides:["post-logo"], alt:["Your Data Your Money logo: an angry face with dollar-sign eyes inside a scan frame, white and Green Yellow on black"], cap:"Blackout. For 24 hours we log off and show Big Tech who powers their profits. Are you in? 🖤"},
+  {group:"Education", title:"Did You Know...?", tag:"Carousel · data facts", loc:"New York, NY", slides:["post-did-you-know"], alt:["Did you know: companies can predict your behavior through your data, with a surprised woman on a Tomato background"], cap:"Did you know companies can predict your behavior through your data? Swipe to see how. 🤯"},
+  {group:"Education", title:"4 Ways to Protect Your Data", tag:"Carousel · tips", loc:"New York, NY", slides:["post-four-ways"], alt:["4 ways you can protect your data, in Green Yellow and white type on Space Cadet navy with a Tomato corner"], cap:"4 ways you can protect your data, starting today. Save this for later. 🔐"},
+  {group:"Team", title:"Introducing Our Team", tag:"Carousel · meet the team", loc:"New York, NY", slides:["post-our-team"], alt:["Introducing our team: Rodrigo Cazuza, designer and editor; Isabelle Torab, designer and content creator; Htet Aung Lin, web and UX designer"], cap:"Meet the team behind the movement: Rodrigo, Isabelle and Htet. 👋"},
+  {group:"Provocation", title:"If You Could Get $1", tag:"Carousel · swipe to find out", loc:"New York, NY", slides:["post-one-dollar"], alt:["If you could get $1 for every piece of data you gave away for free, how much would you have now? A woman fanning cash on navy"], cap:"If you got $1 for every piece of data you gave away for free... how much would you have now? 💵"},
+  {group:"Campaign", title:"Fill Your Wallet", tag:"Campaign concept · 5 colorways", loc:"New York, NY", slides:["wallet-green","wallet-tomato","wallet-navy","wallet-blue","wallet-red"], alt:["Fill your wallet poster: a man at a computer with cash flying out of the screen, duotone green and lime","Fill your wallet poster in Tomato and green","Fill your wallet poster in navy and Tomato","Fill your wallet poster in blue and lime","Fill your wallet poster in red and lime"], cap:"Fill in the blank: _ your wallet! One idea, five colorways from the campaign system. 🎨"}
+];
+const REELS = [
+  {title:"Maybe like $100,000", src:"assets/reel-b.mp4", poster:"assets/post-reel-100k.webp", cap:"We asked New Yorkers what their data is worth. One guess: \"maybe like $100,000.\" 🎤", label:"Street interview reel: “Maybe like $100,000”"},
+  {title:"Do you get any money out of that?", src:"assets/reel-a.mp4", poster:"assets/post-reel-money.webp", cap:"\"Do you get any money out of that?\" Spoiler: no. Not yet. 🗽", label:"Street interview reel: “Do you get any money out of that?”"}
+];
+// Profile grid, in the account's real order.
+const GRID = [["post-launch-1",0,1,"pin"],["post-launch-2",0,0,"pin"],["post-launch-3",0,2,"pin"],["post-email-flood",1,0],["post-website",2,0],["post-logo",3,0],["post-did-you-know",4,0,"multi"],["post-reel-100k","r0",0,"reel"],["post-four-ways",5,0,"multi"],["post-our-team",6,0,"multi"],["post-reel-money","r1",0,"reel"],["post-one-dollar",7,0,"multi"]];
+
+const AUTO_MS = 3600, $ = id => document.getElementById(id), img = n => `assets/${n}.webp`;
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const st = { view:"feed", p:0, i:0, r:0, auto:!reduce, liked:{}, t0:performance.now(), drag:null };
+
+/* series list for the current view */
+function renderSeries(){
+  const nav = $("series"); nav.innerHTML = "";
+  const list = st.view === "reels" ? REELS.map(r => ({group:"Street interview", title:r.title})) : POSTS.map(p => ({group:p.group, title:p.title, n:p.slides.length}));
+  list.forEach((s, k) => {
+    const b = document.createElement("button");
+    b.innerHTML = `<span class="n">${String(k+1).padStart(2,"0")}</span><span><span class="g">${s.group}</span><span class="t">${s.title}</span></span><span class="c">${st.view==="reels" ? "Reel" : s.n}</span>`;
+    b.onclick = () => st.view === "reels" ? selectReel(k) : (setView("feed"), selectPost(k, 0));
+    nav.appendChild(b);
+  });
+  markSeries();
+}
+function markSeries(){
+  [...$("series").children].forEach((b, k) => b.setAttribute("aria-current", String(k === (st.view === "reels" ? st.r : st.p))));
+}
+
+/* feed */
+function selectPost(p, i){
+  st.p = (p + POSTS.length) % POSTS.length; const post = POSTS[st.p];
+  $("track").innerHTML = post.slides.map((s, k) => `<div class="slide"><img class="fill" src="${img(s)}" alt="" aria-hidden="true" draggable="false"><img class="art" src="${img(s)}" alt="${post.alt[k]}" draggable="false" decoding="async"></div>`).join("");
+  $("dots").innerHTML = post.slides.length > 1 ? post.slides.map(() => "<i></i>").join("") : "";
+  $("cap").textContent = post.cap; $("tag").textContent = post.tag; $("postLoc").textContent = post.loc;
+  $("count").style.display = post.slides.length > 1 ? "" : "none";
+  goSlide(i, true); updateLike(); markSeries();
+}
+function goSlide(i, instant){
+  const n = POSTS[st.p].slides.length; st.i = Math.max(0, Math.min(n - 1, i));
+  const tr = $("track"); if (instant) tr.classList.add("drag");
+  tr.style.transform = `translateX(${-st.i * 100}%)`;
+  if (instant) requestAnimationFrame(() => tr.classList.remove("drag"));
+  $("count").textContent = `${st.i + 1}/${n}`;
+  [...$("dots").children].forEach((d, k) => d.classList.toggle("on", k === st.i));
+  st.t0 = performance.now();
+}
+function next(){ const n = POSTS[st.p].slides.length; st.i < n - 1 ? goSlide(st.i + 1) : selectPost(st.p + 1, 0); }
+function prev(){ st.i > 0 ? goSlide(st.i - 1) : selectPost(st.p - 1, POSTS[(st.p - 1 + POSTS.length) % POSTS.length].slides.length - 1); }
+function updateLike(){
+  const on = !!st.liked["p" + st.p]; $("like").classList.toggle("on", on); $("like").setAttribute("aria-pressed", String(on));
+  $("likes").textContent = on ? "Liked by you" : "Double-tap to like";
+}
+function toggleLike(force){ const k = "p" + st.p; st.liked[k] = force ?? !st.liked[k]; updateLike(); }
+
+/* drag + double tap */
+const media = $("media"); let lastTap = 0;
+media.addEventListener("pointerdown", e => { st.drag = {x:e.clientX, dx:0, id:e.pointerId}; media.setPointerCapture(e.pointerId); $("track").classList.add("drag"); });
+media.addEventListener("pointermove", e => {
+  if (!st.drag || e.pointerId !== st.drag.id) return; st.drag.dx = e.clientX - st.drag.x;
+  const w = media.clientWidth, n = POSTS[st.p].slides.length, edge = (st.i === 0 && st.drag.dx > 0) || (st.i === n - 1 && st.drag.dx < 0) ? .35 : 1;
+  $("track").style.transform = `translateX(${-st.i * w + st.drag.dx * edge}px)`;
+});
+function endDrag(e){
+  if (!st.drag) return; const dx = st.drag.dx; st.drag = null; $("track").classList.remove("drag");
+  if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); return; }
+  goSlide(st.i);
+  const now = performance.now();
+  if (Math.abs(dx) < 6) { if (now - lastTap < 320) { toggleLike(true); const b = $("burst"); b.classList.remove("go"); void b.offsetWidth; b.classList.add("go"); } lastTap = now; }
+}
+media.addEventListener("pointerup", endDrag); media.addEventListener("pointercancel", endDrag);
+$("like").onclick = () => toggleLike();
+$("save").onclick = e => { const on = e.currentTarget.getAttribute("aria-pressed") !== "true"; e.currentTarget.setAttribute("aria-pressed", String(on)); e.currentTarget.querySelector("svg").style.fill = on ? "#111" : "none"; };
+
+/* reels */
+const reel = $("reel");
+function selectReel(k){
+  st.r = (k + REELS.length) % REELS.length; const r = REELS[st.r];
+  setView("reels", true);
+  reel.src = r.src; reel.poster = r.poster; reel.setAttribute("aria-label", r.label); reel.muted = true; updateMute();
+  $("reelCap").textContent = r.cap; $("play").classList.remove("hide"); $("rbar").style.width = "0";
+  $("rlike").classList.toggle("on", !!st.liked["r" + st.r]); markSeries();
+}
+$("play").onclick = () => { if (reel.paused) { reel.play().catch(()=>{}); $("play").classList.add("hide"); } else { reel.pause(); $("play").classList.remove("hide"); } };
+function updateMute(){ $("muteX").style.display = reel.muted ? "" : "none"; $("mute").setAttribute("aria-label", reel.muted ? "Unmute" : "Mute"); }
+$("mute").onclick = () => { reel.muted = !reel.muted; updateMute(); };
+$("rlike").onclick = () => { const k = "r" + st.r; st.liked[k] = !st.liked[k]; $("rlike").classList.toggle("on", st.liked[k]); $("rlike").setAttribute("aria-pressed", String(st.liked[k])); };
+reel.addEventListener("timeupdate", () => { if (reel.duration) $("rbar").style.width = (reel.currentTime / reel.duration * 100) + "%"; });
+
+/* profile grid */
+$("grid").innerHTML = GRID.map((g, k) => `<button data-k="${k}" aria-label="Open post ${k+1}"><img src="${img(g[0])}" alt="" loading="lazy">${g[3] ? `<svg class="ic" viewBox="0 0 24 24">${g[3]==="reel" ? '<path d="M8 5l11 7-11 7z"/>' : g[3]==="pin" ? '<path d="M14 3l7 7-3 1-4 4 1 5-2 1-4-5-5 5-1-1 5-5-5-4 1-2 5 1 4-4z"/>' : '<path d="M5 7h12v12H5z" fill="none" stroke="#fff" stroke-width="2"/><path d="M8 4h12v12" fill="none" stroke="#fff" stroke-width="2"/>'}</svg>` : ""}</button>`).join("");
+$("grid").onclick = e => { const b = e.target.closest("button"); if (!b) return; const g = GRID[+b.dataset.k];
+  if (typeof g[1] === "string") selectReel(+g[1].slice(1)); else { setView("feed"); selectPost(g[1], g[2]); } };
+
+/* views */
+function setView(v, keepReel){
+  if (st.view === v && v !== "reels") return;
+  st.view = v;
+  ["feed","reels","profile"].forEach(id => $(id).classList.toggle("on", id === v));
+  document.querySelectorAll(".tabs button").forEach(b => b.setAttribute("aria-selected", String(b.dataset.view === v)));
+  $("headTitle").textContent = v === "feed" ? "Posts" : v === "reels" ? "Reels" : "yourdatayourmoney";
+  $("hints").innerHTML = v === "reels" ? '<span class="chip on">Tap to play</span><span class="chip">Sound on/off</span><span class="chip">↑ ↓ next reel</span>' : v === "profile" ? '<span class="chip on">Tap a post</span><span class="chip">Real grid order</span>' : '<span class="chip on">Drag to swipe</span><span class="chip">Double-tap to like</span><span class="chip">← → ↑ ↓ keys</span>';
+  if (v !== "reels") { reel.pause(); }
+  else if (!keepReel) selectReel(st.r);
+  renderSeries();
+}
+document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => setView(b.dataset.view));
+
+/* keys */
+addEventListener("keydown", e => {
+  if (st.view === "feed") {
+    if (e.key === "ArrowRight") next(); else if (e.key === "ArrowLeft") prev();
+    else if (e.key === "ArrowDown") selectPost(st.p + 1, 0); else if (e.key === "ArrowUp") selectPost(st.p - 1, 0); else return;
+  } else if (st.view === "reels") {
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") selectReel(st.r + 1); else if (e.key === "ArrowUp" || e.key === "ArrowLeft") selectReel(st.r - 1); else return;
+  } else return;
+  e.preventDefault();
+});
+
+/* autoplay loop (feed only); pauses on hover/drag */
+let hover = false; $("screen").addEventListener("pointerenter", () => hover = true); $("screen").addEventListener("pointerleave", () => hover = false);
+function tick(now){
+  const run = st.auto && st.view === "feed" && !hover && !st.drag && !document.hidden;
+  if (!run) st.t0 = now - (parseFloat($("prog").style.width) || 0) / 100 * AUTO_MS;
+  const k = Math.min(1, (now - st.t0) / AUTO_MS);
+  $("prog").style.width = (k * 100) + "%";
+  if (run && k >= 1) next();
+  requestAnimationFrame(tick);
+}
+$("pause").onclick = () => { st.auto = !st.auto; $("pause").setAttribute("aria-pressed", String(!st.auto)); $("pauseLbl").textContent = st.auto ? "Pause loop" : "Play loop"; $("pauseIcon").setAttribute("d", st.auto ? "M7 5h3v14H7zM14 5h3v14h-3z" : "M7 4l13 8-13 8z"); };
+if (reduce) $("pause").click();
+
+/* scale the phone to fit short viewports */
+function fit(){ const h = innerHeight - 40, ph = $("wrap").firstElementChild.offsetHeight + 40; const s = innerWidth > 980 ? Math.min(1, h / ph) : 1; $("wrap").style.transform = s < 1 ? `scale(${s})` : ""; $("wrap").style.marginBottom = s < 1 ? `${-(1 - s) * ph}px` : ""; }
+addEventListener("resize", fit); fit();
+
+const start = new URLSearchParams(location.search).get("view");
+// Opens on the profile grid by default; ?view=reels or ?view=feed deep-links to the other tabs.
+renderSeries(); selectPost(0, 0); setView(start === "reels" || start === "feed" ? start : "profile");
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>

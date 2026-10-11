@@ -352,3 +352,88 @@ html.neu .composition-experience .comp-exp-list > li:not(#neu):is(:hover, :focus
    clicks on "Get in touch". It tracks the pointer at window level, so its stage can be click-through. */
 html.neu body .portfolio-hero .portrait-stage:not(#neu),
 html.neu body .portfolio-hero .portrait-stage canvas:not(#neu) { pointer-events: none !important; }
+
+/* 13. Live prototypes: featured card on Home + click-to-load embed on the project page. */
+html.neu .prototype-feature:not(#neu) {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+  margin: 0 0 clamp(40px, 5vw, 72px);
+  padding: var(--card-pad);
+  border-radius: var(--radius-xl);
+  background: var(--neu-bg);
+  box-shadow: var(--neu-raised);
+  text-align: left;
+}
+html.neu .prototype-feature-media:not(#neu) {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: #090909;
+  box-shadow: var(--neu-inset-sm);
+}
+html.neu .prototype-feature-media img:not(#neu) { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--neu-ease); }
+html.neu .prototype-feature-badge:not(#neu) {
+  position: absolute; left: 16px; top: 16px;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border-radius: 999px;
+  background: rgba(9, 9, 9, .72); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  color: #fff !important; font: 600 11px/1 var(--font-display); letter-spacing: .12em; text-transform: uppercase;
+}
+html.neu .prototype-feature-badge:not(#neu)::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--neu-green); box-shadow: 0 0 8px rgba(102, 212, 135, .9); }
+html.neu .prototype-feature-copy:not(#neu) { display: grid; justify-items: start; gap: var(--space-4); }
+html.neu .prototype-feature-copy .portfolio-category-label:not(#neu) { margin: 0 !important; }
+html.neu .prototype-feature-copy h3:not(#neu) { margin: 0; font: 700 clamp(1.75rem, 3vw, 2.75rem) / 1.05 var(--font-display); letter-spacing: -.03em; text-wrap: balance; }
+html.neu .prototype-feature-copy > p:not(.eyebrow):not(#neu) { margin: 0; max-width: 32rem; line-height: 1.6; }
+html.neu .prototype-feature-tags:not(#neu) { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
+html.neu .prototype-feature-tags li:not(#neu) { padding: 5px 12px; border-radius: 999px; box-shadow: var(--neu-raised-xs); font-size: 12px; }
+html.neu .prototype-feature-actions:not(#neu) { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-2); }
+html.neu .prototype-feature-actions .btn:not(#neu) { gap: .45em; }
+@media (hover: hover) {
+  html.neu .prototype-feature-media:not(#neu):hover img { transform: scale(1.035); }
+  html.neu .prototype-feature-media:not(#neu):hover { box-shadow: var(--neu-inset-sm), var(--green-rim); }
+}
+@media (max-width: 900px) {
+  html.neu .prototype-feature:not(#neu) { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  html.neu .prototype-feature-actions:not(#neu), html.neu .prototype-feature-actions .btn:not(#neu) { width: 100%; justify-content: center; }
+}
+
+html.neu .prototype-embed-heading:not(#neu) {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-6) clamp(24px, 4vw, 56px);
+  align-items: end; margin-bottom: clamp(24px, 3vw, 40px);
+}
+html.neu .prototype-embed-heading .portfolio-category-label:not(#neu) { margin: 0 0 var(--space-4) !important; }
+html.neu .prototype-embed-heading h2:not(#neu) { margin: 0; font: 700 clamp(2rem, 4vw, 3.5rem) / 1.05 var(--font-display); letter-spacing: -.03em; }
+html.neu .prototype-embed-heading > p:not(#neu) { margin: 0; max-width: 34rem; line-height: 1.6; }
+html.neu .prototype-embed-frame:not(#neu) {
+  position: relative; display: grid; place-items: center;
+  aspect-ratio: 16 / 10; overflow: hidden;
+  border-radius: var(--radius-xl); background: #090909; box-shadow: var(--neu-raised);
+}
+html.neu .prototype-embed-frame > img:not(#neu) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.55); transition: filter .45s ease, transform .6s var(--neu-ease); }
+html.neu .prototype-embed-frame:not(#neu):hover > img { filter: brightness(.7); transform: scale(1.02); }
+html.neu .prototype-embed-launch:not(#neu) { position: relative; z-index: 1; gap: .5em; padding: 15px 28px !important; font-size: 15px !important; }
+html.neu .prototype-embed-frame iframe:not(#neu) { width: 100%; height: 100%; border: 0; }
+html.neu .prototype-embed-links:not(#neu) { margin: var(--space-4) 0 0; text-align: right; font: 600 14px var(--font-display); }
+@media (max-width: 760px) {
+  html.neu .prototype-embed-heading:not(#neu) { grid-template-columns: minmax(0, 1fr); }
+  html.neu .prototype-embed-frame:not(#neu) { aspect-ratio: auto; height: min(78vh, 760px); border-radius: var(--radius-lg); }
+  html.neu .prototype-embed-links:not(#neu) { text-align: center; }
+  html.neu .prototype-embed-frame > img:not(#neu) { object-position: 72% center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.neu :is(.prototype-feature-media img, .prototype-embed-frame > img):not(#neu) { transform: none !important; }
+}
+/* Project pages don't load portfolio.css, so give the embed's section label its pill + dot here. */
+html.neu .prototype-embed-heading .portfolio-category-label:not(#neu) { display: inline-flex; align-items: center; gap: .6em; padding: 12px 16px; border-radius: 999px; }
+html.neu .prototype-embed-heading .portfolio-category-label:not(#neu)::before { content: ""; width: 8px; height: 8px; border-radius: 50%; }
+/* Alternate prototype cards mirror the layout so a stack of them reads as a sequence. */
+@media (min-width: 901px) {
+  html.neu .prototype-feature--reverse:not(#neu) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }
+  html.neu .prototype-feature--reverse .prototype-feature-media:not(#neu) { order: 2; }
+}

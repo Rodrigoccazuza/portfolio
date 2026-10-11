@@ -622,6 +622,46 @@
     return node;
   }
 
+  // Featured live prototype: preview image on the left, copy and actions on the right.
+  function prototypeFeature(prototype) {
+    var article = element('article', 'prototype-feature');
+    var preview = element('a', 'prototype-feature-media');
+    preview.href = prototype.url;
+    preview.target = '_blank';
+    preview.rel = 'noopener noreferrer';
+    preview.setAttribute('aria-label', 'Open the ' + prototype.title + ' prototype (opens in a new tab)');
+    var image = element('img');
+    image.src = prototype.media.src;
+    image.alt = prototype.media.alt;
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    preview.appendChild(image);
+    preview.appendChild(element('span', 'prototype-feature-badge', 'Live prototype'));
+    var copy = element('div', 'prototype-feature-copy');
+    copy.appendChild(element('p', 'eyebrow portfolio-category-label', 'Interactive prototype'));
+    var title = element('h3', '', prototype.title + ' ');
+    title.appendChild(element('span', 'accent-italic', prototype.titleAccent));
+    copy.appendChild(title);
+    copy.appendChild(element('p', '', prototype.description));
+    var tagList = element('ul', 'prototype-feature-tags');
+    prototype.tags.forEach(function (tag) { tagList.appendChild(element('li', '', tag)); });
+    copy.appendChild(tagList);
+    var actions = element('div', 'prototype-feature-actions');
+    var open = element('a', 'btn btn-primary', 'Try the prototype ');
+    open.appendChild(icon('arrow-up-right'));
+    open.href = prototype.url;
+    open.target = '_blank';
+    open.rel = 'noopener noreferrer';
+    var page = element('a', 'btn btn-secondary', 'See the case study');
+    page.href = prototype.page;
+    actions.appendChild(open);
+    actions.appendChild(page);
+    copy.appendChild(actions);
+    article.appendChild(preview);
+    article.appendChild(copy);
+    return article;
+  }
+
   function renderSection(section) {
     if (section.layout === 'websites') return renderWebsitesSection(section);
     if (section.layout === 'systems') return renderDesignSystemsSection(section);
@@ -646,6 +686,16 @@
         link.href = 'projects/' + entry[1] + '/#asset-library';
         libraryLinks.appendChild(link);
       });
+      if (section.prototypes) {
+        var anchor = folderSection.querySelector('.interaction-heading');
+        section.prototypes.forEach(function (prototype, index) {
+          if (!anchor) return;
+          var feature = prototypeFeature(prototype);
+          if (index % 2) feature.classList.add('prototype-feature--reverse');
+          anchor.after(feature);
+          anchor = feature;
+        });
+      }
       // Keep shortcuts directly beneath the last static paid/social folder.
       folderSection.appendChild(libraryLinks);
       folderSection.appendChild(videos);
