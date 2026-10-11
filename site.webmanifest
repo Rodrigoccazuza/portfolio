@@ -1,0 +1,14 @@
+{
+  "name": "Rodrigo Cazuza — Multimedia Designer",
+  "short_name": "Rodrigo Cazuza",
+  "description": "Brand systems, campaigns, websites, social content, and video by Rodrigo Cazuza.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "minimal-ui",
+  "background_color": "#e6e7eb",
+  "theme_color": "#e6e7eb",
+  "icons": [
+    { "src": "images/site/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "images/site/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

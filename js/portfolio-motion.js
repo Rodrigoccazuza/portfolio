@@ -227,7 +227,7 @@
         element.dataset.gsapReveal = 'ready';
         gsap.fromTo(element, {
           autoAlpha: options.fromAlpha == null ? 0 : options.fromAlpha,
-          y: options.y == null ? 34 : options.y,
+          y: options.y == null ? 22 : Math.min(options.y, 22),
           x: options.x || 0,
           scale: options.scale == null ? 1 : options.scale
         }, {
@@ -235,9 +235,9 @@
           y: 0,
           x: 0,
           scale: 1,
-          duration: options.duration || 0.8,
+          duration: Math.max(options.duration || 0.95, 0.9),
           delay: options.delay ? options.delay * index : 0,
-          ease: options.ease || 'power3.out',
+          ease: options.ease || 'power2.out',
           clearProps: 'transform,opacity,visibility',
           scrollTrigger: {
             trigger: element,
@@ -316,15 +316,17 @@
 
       gsap.utils.toArray('.portfolio-sections > section').forEach(function (section) {
         if (section.dataset.gsapSection === 'ready') return;
+        // Website cards are always visible and enter with the scroll stack itself — no fade-in.
+        if (section.id === 'websites') return;
         section.dataset.gsapSection = 'ready';
         var heading = section.querySelectorAll('.eyebrow, h2, h3, .section-title, .section-intro, .section-copy');
         if (heading.length) {
-          gsap.fromTo(heading, { autoAlpha: 0, y: 28 }, {
+          gsap.fromTo(heading, { autoAlpha: 0, y: 18 }, {
             autoAlpha: 1,
             y: 0,
-            duration: 0.74,
-            stagger: 0.08,
-            ease: 'power3.out',
+            duration: 0.95,
+            stagger: 0.06,
+            ease: 'power2.out',
             clearProps: 'transform,opacity,visibility',
             scrollTrigger: { trigger: section, start: 'top 84%', once: true }
           });
@@ -332,13 +334,12 @@
 
         var cards = section.querySelectorAll('.project-card, .media-card, .website-card, .campaign-card, .design-card, .portfolio-card, article');
         if (cards.length) {
-          gsap.fromTo(cards, { autoAlpha: 0, y: 34, scale: 0.985 }, {
+          gsap.fromTo(cards, { autoAlpha: 0, y: 22 }, {
             autoAlpha: 1,
             y: 0,
-            scale: 1,
-            duration: 0.72,
-            stagger: 0.075,
-            ease: 'power3.out',
+            duration: 0.95,
+            stagger: 0.06,
+            ease: 'power2.out',
             clearProps: 'transform,opacity,visibility',
             scrollTrigger: { trigger: section, start: 'top 78%', once: true }
           });

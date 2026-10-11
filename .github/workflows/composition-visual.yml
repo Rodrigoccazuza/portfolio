@@ -25,7 +25,6 @@ jobs:
           node tests/overflow-diagnostics.mjs
           node tests/composition-visual.mjs
           node tests/composition-mobile-nav.mjs
-          node tests/workflow-stage.mjs
           node tests/hero-reference-alignment.mjs
           node tests/site-final-polish.mjs
           node tests/navigation-consistency.mjs

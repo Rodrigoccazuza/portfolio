@@ -15,27 +15,17 @@
       const card = el('div', 'stack-project');
       const bar = el('div', 'stack-browser'); bar.append(el('span', 'stack-dots', '● ● ●'), el('span', '', p.category), el('span', '', String(i + 1).padStart(2, '0')));
       const preview = el('button', 'stack-preview'); preview.type = 'button'; preview.setAttribute('aria-label', 'Open full preview: ' + p.title);
-      preview.append(img(p.media.src, p.media.alt)); preview.addEventListener('click', () => openViewer([{src:p.media.src, alt:p.media.alt, title:p.title, type:'image'}], 0, preview));
+      const shot = img(p.media.src, p.media.alt);
+      // The first two previews are fetched up front so the stack never shows an empty frame.
+      if (i < 2) { shot.loading = 'eager'; shot.fetchPriority = 'low'; }
+      preview.append(shot); preview.addEventListener('click', () => openViewer([{src:p.media.src, alt:p.media.alt, title:p.title, type:'image'}], 0, preview));
       const copy = el('div', 'stack-copy'); const info = el('div'); info.append(el('h3', '', p.title), el('p', '', p.description));
       const link = el('a', 'btn btn-primary', 'Visit website ↗'); link.href = p.url; link.target = '_blank'; link.rel = 'noopener noreferrer'; copy.append(info, link);
       card.append(bar, preview, copy); slot.append(card); stack.append(slot);
     });
     container.append(stack);
-    const tools = el('section', 'orbit-tools'); heading(tools, 'Tools', 'The tools behind the work');
-    const orbit = el('div', 'tool-orbit'); orbit.append(el('div', 'orbit-center', 'RC'));
-    for (let r = 0; r < 3; r++) {
-      const ring = el('ul', 'orbit-ring'); ring.style.setProperty('--diameter', (34 + r * 27) + '%'); ring.style.setProperty('--duration', (30 + r * 14) + 's');
-      const group = data.websiteTools.slice(r * 3, r * 3 + 3);
-      group.forEach((t, i) => { const angle = i / group.length * Math.PI * 2 + r * .7; const item = el('li', 'orbit-item'); item.style.left = (50 + 50 * Math.cos(angle)) + '%'; item.style.top = (50 + 50 * Math.sin(angle)) + '%'; const badge = el('span', 'orbit-badge'); badge.title = t.name; badge.append(t.src ? img(t.src, '') : el('span', 'orbit-mark', t.mark), el('span', 'orbit-name', t.name)); item.append(badge); ring.append(item); }); orbit.append(ring);
-    }
-    const pause = el('button', 'orbit-pause', 'Pause motion'); pause.type = 'button'; pause.setAttribute('aria-pressed', 'false'); pause.addEventListener('click', () => { const paused = tools.classList.toggle('is-paused'); pause.textContent = paused ? 'Resume motion' : 'Pause motion'; pause.setAttribute('aria-pressed', String(paused)); });
-    tools.append(orbit, pause); container.append(tools);
-    const process = el('section', 'concept-timeline'); heading(process, 'From concept to build', 'A clear path from idea to launch');
-    const descriptions = ['Define the idea, audience and objective.', 'Explore the context, content and opportunities.', 'Shape early directions and visual possibilities.', 'Structure the pages and map the user journey.', 'Test the interactions and refine the experience.', 'Build, check responsiveness and prepare for launch.'];
-    const list = el('ol', 'concept-steps'); data.websiteProcess.forEach((step, i) => { const item = el('li', 'concept-step'); const copy = el('div'); copy.append(el('h3', '', step), el('p', '', descriptions[i])); item.append(el('span', 'concept-dot', String(i + 1).padStart(2, '0')), copy); list.append(item); }); process.append(list); container.append(process); root.append(container);
+    root.append(container);
     requestAnimationFrame(() => {
-      observe([tools], (n, visible) => n.classList.toggle('is-visible', visible));
-      observe([...list.children], (n, visible) => { if (visible) n.classList.add('is-revealed'); });
       const slots = [...stack.children]; let queued = false;
       function update() { queued = false; slots.forEach((slot, i) => { const top = 88 + i * 10; const next = slots[i + 1]; const progress = next ? Math.max(0, Math.min(1, (innerHeight - next.getBoundingClientRect().top) / Math.max(1, innerHeight - top))) : 0; slot.firstChild.style.transform = reduced.matches ? '' : 'scale(' + (1 - progress * .06) + ')'; }); }
       const schedule = () => { if (!queued) { queued = true; requestAnimationFrame(update); } }; addEventListener('scroll', schedule, {passive:true}); addEventListener('resize', schedule); reduced.addEventListener('change', schedule); update();

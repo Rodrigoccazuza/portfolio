@@ -1,0 +1,263 @@
+/* Dynamic neumorphic navigation — sitewide. State classes come from js/nav-dynamic.js:
+   html.nav-scrolled (compact), html.nav-hidden (tucked away while reading down),
+   --nav-progress (0–1 page progress), .nav-indicator (sliding pressed pill). */
+html.neu .site-header:not(#nav) {
+  position: sticky !important;
+  top: 0 !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: 1000 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 14px 16px 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  pointer-events: none;
+  transform: translateY(0) !important;
+  transition: transform .55s cubic-bezier(.22, .61, .36, 1), padding .45s cubic-bezier(.22, .61, .36, 1) !important;
+}
+html.neu.nav-hidden:not(.nav-open-lock) .site-header:not(#nav) { transform: translateY(calc(-100% - 8px)) !important; }
+html.neu .site-header .nav-bar:not(#nav) {
+  position: relative;
+  pointer-events: auto;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+  width: 100% !important;
+  max-width: 1120px !important;
+  min-height: 66px !important;
+  margin: 0 auto !important;
+  padding: 9px 10px 9px 22px !important;
+  border-radius: 999px !important;
+  background: var(--neu-bg) !important;
+  box-shadow: var(--neu-raised) !important;
+  transition: max-width .55s cubic-bezier(.22, .61, .36, 1), min-height .45s ease, padding .45s ease, box-shadow .45s ease !important;
+}
+html.neu.nav-scrolled .site-header .nav-bar:not(#nav) {
+  max-width: 880px !important;
+  min-height: 56px !important;
+  padding: 6px 7px 6px 18px !important;
+  box-shadow: var(--neu-raised-sm), 0 14px 30px -18px rgba(43, 45, 51, .35) !important;
+}
+/* Reading progress: a hairline pressed into the bottom of the pill. */
+html.neu .site-header .nav-bar:not(#nav)::after {
+  content: "";
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--neu-violet), var(--neu-green));
+  transform-origin: left center;
+  transform: scaleX(var(--nav-progress, 0));
+  opacity: .7;
+  pointer-events: none;
+}
+html.neu .site-header .nav-logo img:not(#nav) {
+  width: 86px !important;
+  height: auto !important;
+  max-height: 42px !important;
+  object-fit: contain;
+  transition: width .45s ease !important;
+}
+html.neu.nav-scrolled .site-header .nav-logo img:not(#nav) { width: 74px !important; }
+
+/* Desktop links: a segmented control with a sliding pressed indicator. */
+@media (min-width: 861px) {
+  html.neu .site-header #primary-nav:not(#nav) {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  html.neu .site-header #primary-nav > ul:not(#nav) {
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    gap: 2px !important;
+    margin: 0 !important;
+    padding: 5px !important;
+    list-style: none;
+    border-radius: 999px;
+    box-shadow: var(--neu-inset-sm);
+  }
+  html.neu .site-header #primary-nav > ul > li > a:not(#nav) {
+    position: relative;
+    z-index: 1;
+    display: block;
+    padding: 9px 18px !important;
+    border-radius: 999px;
+    color: var(--neu-text-2) !important;
+    font-family: var(--font-display, "Poppins", sans-serif);
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: color .3s ease !important;
+  }
+  html.neu .site-header #primary-nav > ul > li > a:not(#nav):is(:hover, :focus-visible, [aria-current="page"]),
+  html.neu .site-header #primary-nav > ul > li > a.is-indicated:not(#nav) { color: var(--neu-text) !important; }
+  html.neu .site-header #primary-nav > ul > li > a[aria-current="page"]:not(#nav) { color: var(--neu-violet) !important; }
+  html.neu .site-header .nav-indicator {
+    position: absolute;
+    z-index: 0;
+    top: 5px;
+    left: 0;
+    height: calc(100% - 10px);
+    width: var(--w, 0);
+    border-radius: 999px;
+    background: var(--neu-bg);
+    box-shadow: var(--neu-raised-sm);
+    transform: translateX(var(--x, 0));
+    opacity: var(--o, 0);
+    transition: transform .45s cubic-bezier(.22, .61, .36, 1), width .45s cubic-bezier(.22, .61, .36, 1), opacity .25s ease;
+    pointer-events: none;
+  }
+  html.neu .site-header .nav-resume-btn:not(#nav) { padding: 12px 20px !important; font-size: 14px !important; }
+  html.neu .nav-toggle:not(#nav) { display: none !important; }
+}
+
+/* Mobile: round toggle + raised drawer with cascading links. */
+@media (max-width: 860px) {
+  html.neu .site-header .nav-bar:not(#nav) { padding: 7px 7px 7px 18px !important; min-height: 58px !important; }
+  html.neu .nav-toggle:not(#nav) {
+    display: inline-grid !important;
+    place-content: center;
+    gap: 4px;
+    width: 46px !important;
+    height: 46px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+  }
+  html.neu .nav-toggle:not(#nav) { position: relative !important; }
+  /* Bars are centered absolutely so the open state always crosses into a clean X. */
+  html.neu .nav-toggle .bar:not(#nav) {
+    position: absolute !important; left: 50% !important; top: 50% !important;
+    width: 18px !important; height: 2px !important; margin: -1px 0 0 -9px !important; border-radius: 2px;
+    transition: transform .35s cubic-bezier(.22, .61, .36, 1), opacity .25s ease !important;
+  }
+  html.neu .nav-toggle .bar:nth-child(1):not(#nav) { transform: translateY(-6px) !important; }
+  html.neu .nav-toggle .bar:nth-child(2):not(#nav) { transform: none !important; }
+  html.neu .nav-toggle .bar:nth-child(3):not(#nav) { transform: translateY(6px) !important; }
+  html.neu .nav-toggle[aria-expanded="true"]:not(#nav) { box-shadow: var(--neu-inset-sm) !important; }
+  html.neu .nav-toggle[aria-expanded="true"] .bar:nth-child(1):not(#nav) { transform: rotate(45deg) !important; }
+  html.neu .nav-toggle[aria-expanded="true"] .bar:nth-child(2):not(#nav) { opacity: 0 !important; }
+  html.neu .nav-toggle[aria-expanded="true"] .bar:nth-child(3):not(#nav) { transform: rotate(-45deg) !important; }
+  html.neu .site-header #primary-nav:not(#nav) {
+    position: absolute !important;
+    top: calc(100% + 12px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: auto !important;
+    max-height: calc(100dvh - 110px);
+    overflow: auto;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+    padding: 18px !important;
+    border-radius: 28px !important;
+    background: var(--neu-bg) !important;
+    box-shadow: var(--neu-raised) !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(.98) !important;
+    transform-origin: top center;
+    transition: opacity .3s ease, transform .4s cubic-bezier(.22, .61, .36, 1), visibility 0s linear .4s !important;
+  }
+  html.neu .site-header #primary-nav[data-open="true"]:not(#nav) {
+    opacity: 1;
+    visibility: visible;
+    transform: none !important;
+    transition: opacity .3s ease, transform .4s cubic-bezier(.22, .61, .36, 1), visibility 0s !important;
+  }
+  html.neu .site-header #primary-nav > ul:not(#nav) { display: grid !important; gap: 10px !important; margin: 0 !important; padding: 0 !important; list-style: none; }
+  html.neu .site-header #primary-nav > ul > li:not(#nav) {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .35s ease, transform .45s cubic-bezier(.22, .61, .36, 1);
+  }
+  html.neu .site-header #primary-nav[data-open="true"] > ul > li:not(#nav) { opacity: 1; transform: none; }
+  html.neu .site-header #primary-nav[data-open="true"] > ul > li:nth-child(2):not(#nav) { transition-delay: .05s; }
+  html.neu .site-header #primary-nav[data-open="true"] > ul > li:nth-child(3):not(#nav) { transition-delay: .1s; }
+  html.neu .site-header #primary-nav[data-open="true"] > ul > li:nth-child(4):not(#nav) { transition-delay: .15s; }
+  html.neu .site-header #primary-nav > ul > li > a:not(#nav) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px !important;
+    border-radius: 20px;
+    background: var(--neu-bg);
+    box-shadow: var(--neu-raised-sm);
+    color: var(--neu-text) !important;
+    font-family: var(--font-display, "Poppins", sans-serif);
+    font-size: 17px !important;
+    font-weight: 600 !important;
+  }
+  html.neu .site-header #primary-nav > ul > li > a[aria-current="page"]:not(#nav) { box-shadow: var(--neu-inset-sm); color: var(--neu-violet) !important; }
+  html.neu .site-header .nav-resume-btn:not(#nav) { justify-content: center; padding: 15px 20px !important; }
+  html.neu .nav-scrim:not(#nav) { background: rgba(43, 45, 51, .18) !important; -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+  html.neu .nav-indicator { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.neu .site-header:not(#nav), html.neu .site-header *:not(#nav) { transition: none !important; }
+  html.neu.nav-hidden .site-header:not(#nav) { transform: none !important; }
+}
+
+/* Menu open: lock scrolling on the viewport (html), not body. With html overflow-x: clip, an
+   overflow:hidden body becomes its own scroll container, which detaches the sticky header and
+   let the drawer scroll out of view. */
+html.neu:has(body.nav-open) { overflow: hidden !important; }
+html.neu body.nav-open:not(#nav) { overflow: visible !important; }
+html.neu:has(body.nav-open) .site-header:not(#nav) { transform: none !important; }
+
+/* Theme toggle: raised round control; pressed while dark mode is on. */
+html.neu .site-header .nav-bar:not(#nav) { justify-content: flex-start !important; }
+html.neu .site-header .nav-logo:not(#nav) { order: 1; flex: none; }
+html.neu .site-header #primary-nav:not(#nav) { order: 2; margin-left: auto !important; }
+html.neu .site-header .theme-toggle { order: 3; }
+html.neu .site-header .nav-toggle:not(#nav) { order: 4; }
+html.neu .theme-toggle {
+  position: relative;
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-left: 12px;
+  margin-right: 2px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--neu-bg);
+  color: var(--neu-text);
+  box-shadow: var(--neu-raised-sm);
+  cursor: pointer;
+  transition: box-shadow .35s ease, color .3s ease, transform .35s ease;
+}
+html.neu .theme-toggle svg { grid-area: 1 / 1; width: 19px; height: 19px; transition: opacity .35s ease, transform .5s cubic-bezier(.22, .61, .36, 1); }
+html.neu .theme-toggle .icon-moon { fill: currentColor; }
+html.neu .theme-toggle .icon-sun { fill: #ffc94a; stroke: #ffc94a; opacity: 0; transform: rotate(-90deg) scale(.6); }
+html.neu.neu-dark .theme-toggle .icon-sun { opacity: 1; transform: none; }
+html.neu.neu-dark .theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg) scale(.6); }
+html.neu.neu-dark .theme-toggle { box-shadow: var(--neu-inset-sm); }
+@media (hover: hover) { html.neu .theme-toggle:hover { color: var(--neu-green-text); box-shadow: var(--neu-raised-sm), 0 0 0 2px rgba(102, 212, 135, .7); } }
+html.neu .theme-toggle:active { box-shadow: var(--neu-inset-sm); }
+@media (max-width: 860px) {
+  html.neu .site-header #primary-nav:not(#nav) { margin-left: 0 !important; }
+  html.neu .theme-toggle { margin-left: auto; margin-right: 8px; width: 46px; height: 46px; }
+}
+/* The bar (logo, theme toggle, close button) stays crisp above the menu scrim. */
+html.neu .site-header .nav-bar:not(#nav) { z-index: 2; }
+html.neu .site-header .nav-scrim:not(#nav) { z-index: 1; }

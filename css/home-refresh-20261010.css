@@ -1,0 +1,47 @@
+/* Home refinements (2026-10-10): larger tools marquee, character placeholder for the
+   3D portrait, and audit fixes. Linked from index.html after the earlier home layers. */
+
+/* Tools marquee — roughly 1.6x the previous scale. */
+/* The strip sat under the hero (negative margin), so the hero's layers cut through the chips. */
+.composition-home .toolkit-marquee:not(#home-refresh) {
+  position: relative !important;
+  z-index: 3 !important;
+  isolation: isolate;
+  margin-top: 0 !important;
+  padding: 8px 0 !important;
+  border: 0 !important;
+}
+/* Vertical room inside the clipped viewport so the chips' soft shadows are not cut off. */
+.composition-home .toolkit-marquee-viewport:not(#home-refresh) { padding: 22px 0 !important; overflow: hidden !important; }
+.composition-home .toolkit-marquee-track:not(#home-refresh) { will-change: transform; backface-visibility: hidden; }
+.composition-home .toolkit-marquee-group li:not(#home-refresh) { border-block: 0 !important; }
+.composition-home .toolkit-marquee-track:not(#home-refresh) { animation-duration: 56s; }
+.composition-home .toolkit-marquee-group:not(#home-refresh) { gap: 14px !important; padding-right: 14px !important; }
+.composition-home .toolkit-marquee-group li:not(#home-refresh) {
+  min-height: 96px !important;
+  min-width: 200px !important;
+  padding: 16px 26px !important;
+  gap: 14px !important;
+  border-radius: 22px !important;
+}
+.composition-home .toolkit-marquee-group img:not(#home-refresh) { width: 48px !important; height: 48px !important; }
+.composition-home .toolkit-marquee-group span:not(#home-refresh) { font-size: 15px !important; letter-spacing: .01em; }
+@media (max-width: 860px) {
+  .composition-home .toolkit-marquee-group li:not(#home-refresh) { min-height: 80px !important; min-width: 168px !important; padding: 12px 20px !important; }
+  .composition-home .toolkit-marquee-group img:not(#home-refresh) { width: 40px !important; height: 40px !important; }
+  .composition-home .toolkit-marquee-group span:not(#home-refresh) { font-size: 14px !important; }
+}
+
+/* 3D placeholder: the character render, sized like the 3D head until the model is ready. */
+.composition-home .portfolio-hero .hero-3d-fallback.hero-avatar-placeholder:not(#home-refresh) {
+  object-fit: contain !important;
+  object-position: center bottom !important;
+  filter: drop-shadow(0 22px 44px rgba(0, 0, 0, .55)) !important;
+  transition: opacity .6s ease, visibility 0s linear .6s;
+}
+.composition-home .portrait-stage.model-ready ~ .hero-3d-fallback:not(#home-refresh) { opacity: 0; }
+/* The status text stays for screen readers; the placeholder is the visual cue. */
+.composition-home .portrait-stage .model-loading:not(#home-refresh) {
+  position: absolute !important; width: 1px !important; height: 1px !important; overflow: hidden !important;
+  clip: rect(0 0 0 0) !important; clip-path: inset(50%) !important; white-space: nowrap !important; margin: -1px !important; padding: 0 !important;
+}

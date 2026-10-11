@@ -16,12 +16,18 @@ jobs:
         run: |
           node --check js/reveal.js
           node --check js/composition-v2.js
+          node --check js/site-preloader.js
           node --input-type=module --check < js/composition-portrait-v2.js
       - name: Confirm referenced composition assets
         shell: bash
         run: |
           set -euo pipefail
-          test -s assets/video/concept-to-implementation.mp4
+          test -s assets/3d/portrait-interactive.glb
+          test -s images/site/avatar-character.webp
+          test -s js/site-preloader.js
+          test -s css/neu-system.css
+          test -s css/nav-dynamic.css
+          test -s js/nav-dynamic.js
           test -s css/composition.css
           test -s css/composition-v2.css
           test -s css/composition-work.css

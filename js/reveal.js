@@ -1,11 +1,20 @@
-// Lightweight reveal behavior and composition initialization.
+// Reveal behavior and composition initialization.
+// Home declares its stylesheets and scripts directly in index.html (parallel downloads, no
+// script-driven waterfall); Experience and Work still compose from here.
 (function(){
  'use strict';
- if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver'in window){
-  const selectors=['main > section','.card','.expertise-row','.process-grid li','.tool-grid-item','.review-card','.timeline-item','.home-timeline li','.brand-guideline-block','.experience-project-grid article','.portfolio-card','.campaign-card','.portfolio-section-header'];
+ const root=document.documentElement;
+ // Pages animated by GSAP (portfolio-motion.js) must not also run this observer reveal:
+ // two systems animating the same element is what made sections stutter.
+ if(!window.gsap&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver'in window){
+  // Content (sections, cards, grids) is visible from first paint; only small accents ease in.
+  const selectors=['.portfolio-section-header','.timeline-item','.home-timeline li','.expertise-row'];
   const items=[...document.querySelectorAll(selectors.join(','))];
-  if(items.length){document.documentElement.classList.add('reveal-ready');items.forEach((item,index)=>{item.classList.add('reveal-item');item.style.setProperty('--reveal-delay',Math.min(index%4,3)*55+'ms');});const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;entry.target.classList.add('is-revealed');observer.unobserve(entry.target);}),{rootMargin:'0px 0px -7% 0px',threshold:.08});items.forEach(item=>observer.observe(item));}
+  if(items.length){root.classList.add('reveal-ready');items.forEach((item,index)=>{item.classList.add('reveal-item');item.style.setProperty('--reveal-delay',Math.min(index%4,3)*55+'ms');});const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;entry.target.classList.add('is-revealed');observer.unobserve(entry.target);}),{rootMargin:'0px 0px -7% 0px',threshold:.08});items.forEach(item=>observer.observe(item));}
  }
+ // Late layout changes (lazy media, fonts) move ScrollTrigger start points; ScrollTrigger ignores
+ // resize events without a viewport change, so refresh when the document height really changes.
+ if('ResizeObserver'in window){let timer,lastHeight=0;new ResizeObserver(()=>{const height=root.scrollHeight;if(Math.abs(height-lastHeight)<2)return;lastHeight=height;clearTimeout(timer);timer=setTimeout(()=>{if(window.ScrollTrigger)window.ScrollTrigger.refresh();},250);}).observe(document.body);}
  const url=path=>new URL(path,document.baseURI).href;
  const release=()=>{if(typeof window.__compositionRelease==='function')requestAnimationFrame(()=>requestAnimationFrame(window.__compositionRelease));};
  function style(path,cb){const link=document.createElement('link');link.rel='stylesheet';link.href=url(path);if(cb){link.onload=cb;link.onerror=cb;}document.head.append(link);}
@@ -13,30 +22,17 @@
  const home=!!document.querySelector('.portfolio-hero');
  const experience=/\/experience\/?$/.test(location.pathname);
  const work=/\/work\/?$/.test(location.pathname);
- if(home||experience){
-  script('js/composition-v2.js?v=20260922-8',()=>{
+ if(home){
+  // Stylesheets are in the document (deferred scripts wait for them) and DOMContentLoaded
+  // fires after the remaining deferred composition scripts have run.
+  if(document.readyState==='complete')release();else document.addEventListener('DOMContentLoaded',release,{once:true});
+ }else if(experience){
+  script('js/composition-v2.js?v=20261011-1',()=>{
    style('css/composition-finishing.css?v=20260922-8');
-   script('js/composition-runtime-fixes.js?v=20260922-8',()=>{
-    if(!home){
-     style('css/content-accessibility-20260922.css?v=20260922-1');
-     script('js/experience-motion.js?v=20260922-1');
-     style('css/site-final-polish.css?v=20260922-14',release);return;
-    }
-    style('css/composition-workflow-stage.css?v=20260922-video-only-1');
-    style('css/composition-visibility-polish.css?v=20260922-10');
-    style('css/hero-alignment-20260922.css?v=20260922-11');
-    style('css/hero-reference-fidelity.css?v=20260922-12');
-    style('css/composition-hero-alignment.css?v=20260922-13');
-    script('js/composition-hero-alignment.js?v=20260922-18');
-    script('js/composition-workflow-stage.js?v=20260922-video-only-1');
+   script('js/composition-runtime-fixes.js?v=20261011-1',()=>{
     style('css/content-accessibility-20260922.css?v=20260922-1');
-    style('css/site-final-polish.css?v=20260922-14');
-    style('css/hero-final-specificity.css?v=20260922-18');
-    style('css/website-card-color-lock.css?v=20260922-16');
-    // The video-only section has no card rail and needs no card-cascade override.
-    style('css/hero-mobile-spacing.css?v=20260922-20');
-    // The shared nav is centered on every page; this must load after hero CSS.
-    style('css/home-nav-layout-fix.css?v=20260922-1',()=>{window.dispatchEvent(new Event('resize'));release();});
+    script('js/experience-motion.js?v=20260922-1');
+    style('css/site-final-polish.css?v=20260922-14',release);
    });
   });
  }else if(work){

@@ -87,7 +87,7 @@
     toggle.setAttribute('aria-expanded', 'true');
     document.body.classList.add('nav-open');
     var first = links.querySelector(focusablesSelector);
-    if (first) first.focus();
+    if (first) first.focus({ preventScroll: true });
     document.addEventListener('keydown', onKeydown);
   }
 
@@ -97,7 +97,7 @@
     toggle.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('nav-open');
     document.removeEventListener('keydown', onKeydown);
-    if (lastFocused) lastFocused.focus();
+    if (lastFocused) lastFocused.focus({ preventScroll: true });
   }
 
   function onKeydown(e) {
@@ -168,7 +168,6 @@
   loadScript('js/behind-designs-corridor.js?v=20260912');
 
   var enhancements = [
-    { selector: '#websites', src: 'js/website-aurora-cards.js?v=20260912' },
     { selector: '#design-systems', src: 'js/design-system-scroll-stack.js?v=20260912' },
     { selector: '#email', src: 'js/email-fan-carousel.js?v=20260912-stack2' }
   ];
@@ -253,14 +252,14 @@
               '<ul class="social-row">' +
                 '<li><a href="https://github.com/Rodrigoccazuza" target="_blank" rel="noopener noreferrer">GitHub</a></li>' +
                 '<li><a href="https://www.linkedin.com/in/rodrigocazuza/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>' +
-                '<li><a href="https://www.youtube.com/@Drigoverse" target="_blank" rel="noopener noreferrer">YouTube</a></li>' +
+                '<li><a href="https://www.youtube.com/@Drigoverse" target="_blank" rel="noopener noreferrer">YouTube</a></li><li><a data-social="behance" href="https://www.behance.net/rodrigoccazuza" target="_blank" rel="noopener noreferrer">Behance</a></li>' +
               '</ul>' +
             '</div>' +
             '<div><h3>Location</h3><p>New York City</p><p>Available for freelance and collaborative projects.</p></div>' +
           '</div>' +
         '</div>' +
         '<div class="container footer-bottom">' +
-          '<p>&copy; 2026 Rodrigo Cazuza. All rights reserved.</p>' +
+          '<p>&copy; 2026 Rodrigo Cazuza. All rights reserved.</p><nav class="footer-legal" aria-label="Legal"><a href="privacy/">Privacy Policy</a><a href="terms/">Terms of Use</a><a href="accessibility/">Accessibility</a></nav>' +
           '<a href="#main-content">Back to top <span aria-hidden="true">↑</span></a>' +
         '</div>' +
       '</footer>';

@@ -1,0 +1,518 @@
+/* Neumorphic design system — loaded last on every page (html.neu).
+   One soft surface tone; depth comes from paired light/shadow (light source top-left):
+   raised = extruded, inset = pressed. Brand Electric Violet and Signal Green stay as accents.
+   `:not(#neu)` lifts specificity above the earlier override layers. */
+
+/* 1. Tokens ---------------------------------------------------------------- */
+html.neu {
+  --neu-bg: #e6e7eb;
+  --neu-bg-deep: #dcdee3;
+  --neu-text: #2b2d33;
+  --neu-text-2: #5d616b;
+  --neu-text-3: #7c808a;
+  --neu-violet: #6026ec;
+  --neu-violet-2: #7a45ff;
+  --neu-green: #66d487;
+  --neu-green-ink: #1d7a42;
+  --neu-dark: rgba(158, 164, 178, .62);
+  --neu-light: rgba(255, 255, 255, .95);
+  --neu-raised: 9px 9px 22px var(--neu-dark), -9px -9px 22px var(--neu-light);
+  --neu-raised-sm: 5px 5px 12px var(--neu-dark), -5px -5px 12px var(--neu-light);
+  --neu-raised-xs: 3px 3px 7px var(--neu-dark), -3px -3px 7px var(--neu-light);
+  --neu-raised-hover: 12px 12px 28px var(--neu-dark), -12px -12px 28px var(--neu-light);
+  --neu-inset: inset 5px 5px 11px var(--neu-dark), inset -5px -5px 11px var(--neu-light);
+  --neu-inset-sm: inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light);
+  --neu-radius-xl: 36px;
+  --neu-radius-lg: 28px;
+  --neu-radius-md: 20px;
+  --neu-radius-sm: 14px;
+  --neu-ease: cubic-bezier(.22, .61, .36, 1);
+  color-scheme: light;
+
+  /* Existing theme tokens, remapped so token-driven components follow automatically. */
+  --background: var(--neu-bg);
+  --foreground: var(--neu-text);
+  --card: var(--neu-bg);
+  --card-foreground: var(--neu-text);
+  --popover: var(--neu-bg);
+  --popover-foreground: var(--neu-text);
+  --primary: var(--neu-violet);
+  --primary-foreground: #fff;
+  --secondary: var(--neu-bg);
+  --secondary-foreground: var(--neu-text);
+  --muted: var(--neu-bg-deep);
+  --muted-foreground: var(--neu-text-2);
+  --accent: var(--neu-bg-deep);
+  --accent-foreground: var(--neu-text);
+  --border: rgba(43, 45, 51, .08);
+  --input: rgba(43, 45, 51, .1);
+  --ring: var(--neu-violet);
+  --sidebar: var(--neu-bg);
+  --sidebar-foreground: var(--neu-text);
+  --sidebar-primary: var(--neu-violet);
+  --color-background: var(--neu-bg);
+  --color-surface: var(--neu-bg);
+  --color-surface-raised: var(--neu-bg);
+  --color-panel-gray: var(--neu-bg);
+  --color-ink: var(--neu-text);
+  --color-ink-soft: var(--neu-text-2);
+  --color-text-primary: var(--neu-text);
+  --color-text-secondary: var(--neu-text-2);
+  --color-border: rgba(43, 45, 51, .08);
+  --color-border-strong: rgba(43, 45, 51, .16);
+  --color-focus: var(--neu-violet);
+  --shadow-card: var(--neu-raised);
+  --shadow-card-hover: var(--neu-raised-hover);
+  --comp-black: var(--neu-bg);
+}
+
+/* 2. Page ------------------------------------------------------------------ */
+html.neu, html.neu body:not(#neu) {
+  background: var(--neu-bg) !important;
+  color: var(--neu-text) !important;
+}
+html.neu :is(main, main > section, .portfolio-sections, .portfolio-sections > section, .section, .portfolio-hero, .hero-inner,
+  .comp-about, .centered-websites, .toolkit-marquee, .folder-section, .media-rails-showcase, .youtube-showcase,
+  .compact-campaigns, .email-showcase, .design-systems-showcase, .site-footer, .campaign-page main, .legal-page):not(#neu) {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+html.neu :is(h1, h2, h3, h4, h5, h6):not(#neu) { color: var(--neu-text) !important; }
+html.neu :is(p, li, dd, dt, figcaption, label, small, blockquote):not(#neu) { color: var(--neu-text-2) !important; }
+html.neu :is(.eyebrow, .portfolio-category-label, .hero-kicker):not(#neu) { color: var(--neu-text-2) !important; }
+html.neu :is(.accent-italic, em):not(#neu) { color: var(--neu-violet) !important; }
+html.neu main a:not(.btn):not([class*="card"]):not([class*="item"]):not(#neu) { color: var(--neu-violet); }
+html.neu ::selection { background: rgba(96, 38, 236, .18); color: var(--neu-text); }
+html.neu :focus-visible { outline: 2px solid var(--neu-violet) !important; outline-offset: 3px !important; }
+
+/* 3. Navigation (layout + motion live in nav-dynamic.css) ------------------- */
+html.neu .site-header:not(#neu) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* 4. Raised surfaces: cards and panels ------------------------------------- */
+html.neu :is(.stack-project, .system-canvas, .youtube-player-screen, .footer-cta, .footer-panel, .legal-card,
+  .comp-about > img, .media-viewer-panel, .contact-form, .contact-card, .card, .portfolio-card, .campaign-card,
+  .project-card, .timeline-item, .experience-project-grid article, .review-card, .brand-guideline-block):not(#neu) {
+  background: var(--neu-bg) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: var(--neu-radius-xl) !important;
+  box-shadow: var(--neu-raised) !important;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  color: var(--neu-text) !important;
+}
+/* Media frames: soft rim so the work itself stays the focus. */
+html.neu :is(.email-card-frame, .project-media, .stack-preview, .youtube-playlist-thumb):not(#neu) {
+  border: 0 !important;
+  border-radius: var(--neu-radius-sm) !important;
+  box-shadow: var(--neu-raised-sm) !important;
+  background-color: var(--neu-bg-deep) !important;
+}
+html.neu .stack-preview:not(#neu) { box-shadow: var(--neu-inset-sm) !important; border-radius: var(--neu-radius-md) !important; overflow: hidden; }
+html.neu .stack-browser:not(#neu) { background: transparent !important; border: 0 !important; color: var(--neu-text-3) !important; }
+html.neu .stack-browser span:not(#neu) { color: var(--neu-text-3) !important; }
+html.neu .stack-copy:not(#neu) { background: transparent !important; }
+
+/* 5. Tiles and list rows (the reference's pill rows) ----------------------- */
+html.neu :is(.compact-campaign-card, .youtube-playlist-item, .system-element-icon, .folder-card, .filter-chip):not(#neu) {
+  background: var(--neu-bg) !important;
+  border: 0 !important;
+  border-radius: var(--neu-radius-md) !important;
+  box-shadow: var(--neu-raised-sm) !important;
+  color: var(--neu-text) !important;
+  transition: box-shadow .35s var(--neu-ease), transform .35s var(--neu-ease);
+}
+html.neu :is(.compact-campaign-card, .youtube-playlist-item):not(#neu):hover { box-shadow: var(--neu-raised) !important; transform: translateY(-2px); }
+html.neu :is(.compact-campaign-card, .youtube-playlist-item):not(#neu):active,
+html.neu :is(.youtube-playlist-item.is-selected, .system-canvas.is-selected):not(#neu) { box-shadow: var(--neu-inset) !important; transform: none; }
+html.neu :is(.compact-campaign-card, .youtube-playlist-item) :is(h3, strong, span):not(#neu) { color: var(--neu-text) !important; }
+
+/* 6. Pills: labels, chips, filters, tags ----------------------------------- */
+html.neu :is(.portfolio-category-label, .email-disciplines li, .comp-pill, .youtube-filters button, .work-filter button,
+  .filters button, .filter-button, .legal-toc a, .social-row a, .behind-socials a, .tag, .badge):not(#neu) {
+  background: var(--neu-bg) !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: var(--neu-raised-xs) !important;
+  color: var(--neu-text-2) !important;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+html.neu :is(.youtube-filters button, .work-filter button, .filters button, .filter-button):is([aria-pressed="true"], .is-active, .active):not(#neu) {
+  box-shadow: var(--neu-inset-sm) !important;
+  color: var(--neu-violet) !important;
+}
+
+/* 7. Round controls (the reference's icon buttons) ------------------------- */
+html.neu :is(.email-deck-control, .media-rail-mute, .media-viewer-tools button, .media-viewer-nav, .media-row-control, .nav-toggle):not(#neu) {
+  background: var(--neu-bg) !important;
+  border: 0 !important;
+  color: var(--neu-text) !important;
+  box-shadow: var(--neu-raised-sm) !important;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  transition: box-shadow .3s var(--neu-ease);
+}
+html.neu :is(.email-deck-control, .media-rail-mute, .media-viewer-tools button, .media-viewer-nav, .media-row-control, .nav-toggle):not(#neu):active { box-shadow: var(--neu-inset-sm) !important; }
+html.neu .nav-toggle .bar:not(#neu) { background: var(--neu-text) !important; }
+
+/* 8. Buttons ---------------------------------------------------------------- */
+html.neu .btn:not(#neu) {
+  border: 0 !important;
+  border-radius: 999px !important;
+  transition: box-shadow .35s var(--neu-ease), transform .35s var(--neu-ease), color .25s ease !important;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+/* Primary: a convex violet pill lit from the same top-left source. */
+html.neu .btn.btn-primary:not(#neu) {
+  background: linear-gradient(145deg, #7340f5, #5520d6) !important;
+  color: #fff !important;
+  box-shadow: 6px 6px 14px rgba(96, 38, 236, .35), -6px -6px 14px var(--neu-light), inset 1px 1px 0 rgba(255, 255, 255, .25) !important;
+}
+html.neu .btn.btn-primary:not(#neu) * { color: #fff !important; }
+html.neu .btn.btn-primary:not(#neu):hover { transform: translateY(-1px); box-shadow: 9px 9px 20px rgba(96, 38, 236, .4), -8px -8px 18px var(--neu-light), inset 1px 1px 0 rgba(255, 255, 255, .25) !important; }
+html.neu .btn.btn-primary:not(#neu):active { transform: none; box-shadow: inset 4px 4px 10px rgba(40, 10, 120, .45), inset -3px -3px 8px rgba(255, 255, 255, .18) !important; }
+/* Secondary: the reference's raised neutral pill. */
+html.neu :is(.btn.btn-secondary, .btn-outline, .btn-ghost):not(#neu) {
+  background: var(--neu-bg) !important;
+  color: var(--neu-text) !important;
+  box-shadow: var(--neu-raised-sm) !important;
+}
+html.neu :is(.btn.btn-secondary, .btn-outline, .btn-ghost):not(#neu) * { color: var(--neu-text) !important; }
+html.neu :is(.btn.btn-secondary, .btn-outline, .btn-ghost):not(#neu):hover { box-shadow: var(--neu-raised) !important; color: var(--neu-violet) !important; }
+html.neu :is(.btn.btn-secondary, .btn-outline, .btn-ghost):not(#neu):active { box-shadow: var(--neu-inset-sm) !important; }
+/* Website "Visit" buttons keep Signal Green as the action color for live sites. */
+html.neu .stack-copy .btn.btn-primary:not(#neu) {
+  background: linear-gradient(145deg, #7be29a, #55c477) !important;
+  color: #0e2a18 !important;
+  box-shadow: 5px 5px 12px rgba(46, 140, 80, .32), -5px -5px 12px var(--neu-light) !important;
+}
+html.neu .stack-copy .btn.btn-primary:not(#neu) * { color: #0e2a18 !important; }
+
+/* 9. Form controls (pressed wells) ----------------------------------------- */
+html.neu :is(input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]), textarea, select):not(#neu) {
+  background: var(--neu-bg) !important;
+  border: 0 !important;
+  border-radius: var(--neu-radius-md) !important;
+  box-shadow: var(--neu-inset) !important;
+  color: var(--neu-text) !important;
+}
+html.neu :is(input, textarea)::placeholder { color: var(--neu-text-3) !important; opacity: 1; }
+html.neu :is(input, textarea, select):not(#neu):focus { box-shadow: var(--neu-inset), 0 0 0 2px rgba(96, 38, 236, .45) !important; outline: none !important; }
+
+/* 10. Tools marquee: raised chips in a pressed track ------------------------ */
+html.neu .toolkit-marquee-viewport:not(#neu) {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+html.neu .toolkit-marquee-group li:not(#neu) {
+  background: var(--neu-bg) !important;
+  border: 0 !important;
+  box-shadow: var(--neu-raised-sm) !important;
+}
+html.neu .toolkit-marquee-group span:not(#neu) { color: var(--neu-text-2) !important; }
+
+/* 11. Footer — permanent in both themes: black photo card + Signal Green panel. --------- */
+html.neu .site-footer:not(#neu) {
+  --ft-green: #66d487;
+  --ft-ink: #0d2416;
+  --ft-ink-2: #1f4a2e;
+  --ft-shadow-dark: rgba(28, 104, 58, .55);
+  --ft-shadow-light: rgba(178, 255, 205, .6);
+}
+html.neu .site-footer .footer-cta:not(#neu) {
+  background: #0b0b0c !important;
+  background-image: radial-gradient(ellipse at 82% 18%, rgba(96, 38, 236, .28), transparent 58%), radial-gradient(ellipse at 10% 100%, rgba(102, 212, 135, .14), transparent 55%) !important;
+  border-radius: var(--neu-radius-xl) !important;
+  box-shadow: var(--neu-raised), inset 1px 1px 0 rgba(255, 255, 255, .06) !important;
+  overflow: hidden;
+}
+html.neu .site-footer .footer-cta :is(h2, p):not(#neu) { color: #f4f5f7 !important; }
+html.neu .site-footer .footer-cta .footer-cta-copy > p:not(.eyebrow):not(#neu) { color: #c3c6cd !important; }
+html.neu .site-footer .footer-cta :is(.eyebrow, .accent-italic, em):not(#neu) { color: var(--ft-green) !important; }
+html.neu .site-footer .footer-panel:not(#neu) {
+  background: linear-gradient(150deg, #78de97 0%, #66d487 45%, #57c978 100%) !important;
+  border-radius: var(--neu-radius-xl) var(--neu-radius-xl) 0 0 !important;
+  box-shadow: var(--neu-raised), inset 2px 2px 0 rgba(255, 255, 255, .28) !important;
+}
+html.neu .site-footer .footer-bottom:not(#neu) {
+  background: #57c978 !important;
+  border-radius: 0 0 var(--neu-radius-xl) var(--neu-radius-xl);
+  padding-inline: clamp(20px, 3vw, 40px) !important;
+  padding-block: 18px 22px !important;
+  margin-bottom: 18px;
+  box-shadow: 9px 12px 22px var(--neu-dark) !important;
+}
+html.neu .site-footer :is(.footer-panel, .footer-bottom) :is(.footer-identity, h2, h3, strong):not(#neu) { color: var(--ft-ink) !important; }
+html.neu .site-footer :is(.footer-panel, .footer-bottom) :is(p, li, a:not(.btn), span):not(#neu) { color: var(--ft-ink-2) !important; }
+html.neu .site-footer .footer-email:not(#neu) { color: var(--ft-ink) !important; font-weight: 600; text-decoration: underline; text-decoration-color: rgba(13, 36, 22, .35); text-underline-offset: 4px; }
+html.neu .site-footer :is(.footer-links a, .footer-legal a, .footer-bottom > a, .footer-email):not(#neu) { transition: color .25s ease, text-decoration-color .25s ease; }
+html.neu .site-footer :is(.footer-links a, .footer-legal a, .footer-bottom > a, .footer-email):not(#neu):is(:hover, :focus-visible, [aria-current="page"]) {
+  color: var(--ft-ink) !important; text-decoration: underline !important; text-decoration-color: var(--ft-ink) !important; text-underline-offset: 4px;
+}
+html.neu .site-footer .social-row a:not(#neu) {
+  background: var(--ft-green) !important;
+  color: var(--ft-ink) !important;
+  box-shadow: 4px 4px 10px var(--ft-shadow-dark), -4px -4px 10px var(--ft-shadow-light) !important;
+  transition: box-shadow .3s ease, transform .3s ease, background-color .3s ease, color .3s ease;
+}
+html.neu .site-footer .social-row a:not(#neu):is(:hover, :focus-visible) {
+  background: var(--ft-ink) !important; color: var(--ft-green) !important; transform: translateY(-2px);
+  box-shadow: 6px 6px 14px var(--ft-shadow-dark), -4px -4px 10px var(--ft-shadow-light) !important;
+}
+html.neu .site-footer :focus-visible { outline-color: var(--ft-ink) !important; }
+
+/* 12. Dialog (media viewer) keeps a dark stage so work is judged on true color. */
+html.neu .media-viewer:not(#neu)::backdrop { background: rgba(43, 45, 51, .45); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+html.neu .media-viewer-viewport:not(#neu) { background: #1b1c20 !important; border-radius: var(--neu-radius-md) !important; box-shadow: var(--neu-inset) !important; }
+
+/* 13. Reduced motion / forced colors --------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html.neu *:not(#neu) { transition-duration: .01ms !important; }
+}
+@media (forced-colors: active) {
+  html.neu :is(.btn, .stack-project, .footer-panel, .footer-cta, input, textarea) { border: 1px solid CanvasText !important; }
+}
+
+/* 14. Brand marks on the light surface --------------------------------------- */
+/* The lime wordmark is drawn for dark backgrounds; render it in ink on the neu surface. */
+/* Logo: original lime on dark; deep brand green on the light surface. */
+html.neu:not(.neu-dark) body .nav-logo:not(#neu) { background: url("../images/site/rodrigo-cazuza-wordmark-ink-green.png") center / contain no-repeat; }
+html.neu:not(.neu-dark) body .nav-logo img:not(#neu):not(#neu-logo) { opacity: 0 !important; filter: none !important; }
+html.neu.neu-dark body .nav-logo img:not(#neu):not(#neu-logo) { opacity: 1 !important; filter: none !important; }
+/* Slim caret instead of the terminal block glyph. */
+html.neu .text-type__cursor:not(#neu) {
+  display: inline-block; width: 0 !important; overflow: hidden; vertical-align: baseline;
+  color: transparent !important; background: none !important;
+  margin-left: .06em; border-left: .08em solid var(--neu-violet); height: .82em;
+}
+
+/* 15. Remaining dark/colored bands from older page layers -> neu surfaces --- */
+html.neu :is(.brand-system-hero, .website-deck-hero, .youtube-hero, .youtube-case-study, .brand-system, .media-rails--social-video,
+  .experience-composition-hero, .website-case-study, .brand-system-section, .deck-slide):not(#neu) {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+html.neu :is(.brand-voice-card, .experience-project-grid > article, .experience-composition article, .youtube-feature-copy, .brand-guideline-note):not(#neu) {
+  background: var(--neu-bg) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: var(--neu-radius-lg) !important;
+  box-shadow: var(--neu-raised) !important;
+}
+
+/* 16. Green as text: Signal Green is a fill color; on the light surface text uses ink green. */
+html.neu { --neu-green-text: #17663a; }
+html.neu :is(.contact-hero h1 span, .contact-intro h1 span, h1 > span:not([class]), .deck-index, .deck-slide-heading span,
+  .contact-socials strong, .comp-hero-caption, .website-deck-number, .brand-guideline-number, time, .reveal-item > span:not([class]),
+  .stack-dots, .eyebrow-green, .contact-form label, .contact-form .field-label):not(#neu) {
+  color: var(--neu-green-text) !important;
+}
+html.neu .stack-dots:not(#neu) { color: var(--neu-green) !important; }
+html.neu :is(.deck-page-title, .deck-page-caption, .deck-page-caption span):not(#neu) { color: var(--neu-text) !important; }
+html.neu :is(.brand-system-kicker, .parallax-hint, .stack-browser span:not(.stack-dots)):not(#neu) { color: var(--neu-text-2) !important; }
+html.neu .website-tool-list li:not(#neu) { color: var(--neu-text) !important; }
+
+/* 17. Inline labels written for dark pages inherit the surrounding ink. */
+html.neu main :is(span, strong, code, time, b):not([class]):not(.btn *):not(.brand-card-cover *):not(#neu) { color: var(--neu-text) !important; }
+html.neu main :is(strong, code):not(.btn *):not(.brand-card-cover *):not(#neu) { color: var(--neu-text) !important; }
+/* Green brief slides keep dark ink in both themes. */
+html.neu :is(.project-deck-brief, .project-deck-brief *):not(.btn):not(.btn *):not(#neu):not(#neu-ink) { color: #0d2416 !important; }
+html.neu :is(.composition-experience main article, .brand-system-footer):not(#neu) {
+  background: var(--neu-bg) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: var(--neu-radius-lg) !important;
+  box-shadow: var(--neu-raised) !important;
+}
+html.neu body #social-video:not(#neu), html.neu body #social-video .media-row:not(#neu) { background: transparent !important; background-image: none !important; }
+html.neu :is(.comp-eyebrow):not(#neu) { color: var(--neu-green-text) !important; }
+
+/* 18. UI chrome: browser bars become neu strips; captions laid over images keep light ink. */
+html.neu .website-preview-bar:not(#neu) { background: var(--neu-bg) !important; box-shadow: inset 0 -1px 0 rgba(43, 45, 51, .06); }
+html.neu .website-preview-bar code:not(#neu) { color: var(--neu-text-2) !important; }
+html.neu :is(.system-canvas-caption, .system-canvas-caption *):not(#neu) { color: #fff !important; }
+html.neu .comp-stats > div:not(#neu) {
+  background: var(--neu-bg) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: var(--neu-radius-lg) !important;
+  box-shadow: var(--neu-raised-sm) !important;
+}
+html.neu .comp-stats > div :is(strong, span, i):not(#neu) { color: var(--neu-text) !important; }
+html.neu .comp-stats > div span:not(#neu) { color: var(--neu-text-2) !important; }
+/* Text laid over imagery or generated cover art keeps light ink (double ID weight beats section 17). */
+html.neu body :is(.system-canvas-caption, .project-generated-cover, .media-row-item, .stack-preview, .deck-image-caption) :is(span, strong, small, p, h3, h4, em):not(#neu):not(#neu-media) { color: #fff !important; }
+/* Card bodies below media are on the neu surface, not over the image. */
+html.neu body .media-row-item .card-body :is(p, span, strong, h3, h4):not(#neu):not(#neu-media):not(#neu-body) { color: var(--neu-text) !important; }
+
+/* 19. Dark theme (html.neu.neu-dark) — same neumorphic language on a graphite surface. */
+html.neu.neu-dark {
+  --neu-bg: #23252a;
+  --neu-bg-deep: #1d1f23;
+  --neu-text: #eceef2;
+  --neu-text-2: #aeb2bc;
+  --neu-text-3: #8d929c;
+  --neu-violet: #a88cff;
+  --neu-green-text: #6fdc91;
+  --neu-dark: rgba(0, 0, 0, .55);
+  --neu-light: rgba(255, 255, 255, .055);
+  --border: rgba(255, 255, 255, .08);
+  --input: rgba(255, 255, 255, .1);
+  --color-border: rgba(255, 255, 255, .08);
+  --color-border-strong: rgba(255, 255, 255, .16);
+  color-scheme: dark;
+}
+html.neu.neu-dark .btn.btn-primary:not(#neu) { box-shadow: 6px 6px 16px rgba(0, 0, 0, .5), -4px -4px 12px rgba(255, 255, 255, .04), inset 1px 1px 0 rgba(255, 255, 255, .22) !important; }
+html.neu.neu-dark ::selection { background: rgba(168, 140, 255, .3); }
+/* Smooth, brief cross-fade while switching themes (class set by nav-dynamic.js). */
+html.theme-switching, html.theme-switching *, html.theme-switching *::before, html.theme-switching *::after {
+  transition: background-color .45s ease, color .45s ease, box-shadow .45s ease, border-color .45s ease !important;
+}
+
+/* 20. Signal Green hover language — lift, green rim and glow on interactive surfaces. */
+html.neu {
+  --green-rim: 0 0 0 2px rgba(102, 212, 135, .75);
+  --green-glow: 0 18px 38px -16px rgba(102, 212, 135, .7);
+}
+html.neu :is(.stack-project, .compact-campaign-card, .youtube-playlist-item, .portfolio-card, .campaign-card, .project-card,
+  .system-canvas, .comp-collab-grid > article, .experience-project-grid > article, .folder-card, .brand-guideline-block):not(#neu) {
+  transition: transform .45s var(--neu-ease), box-shadow .45s var(--neu-ease) !important;
+}
+@media (hover: hover) {
+  html.neu :is(.compact-campaign-card, .youtube-playlist-item, .portfolio-card, .campaign-card, .project-card,
+    .comp-collab-grid > article, .experience-project-grid > article, .brand-guideline-block):not(#neu):hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--neu-raised-hover), var(--green-rim), var(--green-glow) !important;
+  }
+  html.neu .stack-project:not(#neu):hover { box-shadow: var(--neu-raised-hover), var(--green-rim), var(--green-glow) !important; }
+  html.neu .toolkit-marquee-group li:not(#neu):hover { box-shadow: var(--neu-raised-sm), var(--green-rim), var(--green-glow) !important; transform: translateY(-3px); }
+  html.neu .toolkit-marquee-group li:not(#neu) { transition: transform .4s var(--neu-ease), box-shadow .4s var(--neu-ease) !important; }
+  html.neu :is(.portfolio-category-label, .email-disciplines li, .youtube-filters button, .work-filter button, .filters button, .filter-button, .legal-toc a, .behind-socials a, .tag):not(#neu):hover {
+    background: var(--neu-green) !important; color: #0d2416 !important; box-shadow: var(--neu-raised-xs), 0 8px 18px -10px rgba(102, 212, 135, .8) !important;
+  }
+  html.neu :is(.btn.btn-secondary, .btn-outline, .btn-ghost):not(#neu):hover { color: var(--neu-green-text) !important; box-shadow: var(--neu-raised), var(--green-rim) !important; }
+  html.neu :is(.btn.btn-secondary, .btn-outline, .btn-ghost):not(#neu):hover * { color: var(--neu-green-text) !important; }
+  html.neu main a:not(.btn):not([class*="card"]):not([class*="item"]):not([class*="row"]):not(#neu):hover { color: var(--neu-green-text) !important; }
+  html.neu .site-header #primary-nav > ul > li > a:not([aria-current="page"]):not(#nav):hover { color: var(--neu-green-text) !important; }
+}
+html.neu .nav-indicator::after {
+  content: ""; position: absolute; left: 50%; bottom: 3px; width: 5px; height: 5px; margin-left: -2.5px;
+  border-radius: 50%; background: var(--neu-green); box-shadow: 0 0 8px rgba(102, 212, 135, .9);
+}
+/* Green signals on the neumorphic surface. */
+html.neu :is(.eyebrow, .comp-eyebrow, .portfolio-category-label)::before { background-color: var(--neu-green) !important; }
+html.neu .toolkit-marquee-viewport:not(#neu) { position: relative; }
+
+/* 21. Experience page — spacing and green hover states. */
+html.neu .composition-experience .comp-stats:not(#neu) { gap: clamp(14px, 2vw, 24px) !important; padding-block: 12px 28px !important; }
+html.neu .composition-experience .comp-skill-grid:not(#neu) { gap: clamp(16px, 2vw, 26px) !important; margin-top: 36px !important; }
+html.neu .composition-experience .comp-skill-grid > article:not(#neu) { padding: 28px 24px !important; }
+html.neu .composition-experience .comp-tool-grid:not(#neu) { gap: clamp(12px, 1.6vw, 20px) !important; border: 0 !important; margin-top: 28px !important; }
+html.neu .composition-experience .comp-collab-grid:not(#neu) { gap: clamp(18px, 2.4vw, 30px) !important; margin-top: 28px !important; }
+html.neu .composition-experience .experience-project-grid:not(#neu) { gap: clamp(18px, 2.4vw, 30px) !important; }
+html.neu .composition-experience .experience-project-grid > article:not(#neu),
+html.neu .composition-experience .comp-collab-grid > article:not(#neu) { padding: clamp(24px, 3vw, 36px) !important; }
+html.neu .composition-experience .comp-green-panel:not(#neu) { padding-block: clamp(64px, 8vw, 100px) !important; }
+/* Raised tiles that turn green and grow gently on hover. */
+html.neu .composition-experience :is(.comp-stats > div, .comp-skill-grid > article, .comp-tool-grid > *):not(#neu) {
+  background: var(--neu-bg) !important;
+  border: 0 !important;
+  border-radius: var(--neu-radius-lg) !important;
+  box-shadow: var(--neu-raised-sm) !important;
+  transition: transform .5s var(--neu-ease), box-shadow .5s var(--neu-ease), background-color .45s ease !important;
+  will-change: transform;
+}
+html.neu .composition-experience .comp-tool-grid > *:not(#neu) { border-radius: var(--neu-radius-md) !important; padding: 18px 14px !important; }
+@media (hover: hover) {
+  html.neu .composition-experience :is(.comp-stats > div, .comp-skill-grid > article):not(#neu):hover {
+    background: var(--neu-green) !important;
+    transform: translateY(-4px) scale(1.035) !important;
+    box-shadow: var(--neu-raised), 0 22px 44px -18px rgba(102, 212, 135, .85) !important;
+  }
+  html.neu .composition-experience :is(.comp-stats > div, .comp-skill-grid > article):not(#neu):hover * { color: #0d2416 !important; }
+  html.neu .composition-experience .comp-tool-grid > *:not(#neu):hover {
+    transform: translateY(-4px) scale(1.04) !important;
+    box-shadow: var(--neu-raised), var(--green-rim), var(--green-glow) !important;
+  }
+  html.neu .composition-experience .comp-tool-grid > *:not(#neu):hover img { transform: scale(1.12) rotate(-4deg); }
+  html.neu .composition-experience .comp-tool-grid > *:not(#neu):hover :is(span, p, small) { color: var(--neu-green-text) !important; }
+}
+html.neu .composition-experience .comp-tool-grid img:not(#neu) { transition: transform .45s var(--neu-ease); }
+/* "What I create" rows: a green pill sweeps in on hover. */
+html.neu .composition-experience .comp-service-row:not(#neu) {
+  position: relative; isolation: isolate; border-radius: 20px;
+  padding-inline: 18px !important; margin-inline: -18px;
+  transition: color .3s ease, transform .45s var(--neu-ease) !important;
+}
+html.neu .composition-experience .comp-service-row:not(#neu)::before {
+  content: ""; position: absolute; inset: 4px 0; z-index: -1; border-radius: 20px;
+  background: var(--neu-green); box-shadow: var(--neu-raised-sm);
+  transform: scaleX(.96); opacity: 0; transform-origin: left center;
+  transition: opacity .35s ease, transform .5s var(--neu-ease);
+}
+@media (hover: hover) {
+  html.neu .composition-experience .comp-service-row:not(#neu):hover { transform: translateX(6px); }
+  html.neu .composition-experience .comp-service-row:not(#neu):hover::before { opacity: 1; transform: scaleX(1); }
+  html.neu .composition-experience .comp-service-row:not(#neu):hover :is(h3, p, small, i) { color: #0d2416 !important; }
+  html.neu .composition-experience .comp-service-row:not(#neu):hover i { transform: translate(3px, -3px); }
+}
+html.neu .composition-experience .comp-service-row i:not(#neu) { transition: transform .35s ease; }
+html.neu .composition-experience .comp-service-row:focus-visible::before { opacity: 1; transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) {
+  html.neu .composition-experience :is(.comp-stats > div, .comp-skill-grid > article, .comp-tool-grid > *, .comp-service-row):not(#neu):hover { transform: none !important; }
+}
+
+/* 22. Theme-safe details. */
+html.neu .skip-link:not(#neu) { background: #6026ec !important; color: #fff !important; }
+html.neu .folder-count:not(#neu) { color: var(--neu-text-2) !important; }
+html.neu :is(.comp-collab-grid, .experience-project-grid) article a:not(.btn):not(#neu) { color: var(--neu-violet) !important; }
+html.neu .btn.btn-light:not(#neu), html.neu .btn.btn-light:not(#neu) * { color: #2b2d33 !important; }
+html.neu .content-gap:not(#neu) { color: #5a3d12 !important; }
+
+/* 23. Footer seam: the panel casts no drop shadow onto the bottom strip; the two read as one card. */
+html.neu .site-footer .footer-panel:not(#neu) {
+  box-shadow: -9px -9px 22px var(--neu-light), inset 2px 2px 0 rgba(255, 255, 255, .28) !important;
+  position: relative; z-index: 0;
+}
+html.neu .site-footer .footer-bottom:not(#neu) {
+  position: relative; z-index: 1;
+  background: #57c978 !important;
+  border-top: 1px solid rgba(13, 36, 22, .12) !important;
+  box-shadow: 9px 14px 24px var(--neu-dark), -6px 10px 20px var(--neu-dark) !important;
+}
+/* Give the email its own room so it never splits across lines on desktop. */
+@media (min-width: 901px) {
+  html.neu .site-footer .footer-columns:not(#neu) { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr) minmax(270px, 1.5fr) minmax(0, 1fr) !important; }
+  html.neu .site-footer .footer-email:not(#neu) { white-space: nowrap; }
+}
+html.neu .site-footer .footer-email:not(#neu) { overflow-wrap: anywhere; font-size: clamp(14px, 1.15vw, 16px) !important; }
+
+/* 24. Contact form: a padded raised card with aligned label/field rhythm. */
+html.neu .contact-form:not(#neu) {
+  display: grid !important;
+  gap: 6px !important;
+  padding: clamp(22px, 3.2vw, 40px) !important;
+  box-sizing: border-box;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+html.neu .contact-form label:not(#neu) { display: block; margin: 14px 0 6px !important; padding-left: 6px; font-size: 12px !important; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+html.neu .contact-form label:first-of-type:not(#neu) { margin-top: 0 !important; }
+html.neu .contact-form :is(input:not([type="hidden"]):not([tabindex="-1"]), textarea):not(#neu) { display: block; width: 100% !important; box-sizing: border-box; padding: 15px 18px !important; font-size: 16px !important; }
+html.neu .contact-form textarea:not(#neu) { min-height: 150px; resize: vertical; }
+html.neu .contact-form .contact-submit:not(#neu) { justify-self: start; margin-top: 18px !important; padding: 15px 26px !important; }
+html.neu .contact-form :is(.contact-privacy-note, p):not(#neu) { margin: 10px 0 0 !important; padding-left: 6px; }
+@media (max-width: 640px) { html.neu .contact-form .contact-submit:not(#neu) { justify-self: stretch; } }
+
+/* 25. Hero rotating word: open the tracking a little so letters never crowd. */
+html.neu .portfolio-hero #hero-title .text-type:not(#neu),
+html.neu .portfolio-hero #hero-title .text-type__content:not(#neu) { letter-spacing: .035em !important; word-spacing: .06em; }

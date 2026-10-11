@@ -7,8 +7,11 @@
   const experience = /\/experience\/?$/.test(location.pathname);
   if (!home && !experience) return;
   const base = path => new URL(path, document.baseURI).href;
-  const sheet = document.createElement('link'); sheet.rel = 'stylesheet'; sheet.href = base('css/composition.css?v=20260922-2'); document.head.append(sheet);
-  const refinement = document.createElement('link'); refinement.rel = 'stylesheet'; refinement.href = base('css/composition-v2.css?v=20260922-6'); document.head.append(refinement);
+  // Home links these stylesheets in index.html; other pages still receive them here.
+  ['css/composition.css?v=20260922-2', 'css/composition-v2.css?v=20260922-6'].forEach(path => {
+    if (document.querySelector(`link[href*="${path.split('?')[0]}"]`)) return;
+    const link = document.createElement('link'); link.rel = 'stylesheet'; link.href = base(path); document.head.append(link);
+  });
   const icon = name => `<i class="bi bi-${name}" aria-hidden="true"></i>`;
   if (!document.querySelector('link[href*="bootstrap-icons"]')) {
     const icons = document.createElement('link'); icons.rel = 'stylesheet'; icons.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'; document.head.append(icons);
@@ -27,7 +30,7 @@
     const portrait = document.createElement('div'); portrait.className = 'portrait-stage';
     portrait.setAttribute('aria-label', 'Interactive portrait responds to pointer movement and page scrolling');
     portrait.innerHTML = '<canvas id="composition-portrait" aria-hidden="true"></canvas><span class="model-loading" role="status">LOADING INTERACTIVE PORTRAIT</span>';
-    const fallback = document.createElement('img');fallback.className = 'hero-3d-fallback';fallback.src = base('images/site/about-new.jpg');fallback.alt = '';fallback.setAttribute('aria-hidden','true');
+    const fallback = document.createElement('img');fallback.className = 'hero-3d-fallback';fallback.src = base('images/site/avatar-character.webp');fallback.width = 739;fallback.height = 1161;fallback.decoding = 'async';fallback.fetchPriority = 'high';fallback.alt = '';fallback.setAttribute('aria-hidden','true');
     hero.append(portrait, fallback);
     const model = document.createElement('script');model.type = 'module';model.src = base('js/composition-portrait-v2.js?v=20260922-6');document.body.append(model);
     const marquee = document.querySelector('.toolkit-marquee-viewport');
@@ -38,50 +41,12 @@
     const nav = document.querySelector('.nav-links ul');if(nav)nav.innerHTML = '<li><a href="#about">About</a></li><li><a href="#websites">Work</a></li><li><a href="experience/">Experience</a></li><li><a href="contact/">Contact</a></li>';
     const primary = hero.querySelector('.hero-actions .btn-primary');if(primary)primary.href = '#websites';
     // The website stack is generated synchronously by portfolio.js before reveal.js runs.
-    const process = document.querySelector('.concept-timeline');if(process) installWorkflow(process);
     // Replace the remaining simple pictograms without clearing full button labels.
     document.querySelectorAll('.folder-video,.folder-play,.campaign-marker').forEach(node=>{
       const name=node.matches('.campaign-marker')?'circle-fill':node.matches('.folder-play')?'play-fill':'play-circle-fill';
       const text=node.matches('.folder-play')?' Play video':'';
       node.replaceChildren();const glyph=document.createElement('i');glyph.className='bi bi-'+name;glyph.setAttribute('aria-hidden','true');node.append(glyph,document.createTextNode(text));
     });
-  }
-
-  function installWorkflow(process) {
-    const list = process.querySelector('.concept-steps');if(!list)return;
-    const steps = [...list.querySelectorAll('.concept-step')];if(steps.length!==6)return;
-    const titles=['Concept','Sketch','Moodboard','Style Guide','Wireframes','Prototype & Build'];
-    const descriptions=[
-      'Set the objective and define the creative direction.',
-      'Explore page structure with a rough annotated sketch.',
-      'Curate references, imagery and visual inspiration.',
-      'Define type, color, spacing and interface components.',
-      'Map the page hierarchy in low-fidelity wireframes.',
-      'Refine the high-fidelity design, interaction and final build.'
-    ];
-    steps.forEach((step,index)=>{const heading=step.querySelector('h3');const text=step.querySelector('p');if(heading)heading.textContent=titles[index];if(text)text.textContent=descriptions[index];});
-    process.querySelector('.interaction-heading h2')?.replaceChildren(document.createTextNode('A clear path from idea to launch'));
-    const visual = document.createElement('div');visual.className='comp-process-visual';
-    visual.innerHTML=`<div class="comp-process-toolbar"><span>FROM CONCEPT TO BUILD</span><span class="comp-process-dots" aria-hidden="true">${icon('circle-fill')} ${icon('circle-fill')} ${icon('circle-fill')}</span></div><div class="comp-process-window" data-step="0"><div class="comp-process-art" aria-hidden="true"><span class="comp-nav"></span><span class="comp-header"></span><div class="comp-cards"><span></span><span></span><span></span></div></div><video class="comp-process-video" muted playsinline preload="metadata" aria-label="Website sketch to completed design: scroll to explore" hidden></video></div><div class="comp-process-status"><strong id="comp-process-label">01 / CONCEPT</strong><span>Scroll to explore each phase ${icon('arrow-down')}</span></div>`;
-    list.after(visual);
-    const windowElement=visual.querySelector('.comp-process-window');const video=visual.querySelector('video');const status=visual.querySelector('#comp-process-label');
-    video.src=base('assets/video/concept-to-implementation.mp4');video.muted=true;video.pause();
-    const boundaries=[0,1,2,4,6,8,10];let duration=0,frame=0,target=0,seeking=false;
-    function render(){
-      frame=0;const rect=process.getBoundingClientRect();const start=innerHeight*.75;const end=innerHeight*.24;
-      const progress=Math.max(0,Math.min(1,(start-rect.top)/Math.max(1,rect.height-start+end)));
-      const time=progress*(duration||10);let active=5;
-      for(let i=0;i<6;i++){if(time<boundaries[i+1]){active=i;break;}}
-      steps.forEach((step,i)=>{step.classList.toggle('is-current',i===active);if(i===active)step.setAttribute('aria-current','step');else step.removeAttribute('aria-current');});
-      windowElement.dataset.step=String(active);status.textContent=String(active+1).padStart(2,'0')+' / '+titles[active].toUpperCase();
-      if(duration&&video.readyState>=1){target=Math.max(0,Math.min(duration-.04,time));if(!seeking&&Math.abs(video.currentTime-target)>.055){seeking=true;try{video.currentTime=target;}catch(error){seeking=false;console.warn('Workflow seeking unavailable',error);}}}
-    }
-    const queue=()=>{if(!frame)frame=requestAnimationFrame(render);};
-    video.addEventListener('loadedmetadata',()=>{duration=Number.isFinite(video.duration)?video.duration:0;if(duration){video.hidden=false;video.pause();}queue();});
-    video.addEventListener('error',()=>{video.hidden=true;duration=0;queue();});
-    video.addEventListener('seeked',()=>{seeking=false;queue();});
-    video.addEventListener('play',()=>video.pause());
-    addEventListener('scroll',queue,{passive:true});addEventListener('resize',queue);queue();
   }
 
   function composeExperience(){

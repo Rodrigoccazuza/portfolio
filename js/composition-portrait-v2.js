@@ -1,6 +1,8 @@
 /* The original rig, controller names and lighting are taken from 3DModel_portfolio/hero-v2. */
-import * as THREE from 'https://esm.sh/three@0.179.1';
-import { GLTFLoader } from 'https://esm.sh/three@0.179.1/examples/jsm/loaders/GLTFLoader.js';
+// Resolved through the importmap in index.html (jsDelivr) and modulepreloaded in <head>.
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 const stage=document.querySelector('.composition-home .portrait-stage');
 const canvas=stage?.querySelector('canvas');
 const hero=document.querySelector('.composition-home .portfolio-hero');
@@ -19,7 +21,15 @@ if(stage&&canvas&&hero){
     const clamp=THREE.MathUtils.clamp,damp=THREE.MathUtils.damp;
     function resize(){const width=Math.max(stage.clientWidth,1),height=Math.max(stage.clientHeight,1);camera.aspect=width/height;camera.position.z=width<550?2.15:2.4;camera.updateProjectionMatrix();renderer.setSize(width,height,false);}
     if('ResizeObserver' in window)new ResizeObserver(resize).observe(stage);else addEventListener('resize',resize);resize();
-    new GLTFLoader().load('https://raw.githubusercontent.com/Rodrigoccazuza/3DModel_portfolio/hero-v2/public/portrait-interactive.glb',gltf=>{
+    // The meshopt-compressed GLB is hosted with the site; site-preloader.js already started downloading it.
+    const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
+    const asset=window.__portraitAsset;
+    const glbUrl=asset?.url||new URL('assets/3d/portrait-interactive.glb?v=20261010-1',document.baseURI).href;
+    const loadModel=(onLoad,onProgress,onError)=>{
+      if(!asset)return loader.load(glbUrl,onLoad,onProgress,onError);
+      asset.promise.then(buffer=>buffer?loader.parse(buffer,'',onLoad,onError):loader.load(glbUrl,onLoad,onProgress,onError));
+    };
+    loadModel(gltf=>{
       model=gltf.scene;head=model.getObjectByName('CTRL_Head');eyeL=model.getObjectByName('CTRL_Eye_L');eyeR=model.getObjectByName('CTRL_Eye_R');face=model.getObjectByName('HeroHead_webMesh');
       if(!head||!eyeL||!eyeR){loading.textContent='The portrait rig could not be initialized';model=null;return;}
       smileIndex=face?.morphTargetDictionary?.smile;scene.add(model);stage.dataset.modelState='rendering';
